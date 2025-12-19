@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Island Twig Studios</title>
+    <title>IslandTwig Studios</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -16,52 +16,51 @@
 
         body {
             font-family: 'Nunito', sans-serif;
-            background-color: #f5f1eb;
-            color: #3d3a36;
+            background: linear-gradient(145deg, #1a1d21 0%, #2d3139 50%, #1a1d21 100%);
+            color: #e8e6e3;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 2rem;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
-            background-blend-mode: soft-light;
+            padding: 2.5rem 1.5rem;
         }
 
         .container {
-            max-width: 480px;
+            max-width: 420px;
             width: 100%;
             text-align: center;
         }
 
         .logo {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             margin: 0 auto 1.5rem;
-            background: linear-gradient(145deg, #7eb89a, #5a9a7a);
-            border-radius: 28px;
+            background: linear-gradient(145deg, #6b9e7e, #4a7d5c);
+            border-radius: 24px;
             display: flex;
             align-items: center;
             justify-content: center;
             box-shadow: 
-                0 4px 12px rgba(90, 154, 122, 0.3),
-                inset 0 2px 4px rgba(255, 255, 255, 0.2);
+                0 8px 32px rgba(107, 158, 126, 0.3),
+                0 2px 8px rgba(0, 0, 0, 0.3);
         }
 
         .logo span {
-            font-size: 3rem;
+            font-size: 2.5rem;
         }
 
         h1 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: #2d2a26;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.4rem;
+            color: #ffffff;
+            letter-spacing: -0.02em;
         }
 
         .tagline {
-            font-size: 1.1rem;
-            color: #6b665e;
-            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            color: #9a9590;
+            margin-bottom: 1.75rem;
         }
 
         .nav-links {
@@ -72,14 +71,21 @@
         }
 
         .nav-links a {
-            color: #5a9a7a;
+            color: #6b9e7e;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
         }
 
         .nav-links a:hover {
-            text-decoration: underline;
+            color: #8bbf9e;
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #3d4149, transparent);
+            margin-bottom: 2.5rem;
         }
 
         .apps {
@@ -90,7 +96,8 @@
         }
 
         .app-card {
-            background: white;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 16px;
             padding: 1.25rem;
             display: flex;
@@ -98,46 +105,49 @@
             gap: 1rem;
             text-decoration: none;
             color: inherit;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: all 0.25s ease;
         }
 
         .app-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.12);
             transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
         }
 
         .app-card.coming-soon {
-            opacity: 0.7;
-            cursor: default;
+            opacity: 0.6;
         }
 
         .app-card.coming-soon:hover {
             transform: none;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.08);
         }
 
         .app-icon {
-            width: 56px;
-            height: 56px;
+            width: 52px;
+            height: 52px;
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             flex-shrink: 0;
         }
 
         .app-icon.poppy {
-            background: linear-gradient(145deg, #e8a87c, #d4845c);
+            background: linear-gradient(145deg, #e6a574, #cf7e4a);
+            box-shadow: 0 4px 12px rgba(230, 165, 116, 0.25);
         }
 
         .app-icon.tempo {
-            background: linear-gradient(145deg, #7ca8e8, #5c84d4);
+            background: linear-gradient(145deg, #74a5e6, #4a7ecf);
+            box-shadow: 0 4px 12px rgba(116, 165, 230, 0.2);
         }
 
         .app-icon.orbie {
-            background: linear-gradient(145deg, #b87ce8, #945cd4);
+            background: linear-gradient(145deg, #b074e6, #8a4acf);
+            box-shadow: 0 4px 12px rgba(176, 116, 230, 0.2);
         }
 
         .app-info {
@@ -147,29 +157,33 @@
 
         .app-name {
             font-weight: 700;
-            font-size: 1.1rem;
-            margin-bottom: 0.15rem;
+            font-size: 1.05rem;
+            margin-bottom: 0.2rem;
+            color: #ffffff;
         }
 
         .app-desc {
-            font-size: 0.9rem;
-            color: #6b665e;
+            font-size: 0.85rem;
+            color: #9a9590;
+            line-height: 1.4;
         }
 
         .badge {
-            background: #e8e4dd;
-            color: #6b665e;
-            font-size: 0.75rem;
-            font-weight: 600;
-            padding: 0.25rem 0.6rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: #9a9590;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.3rem 0.65rem;
             border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
         }
 
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
         }
 
         .social-links a {
@@ -178,43 +192,46 @@
             justify-content: center;
             width: 44px;
             height: 44px;
-            background: white;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 50%;
-            color: #3d3a36;
+            color: #9a9590;
             text-decoration: none;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: all 0.25s ease;
         }
 
         .social-links a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.15);
+            color: #e8e6e3;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .social-links svg {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
         }
 
         .contact {
-            font-size: 0.95rem;
-            color: #6b665e;
-            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #6b6860;
+            margin-bottom: 0.5rem;
         }
 
         .contact a {
-            color: #5a9a7a;
+            color: #6b9e7e;
             text-decoration: none;
+            transition: color 0.2s ease;
         }
 
         .contact a:hover {
-            text-decoration: underline;
+            color: #8bbf9e;
         }
 
         footer {
-            margin-top: 2rem;
-            font-size: 0.85rem;
-            color: #9a958d;
+            margin-top: 2.5rem;
+            font-size: 0.8rem;
+            color: #4d4a46;
         }
     </style>
 </head>
@@ -223,13 +240,15 @@
         <div class="logo">
             <span>🌿</span>
         </div>
-        <h1>Island Twig Studios</h1>
+        <h1>IslandTwig Studios</h1>
         <p class="tagline">Crafting playful mobile games</p>
 
         <div class="nav-links">
-            <a href="privacy.html">Privacy Policy</a>
+            <a href="privacy.html">Policies</a>
             <a href="https://nicksdesigns.crd.co">My Designs</a>
         </div>
+
+        <div class="divider"></div>
 
         <div class="apps">
             <a href="https://apps.apple.com/us/app/poppy-popper/id6753832202" class="app-card">
@@ -246,7 +265,7 @@
                     <div class="app-name">Tempo</div>
                     <div class="app-desc">Put your timing to the test and hit the target time.</div>
                 </div>
-                <span class="badge">Coming Soon</span>
+                <span class="badge">Soon</span>
             </div>
 
             <div class="app-card coming-soon">
@@ -255,7 +274,7 @@
                     <div class="app-name">Orbie</div>
                     <div class="app-desc">Navigate, dodge, and soar.</div>
                 </div>
-                <span class="badge">Coming Soon</span>
+                <span class="badge">Soon</span>
             </div>
         </div>
 
@@ -279,11 +298,11 @@
         </div>
 
         <p class="contact">
-            Questions? <a href="mailto:hello@islandtwigstudios.com">Get in touch</a>
+            <a href="mailto:hello@islandtwigstudios.com">hello@islandtwigstudios.com</a>
         </p>
 
         <footer>
-            © 2025 Island Twig Studios LLC. All rights reserved.
+            © 2025 IslandTwig Studios LLC
         </footer>
     </div>
 </body>
