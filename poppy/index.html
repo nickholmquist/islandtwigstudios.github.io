@@ -1,0 +1,73 @@
+ <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Poppy - Download on the App Store</title>
+
+      <!-- Smart App Banner for Safari -->
+      <meta name="apple-itunes-app" content="app-id=6753832202">
+
+      <!-- Open Graph for social sharing -->
+      <meta property="og:title" content="Poppy Dots">
+      <meta property="og:description" content="A fun, fast-paced dot-tapping game. Can you beat my score?">
+      <meta property="og:url" content="https://islandtwigstudios.com/poppy">
+      <meta property="og:type" content="website">
+
+      <style>
+          * { margin: 0; padding: 0; box-sizing: border-box; }
+          body {
+              font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+              min-height: 100vh;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              padding: 20px;
+          }
+          .container { text-align: center; color: white; }
+          .logo {
+              width: 120px; height: 120px;
+              background: white;
+              border-radius: 28px;
+              margin: 0 auto 24px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 60px;
+              box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+          }
+          h1 { font-size: 32px; font-weight: 800; margin-bottom: 8px; }
+          p { font-size: 18px; opacity: 0.9; margin-bottom: 32px; }
+          .download-btn {
+              display: inline-block;
+              background: white;
+              color: #333;
+              padding: 16px 32px;
+              border-radius: 12px;
+              text-decoration: none;
+              font-weight: 600;
+              font-size: 18px;
+              box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+          }
+          .redirect-msg { margin-top: 24px; font-size: 14px; opacity: 0.7; }
+      </style>
+
+      <script>
+          setTimeout(function() {
+              window.location.href = 'https://apps.apple.com/us/app/poppy-dots/id6753832202';
+          }, 1500);
+      </script>
+  </head>
+  <body>
+      <div class="container">
+          <div class="logo">🔴</div>
+          <h1>Poppy Dots</h1>
+          <p>A fun, fast-paced dot-tapping game</p>
+          <a href="https://apps.apple.com/us/app/poppy-dots/id6753832202" class="download-btn">
+              Download on the App Store
+          </a>
+          <p class="redirect-msg">Redirecting to the App Store...</p>
+      </div>
+  </body>
+  </html>
