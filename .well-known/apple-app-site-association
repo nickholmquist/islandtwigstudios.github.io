@@ -1,0 +1,11 @@
+{
+    "applinks": {
+      "apps": [],
+      "details": [
+        {
+          "appID": "XLVLVX3KK4.com.nickh.Poppy",
+          "paths": ["/poppy", "/poppy/*"]
+        }
+      ]
+    }
+  }
