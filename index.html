@@ -1,9 +1,9 @@
-  <!DOCTYPE html>                                                                                                                                                                                                                                 
+ <!DOCTYPE html>                                                                                                                                                                                                                                 
   <html lang="en">                       
   <head>                                                                                                                                                                                                                                          
-      <meta charset="UTF-8">                                                                                                                                                                                                                      
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>IslandTwig Studios</title>
+      <meta charset="UTF-8">                                
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">                                                                                                                                                                      
+      <title>IslandTwig Studios</title>                                                                                                                                                                                                           
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -124,6 +124,14 @@
               border-color: rgba(255, 255, 255, 0.08);
           }
 
+          .app-icon-img {
+              width: 52px;
+              height: 52px;
+              border-radius: 12px;
+              flex-shrink: 0;
+              object-fit: cover;
+          }
+
           .app-icon {
               width: 52px;
               height: 52px;
@@ -133,26 +141,6 @@
               justify-content: center;
               font-size: 1.4rem;
               flex-shrink: 0;
-          }
-
-          .app-icon.poppy {
-              background: linear-gradient(145deg, #e6a574, #cf7e4a);
-              box-shadow: 0 4px 12px rgba(230, 165, 116, 0.25);
-          }
-
-          .app-icon.ninedraw {
-              background: linear-gradient(145deg, #e67474, #cf4a4a);
-              box-shadow: 0 4px 12px rgba(230, 116, 116, 0.25);
-          }
-
-          .app-icon.midnight {
-              background: linear-gradient(145deg, #7474e6, #4a4acf);
-              box-shadow: 0 4px 12px rgba(116, 116, 230, 0.25);
-          }
-
-          .app-icon.tempo {
-              background: linear-gradient(145deg, #74a5e6, #4a7ecf);
-              box-shadow: 0 4px 12px rgba(116, 165, 230, 0.2);
           }
 
           .app-icon.dreamtime {
@@ -262,16 +250,15 @@
 
           <div class="apps">
               <a href="https://apps.apple.com/us/app/poppy-popper/id6753832202" class="app-card">
-                  <div class="app-icon poppy">🌸</div>
+                  <img src="images/poppy_icon.png" alt="Poppy" class="app-icon-img">
                   <div class="app-info">
                       <div class="app-name">Poppy</div>
                       <div class="app-desc">A satisfyingly tactile tapping game with handcrafted charm.</div>
                   </div>
               </a>
 
-              <!-- TODO: Replace # with App Store URL once live -->
               <a href="https://apps.apple.com/us/app/nine-draw/id6757319447" class="app-card">
-                  <div class="app-icon ninedraw">🃏</div>
+                  <img src="images/nineDraw.png" alt="Nine Draw" class="app-icon-img">
                   <div class="app-info">
                       <div class="app-name">Nine Draw</div>
                       <div class="app-desc">A nine-card higher-or-lower challenge that tests your instincts.</div>
@@ -280,7 +267,7 @@
 
               <!-- TODO: Replace # with App Store URL once live -->
               <a href="#" class="app-card">
-                  <div class="app-icon midnight">🌙</div>
+                  <img src="images/mnsolitaire.png" alt="Midnight Solitaire" class="app-icon-img">
                   <div class="app-info">
                       <div class="app-name">Midnight Solitaire</div>
                       <div class="app-desc">Classic solitaire with a refined dark aesthetic and wind-down mode.</div>
@@ -288,7 +275,7 @@
               </a>
 
               <div class="app-card coming-soon">
-                  <div class="app-icon tempo">⏱️ </div>
+                  <img src="images/tempoicon_new.png" alt="Tempo" class="app-icon-img">
                   <div class="app-info">
                       <div class="app-name">Tempo</div>
                       <div class="app-desc">Put your timing to the test and hit the target time.</div>
