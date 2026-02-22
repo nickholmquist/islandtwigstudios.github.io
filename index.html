@@ -7,6 +7,9 @@
 
     <link rel="icon" type="image/png" href="images/favicon.png">
 
+    <!-- Smart App Banner — shows native iOS install prompt in Safari -->
+    <meta name="apple-itunes-app" content="app-id=6753832202">
+
     <!-- Open Graph -->
     <meta property="og:title" content="IslandTwig Studios">
     <meta property="og:description" content="Quiet apps for restless minds. Design studio of Nick Holmquist — apps, brand identity, and sports design.">
@@ -17,7 +20,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Karla:wght@300;400;500;600&family=Fira+Code:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@300&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -53,7 +56,7 @@
         body {
             background: var(--bg-deep);
             color: var(--cream);
-            font-family: 'Karla', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-weight: 400;
             line-height: 1.6;
             min-height: 100vh;
@@ -82,7 +85,7 @@
            ═══════════════════════════════ */
 
         .hero {
-            padding: 64px 0 20px;
+            padding: 64px 0 8px;
             text-align: center;
         }
 
@@ -90,16 +93,20 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 14px;
-            margin-bottom: 8px;
+            gap: 16px;
+            margin-bottom: 0;
             opacity: 0;
             animation: fadeUp 0.7s ease 0.2s forwards;
         }
 
+        .hero-text {
+            text-align: left;
+        }
+
         .logo {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
+            width: 52px;
+            height: 52px;
+            border-radius: 13px;
             object-fit: cover;
             box-shadow:
                 0 1px 1px rgba(0,0,0,0.2),
@@ -108,20 +115,19 @@
         }
 
         .studio-name {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 30px;
-            font-weight: 500;
-            letter-spacing: 0.01em;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -0.01em;
             color: var(--cream-bright);
+            margin-bottom: 1px;
         }
 
         .tagline {
-            font-size: 14.5px;
+            font-size: 13.5px;
             font-weight: 300;
             color: var(--cream-dim);
-            letter-spacing: 0.03em;
-            opacity: 0;
-            animation: fadeUp 0.7s ease 0.38s forwards;
+            letter-spacing: 0.02em;
         }
 
         /* ═══════════════════════════════
@@ -132,7 +138,7 @@
             display: flex;
             justify-content: center;
             gap: 28px;
-            padding: 20px 0;
+            padding: 12px 0;
             opacity: 0;
             animation: fadeUp 0.7s ease 0.52s forwards;
         }
@@ -153,7 +159,7 @@
         .divider {
             height: 1px;
             background: linear-gradient(90deg, transparent, var(--cream-border), var(--cream-border), transparent);
-            margin: 4px 0 44px;
+            margin: 4px 0 24px;
             opacity: 0;
             animation: fadeIn 0.8s ease 0.62s forwards;
         }
@@ -168,7 +174,7 @@
             letter-spacing: 0.14em;
             text-transform: uppercase;
             color: var(--cream-dim);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
 
         /* ═══════════════════════════════
@@ -223,7 +229,7 @@
             border: 1px solid var(--cream-border);
             border-radius: var(--radius);
             padding: 28px;
-            margin-bottom: 40px;
+            margin-bottom: 28px;
             text-decoration: none;
             color: inherit;
             transition: all 0.3s ease;
@@ -265,13 +271,13 @@
         .featured-header-text { flex: 1; min-width: 0; }
 
         .app-name {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 500;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
             color: var(--cream-bright);
         }
 
         .featured-header .app-name {
-            font-size: 22px;
+            font-size: 20px;
             margin-top: 4px;
         }
 
@@ -312,7 +318,7 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
-            margin-bottom: 44px;
+            margin-bottom: 32px;
         }
 
         .app-row {
@@ -398,7 +404,7 @@
            DESIGN PORTFOLIO CARD
            ═══════════════════════════════ */
 
-        .design-section { margin-bottom: 44px; }
+        .design-section { margin-bottom: 32px; }
 
         .design-card {
             display: block;
@@ -432,7 +438,7 @@
         .design-card-inner { position: relative; z-index: 1; }
 
         .design-card .app-name {
-            font-size: 22px;
+            font-size: 20px;
             margin-bottom: 8px;
         }
 
@@ -463,7 +469,7 @@
         .wave-break {
             display: flex;
             justify-content: center;
-            margin: 36px 0;
+            margin: 24px 0;
         }
 
         .wave-break svg {
@@ -477,14 +483,14 @@
            ═══════════════════════════════ */
 
         .footer {
-            padding: 40px 0 64px;
+            padding: 28px 0 64px;
             text-align: center;
         }
 
         .footer-divider {
             height: 1px;
             background: linear-gradient(90deg, transparent, var(--cream-border), var(--cream-border), transparent);
-            margin-bottom: 36px;
+            margin-bottom: 28px;
         }
 
         .social-row {
@@ -598,15 +604,16 @@
            ═══════════════════════════════ */
 
         @media (max-width: 480px) {
-            .hero { padding: 48px 0 16px; }
-            .studio-name { font-size: 24px; }
-            .logo { width: 40px; height: 40px; border-radius: 10px; }
-            .hero-identity { gap: 10px; }
+            .hero { padding: 48px 0 6px; }
+            .studio-name { font-size: 20px; }
+            .logo { width: 44px; height: 44px; border-radius: 11px; }
+            .hero-identity { gap: 12px; }
+            .tagline { font-size: 12.5px; }
             .nav { gap: 18px; flex-wrap: wrap; }
             .nav a { font-size: 11px; }
             .featured-card { padding: 22px; }
             .featured-header .app-icon-img { width: 48px; height: 48px; border-radius: 12px; }
-            .featured-header .app-name { font-size: 20px; }
+            .featured-header .app-name { font-size: 18px; }
             .app-row { padding: 14px 16px; }
             .design-card { padding: 22px; }
         }
@@ -619,9 +626,11 @@
         <header class="hero">
             <div class="hero-identity">
                 <img src="images/islandtwig.png" alt="IslandTwig Studios" class="logo">
-                <h1 class="studio-name">IslandTwig Studios</h1>
+                <div class="hero-text">
+                    <h1 class="studio-name">IslandTwig Studios</h1>
+                    <p class="tagline">Quiet apps for restless minds</p>
+                </div>
             </div>
-            <p class="tagline">Quiet apps for restless minds</p>
         </header>
 
         <!-- ═══ NAV ═══ -->
