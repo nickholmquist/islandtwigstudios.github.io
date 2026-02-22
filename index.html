@@ -1,309 +1,337 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IslandTwig Studios</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <!DOCTYPE html>                                                                                                                                                                                                                                 
+  <html lang="en">                       
+  <head>                                                                                                                                                                                                                                          
+      <meta charset="UTF-8">                                                                                                                                                                                                                      
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>IslandTwig Studios</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+      <style>
+          * {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+          }
 
-        body {
-            font-family: 'Nunito', sans-serif;
-            background: linear-gradient(145deg, #1a1d21 0%, #2d3139 50%, #1a1d21 100%);
-            color: #e8e6e3;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 2.5rem 1.5rem;
-        }
+          body {
+              font-family: 'Nunito', sans-serif;
+              background: linear-gradient(145deg, #1a1d21 0%, #2d3139 50%, #1a1d21 100%);
+              color: #e8e6e3;
+              min-height: 100vh;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              padding: 2.5rem 1.5rem;
+          }
 
-        .container {
-            max-width: 420px;
-            width: 100%;
-            text-align: center;
-        }
+          .container {
+              max-width: 420px;
+              width: 100%;
+              text-align: center;
+          }
 
-        .logo {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 1.5rem;
-            background: linear-gradient(145deg, #6b9e7e, #4a7d5c);
-            border-radius: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 
-                0 8px 32px rgba(107, 158, 126, 0.3),
-                0 2px 8px rgba(0, 0, 0, 0.3);
-        }
+          .logo {
+              width: 100px;
+              height: 100px;
+              margin: 0 auto 1.5rem;
+              background: linear-gradient(145deg, #6b9e7e, #4a7d5c);
+              border-radius: 24px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              box-shadow:
+                  0 8px 32px rgba(107, 158, 126, 0.3),
+                  0 2px 8px rgba(0, 0, 0, 0.3);
+          }
 
-        .logo span {
-            font-size: 2.5rem;
-        }
+          .logo span {
+              font-size: 2.5rem;
+          }
 
-        h1 {
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-bottom: 0.4rem;
-            color: #ffffff;
-            letter-spacing: -0.02em;
-        }
+          h1 {
+              font-size: 1.5rem;
+              font-weight: 800;
+              margin-bottom: 0.4rem;
+              color: #ffffff;
+              letter-spacing: -0.02em;
+          }
 
-        .tagline {
-            font-size: 1rem;
-            color: #9a9590;
-            margin-bottom: 1.75rem;
-        }
+          .tagline {
+              font-size: 1rem;
+              color: #9a9590;
+              margin-bottom: 1.75rem;
+          }
 
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 2.5rem;
-        }
+          .nav-links {
+              display: flex;
+              justify-content: center;
+              gap: 1.5rem;
+              margin-bottom: 2.5rem;
+          }
 
-        .nav-links a {
-            color: #6b9e7e;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: color 0.2s ease;
-        }
+          .nav-links a {
+              color: #6b9e7e;
+              text-decoration: none;
+              font-weight: 600;
+              font-size: 0.9rem;
+              transition: color 0.2s ease;
+          }
 
-        .nav-links a:hover {
-            color: #8bbf9e;
-        }
+          .nav-links a:hover {
+              color: #8bbf9e;
+          }
 
-        .divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #3d4149, transparent);
-            margin-bottom: 2.5rem;
-        }
+          .divider {
+              height: 1px;
+              background: linear-gradient(90deg, transparent, #3d4149, transparent);
+              margin-bottom: 2.5rem;
+          }
 
-        .apps {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-bottom: 2.5rem;
-        }
+          .apps {
+              display: flex;
+              flex-direction: column;
+              gap: 1rem;
+              margin-bottom: 2.5rem;
+          }
 
-        .app-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 1.25rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.25s ease;
-        }
+          .app-card {
+              background: rgba(255, 255, 255, 0.05);
+              border: 1px solid rgba(255, 255, 255, 0.08);
+              border-radius: 16px;
+              padding: 1.25rem;
+              display: flex;
+              align-items: center;
+              gap: 1rem;
+              text-decoration: none;
+              color: inherit;
+              transition: all 0.25s ease;
+          }
 
-        .app-card:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.12);
-            transform: translateY(-2px);
-        }
+          .app-card:hover {
+              background: rgba(255, 255, 255, 0.08);
+              border-color: rgba(255, 255, 255, 0.12);
+              transform: translateY(-2px);
+          }
 
-        .app-card.coming-soon {
-            opacity: 0.6;
-        }
+          .app-card.coming-soon {
+              opacity: 0.6;
+          }
 
-        .app-card.coming-soon:hover {
-            transform: none;
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.08);
-        }
+          .app-card.coming-soon:hover {
+              transform: none;
+              background: rgba(255, 255, 255, 0.05);
+              border-color: rgba(255, 255, 255, 0.08);
+          }
 
-        .app-icon {
-            width: 52px;
-            height: 52px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
-            flex-shrink: 0;
-        }
+          .app-icon {
+              width: 52px;
+              height: 52px;
+              border-radius: 12px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 1.4rem;
+              flex-shrink: 0;
+          }
 
-        .app-icon.poppy {
-            background: linear-gradient(145deg, #e6a574, #cf7e4a);
-            box-shadow: 0 4px 12px rgba(230, 165, 116, 0.25);
-        }
+          .app-icon.poppy {
+              background: linear-gradient(145deg, #e6a574, #cf7e4a);
+              box-shadow: 0 4px 12px rgba(230, 165, 116, 0.25);
+          }
 
-        .app-icon.tempo {
-            background: linear-gradient(145deg, #74a5e6, #4a7ecf);
-            box-shadow: 0 4px 12px rgba(116, 165, 230, 0.2);
-        }
+          .app-icon.ninedraw {
+              background: linear-gradient(145deg, #e67474, #cf4a4a);
+              box-shadow: 0 4px 12px rgba(230, 116, 116, 0.25);
+          }
 
-        .app-icon.orbie {
-            background: linear-gradient(145deg, #b074e6, #8a4acf);
-            box-shadow: 0 4px 12px rgba(176, 116, 230, 0.2);
-        }
+          .app-icon.midnight {
+              background: linear-gradient(145deg, #7474e6, #4a4acf);
+              box-shadow: 0 4px 12px rgba(116, 116, 230, 0.25);
+          }
 
-        .app-info {
-            text-align: left;
-            flex-grow: 1;
-        }
+          .app-icon.tempo {
+              background: linear-gradient(145deg, #74a5e6, #4a7ecf);
+              box-shadow: 0 4px 12px rgba(116, 165, 230, 0.2);
+          }
 
-        .app-name {
-            font-weight: 700;
-            font-size: 1.05rem;
-            margin-bottom: 0.2rem;
-            color: #ffffff;
-        }
+          .app-icon.dreamtime {
+              background: linear-gradient(145deg, #b074e6, #8a4acf);
+              box-shadow: 0 4px 12px rgba(176, 116, 230, 0.2);
+          }
 
-        .app-desc {
-            font-size: 0.85rem;
-            color: #9a9590;
-            line-height: 1.4;
-        }
+          .app-info {
+              text-align: left;
+              flex-grow: 1;
+          }
 
-        .badge {
-            background: rgba(255, 255, 255, 0.1);
-            color: #9a9590;
-            font-size: 0.7rem;
-            font-weight: 700;
-            padding: 0.3rem 0.65rem;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.03em;
-        }
+          .app-name {
+              font-weight: 700;
+              font-size: 1.05rem;
+              margin-bottom: 0.2rem;
+              color: #ffffff;
+          }
 
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 0.75rem;
-            margin-bottom: 2rem;
-        }
+          .app-desc {
+              font-size: 0.85rem;
+              color: #9a9590;
+              line-height: 1.4;
+          }
 
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 44px;
-            height: 44px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 50%;
-            color: #9a9590;
-            text-decoration: none;
-            transition: all 0.25s ease;
-        }
+          .badge {
+              background: rgba(255, 255, 255, 0.1);
+              color: #9a9590;
+              font-size: 0.7rem;
+              font-weight: 700;
+              padding: 0.3rem 0.65rem;
+              border-radius: 20px;
+              text-transform: uppercase;
+              letter-spacing: 0.03em;
+          }
 
-        .social-links a:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.15);
-            color: #e8e6e3;
-            transform: translateY(-2px);
-        }
+          .social-links {
+              display: flex;
+              justify-content: center;
+              gap: 0.75rem;
+              margin-bottom: 2rem;
+          }
 
-        .social-links svg {
-            width: 18px;
-            height: 18px;
-        }
+          .social-links a {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 44px;
+              height: 44px;
+              background: rgba(255, 255, 255, 0.05);
+              border: 1px solid rgba(255, 255, 255, 0.08);
+              border-radius: 50%;
+              color: #9a9590;
+              text-decoration: none;
+              transition: all 0.25s ease;
+          }
 
-        .contact {
-            font-size: 0.9rem;
-            color: #6b6860;
-            margin-bottom: 0.5rem;
-        }
+          .social-links a:hover {
+              background: rgba(255, 255, 255, 0.1);
+              border-color: rgba(255, 255, 255, 0.15);
+              color: #e8e6e3;
+              transform: translateY(-2px);
+          }
 
-        .contact a {
-            color: #6b9e7e;
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
+          .social-links svg {
+              width: 18px;
+              height: 18px;
+          }
 
-        .contact a:hover {
-            color: #8bbf9e;
-        }
+          .contact {
+              font-size: 0.9rem;
+              color: #6b6860;
+              margin-bottom: 0.5rem;
+          }
 
-        footer {
-            margin-top: 2.5rem;
-            font-size: 0.8rem;
-            color: #4d4a46;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="logo">
-            <span>🌿</span>
-        </div>
-        <h1>IslandTwig Studios</h1>
-        <p class="tagline">Crafting playful mobile games</p>
+          .contact a {
+              color: #6b9e7e;
+              text-decoration: none;
+              transition: color 0.2s ease;
+          }
 
-        <div class="nav-links">
-            <a href="privacy.html">Policies</a>
-            <a href="https://nicksdesigns.crd.co">My Designs</a>
-        </div>
+          .contact a:hover {
+              color: #8bbf9e;
+          }
 
-        <div class="divider"></div>
+          footer {
+              margin-top: 2.5rem;
+              font-size: 0.8rem;
+              color: #4d4a46;
+          }
+      </style>
+  </head>
+  <body>
+      <div class="container">
+          <div class="logo">
+              <span>🌿</span>
+          </div>
+          <h1>IslandTwig Studios</h1>
+          <p class="tagline">Crafting playful mobile experiences</p>
 
-        <div class="apps">
-            <a href="https://apps.apple.com/us/app/poppy-popper/id6753832202" class="app-card">
-                <div class="app-icon poppy">🌸</div>
-                <div class="app-info">
-                    <div class="app-name">Poppy</div>
-                    <div class="app-desc">A satisfyingly tactile tapping game with handcrafted charm.</div>
-                </div>
-            </a>
+          <div class="nav-links">
+              <a href="privacy.html">Policies</a>
+              <a href="https://nicksdesigns.crd.co">My Designs</a>
+          </div>
 
-            <div class="app-card coming-soon">
-                <div class="app-icon tempo">⏱️</div>
-                <div class="app-info">
-                    <div class="app-name">Tempo</div>
-                    <div class="app-desc">Put your timing to the test and hit the target time.</div>
-                </div>
-                <span class="badge">Soon</span>
-            </div>
+          <div class="divider"></div>
 
-            <div class="app-card coming-soon">
-                <div class="app-icon orbie">🔮</div>
-                <div class="app-info">
-                    <div class="app-name">Orbie</div>
-                    <div class="app-desc">Navigate, dodge, and soar.</div>
-                </div>
-                <span class="badge">Soon</span>
-            </div>
-        </div>
+          <div class="apps">
+              <a href="https://apps.apple.com/us/app/poppy-popper/id6753832202" class="app-card">
+                  <div class="app-icon poppy">🌸</div>
+                  <div class="app-info">
+                      <div class="app-name">Poppy</div>
+                      <div class="app-desc">A satisfyingly tactile tapping game with handcrafted charm.</div>
+                  </div>
+              </a>
 
-        <div class="social-links">
-            <a href="https://www.instagram.com/islandtwigstudios" aria-label="Instagram">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                </svg>
-            </a>
-            <a href="https://buymeacoffee.com/islandtwig" aria-label="Buy Me A Coffee">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-                    <line x1="6" y1="1" x2="6" y2="4"></line>
-                    <line x1="10" y1="1" x2="10" y2="4"></line>
-                    <line x1="14" y1="1" x2="14" y2="4"></line>
-                </svg>
-            </a>
-        </div>
+              <!-- TODO: Replace # with App Store URL once live -->
+              <a href="https://apps.apple.com/us/app/nine-draw/id6757319447" class="app-card">
+                  <div class="app-icon ninedraw">🃏</div>
+                  <div class="app-info">
+                      <div class="app-name">Nine Draw</div>
+                      <div class="app-desc">A nine-card higher-or-lower challenge that tests your instincts.</div>
+                  </div>
+              </a>
 
-        <p class="contact">
-            <a href="mailto:hello@islandtwigstudios.com">hello@islandtwigstudios.com</a>
-        </p>
+              <!-- TODO: Replace # with App Store URL once live -->
+              <a href="#" class="app-card">
+                  <div class="app-icon midnight">🌙</div>
+                  <div class="app-info">
+                      <div class="app-name">Midnight Solitaire</div>
+                      <div class="app-desc">Classic solitaire with a refined dark aesthetic and wind-down mode.</div>
+                  </div>
+              </a>
 
-        <footer>
-            © 2025 IslandTwig Studios LLC
-        </footer>
-    </div>
-</body>
-</html>
+              <div class="app-card coming-soon">
+                  <div class="app-icon tempo">⏱️ </div>
+                  <div class="app-info">
+                      <div class="app-name">Tempo</div>
+                      <div class="app-desc">Put your timing to the test and hit the target time.</div>
+                  </div>
+                  <span class="badge">Soon</span>
+              </div>
+
+              <div class="app-card coming-soon">
+                  <div class="app-icon dreamtime">💤</div>
+                  <div class="app-info">
+                      <div class="app-name">DreamTime</div>
+                      <div class="app-desc">A REM cycle calculator to help you wake up refreshed.</div>
+                  </div>
+                  <span class="badge">Soon</span>
+              </div>
+          </div>
+
+          <div class="social-links">
+              <a href="https://www.instagram.com/islandtwigstudios" aria-label="Instagram">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+              </a>
+              <a href="https://buymeacoffee.com/islandtwig" aria-label="Buy Me A Coffee">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                      <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                      <line x1="6" y1="1" x2="6" y2="4"></line>
+                      <line x1="10" y1="1" x2="10" y2="4"></line>
+                      <line x1="14" y1="1" x2="14" y2="4"></line>
+                  </svg>
+              </a>
+          </div>
+
+          <p class="contact">
+              <a href="mailto:hello@islandtwigstudios.com">hello@islandtwigstudios.com</a>
+          </p>
+
+          <footer>
+              © 2026 IslandTwig Studios LLC
+          </footer>
+      </div>
+  </body>
+  </html>
