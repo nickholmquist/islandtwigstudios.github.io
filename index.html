@@ -311,6 +311,32 @@
         .link-warm { color: var(--warm); }
 
         /* ═══════════════════════════════
+           SCREENSHOT STRIP
+           ═══════════════════════════════ */
+
+        .screenshot-strip {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 4px 0 16px;
+            margin: 4px 0 10px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .screenshot-strip::-webkit-scrollbar { display: none; }
+
+        .screenshot-strip img {
+            height: 240px;
+            width: auto;
+            border-radius: 12px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+        }
+
+        /* ═══════════════════════════════
            APP LIST ROWS
            ═══════════════════════════════ */
 
@@ -656,7 +682,12 @@
                     </div>
                 </div>
                 <div class="featured-body">
-                    <p class="app-desc">A satisfyingly tactile tapping game with handcrafted charm. Tap, Pop, Repeat.</p>
+                    <p class="app-desc">A satisfyingly tactile tapping game with handcrafted charm. Pop, bloom, repeat.</p>
+                    <div class="screenshot-strip">
+                        <img src="images/poppy_ss1.png" alt="Poppy gameplay">
+                        <img src="images/poppy_ss2.png" alt="Poppy game modes">
+                        <img src="images/poppy_ss3.png" alt="Poppy themes">
+                    </div>
                     <span class="arrow-link link-sage">
                         Get on the App Store
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
