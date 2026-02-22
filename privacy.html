@@ -1,285 +1,356 @@
-  <!DOCTYPE html>                                                                                                                                                                                                                                 
-  <html lang="en">                       
-  <head>                                                                                                                                                                                                                                          
-      <meta charset="UTF-8">                                                                                                                                                                                                                      
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Privacy Policy - IslandTwig Studios</title>
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-      <style>
-          * {
-              margin: 0;
-              padding: 0;
-              box-sizing: border-box;
-          }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - IslandTwig Studios</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0e0f0f;
+            --bg-card: #161818;
+            --cream: #d8d0c4;
+            --cream-bright: #ede7dc;
+            --cream-dim: #908a7e;
+            --cream-faint: rgba(216, 208, 196, 0.05);
+            --cream-border: rgba(216, 208, 196, 0.07);
+            --sage: #6b8f70;
+            --sage-dim: rgba(107, 143, 112, 0.12);
+        }
 
-          body {
-              font-family: 'Nunito', sans-serif;
-              background: linear-gradient(145deg, #1a1d21 0%, #2d3139 50%, #1a1d21 100%);
-              color: #c8c5c0;
-              min-height: 100vh;
-              padding: 2.5rem 1.5rem;
-              line-height: 1.65;
-          }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-          .container {
-              max-width: 640px;
-              margin: 0 auto;
-          }
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
 
-          .back-link {
-              display: inline-flex;
-              align-items: center;
-              gap: 0.4rem;
-              color: #6b9e7e;
-              text-decoration: none;
-              font-weight: 600;
-              font-size: 0.9rem;
-              margin-bottom: 2rem;
-              transition: color 0.2s ease;
-          }
+        body {
+            background: var(--bg-deep);
+            color: var(--cream);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 400;
+            line-height: 1.65;
+            min-height: 100vh;
+        }
 
-          .back-link:hover {
-              color: #8bbf9e;
-          }
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
 
-          h1 {
-              font-size: 1.75rem;
-              font-weight: 800;
-              margin-bottom: 0.4rem;
-              color: #ffffff;
-          }
+        .page {
+            position: relative;
+            z-index: 1;
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 48px 24px 64px;
+        }
 
-          .subtitle {
-              color: #9a9590;
-              margin-bottom: 0.25rem;
-          }
+        /* ═══ BACK LINK ═══ */
 
-          .last-updated {
-              color: #6b6860;
-              font-size: 0.85rem;
-              margin-bottom: 2rem;
-          }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--sage);
+            text-decoration: none;
+            margin-bottom: 32px;
+            transition: color 0.25s ease, gap 0.25s ease;
+        }
 
-          .policy-card {
-              background: rgba(255, 255, 255, 0.03);
-              border: 1px solid rgba(255, 255, 255, 0.06);
-              border-radius: 16px;
-              padding: 2rem;
-          }
+        .back-link:hover {
+            color: var(--cream-bright);
+            gap: 8px;
+        }
 
-          h2 {
-              font-size: 1rem;
-              font-weight: 700;
-              color: #ffffff;
-              margin-top: 2rem;
-              margin-bottom: 0.75rem;
-              padding-top: 1.5rem;
-              border-top: 1px solid rgba(255, 255, 255, 0.06);
-          }
+        .back-link svg {
+            width: 14px;
+            height: 14px;
+        }
 
-          h2:first-of-type {
-              margin-top: 0;
-              padding-top: 0;
-              border-top: none;
-          }
+        /* ═══ HEADER ═══ */
 
-          h3 {
-              font-size: 0.95rem;
-              font-weight: 600;
-              color: #e8e6e3;
-              margin-top: 1.25rem;
-              margin-bottom: 0.5rem;
-          }
+        .policy-header {
+            margin-bottom: 28px;
+        }
 
-          p {
-              margin-bottom: 0.75rem;
-              color: #a8a5a0;
-          }
+        .policy-header h1 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--cream-bright);
+            margin-bottom: 4px;
+        }
 
-          ul {
-              margin-bottom: 0.75rem;
-              padding-left: 1.5rem;
-              color: #a8a5a0;
-          }
+        .policy-header .subtitle {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--cream-dim);
+            margin-bottom: 2px;
+        }
 
-          li {
-              margin-bottom: 0.4rem;
-          }
+        .policy-header .last-updated {
+            font-size: 12px;
+            font-weight: 400;
+            color: rgba(216, 208, 196, 0.3);
+        }
 
-          strong {
-              color: #d8d5d0;
-          }
+        /* ═══ POLICY CARD ═══ */
 
-          a {
-              color: #6b9e7e;
-              transition: color 0.2s ease;
-          }
+        .policy-card {
+            background: var(--bg-card);
+            border: 1px solid var(--cream-border);
+            border-radius: 14px;
+            padding: 32px;
+        }
 
-          a:hover {
-              color: #8bbf9e;
-          }
+        @media (max-width: 480px) {
+            .policy-card { padding: 22px; }
+        }
 
-          .highlight-box {
-              background: rgba(107, 158, 126, 0.08);
-              border: 1px solid rgba(107, 158, 126, 0.15);
-              border-radius: 10px;
-              padding: 1.25rem;
-              margin: 1.25rem 0;
-          }
+        /* ═══ TYPOGRAPHY ═══ */
 
-          .highlight-box p {
-              margin-bottom: 0.5rem;
-              color: #c8c5c0;
-          }
+        h2 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--cream-bright);
+            margin-top: 28px;
+            margin-bottom: 10px;
+            padding-top: 24px;
+            border-top: 1px solid var(--cream-border);
+        }
 
-          .highlight-box p:last-child {
-              margin-bottom: 0;
-          }
+        h2:first-of-type {
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
+        }
 
-          .highlight-box ul {
-              color: #a8a5a0;
-          }
+        h3 {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--cream);
+            margin-top: 18px;
+            margin-bottom: 6px;
+        }
 
-          footer {
-              text-align: center;
-              margin-top: 2.5rem;
-              font-size: 0.8rem;
-              color: #4d4a46;
-          }
-      </style>
-  </head>
-  <body>
-      <div class="container">
-          <a href="index.html" class="back-link">← Back</a>
+        p {
+            font-size: 13.5px;
+            font-weight: 300;
+            color: var(--cream-dim);
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
 
-          <h1>Privacy Policy</h1>
-          <p class="subtitle">IslandTwig Studios LLC</p>
-          <p class="last-updated">Last Updated: February 21, 2026</p>
+        ul {
+            margin-bottom: 10px;
+            padding-left: 20px;
+        }
 
-          <div class="policy-card">
-               <h2>Apps Covered by This Policy</h2>                                                                                                                                                                                                
-              <p>This privacy policy applies to the following mobile applications developed by IslandTwig Studios:</p>
-              <ul>                                                                                                                                                                                                                                
-                  <li><strong>Poppy</strong> — Fast-paced tapping puzzle game</li>                                                                                                                                                                
-                  <li><strong>Nine Draw</strong> — Nine-card higher-or-lower challenge</li>
-                  <li><strong>Midnight Solitaire</strong> — Classic solitaire card game</li>
-                  <li><strong>Tempo</strong> — Precision stop-timer app (coming soon)</li>
-                  <li><strong>DreamTime</strong> — REM Cycle Calculator (coming soon)</li>
-              </ul>
-              <p>All apps follow the same privacy practices described below. Some apps may use additional third-party services as noted in the Third-Party Services section.</p>
+        li {
+            font-size: 13.5px;
+            font-weight: 300;
+            color: var(--cream-dim);
+            margin-bottom: 5px;
+            line-height: 1.55;
+        }
 
-              <h2>Overview</h2>
-              <p>IslandTwig Studios LLC ("we," "our," or "the apps") is committed to protecting your privacy. This Privacy Policy explains how we handle information when you use our mobile applications.</p>
+        strong {
+            font-weight: 600;
+            color: var(--cream);
+        }
 
-              <h2>Information We Collect</h2>
+        a {
+            color: var(--sage);
+            text-decoration: none;
+            transition: color 0.25s ease;
+        }
 
-              <h3>Information You Provide</h3>
-              <p><strong>In-App Purchases:</strong> When you make a purchase (such as tips, unlockable features, or consumable items), payment information is processed by Apple through the App Store. We do not collect or store your payment
-  information.</p>
+        a:hover {
+            color: var(--cream-bright);
+        }
 
-              <h3>Automatically Collected Information</h3>
-              <p><strong>App Data:</strong> Your data (such as high scores, game progress, theme preferences, and app settings) is stored locally on your device only.</p>
+        /* ═══ HIGHLIGHT BOX ═══ */
 
-              <p><strong>Game Analytics:</strong> We collect anonymous usage analytics to improve the app experience, including:</p>
-              <ul>
-                  <li>Game events (game starts, completions, high scores achieved)</li>
-                  <li>Feature usage (theme changes, time duration selections, menu interactions)</li>
-                  <li>Device information (device type, operating system version)</li>
-              </ul>
-              <p>No personally identifiable information is collected.</p>
+        .highlight-box {
+            background: var(--sage-dim);
+            border: 1px solid rgba(107, 143, 112, 0.15);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 18px 0;
+        }
 
-              <p><strong>Advertising Data:</strong> Some of our apps display non-personalized ads served by Google AdMob. When ads are shown, AdMob may automatically collect certain technical data, including:</p>
-              <ul>
-                  <li>Device identifiers (such as advertising ID)</li>
-                  <li>IP address (used for general location at the country or city level)</li>
-                  <li>Device and app information (device model, OS version, app version)</li>
-                  <li>Ad interaction data (impressions, taps)</li>
-              </ul>
-              <p>We do not serve personalized or targeted ads. We do not request access to Apple's App Tracking Transparency framework and do not track you across other apps or websites.</p>
+        .highlight-box p {
+            color: var(--cream);
+            margin-bottom: 8px;
+        }
 
-              <p><strong>Game Center Data:</strong> If you use Game Center features, your scores and player information are submitted to Apple's Game Center service. This data is managed according to Apple's privacy policy.</p>
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
 
-              <h2>How We Use Your Information</h2>
-              <ul>
-                  <li><strong>App Data:</strong> High scores, game progress, theme preferences, and settings are stored locally on your device to enhance your experience</li>
-                  <li><strong>Analytics:</strong> Anonymous usage data helps us understand how players interact with our apps so we can improve features and fix bugs</li>
-                  <li><strong>Advertising:</strong> Non-personalized ads are displayed to support free app features. Ad data is used solely for ad delivery and fraud prevention</li>
-                  <li><strong>Game Center:</strong> Leaderboard scores are submitted to Apple to enable competitive features</li>
-                  <li><strong>Purchases:</strong> Processed by Apple to unlock features or provide tips</li>
-              </ul>
+        .highlight-box ul {
+            margin-bottom: 0;
+        }
 
-              <h2>Data Storage</h2>
-              <ul>
-                  <li><strong>Local Storage:</strong> App preferences and high scores are stored on your device</li>
-                  <li><strong>Analytics Storage:</strong> Anonymous analytics data is stored on secure servers operated by PostHog, our analytics provider</li>
-                  <li><strong>Ad Data:</strong> Data collected by Google AdMob is stored and processed by Google according to their privacy policy</li>
-                  <li><strong>Game Center:</strong> Leaderboard data is stored by Apple</li>
-              </ul>
+        .highlight-box li {
+            color: var(--cream-dim);
+        }
 
-              <div class="highlight-box">
-                  <p><strong>We do not:</strong></p>
-                  <ul>
-                      <li>Collect personally identifiable information</li>
-                      <li>Access your contacts, photos, camera, or other sensitive device data</li>
-                      <li>Serve personalized or targeted advertisements</li>
-                      <li>Track you across other apps or websites</li>
-                      <li>Sell your data to third parties</li>
-                  </ul>
-              </div>
+        /* ═══ FOOTER ═══ */
 
-              <h2>Children's Privacy</h2>
-              <p>Our apps are suitable for all ages. We do not knowingly collect personal information from children under 13. Analytics data is anonymous and does not include any personally identifiable information. Ads displayed to all
-  users, including children, are non-personalized and are not based on user behavior or profiles.</p>
+        .footer {
+            text-align: center;
+            margin-top: 32px;
+            font-size: 11px;
+            color: rgba(216, 208, 196, 0.18);
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <a href="index.html" class="back-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Back
+        </a>
 
-              <h2>Third-Party Services</h2>
-              <p><strong>Apple App Store:</strong> When you make purchases through our apps, Apple's privacy policy applies. You can review it at: <a href="https://www.apple.com/legal/privacy/">apple.com/legal/privacy</a></p>
+        <div class="policy-header">
+            <h1>Privacy Policy</h1>
+            <p class="subtitle">IslandTwig Studios LLC</p>
+            <p class="last-updated">Last Updated: February 21, 2026</p>
+        </div>
 
-              <p><strong>Apple Game Center:</strong> When you use Game Center features, Apple's privacy policy applies to leaderboard and player data.</p>
+        <div class="policy-card">
+            <h2>Apps Covered by This Policy</h2>
+            <p>This privacy policy applies to the following mobile applications developed by IslandTwig Studios:</p>
+            <ul>
+                <li><strong>Poppy</strong> - Fast-paced tapping puzzle game</li>
+                <li><strong>Nine Draw</strong> - Nine-card higher-or-lower challenge</li>
+                <li><strong>Midnight Solitaire</strong> - Classic solitaire card game</li>
+                <li><strong>Tempo</strong> - Precision stop-timer app (coming soon)</li>
+                <li><strong>DreamTime</strong> - REM Cycle Calculator (coming soon)</li>
+            </ul>
+            <p>All apps follow the same privacy practices described below. Some apps may use additional third-party services as noted in the Third-Party Services section.</p>
 
-              <p><strong>PostHog Analytics:</strong> We use PostHog to collect anonymous usage analytics. PostHog's privacy policy is available at: <a href="https://posthog.com/privacy">posthog.com/privacy</a></p>
+            <h2>Overview</h2>
+            <p>IslandTwig Studios LLC ("we," "our," or "the apps") is committed to protecting your privacy. This Privacy Policy explains how we handle information when you use our mobile applications.</p>
 
-              <p><strong>Google AdMob:</strong> Some of our apps use Google AdMob to display non-personalized ads. AdMob may collect technical device and interaction data as described above. Google's privacy policy is available at: <a 
-  href="https://policies.google.com/privacy">policies.google.com/privacy</a></p>
+            <h2>Information We Collect</h2>
 
-              <h2>Your Rights</h2>
-              <p>You have the right to:</p>
-              <ul>
-                  <li>Delete any app and all associated local data at any time</li>
-                  <li>Disable Game Center integration in your device settings</li>
-                  <li>Reset your device advertising identifier in your device settings</li>
-                  <li>Contact us with questions about your privacy or to request deletion of analytics data</li>
-              </ul>
+            <h3>Information You Provide</h3>
+            <p><strong>In-App Purchases:</strong> When you make a purchase (such as tips, unlockable features, or consumable items), payment information is processed by Apple through the App Store. We do not collect or store your payment information.</p>
 
-              <h2>Data Deletion</h2>
-              <p><strong>To delete local app data:</strong><br>
-              Delete the app from your device. All locally stored data will be permanently removed.</p>
+            <h3>Automatically Collected Information</h3>
+            <p><strong>App Data:</strong> Your data (such as high scores, game progress, theme preferences, and app settings) is stored locally on your device only.</p>
 
-              <p><strong>To request deletion of analytics data:</strong><br>
-              Contact us at <a href="mailto:hello@islandtwigstudios.com">hello@islandtwigstudios.com</a> with your request.</p>
+            <p><strong>Game Analytics:</strong> We collect anonymous usage analytics to improve the app experience, including:</p>
+            <ul>
+                <li>Game events (game starts, completions, high scores achieved)</li>
+                <li>Feature usage (theme changes, time duration selections, menu interactions)</li>
+                <li>Device information (device type, operating system version)</li>
+            </ul>
+            <p>No personally identifiable information is collected.</p>
 
-              <p><strong>To remove Game Center data:</strong><br>
-              Manage your Game Center data through your Apple ID settings.</p>
+            <p><strong>Advertising Data:</strong> Some of our apps display non-personalized ads served by Google AdMob. When ads are shown, AdMob may automatically collect certain technical data, including:</p>
+            <ul>
+                <li>Device identifiers (such as advertising ID)</li>
+                <li>IP address (used for general location at the country or city level)</li>
+                <li>Device and app information (device model, OS version, app version)</li>
+                <li>Ad interaction data (impressions, taps)</li>
+            </ul>
+            <p>We do not serve personalized or targeted ads. We do not request access to Apple's App Tracking Transparency framework and do not track you across other apps or websites.</p>
 
-              <p><strong>To reset advertising data:</strong><br>
-              Reset your advertising identifier in Settings > Privacy & Security > Tracking on your device.</p>
+            <p><strong>Game Center Data:</strong> If you use Game Center features, your scores and player information are submitted to Apple's Game Center service. This data is managed according to Apple's privacy policy.</p>
 
-              <h2>Changes to This Privacy Policy</h2>
-              <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.</p>
+            <h2>How We Use Your Information</h2>
+            <ul>
+                <li><strong>App Data:</strong> High scores, game progress, theme preferences, and settings are stored locally on your device to enhance your experience</li>
+                <li><strong>Analytics:</strong> Anonymous usage data helps us understand how players interact with our apps so we can improve features and fix bugs</li>
+                <li><strong>Advertising:</strong> Non-personalized ads are displayed to support free app features. Ad data is used solely for ad delivery and fraud prevention</li>
+                <li><strong>Game Center:</strong> Leaderboard scores are submitted to Apple to enable competitive features</li>
+                <li><strong>Purchases:</strong> Processed by Apple to unlock features or provide tips</li>
+            </ul>
 
-              <h2>Contact Us</h2>
-              <p>If you have any questions about this Privacy Policy or any of our apps, please contact us at:</p>
-              <p>Email: <a href="mailto:hello@islandtwigstudios.com">hello@islandtwigstudios.com</a><br>
-              Website: <a href="https://islandtwigstudios.com">islandtwigstudios.com</a></p>
+            <h2>Data Storage</h2>
+            <ul>
+                <li><strong>Local Storage:</strong> App preferences and high scores are stored on your device</li>
+                <li><strong>Analytics Storage:</strong> Anonymous analytics data is stored on secure servers operated by PostHog, our analytics provider</li>
+                <li><strong>Ad Data:</strong> Data collected by Google AdMob is stored and processed by Google according to their privacy policy</li>
+                <li><strong>Game Center:</strong> Leaderboard data is stored by Apple</li>
+            </ul>
 
-              <h2>Consent</h2>
-              <p>By using any of our apps, you agree to this Privacy Policy.</p>
-          </div>
+            <div class="highlight-box">
+                <p><strong>We do not:</strong></p>
+                <ul>
+                    <li>Collect personally identifiable information</li>
+                    <li>Access your contacts, photos, camera, or other sensitive device data</li>
+                    <li>Serve personalized or targeted advertisements</li>
+                    <li>Track you across other apps or websites</li>
+                    <li>Sell your data to third parties</li>
+                </ul>
+            </div>
 
-          <footer>
-              © 2026 IslandTwig Studios LLC
-          </footer>
-      </div>
-  </body>
+            <h2>Children's Privacy</h2>
+            <p>Our apps are suitable for all ages. We do not knowingly collect personal information from children under 13. Analytics data is anonymous and does not include any personally identifiable information. Ads displayed to all users, including children, are non-personalized and are not based on user behavior or profiles.</p>
+
+            <h2>Third-Party Services</h2>
+            <p><strong>Apple App Store:</strong> When you make purchases through our apps, Apple's privacy policy applies. You can review it at: <a href="https://www.apple.com/legal/privacy/">apple.com/legal/privacy</a></p>
+
+            <p><strong>Apple Game Center:</strong> When you use Game Center features, Apple's privacy policy applies to leaderboard and player data.</p>
+
+            <p><strong>PostHog Analytics:</strong> We use PostHog to collect anonymous usage analytics. PostHog's privacy policy is available at: <a href="https://posthog.com/privacy">posthog.com/privacy</a></p>
+
+            <p><strong>Google AdMob:</strong> Some of our apps use Google AdMob to display non-personalized ads. AdMob may collect technical device and interaction data as described above. Google's privacy policy is available at: <a href="https://policies.google.com/privacy">policies.google.com/privacy</a></p>
+
+            <h2>Your Rights</h2>
+            <p>You have the right to:</p>
+            <ul>
+                <li>Delete any app and all associated local data at any time</li>
+                <li>Disable Game Center integration in your device settings</li>
+                <li>Reset your device advertising identifier in your device settings</li>
+                <li>Contact us with questions about your privacy or to request deletion of analytics data</li>
+            </ul>
+
+            <h2>Data Deletion</h2>
+            <p><strong>To delete local app data:</strong><br>
+            Delete the app from your device. All locally stored data will be permanently removed.</p>
+
+            <p><strong>To request deletion of analytics data:</strong><br>
+            Contact us at <a href="mailto:hello@islandtwigstudios.com">hello@islandtwigstudios.com</a> with your request.</p>
+
+            <p><strong>To remove Game Center data:</strong><br>
+            Manage your Game Center data through your Apple ID settings.</p>
+
+            <p><strong>To reset advertising data:</strong><br>
+            Reset your advertising identifier in Settings > Privacy & Security > Tracking on your device.</p>
+
+            <h2>Changes to This Privacy Policy</h2>
+            <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.</p>
+
+            <h2>Contact Us</h2>
+            <p>If you have any questions about this Privacy Policy or any of our apps, please contact us at:</p>
+            <p>Email: <a href="mailto:hello@islandtwigstudios.com">hello@islandtwigstudios.com</a><br>
+            Website: <a href="https://islandtwigstudios.com">islandtwigstudios.com</a></p>
+
+            <h2>Consent</h2>
+            <p>By using any of our apps, you agree to this Privacy Policy.</p>
+        </div>
+
+        <footer class="footer">
+            &copy; 2026 IslandTwig Studios LLC
+        </footer>
+    </div>
+</body>
 </html>
