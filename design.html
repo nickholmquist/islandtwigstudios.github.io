@@ -210,6 +210,18 @@
   .on-light { background: #f0ece6; padding: 40px; }
   .on-dark-navy { background: #0f1923; padding: 48px; }
 
+  /* 2x2 grid for mark variants */
+  .grid-2x2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .grid-2x2 .img-card {
+    margin-bottom: 0;
+  }
+
   @media (max-width: 768px) {
     nav { padding: 18px 24px; }
     .page-header { padding: 40px 24px 32px; flex-direction: column; align-items: flex-start; gap: 16px; }
@@ -344,13 +356,23 @@
         <div class="name">N Monogram</div>
         <div class="cat">Personal mark</div>
       </div>
-      <div class="img-card on-dark-navy">
-        <img src="images/n-orange.jpg" alt="N monogram orange">
-        <div class="img-overlay"><div class="overlay-text"><div class="proj-name">N — orange</div><div class="proj-tag">Personal mark</div></div></div>
-      </div>
-      <div class="img-card on-dark-navy">
-        <img src="images/n-frost.jpg" alt="N monogram frost">
-        <div class="img-overlay"><div class="overlay-text"><div class="proj-name">N — frost</div><div class="proj-tag">Personal mark</div></div></div>
+      <div class="grid-2x2">
+        <div class="img-card" style="background:#0f1923; padding: 32px;">
+          <img src="images/n-orange.jpg" alt="N monogram orange">
+          <div class="img-overlay"><div class="overlay-text"><div class="proj-name">Orange</div><div class="proj-tag">Personal mark</div></div></div>
+        </div>
+        <div class="img-card" style="background:#0f1923; padding: 32px;">
+          <img src="images/n-frost.jpg" alt="N monogram frost">
+          <div class="img-overlay"><div class="overlay-text"><div class="proj-name">Frost</div><div class="proj-tag">Personal mark</div></div></div>
+        </div>
+        <div class="img-card" style="background:#0f1923; padding: 32px;">
+          <img src="images/n-teal.jpg" alt="N monogram teal">
+          <div class="img-overlay"><div class="overlay-text"><div class="proj-name">Teal</div><div class="proj-tag">Personal mark</div></div></div>
+        </div>
+        <div class="img-card" style="background:#0f1923; padding: 32px;">
+          <img src="images/n-purple.jpg" alt="N monogram purple">
+          <div class="img-overlay"><div class="overlay-text"><div class="proj-name">Purple</div><div class="proj-tag">Personal mark</div></div></div>
+        </div>
       </div>
     </div>
 
