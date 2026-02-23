@@ -433,12 +433,51 @@
 
         .design-section { margin-bottom: 32px; }
 
+        /* Design preview grid */
+        .design-preview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 8px;
+            margin-bottom: 12px;
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .design-preview-grid a {
+            display: block;
+            overflow: hidden;
+            position: relative;
+            background: var(--bg-card);
+        }
+
+        .design-preview-grid a:first-child {
+            grid-column: span 2;
+        }
+
+        .design-preview-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+            aspect-ratio: 16/9;
+        }
+
+        .design-preview-grid a:first-child img {
+            aspect-ratio: 16/7;
+        }
+
+        .design-preview-grid a:hover img {
+            transform: scale(1.04);
+        }
+
         .design-card {
             display: block;
             background: var(--bg-card);
             border: 1px solid var(--cream-border);
             border-radius: var(--radius);
-            padding: 28px;
+            padding: 22px 28px;
             text-decoration: none;
             color: inherit;
             transition: all 0.3s ease;
@@ -462,14 +501,24 @@
             box-shadow: 0 8px 32px rgba(0,0,0,0.25);
         }
 
-        .design-card-inner { position: relative; z-index: 1; }
-
-        .design-card .app-name {
-            font-size: 20px;
-            margin-bottom: 8px;
+        .design-card-inner {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
         }
 
-        .design-card .app-desc { margin-bottom: 16px; }
+        .design-card .app-name {
+            font-size: 17px;
+            margin-bottom: 4px;
+        }
+
+        .design-card .app-desc {
+            margin-bottom: 0;
+            font-size: 13px;
+        }
 
         .design-disciplines {
             display: flex;
@@ -625,6 +674,7 @@
         .a9  { opacity:0; animation: fadeUp .6s ease 1.32s forwards; }
         .a10 { opacity:0; animation: fadeUp .6s ease 1.42s forwards; }
         .a11 { opacity:0; animation: fadeUp .6s ease 1.52s forwards; }
+        .a12 { opacity:0; animation: fadeUp .6s ease 1.62s forwards; }
 
         /* ═══════════════════════════════
            RESPONSIVE
@@ -665,7 +715,7 @@
             <a href="#apps">Apps</a>
             <a href="design.html">Design</a>
             <a href="privacy.html">Policies</a>
-            <a href="mailto:hello@islandtwigstudios.com">Contact</a>
+            <a href="/cdn-cgi/l/email-protection#94fcf1f8f8fbd4fde7f8f5faf0e0e3fdf3e7e0e1f0fdfbe7baf7fbf9">Contact</a>
         </nav>
 
         <div class="divider"></div>
@@ -742,18 +792,26 @@
         <section id="design" class="design-section">
             <p class="section-label a8">Design Studio</p>
 
-            <a href="design.html" class="design-card a9">
+            <div class="design-preview-grid a9">
+                <a href="design.html">
+                    <img src="images/mountaineers-jerseys.jpg" alt="Utah Mountaineers jerseys">
+                </a>
+                <a href="design.html">
+                    <img src="images/mammoth-symbols.jpg" alt="Mammoth Utah hidden symbols">
+                </a>
+                <a href="design.html">
+                    <img src="images/bounce-colors.jpg" alt="Bounce Messenger">
+                </a>
+            </div>
+
+            <a href="design.html" class="design-card a10">
                 <div class="design-card-inner">
-                    <h2 class="app-name">Brand &amp; Identity Design</h2>
-                    <p class="app-desc">Logo and brand identity work by Nick Holmquist. Sports, businesses, and everything in between.</p>
-                    <div class="design-disciplines">
-                        <span class="discipline-tag">Sports Identity</span>
-                        <span class="discipline-tag">Brand Systems</span>
-                        <span class="discipline-tag">Naming</span>
-                        <span class="discipline-tag">Logo Design</span>
+                    <div>
+                        <h2 class="app-name">Brand &amp; Identity Design</h2>
+                        <p class="app-desc">Sports identity, brand systems, and naming work by Nick Holmquist.</p>
                     </div>
-                    <span class="arrow-link link-warm">
-                        View portfolio
+                    <span class="arrow-link link-warm" style="flex-shrink:0;">
+                        View all
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </span>
                 </div>
@@ -761,14 +819,14 @@
         </section>
 
         <!-- ═══ WAVE ═══ -->
-        <div class="wave-break a10">
+        <div class="wave-break a11">
             <svg viewBox="0 0 80 10" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
                 <path d="M0 5C8 2,14 2,20 5C26 8,32 8,40 5C48 2,54 2,60 5C66 8,72 8,80 5"/>
             </svg>
         </div>
 
         <!-- ═══ FOOTER ═══ -->
-        <footer class="footer a11">
+        <footer class="footer a12">
             <div class="footer-divider"></div>
 
             <div class="social-row">
@@ -795,7 +853,7 @@
                 </a>
             </div>
 
-            <a href="mailto:hello@islandtwigstudios.com" class="footer-email">hello@islandtwigstudios.com</a>
+            <a href="/cdn-cgi/l/email-protection#82eae7eeeeedc2ebf1eee3ece6f6f5ebe5f1f6f7e6ebedf1ace1edef" class="footer-email"><span class="__cf_email__" data-cfemail="3058555c5c5f7059435c515e544447595743444554595f431e535f5d">[email&#160;protected]</span></a>
 
             <!-- Nick Holmquist maker's mark -->
             <a href="https://www.instagram.com/islandtwigstudios" class="maker-mark">
@@ -806,12 +864,4 @@
                     width="28"
                     height="28"
                 >
-                <span class="maker-mark-label">Design studio of Nick Holmquist</span>
-            </a>
-
-            <p class="footer-legal">&copy; 2026 IslandTwig Studios LLC</p>
-        </footer>
-
-    </div>
-</body>
-</html>
+                <span cl
