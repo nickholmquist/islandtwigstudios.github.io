@@ -246,7 +246,7 @@
         .link-sage { color: var(--sage); }
         .link-warm { color: var(--warm); }
 
-        .screenshot-strip { display: flex; gap: 10px; overflow-x: auto; padding: 4px 0 14px; margin: 4px 0 8px; -webkit-overflow-scrolling: touch; scrollbar-width: none; position: relative; z-index: 1; }
+        .screenshot-strip { display: flex; gap: 10px; overflow-x: auto; padding: 4px 0 14px; margin: 4px auto 8px; width: fit-content; max-width: 100%; -webkit-overflow-scrolling: touch; scrollbar-width: none; position: relative; z-index: 1; }
         .screenshot-strip::-webkit-scrollbar { display: none; }
         .screenshot-strip img { height: 200px; width: auto; border-radius: 10px; flex-shrink: 0; box-shadow: 0 4px 16px rgba(0,0,0,0.3); }
 
@@ -286,10 +286,10 @@
         .app-row .app-desc { font-size: 12.5px; margin-bottom: 0; line-height: 1.45; }
         .app-row .badge { position: relative; z-index: 1; flex-shrink: 0; }
 
-        .design-img-stack { display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; }
+        .design-img-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
 
         .design-img-card { position: relative; overflow: hidden; border-radius: var(--radius-sm); background: var(--surface); cursor: pointer; display: block; text-decoration: none; }
-        .design-img-card img { width: 100%; height: auto; display: block; transition: transform 0.5s ease; }
+        .design-img-card img { width: 100%; height: auto; display: block; transition: transform 0.5s ease; aspect-ratio: 4/3; object-fit: cover; }
         .design-img-card:hover img { transform: scale(1.03); }
 
         .design-img-overlay {
@@ -385,6 +385,7 @@
         }
 
         @media (max-width: 480px) {
+            .design-img-stack { grid-template-columns: 1fr; }
             nav { padding: 16px 20px; }
             .nav-links { gap: 18px; }
             .nav-links a { font-size: 12px; }
@@ -408,7 +409,7 @@
         <ul class="nav-links">
             <li><a href="index.html" class="active">Apps</a></li>
             <li><a href="design.html">Design</a></li>
-            <li><a href="mailto:hello@islandtwigstudios.com">Contact</a></li>
+            <li><a href="/cdn-cgi/l/email-protection#c7afa2ababa887aeb4aba6a9a3b3b0aea0b4b3b2a3aea8b4e9a4a8aa">Contact</a></li>
         </ul>
     </nav>
 
@@ -571,18 +572,8 @@
                     </a>
                 </div>
 
-                <a href="mailto:hello@islandtwigstudios.com" class="footer-email">hello@islandtwigstudios.com</a>
+                <a href="/cdn-cgi/l/email-protection#5d35383131321d342e313c3339292a343a2e29283934322e733e3230" class="footer-email"><span class="__cf_email__" data-cfemail="1b737e7777745b7268777a757f6f6c727c686f6e7f72746835787476">[email&#160;protected]</span></a>
 
                 <a href="https://www.instagram.com/islandtwigstudios" class="maker-mark">
                     <img class="maker-mark-icon" src="images/appicons/n_mark.png" alt="N" width="28" height="28">
-                    <span class="maker-mark-label">A Nick Holmquist project</span>
-                </a>
-
-                <p class="footer-legal">&copy; 2025 IslandTwig Studios</p>
-            </footer>
-
-        </div>
-    </div>
-
-</body>
-</html>
+                    <span class="maker-mark-l
