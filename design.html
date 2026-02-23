@@ -56,7 +56,10 @@
     color: var(--cream);
     text-decoration: none;
     opacity: 0.7;
+    transition: opacity 0.2s;
   }
+
+  .nav-logo:hover { opacity: 1; }
 
   .nav-links {
     display: flex;
@@ -233,11 +236,11 @@
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">IslandTwig Studios</a>
+  <a href="/" class="nav-logo">IslandTwig Studios</a>
   <ul class="nav-links">
-    <li><a href="index.html">Apps</a></li>
-    <li><a href="design.html" class="active">Design</a></li>
-    <li><a href="index.html#about">About</a></li>
+    <li><a href="/">Apps</a></li>
+    <li><a href="/design" class="active">Design</a></li>
+    <li><a href="mailto:hello@islandtwigstudios.com">Contact</a></li>
   </ul>
 </nav>
 
