@@ -213,6 +213,24 @@
   .on-light { background: #f0ece6; padding: 40px; }
   .on-dark-navy { background: #0f1923; padding: 48px; }
 
+  /* Showcase variants for compact icon + screen presentation */
+  .img-card.icon-showcase,
+  .img-card.phone-showcase {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .img-card.icon-showcase { background: #1a1918; padding: 32px; }
+  .img-card.phone-showcase { background: #f0ece6; padding: 32px; }
+  .img-card.icon-showcase img,
+  .img-card.phone-showcase img {
+    width: 55%;
+    max-width: 200px;
+    height: auto;
+  }
+  .img-card.icon-showcase img { border-radius: 22px; box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+  .img-card.phone-showcase img { border-radius: 14px; box-shadow: 0 6px 18px rgba(0,0,0,0.15); }
+
   /* 2x2 grid for mark variants */
   .grid-2x2 {
     display: grid;
@@ -420,6 +438,22 @@
       <div class="img-card">
         <img src="images/bounce-merch.jpg" alt="Bounce merchandise">
         <div class="img-overlay"><div class="overlay-text"><div class="proj-name">Merchandise</div><div class="proj-tag">Brand application</div></div></div>
+      </div>
+    </div>
+
+    <!-- Poppy -->
+    <div class="project-block">
+      <div class="project-label">
+        <div class="name">Poppy</div>
+        <div class="cat">Product design · iOS</div>
+      </div>
+      <div class="img-card icon-showcase">
+        <img src="images/appicons/poppy_icon.png" alt="Poppy app icon">
+        <div class="img-overlay"><div class="overlay-text"><div class="proj-name">Poppy</div><div class="proj-tag">App icon</div></div></div>
+      </div>
+      <div class="img-card phone-showcase">
+        <img src="images/appicons/poppy_ss3.png" alt="Poppy themes screen">
+        <div class="img-overlay"><div class="overlay-text"><div class="proj-name">Themes &amp; palettes</div><div class="proj-tag">UI design</div></div></div>
       </div>
     </div>
 
