@@ -7,10 +7,8 @@
 
     <link rel="icon" type="image/png" href="images/appicons/favicon.png">
 
-    <!-- Smart App Banner — shows native iOS install prompt in Safari -->
     <meta name="apple-itunes-app" content="app-id=6753832202">
 
-    <!-- Open Graph -->
     <meta property="og:title" content="IslandTwig Studios">
     <meta property="og:description" content="Quiet apps for restless minds. Design studio of Nick Holmquist. Apps, brand identity, and sports design.">
     <meta property="og:type" content="website">
@@ -123,62 +121,17 @@
         .content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 48px;
-        }
-
-        .hero {
-            padding: 56px 0 12px;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            opacity: 0;
-            animation: fadeUp 0.7s ease 0.15s forwards;
-        }
-
-        .logo {
-            width: 56px;
-            height: 56px;
-            border-radius: 14px;
-            object-fit: cover;
-            flex-shrink: 0;
-            box-shadow:
-                0 1px 1px rgba(0,0,0,0.2),
-                0 4px 12px rgba(0,0,0,0.15),
-                inset 0 1px 0 rgba(255,255,255,0.03);
-        }
-
-        .hero-text h1 {
-            font-size: clamp(24px, 3vw, 30px);
-            font-weight: 800;
-            letter-spacing: -0.01em;
-            color: var(--cream-bright);
-            line-height: 1.2;
-            margin-bottom: 2px;
-        }
-
-        .tagline {
-            font-size: 14px;
-            font-weight: 300;
-            color: var(--cream-dim);
-            letter-spacing: 0.02em;
-        }
-
-        .divider {
-            height: 1px;
-            background: var(--border);
-            margin: 20px 0 32px;
-            opacity: 0;
-            animation: fadeIn 0.8s ease 0.35s forwards;
+            padding: 56px 48px 0;
         }
 
         .two-col {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.15fr 1fr;
             gap: 40px;
             align-items: start;
         }
 
-        .col-apps, .col-design { min-width: 0; }
+        .col-design, .col-apps { min-width: 0; }
 
         .section-label {
             font-size: 11px;
@@ -188,6 +141,8 @@
             color: var(--cream-dim);
             margin-bottom: 16px;
         }
+
+        .section-label.spaced { margin-top: 36px; }
 
         .badge {
             display: inline-block;
@@ -206,13 +161,21 @@
         .app-icon-placeholder { flex-shrink: 0; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.3); background: linear-gradient(145deg, #3a2e50, #2c2040); font-size: 1.3rem; }
         .app-icon-placeholder.placeholder-sage { background: linear-gradient(145deg, #3a4a3e, #2a3a2e); }
 
-        .featured-card {
+        .arrow-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; text-decoration: none; transition: gap 0.25s ease, color 0.25s ease; }
+        .arrow-link svg { width: 13px; height: 13px; }
+        .arrow-link:hover { gap: 10px; color: var(--cream-bright); }
+        .link-sage { color: var(--sage); }
+        .link-warm { color: var(--warm); }
+
+        /* ═══ FEATURED DESIGN CARD ═══ */
+
+        .featured-design {
             display: block;
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: var(--radius);
             padding: 24px;
-            margin-bottom: 20px;
+            margin-bottom: 8px;
             text-decoration: none;
             color: inherit;
             transition: all 0.3s ease;
@@ -220,36 +183,142 @@
             overflow: hidden;
         }
 
-        .featured-card::before {
+        .featured-design::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(ellipse at 20% 30%, var(--sage-dim), transparent 60%);
+            background: radial-gradient(ellipse at 80% 20%, var(--warm-dim), transparent 60%);
             opacity: 0;
             transition: opacity 0.4s ease;
         }
 
-        .featured-card:hover::before { opacity: 1; }
-        .featured-card:hover { border-color: rgba(122, 158, 135, 0.15); transform: translateY(-1px); box-shadow: 0 8px 32px rgba(0,0,0,0.25); }
+        .featured-design:hover::before { opacity: 1; }
+        .featured-design:hover {
+            border-color: rgba(184, 137, 106, 0.18);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+        }
 
-        .featured-header { position: relative; z-index: 1; display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
-        .featured-header .app-icon-img { width: 52px; height: 52px; border-radius: 13px; }
-        .featured-header-text { flex: 1; min-width: 0; }
-        .app-name { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; color: var(--cream-bright); }
-        .featured-header .app-name { font-size: 19px; margin-top: 4px; }
-        .featured-body { position: relative; z-index: 1; }
+        .design-feature-meta { position: relative; z-index: 1; margin-bottom: 14px; }
 
-        .app-desc { font-size: 14px; font-weight: 300; color: var(--cream-dim); line-height: 1.55; margin-bottom: 14px; }
+        .cat-tag {
+            display: inline-block;
+            font-size: 10px;
+            color: var(--warm);
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
 
-        .arrow-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; text-decoration: none; transition: gap 0.25s ease, color 0.25s ease; }
-        .arrow-link svg { width: 13px; height: 13px; }
-        .arrow-link:hover { gap: 10px; color: var(--cream-bright); }
-        .link-sage { color: var(--sage); }
-        .link-warm { color: var(--warm); }
+        .design-feature-meta h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--cream-bright);
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+        }
 
-        .screenshot-strip { display: flex; gap: 10px; overflow-x: auto; padding: 4px 0 14px; margin: 4px auto 8px; width: fit-content; max-width: 100%; -webkit-overflow-scrolling: touch; scrollbar-width: none; position: relative; z-index: 1; }
-        .screenshot-strip::-webkit-scrollbar { display: none; }
-        .screenshot-strip img { height: 200px; width: auto; border-radius: 10px; flex-shrink: 0; box-shadow: 0 4px 16px rgba(0,0,0,0.3); }
+        .design-feature-image {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 16px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: var(--surface);
+        }
+
+        .design-feature-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .featured-design:hover .design-feature-image img { transform: scale(1.02); }
+
+        .design-feature-desc {
+            position: relative;
+            z-index: 1;
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--cream-dim);
+            line-height: 1.55;
+            margin-bottom: 14px;
+        }
+
+        .design-feature-cta { position: relative; z-index: 1; }
+
+        /* ═══ DESIGN GRID ═══ */
+
+        .design-img-stack {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .design-img-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius-sm);
+            background: var(--surface);
+            display: block;
+            text-decoration: none;
+        }
+
+        .design-img-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+        }
+
+        .design-img-card:hover img { transform: scale(1.03); }
+
+        .design-img-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(17,17,16,0.85) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 14px;
+        }
+
+        .design-img-card:hover .design-img-overlay { opacity: 1; }
+
+        .overlay-name { font-size: 13px; font-weight: 600; color: var(--cream); }
+        .overlay-tag { font-size: 10px; color: var(--sage); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 2px; }
+
+        /* ═══ DESIGN CTA ═══ */
+
+        .design-cta {
+            display: block;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 18px 22px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .design-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 80% 30%, var(--warm-dim), transparent 60%); opacity: 0; transition: opacity 0.4s ease; }
+        .design-cta:hover::before { opacity: 1; }
+        .design-cta:hover { border-color: rgba(184, 137, 106, 0.15); transform: translateY(-1px); box-shadow: 0 8px 32px rgba(0,0,0,0.25); }
+
+        .design-cta-inner { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+        .design-cta .cta-title { font-size: 15px; font-weight: 700; color: var(--cream-bright); margin-bottom: 3px; }
+        .design-cta .cta-desc { font-size: 12px; font-weight: 300; color: var(--cream-dim); line-height: 1.5; }
+
+        /* ═══ APP ROWS ═══ */
 
         .app-list { display: flex; flex-direction: column; gap: 8px; }
 
@@ -277,61 +346,21 @@
         .app-row:hover::before { opacity: 1; }
         .app-row:hover { border-color: rgba(232, 224, 213, 0.1); transform: translateY(-1px); }
 
-        .app-row.coming-soon { opacity: 0.65; }
-        .app-row.coming-soon:hover { transform: none; border-color: var(--border); }
-        .app-row.coming-soon::before { display: none; }
+        /* Poppy gets a subtle featured treatment — slightly brighter border baseline */
+        .app-row.is-featured { border-color: rgba(122, 158, 135, 0.18); }
+        .app-row.is-featured::before { opacity: 0.6; }
+        .app-row.is-featured:hover::before { opacity: 1; }
 
         .app-row .app-icon-img { width: 42px; height: 42px; border-radius: 11px; position: relative; z-index: 1; }
         .app-row .app-icon-placeholder { width: 42px; height: 42px; border-radius: 11px; position: relative; z-index: 1; }
         .app-row-text { flex: 1; min-width: 0; position: relative; z-index: 1; }
-        .app-row .app-name { font-size: 15px; }
-        .app-row .app-desc { font-size: 12.5px; margin-bottom: 0; line-height: 1.45; }
+        .app-row .app-name { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; color: var(--cream-bright); font-size: 15px; }
+        .app-row .app-desc { font-size: 12.5px; font-weight: 300; color: var(--cream-dim); line-height: 1.45; }
         .app-row .badge { position: relative; z-index: 1; flex-shrink: 0; }
 
-        .design-img-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
+        /* ═══ FOOTER ═══ */
 
-        .design-img-card { position: relative; overflow: hidden; border-radius: var(--radius-sm); background: var(--surface); cursor: pointer; display: block; text-decoration: none; }
-        .design-img-card img { width: 100%; height: auto; display: block; transition: transform 0.5s ease; aspect-ratio: 4/3; object-fit: cover; }
-        .design-img-card:hover img { transform: scale(1.03); }
-
-        .design-img-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(17,17,16,0.85) 0%, transparent 50%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            display: flex;
-            align-items: flex-end;
-            padding: 16px;
-        }
-
-        .design-img-card:hover .design-img-overlay { opacity: 1; }
-
-        .overlay-name { font-size: 14px; font-weight: 600; color: var(--cream); }
-        .overlay-tag { font-size: 10px; color: var(--sage); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 2px; }
-
-        .design-cta {
-            display: block;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            padding: 18px 22px;
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .design-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 80% 30%, var(--warm-dim), transparent 60%); opacity: 0; transition: opacity 0.4s ease; }
-        .design-cta:hover::before { opacity: 1; }
-        .design-cta:hover { border-color: rgba(184, 137, 106, 0.15); transform: translateY(-1px); box-shadow: 0 8px 32px rgba(0,0,0,0.25); }
-
-        .design-cta-inner { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-        .design-cta .cta-title { font-size: 16px; font-weight: 700; color: var(--cream-bright); margin-bottom: 3px; }
-        .design-cta .cta-desc { font-size: 12.5px; font-weight: 300; color: var(--cream-dim); line-height: 1.5; }
-
-        .footer { padding: 28px 0 64px; text-align: center; }
+        .footer { padding: 64px 0 64px; text-align: center; }
         .footer-divider { height: 1px; background: var(--border); margin-bottom: 28px; }
 
         .social-row { display: flex; justify-content: center; gap: 16px; margin-bottom: 20px; }
@@ -357,53 +386,48 @@
         .footer-legal-link { color: inherit; text-decoration: none; transition: color 0.2s; }
         .footer-legal-link:hover { color: var(--cream-dim); }
 
+        /* ═══ ANIMATIONS ═══ */
+
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        .al1 { opacity:0; animation: fadeUp .6s ease .45s forwards; }
-        .al2 { opacity:0; animation: fadeUp .6s ease .55s forwards; }
-        .al3 { opacity:0; animation: fadeUp .6s ease .65s forwards; }
-        .al4 { opacity:0; animation: fadeUp .6s ease .70s forwards; }
-        .al5 { opacity:0; animation: fadeUp .6s ease .75s forwards; }
-        .al6 { opacity:0; animation: fadeUp .6s ease .80s forwards; }
-        .al7 { opacity:0; animation: fadeUp .6s ease .85s forwards; }
-        .al8 { opacity:0; animation: fadeUp .6s ease .90s forwards; }
+        .al1 { opacity:0; animation: fadeUp .6s ease .15s forwards; }
+        .al2 { opacity:0; animation: fadeUp .6s ease .25s forwards; }
+        .al3 { opacity:0; animation: fadeUp .6s ease .45s forwards; }
+        .al4 { opacity:0; animation: fadeUp .6s ease .50s forwards; }
+        .al5 { opacity:0; animation: fadeUp .6s ease .55s forwards; }
+        .al6 { opacity:0; animation: fadeUp .6s ease .60s forwards; }
+        .al7 { opacity:0; animation: fadeUp .6s ease .65s forwards; }
+        .al8 { opacity:0; animation: fadeUp .6s ease .75s forwards; }
 
-        .ar1 { opacity:0; animation: fadeUp .6s ease .50s forwards; }
-        .ar2 { opacity:0; animation: fadeUp .6s ease .60s forwards; }
-        .ar3 { opacity:0; animation: fadeUp .6s ease .70s forwards; }
-        .ar4 { opacity:0; animation: fadeUp .6s ease .80s forwards; }
-        .ar5 { opacity:0; animation: fadeUp .6s ease .90s forwards; }
+        .ar1 { opacity:0; animation: fadeUp .6s ease .20s forwards; }
+        .ar2 { opacity:0; animation: fadeUp .6s ease .30s forwards; }
+        .ar3 { opacity:0; animation: fadeUp .6s ease .40s forwards; }
+        .ar4 { opacity:0; animation: fadeUp .6s ease .45s forwards; }
+        .ar5 { opacity:0; animation: fadeUp .6s ease .50s forwards; }
+        .ar6 { opacity:0; animation: fadeUp .6s ease .55s forwards; }
+        .ar7 { opacity:0; animation: fadeUp .6s ease .60s forwards; }
 
         .a-footer { opacity:0; animation: fadeUp .6s ease 1.0s forwards; }
 
         @media (max-width: 900px) {
-            .two-col { grid-template-columns: 1fr; gap: 32px; }
-            .screenshot-strip img { height: 220px; }
+            .two-col { grid-template-columns: 1fr; gap: 40px; }
         }
 
         @media (max-width: 768px) {
             nav { padding: 18px 24px; }
             .nav-links { gap: 24px; }
-            .content { padding: 0 24px; }
-            .hero { padding: 40px 0 10px; }
+            .content { padding: 40px 24px 0; }
         }
 
         @media (max-width: 480px) {
-            .design-img-stack { grid-template-columns: 1fr; }
             nav { padding: 16px 20px; }
             .nav-links { gap: 18px; }
             .nav-links a { font-size: 12px; }
-            .content { padding: 0 20px; }
-            .hero { gap: 14px; }
-            .hero-text h1 { font-size: 22px; }
-            .logo { width: 48px; height: 48px; border-radius: 12px; }
-            .tagline { font-size: 13px; }
-            .featured-card { padding: 20px; }
-            .featured-header .app-icon-img { width: 46px; height: 46px; border-radius: 12px; }
-            .featured-header .app-name { font-size: 17px; }
+            .content { padding: 32px 20px 0; }
+            .featured-design { padding: 20px; }
+            .design-feature-meta h2 { font-size: 19px; }
             .app-row { padding: 12px 14px; }
-            .screenshot-strip img { height: 200px; }
         }
     </style>
 </head>
@@ -422,109 +446,31 @@
     <div class="page">
         <div class="content">
 
-            <header class="hero">
-                <img src="images/appicons/islandtwig.png" alt="IslandTwig Studios" class="logo">
-                <div class="hero-text">
-                    <h1>IslandTwig Studios</h1>
-                    <p class="tagline">Apps & Brand Identity Design Studio</p>
-                </div>
-            </header>
-
-            <div class="divider"></div>
-
             <div class="two-col">
 
-                <!-- LEFT: APPS -->
-                <div class="col-apps">
-                    <p class="section-label al1">Featured</p>
+                <!-- LEFT: DESIGN (now prominent) -->
+                <div class="col-design">
+                    <p class="section-label al1">Design Studio</p>
 
-                    <a href="https://apps.apple.com/us/app/poppy-popper/id6753832202" class="featured-card al2">
-                        <div class="featured-header">
-                            <img src="images/appicons/poppy_icon.png" alt="Poppy" class="app-icon-img">
-                            <div class="featured-header-text">
-                                <span class="badge badge-live">Available Now</span>
-                                <h2 class="app-name">Poppy</h2>
-                            </div>
+                    <a href="/design" class="featured-design al2">
+                        <div class="design-feature-meta">
+                            <span class="cat-tag">Sports identity · Hockey</span>
+                            <h2>Utah Mountaineers</h2>
                         </div>
-                        <div class="featured-body">
-                            <p class="app-desc">A satisfyingly tactile tapping game with handcrafted charm. Pop, bloom, repeat.</p>
-                            <div class="screenshot-strip">
-                                <img src="images/appicons/poppy_ss1.png" alt="Poppy gameplay">
-                                <img src="images/appicons/poppy_ss2.png" alt="Poppy game modes">
-                                <img src="images/appicons/poppy_ss3.png" alt="Poppy themes">
-                            </div>
-                            <span class="arrow-link link-sage">
-                                Get on the App Store
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                            </span>
+                        <div class="design-feature-image">
+                            <img src="images/mountaineers-jerseys.jpg" alt="Utah Mountaineers jersey set">
                         </div>
+                        <p class="design-feature-desc">A heritage hockey rebrand built around a hidden mountain mark — three jersey treatments, cap series, and a full uniform system.</p>
+                        <span class="arrow-link link-warm design-feature-cta">
+                            View project
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </span>
                     </a>
 
-                    <p class="section-label al3">Also Playing</p>
-
-                    <div class="app-list">
-                        <a href="https://apps.apple.com/us/app/nine-draw/id6757319447" class="app-row c-coral al4">
-                            <img src="images/appicons/nineDraw.png" alt="Nine Draw" class="app-icon-img">
-                            <div class="app-row-text">
-                                <h3 class="app-name">Nine Draw</h3>
-                                <p class="app-desc">A nine-card higher-or-lower challenge that tests your instincts.</p>
-                            </div>
-                            <span class="badge badge-live">Available</span>
-                        </a>
-
-                        <a href="https://apps.apple.com/us/app/midnight-solitaire-card-game/id6759999894" class="app-row c-sky al5">
-                            <img src="images/appicons/mnsolitaire.png" alt="Midnight Solitaire" class="app-icon-img">
-                            <div class="app-row-text">
-                                <h3 class="app-name">Midnight Solitaire</h3>
-                                <p class="app-desc">Classic solitaire with a refined dark aesthetic and wind-down mode.</p>
-                            </div>
-                            <span class="badge badge-live">Available</span>
-                        </a>
-
-                        <a href="#" class="app-row c-warm al6">
-                            <img src="images/appicons/tempoicon_new.png" alt="Hit the Mark" class="app-icon-img">
-                            <div class="app-row-text">
-                                <h3 class="app-name">Hit the Mark</h3>
-                                <p class="app-desc">Put your timing to the test and hit the target time.</p>
-                            </div>
-                            <span class="badge badge-live">Available</span>
-                        </a>
-
-                        <a href="#" class="app-row c-lavender al7">
-                            <img src="images/appicons/restedAppIcon.jpg" alt="Rested" class="app-icon-img">
-                            <div class="app-row-text">
-                                <h3 class="app-name">Rested</h3>
-                                <p class="app-desc">A REM cycle calculator to help you wake up refreshed.</p>
-                            </div>
-                            <span class="badge badge-live">Available</span>
-                        </a>
-
-                        <a href="#" class="app-row c-sage al8">
-                            <div class="app-icon-placeholder placeholder-sage">🃏</div>
-                            <div class="app-row-text">
-                                <h3 class="app-name">Reveal</h3>
-                                <p class="app-desc">Bid-and-win card strategy game. A take on the classic GOPS.</p>
-                            </div>
-                            <span class="badge badge-live">Available</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- RIGHT: DESIGN -->
-                <div class="col-design">
-                    <p class="section-label ar1">Design Studio</p>
+                    <p class="section-label spaced al3">More Work</p>
 
                     <div class="design-img-stack">
-                        <a href="/design" class="design-img-card ar2">
-                            <img src="images/mountaineers-jerseys.jpg" alt="Utah Mountaineers jerseys">
-                            <div class="design-img-overlay">
-                                <div>
-                                    <div class="overlay-name">Utah Mountaineers</div>
-                                    <div class="overlay-tag">Sports identity · Hockey</div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="/design" class="design-img-card ar3">
+                        <a href="/design" class="design-img-card al4">
                             <img src="images/bounce-logo.jpg" alt="Bounce Messenger">
                             <div class="design-img-overlay">
                                 <div>
@@ -533,7 +479,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="/design" class="design-img-card ar4">
+                        <a href="/design" class="design-img-card al5">
                             <img src="images/triloop.jpg" alt="Triloop">
                             <div class="design-img-overlay">
                                 <div>
@@ -542,8 +488,8 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="/design" class="design-img-card ar4">
-                            <img src="images/mammoth-symbols.jpg" alt="Mammoth Utah hidden symbols">
+                        <a href="/design" class="design-img-card al6">
+                            <img src="images/mammoth-symbols.jpg" alt="Mammoth Utah symbols">
                             <div class="design-img-overlay">
                                 <div>
                                     <div class="overlay-name">Mammoth Utah</div>
@@ -551,9 +497,18 @@
                                 </div>
                             </div>
                         </a>
+                        <a href="/design" class="design-img-card al7">
+                            <img src="images/bolts-marks.jpg" alt="Utah Bolts">
+                            <div class="design-img-overlay">
+                                <div>
+                                    <div class="overlay-name">Utah Bolts</div>
+                                    <div class="overlay-tag">Sports identity · Baseball</div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
 
-                    <a href="/design" class="design-cta ar5">
+                    <a href="/design" class="design-cta al8" style="margin-top: 8px; display: block;">
                         <div class="design-cta-inner">
                             <div>
                                 <div class="cta-title">Brand &amp; Identity Design</div>
@@ -565,6 +520,67 @@
                             </span>
                         </div>
                     </a>
+                </div>
+
+                <!-- RIGHT: APPS (now secondary, flat list) -->
+                <div class="col-apps">
+                    <p class="section-label ar1">Apps</p>
+
+                    <div class="app-list">
+                        <a href="https://apps.apple.com/us/app/poppy-popper/id6753832202" class="app-row c-sage is-featured ar2">
+                            <img src="images/appicons/poppy_icon.png" alt="Poppy" class="app-icon-img">
+                            <div class="app-row-text">
+                                <h3 class="app-name">Poppy</h3>
+                                <p class="app-desc">A satisfyingly tactile tapping game with handcrafted charm.</p>
+                            </div>
+                            <span class="badge badge-live">Available Now</span>
+                        </a>
+
+                        <a href="https://apps.apple.com/us/app/nine-draw/id6757319447" class="app-row c-coral ar3">
+                            <img src="images/appicons/nineDraw.png" alt="Nine Draw" class="app-icon-img">
+                            <div class="app-row-text">
+                                <h3 class="app-name">Nine Draw</h3>
+                                <p class="app-desc">A nine-card higher-or-lower challenge that tests your instincts.</p>
+                            </div>
+                            <span class="badge badge-live">Available</span>
+                        </a>
+
+                        <a href="https://apps.apple.com/us/app/midnight-solitaire-card-game/id6759999894" class="app-row c-sky ar4">
+                            <img src="images/appicons/mnsolitaire.png" alt="Midnight Solitaire" class="app-icon-img">
+                            <div class="app-row-text">
+                                <h3 class="app-name">Midnight Solitaire</h3>
+                                <p class="app-desc">Classic solitaire with a refined dark aesthetic and wind-down mode.</p>
+                            </div>
+                            <span class="badge badge-live">Available</span>
+                        </a>
+
+                        <a href="#" class="app-row c-warm ar5">
+                            <img src="images/appicons/tempoicon_new.png" alt="Hit the Mark" class="app-icon-img">
+                            <div class="app-row-text">
+                                <h3 class="app-name">Hit the Mark</h3>
+                                <p class="app-desc">Put your timing to the test and hit the target time.</p>
+                            </div>
+                            <span class="badge badge-live">Available</span>
+                        </a>
+
+                        <a href="#" class="app-row c-lavender ar6">
+                            <img src="images/appicons/restedAppIcon.jpg" alt="Rested" class="app-icon-img">
+                            <div class="app-row-text">
+                                <h3 class="app-name">Rested</h3>
+                                <p class="app-desc">A REM cycle calculator to help you wake up refreshed.</p>
+                            </div>
+                            <span class="badge badge-live">Available</span>
+                        </a>
+
+                        <a href="#" class="app-row c-sage ar7">
+                            <div class="app-icon-placeholder placeholder-sage">🃏</div>
+                            <div class="app-row-text">
+                                <h3 class="app-name">Reveal</h3>
+                                <p class="app-desc">Bid-and-win card strategy game. A take on the classic GOPS.</p>
+                            </div>
+                            <span class="badge badge-live">Available</span>
+                        </a>
+                    </div>
                 </div>
 
             </div>
