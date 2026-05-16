@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — IslandTwig Studios</title>
+
+    <link rel="icon" type="image/png" href="images/appicons/favicon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="About — IslandTwig Studios">
+    <meta property="og:description" content="Nick Holmquist — designer and developer behind IslandTwig Studios.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://islandtwigstudios.com/about">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@300&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #111110;
+            --surface: #1a1918;
+            --cream: #e8e0d5;
+            --cream-bright: #f2ece4;
+            --cream-dim: #a09890;
+            --cream-faint: rgba(232, 224, 213, 0.05);
+            --border: rgba(232, 224, 213, 0.08);
+            --sage: #7a9e87;
+            --sage-dim: rgba(122, 158, 135, 0.12);
+            --warm: #b8896a;
+            --warm-dim: rgba(184, 137, 106, 0.12);
+            --radius: 14px;
+            --radius-sm: 10px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--cream);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 400;
+            line-height: 1.65;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.4;
+        }
+
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 20px 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+            background: rgba(17, 17, 16, 0.85);
+            backdrop-filter: blur(12px);
+        }
+
+        .nav-logo {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--cream);
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .nav-logo:hover { opacity: 1; }
+
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--cream-dim);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            transition: color 0.2s;
+        }
+
+        .nav-links a.active { color: var(--sage); }
+        .nav-links a:hover { color: var(--cream); }
+
+        .page {
+            position: relative;
+            z-index: 1;
+            padding-top: 80px;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 56px 48px 0;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 64px;
+            align-items: start;
+        }
+
+        .col-left, .col-right { min-width: 0; }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--cream-dim);
+            margin-bottom: 16px;
+        }
+
+        /* ═══ LEFT COLUMN ═══ */
+
+        .hello {
+            font-size: clamp(28px, 3.5vw, 40px);
+            font-weight: 800;
+            color: var(--cream-bright);
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            margin-bottom: 24px;
+        }
+
+        .intro p {
+            font-size: 15px;
+            font-weight: 300;
+            color: var(--cream);
+            line-height: 1.7;
+            margin-bottom: 14px;
+        }
+
+        .intro p:last-child { margin-bottom: 0; }
+
+        .subsection {
+            margin-top: 40px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+        }
+
+        .subsection h3 {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--sage);
+            margin-bottom: 14px;
+        }
+
+        .subsection p {
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--cream-dim);
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .subsection p:last-child { margin-bottom: 0; }
+
+        .subsection strong { color: var(--cream); font-weight: 600; }
+
+        .discipline-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .discipline-list li {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--cream);
+            padding-left: 16px;
+            border-left: 2px solid var(--sage);
+            line-height: 1.5;
+        }
+
+        .discipline-list li span {
+            display: block;
+            font-size: 12px;
+            font-weight: 300;
+            color: var(--cream-dim);
+            margin-top: 2px;
+        }
+
+        /* ═══ RIGHT COLUMN ═══ */
+
+        .portrait-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portrait-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 30% 20%, var(--sage-dim), transparent 60%);
+            opacity: 0.5;
+        }
+
+        .portrait-card img {
+            position: relative;
+            z-index: 1;
+            width: 75%;
+            max-width: 260px;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            height: auto;
+            border-radius: 22px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+
+        .contact-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 80% 30%, var(--warm-dim), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .contact-card:hover::before { opacity: 1; }
+        .contact-card:hover {
+            border-color: rgba(184, 137, 106, 0.15);
+        }
+
+        .contact-card-inner { position: relative; z-index: 1; }
+
+        .contact-card h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--cream-bright);
+            margin-bottom: 8px;
+            letter-spacing: -0.01em;
+        }
+
+        .contact-card p {
+            font-size: 13px;
+            font-weight: 300;
+            color: var(--cream-dim);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .contact-email {
+            display: inline-block;
+            font-family: 'Fira Code', monospace;
+            font-size: 13px;
+            font-weight: 300;
+            color: var(--warm);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            transition: color 0.25s ease;
+        }
+
+        .contact-email:hover { color: var(--cream-bright); }
+
+        .meta-line {
+            margin-top: 24px;
+            padding-top: 18px;
+            border-top: 1px solid var(--border);
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 0.06em;
+            color: var(--cream-dim);
+        }
+
+        /* ═══ FOOTER ═══ */
+
+        .footer { padding: 80px 0 64px; text-align: center; }
+        .footer-divider { height: 1px; background: var(--border); margin-bottom: 28px; }
+
+        .social-row { display: flex; justify-content: center; gap: 16px; margin-bottom: 20px; }
+
+        .social-btn {
+            width: 38px; height: 38px; border-radius: 10px;
+            background: var(--cream-faint); border: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--cream-dim); text-decoration: none; transition: all 0.25s ease;
+        }
+        .social-btn:hover { background: rgba(232, 224, 213, 0.08); color: var(--cream); border-color: rgba(232, 224, 213, 0.12); }
+        .social-btn svg { width: 17px; height: 17px; }
+
+        .footer-email { font-family: 'Fira Code', monospace; font-size: 12.5px; font-weight: 300; color: var(--cream-dim); text-decoration: none; letter-spacing: 0.02em; transition: color 0.25s ease; display: inline-block; margin-bottom: 32px; }
+        .footer-email:hover { color: var(--cream); }
+
+        .maker-mark { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 28px; text-decoration: none; }
+        .maker-mark-icon { width: 28px; height: 28px; border-radius: 6px; opacity: 0.35; transition: opacity 0.3s ease; }
+        .maker-mark:hover .maker-mark-icon { opacity: 0.55; }
+        .maker-mark-label { font-size: 11px; font-weight: 400; letter-spacing: 0.06em; color: rgba(232, 224, 213, 0.22); transition: color 0.3s ease; }
+        .maker-mark:hover .maker-mark-label { color: rgba(232, 224, 213, 0.35); }
+        .footer-legal { font-size: 11px; color: rgba(232, 224, 213, 0.18); }
+        .footer-legal-link { color: inherit; text-decoration: none; transition: color 0.2s; }
+        .footer-legal-link:hover { color: var(--cream-dim); }
+
+        /* ═══ ANIMATIONS ═══ */
+
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .al1 { opacity:0; animation: fadeUp .6s ease .15s forwards; }
+        .al2 { opacity:0; animation: fadeUp .6s ease .25s forwards; }
+        .al3 { opacity:0; animation: fadeUp .6s ease .40s forwards; }
+        .al4 { opacity:0; animation: fadeUp .6s ease .55s forwards; }
+
+        .ar1 { opacity:0; animation: fadeUp .6s ease .30s forwards; }
+        .ar2 { opacity:0; animation: fadeUp .6s ease .45s forwards; }
+
+        .a-footer { opacity:0; animation: fadeUp .6s ease .80s forwards; }
+
+        @media (max-width: 900px) {
+            .two-col { grid-template-columns: 1fr; gap: 48px; }
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 18px 24px; }
+            .nav-links { gap: 24px; }
+            .content { padding: 40px 24px 0; }
+        }
+
+        @media (max-width: 480px) {
+            nav { padding: 16px 20px; }
+            .nav-links { gap: 18px; }
+            .nav-links a { font-size: 12px; }
+            .content { padding: 32px 20px 0; }
+            .portrait-card { padding: 32px; }
+            .contact-card { padding: 22px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="nav-logo">IslandTwig Studios</a>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/design">Design</a></li>
+            <li><a href="/about" class="active">About</a></li>
+            <li><a href="/privacy">Privacy</a></li>
+        </ul>
+    </nav>
+
+    <div class="page">
+        <div class="content">
+
+            <div class="two-col">
+
+                <!-- LEFT: BIO + PRACTICE -->
+                <div class="col-left">
+                    <p class="section-label al1">About</p>
+
+                    <h1 class="hello al2">Hi, I&rsquo;m Nick.</h1>
+
+                    <div class="intro al2">
+                        <p>I&rsquo;m a designer working out of Salem, Utah. IslandTwig Studios is the home for my brand identity work across sports teams, consumer brands, and naming projects. It&rsquo;s also where the small iOS games I&rsquo;ve built along the way live.</p>
+                        <p>Most of my projects start with a word. A team name, a product hook, a feeling worth holding onto. From there the work becomes a mark, a system, a thing you can put on a jersey or hold in your hand.</p>
+                    </div>
+
+                    <div class="subsection al3">
+                        <h3>Practice</h3>
+                        <ul class="discipline-list">
+                            <li>
+                                Sports identity
+                                <span>Hockey, baseball, and concept work for teams that don&rsquo;t exist yet.</span>
+                            </li>
+                            <li>
+                                Brand &amp; identity systems
+                                <span>Logos, naming, type, color &mdash; the whole stack.</span>
+                            </li>
+                            <li>
+                                Product design
+                                <span>iOS games and tools built in the same calm, tactile language.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection al4">
+                        <h3>Background</h3>
+                        <p>By day I work in technical success at a software company. It sounds unrelated, but the discipline of debugging complex systems sits closer to design than people think. Both come down to constraints, attention, and respect for how a thing wants to be used.</p>
+                    </div>
+                </div>
+
+                <!-- RIGHT: MARK + CONTACT -->
+                <div class="col-right">
+                    <div class="portrait-card ar1">
+                        <img src="images/ProfilePic.JPEG" alt="Nick Holmquist">
+                    </div>
+
+                    <div class="contact-card ar2">
+                        <div class="contact-card-inner">
+                            <h2>Let&rsquo;s talk.</h2>
+                            <p>Open for identity work, brand systems, and naming. Always happy to hear from folks building something quietly ambitious.</p>
+                            <a href="mailto:hello@islandtwigstudios.com" class="contact-email">hello@islandtwigstudios.com</a>
+                            <div class="meta-line">Based in Utah</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <footer class="footer a-footer">
+                <div class="footer-divider"></div>
+
+                <div class="social-row">
+                    <a href="https://www.instagram.com/islandtwigstudios" class="social-btn" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5"/>
+                            <circle cx="12" cy="12" r="5"/>
+                            <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
+                        </svg>
+                    </a>
+                    <a href="https://twitter.com/islandtwig" class="social-btn" aria-label="X / Twitter">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                    <a href="https://buymeacoffee.com/islandtwig" class="social-btn" aria-label="Buy Me A Coffee">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+                            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+                            <line x1="6" y1="1" x2="6" y2="4"/>
+                            <line x1="10" y1="1" x2="10" y2="4"/>
+                            <line x1="14" y1="1" x2="14" y2="4"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <a href="mailto:hello@islandtwigstudios.com" class="footer-email">hello@islandtwigstudios.com</a>
+
+                <a href="https://www.instagram.com/islandtwigstudios" class="maker-mark">
+                    <img class="maker-mark-icon" src="images/appicons/n_mark.png" alt="N" width="28" height="28">
+                    <span class="maker-mark-label">A Nick Holmquist project</span>
+                </a>
+
+                <p class="footer-legal">&copy; 2025 IslandTwig Studios &middot; <a href="/privacy" class="footer-legal-link">Privacy</a></p>
+            </footer>
+
+        </div>
+    </div>
+
+</body>
+</html>
