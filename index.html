@@ -204,6 +204,7 @@
 
         .app-icon-img { flex-shrink: 0; object-fit: cover; box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
         .app-icon-placeholder { flex-shrink: 0; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.3); background: linear-gradient(145deg, #3a2e50, #2c2040); font-size: 1.3rem; }
+        .app-icon-placeholder.placeholder-sage { background: linear-gradient(145deg, #3a4a3e, #2a3a2e); }
 
         .featured-card {
             display: block;
@@ -272,6 +273,7 @@
         .app-row.c-sky::before     { background: radial-gradient(ellipse at 12% 50%, var(--sky-dim), transparent 60%); }
         .app-row.c-warm::before    { background: radial-gradient(ellipse at 12% 50%, var(--warm-dim), transparent 60%); }
         .app-row.c-lavender::before { background: radial-gradient(ellipse at 12% 50%, var(--lavender-dim), transparent 60%); }
+        .app-row.c-sage::before    { background: radial-gradient(ellipse at 12% 50%, var(--sage-dim), transparent 60%); }
         .app-row:hover::before { opacity: 1; }
         .app-row:hover { border-color: rgba(232, 224, 213, 0.1); transform: translateY(-1px); }
 
@@ -365,6 +367,7 @@
         .al5 { opacity:0; animation: fadeUp .6s ease .75s forwards; }
         .al6 { opacity:0; animation: fadeUp .6s ease .80s forwards; }
         .al7 { opacity:0; animation: fadeUp .6s ease .85s forwards; }
+        .al8 { opacity:0; animation: fadeUp .6s ease .90s forwards; }
 
         .ar1 { opacity:0; animation: fadeUp .6s ease .50s forwards; }
         .ar2 { opacity:0; animation: fadeUp .6s ease .60s forwards; }
@@ -478,23 +481,32 @@
                             <span class="badge badge-soon">Soon</span>
                         </div>
 
-                        <div class="app-row c-warm coming-soon al6">
-                            <img src="images/appicons/tempoicon_new.png" alt="Tempo" class="app-icon-img">
+                        <a href="#" class="app-row c-warm al6">
+                            <img src="images/appicons/tempoicon_new.png" alt="Hit the Mark" class="app-icon-img">
                             <div class="app-row-text">
-                                <h3 class="app-name">Tempo</h3>
+                                <h3 class="app-name">Hit the Mark</h3>
                                 <p class="app-desc">Put your timing to the test and hit the target time.</p>
                             </div>
-                            <span class="badge badge-soon">Soon</span>
-                        </div>
+                            <span class="badge badge-live">Available</span>
+                        </a>
 
-                        <div class="app-row c-lavender coming-soon al7">
-                            <div class="app-icon-placeholder">💤</div>
+                        <a href="#" class="app-row c-lavender al7">
+                            <img src="images/appicons/restedAppIcon.png" alt="Rested" class="app-icon-img">
                             <div class="app-row-text">
-                                <h3 class="app-name">DreamTime</h3>
+                                <h3 class="app-name">Rested</h3>
                                 <p class="app-desc">A REM cycle calculator to help you wake up refreshed.</p>
                             </div>
-                            <span class="badge badge-soon">Soon</span>
-                        </div>
+                            <span class="badge badge-live">Available</span>
+                        </a>
+
+                        <a href="#" class="app-row c-sage al8">
+                            <div class="app-icon-placeholder placeholder-sage">🃏</div>
+                            <div class="app-row-text">
+                                <h3 class="app-name">Reveal</h3>
+                                <p class="app-desc">Bid-and-win card strategy game. A take on the classic GOPS.</p>
+                            </div>
+                            <span class="badge badge-live">Available</span>
+                        </a>
                     </div>
                 </div>
 
