@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hey Bright Teeth Whitening — IslandTwig Studios</title>
+<link rel="icon" type="image/png" href="/images/appicons/favicon.png">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Hey Bright Teeth Whitening — IslandTwig Studios">
+<meta property="og:description" content="Multi-year packaging work for Hey Bright Teeth Whitening, plus spillover work that came through the same relationship.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://islandtwigstudios.com/design/hey-bright">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@300&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #111110;
+    --surface: #1a1918;
+    --surface-bright: #21201e;
+    --cream: #e8e0d5;
+    --cream-bright: #f2ece4;
+    --cream-dim: #a09890;
+    --border: rgba(232, 224, 213, 0.08);
+    --sage: #7a9e87;
+    --sage-dim: rgba(122, 158, 135, 0.12);
+    --warm: #b8896a;
+    --warm-dim: rgba(184, 137, 106, 0.12);
+    --radius: 14px;
+    --radius-sm: 10px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body { background: var(--bg); color: var(--cream); font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.65; min-height: 100vh; }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0; opacity: 0.4;
+  }
+
+  /* ═══ NAV ═══ */
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 20px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    background: rgba(17,17,16,0.85);
+    backdrop-filter: blur(12px);
+  }
+  .nav-logo { font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cream); text-decoration: none; opacity: 0.7; transition: opacity 0.2s; }
+  .nav-logo:hover { opacity: 1; }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { color: var(--cream-dim); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.04em; transition: color 0.2s; }
+  .nav-links a.active { color: var(--sage); }
+  .nav-links a:hover { color: var(--cream); }
+
+  .page { position: relative; z-index: 1; padding-top: 80px; }
+
+  /* ═══ BACK LINK ═══ */
+
+  .back-link-row {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 32px 48px 0;
+  }
+  .back-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--cream-dim);
+    text-decoration: none;
+    transition: color 0.2s, gap 0.25s ease;
+  }
+  .back-link:hover { color: var(--sage); gap: 12px; }
+  .back-link svg { width: 12px; height: 12px; }
+
+  /* ═══ STUDY HEADER ═══ */
+
+  .study-header {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 32px 48px 48px;
+  }
+  .study-category {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--warm);
+    margin-bottom: 16px;
+  }
+  .study-header h1 {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 800; letter-spacing: -0.02em;
+    line-height: 1.1; color: var(--cream-bright);
+    margin-bottom: 18px;
+  }
+  .study-tagline {
+    font-size: 18px; font-weight: 300; color: var(--cream-dim);
+    line-height: 1.55; max-width: 680px;
+    margin-bottom: 32px;
+  }
+  .study-meta {
+    display: flex; gap: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .study-meta-item { display: flex; flex-direction: column; gap: 4px; }
+  .study-meta-label { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream-dim); }
+  .study-meta-value { font-size: 14px; font-weight: 500; color: var(--cream); }
+
+  /* Anchor jumps: offset for fixed nav */
+  .study-section[id], section[id] { scroll-margin-top: 96px; }
+
+  /* ═══ STUDY SUMMARY + JUMP LINKS ═══ */
+
+  .study-summary {
+    max-width: 920px;
+    margin: 0 auto 64px;
+    padding: 0 48px;
+  }
+  .study-summary-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 32px;
+  }
+  .study-summary-label {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--cream-dim);
+    margin-bottom: 12px;
+  }
+  .study-summary-text {
+    font-size: 15px; font-weight: 300;
+    color: var(--cream); line-height: 1.7;
+    margin-bottom: 4px;
+  }
+  .study-summary-jumps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+  }
+  .study-summary-jumps a {
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--warm);
+    text-decoration: none;
+    padding-right: 16px;
+    margin-right: 16px;
+    border-right: 1px solid var(--border);
+    transition: color 0.2s;
+  }
+  .study-summary-jumps a:last-child {
+    border-right: none;
+    margin-right: 0;
+    padding-right: 0;
+  }
+  .study-summary-jumps a:hover {
+    color: var(--cream-bright);
+  }
+
+  /* ═══ HERO IMAGE ═══ */
+
+  .study-hero {
+    max-width: 1200px;
+    margin: 0 auto 48px;
+    padding: 0 48px;
+  }
+  .study-hero-image {
+    width: 100%; aspect-ratio: 16 / 9;
+    background: var(--surface-bright);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .study-hero-image img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ═══ BODY SECTIONS ═══ */
+
+  .study-body {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+  .study-section { margin-bottom: 56px; }
+  .study-section-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--warm);
+    margin-bottom: 14px;
+  }
+  .study-section h2 {
+    font-size: 26px; font-weight: 700; color: var(--cream-bright);
+    letter-spacing: -0.01em; line-height: 1.2;
+    margin-bottom: 18px;
+  }
+  .study-section p {
+    font-size: 15px; font-weight: 300; color: var(--cream);
+    line-height: 1.75;
+    margin-bottom: 16px;
+  }
+  .study-section p:last-child { margin-bottom: 0; }
+  .study-section strong { color: var(--cream-bright); font-weight: 600; }
+
+  /* ═══ IMAGE BLOCKS ═══ */
+
+  .study-image-block {
+    max-width: 1200px;
+    margin: 0 auto 48px;
+    padding: 0 48px;
+  }
+  .study-image-block.narrow { max-width: 920px; }
+  .study-image {
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--surface-bright);
+  }
+  .study-image img { width: 100%; height: auto; display: block; }
+  .study-image-caption {
+    margin-top: 12px;
+    font-size: 12px; color: var(--cream-dim);
+    text-align: center; font-style: italic;
+  }
+
+  /* Image pair (two images side by side) */
+  .image-pair {
+    max-width: 1200px;
+    margin: 0 auto 48px;
+    padding: 0 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .image-pair .study-image { margin: 0; }
+
+  /* Image trio (three side by side, for showing the product line together) */
+  .image-trio {
+    max-width: 1200px;
+    margin: 0 auto 48px;
+    padding: 0 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+  }
+  .image-trio .study-image { margin: 0; aspect-ratio: 3 / 4; }
+  .image-trio .study-image img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* ═══ FINAL CTA ═══ */
+
+  .study-cta {
+    max-width: 920px;
+    margin: 0 auto 64px;
+    padding: 0 48px;
+  }
+  .study-cta-card {
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 36px 40px;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  .study-cta-card::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 80% 50%, var(--warm-dim), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .study-cta-card:hover::before { opacity: 1; }
+  .study-cta-card:hover {
+    border-color: rgba(184, 137, 106, 0.18);
+    transform: translateY(-1px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+  }
+  .study-cta-inner {
+    position: relative; z-index: 1;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px; flex-wrap: wrap;
+  }
+  .study-cta-eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--warm);
+    margin-bottom: 10px;
+  }
+  .study-cta h2 {
+    font-size: 24px; font-weight: 700;
+    color: var(--cream-bright);
+    letter-spacing: -0.01em; line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .study-cta p {
+    font-size: 14px; font-weight: 300;
+    color: var(--cream-dim);
+    line-height: 1.6;
+  }
+  .study-cta-pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 14px; font-weight: 600; color: var(--warm);
+    padding: 12px 22px;
+    background: var(--warm-dim);
+    border: 1px solid rgba(184, 137, 106, 0.2);
+    border-radius: 100px;
+    flex-shrink: 0;
+  }
+  .study-cta-pill svg { width: 14px; height: 14px; }
+
+  /* ═══ FOOTER ═══ */
+
+  .footer { padding: 32px 0 64px; text-align: center; max-width: 920px; margin: 0 auto; padding-left: 48px; padding-right: 48px; }
+  .footer-divider { height: 1px; background: var(--border); margin-bottom: 28px; }
+  .footer-email { font-family: 'Fira Code', monospace; font-size: 12.5px; font-weight: 300; color: var(--cream-dim); text-decoration: none; letter-spacing: 0.02em; display: inline-block; margin-bottom: 20px; }
+  .footer-email:hover { color: var(--cream); }
+  .footer-legal { font-size: 11px; color: rgba(232, 224, 213, 0.18); }
+  .footer-legal a { color: inherit; text-decoration: none; }
+
+  @media (max-width: 900px) {
+    .image-pair, .image-trio { grid-template-columns: 1fr; }
+    .image-trio .study-image { aspect-ratio: 16 / 10; }
+  }
+  @media (max-width: 768px) {
+    nav { padding: 18px 24px; }
+    .nav-links { gap: 24px; }
+    .back-link-row, .study-header, .study-hero, .study-summary, .study-body, .study-image-block, .image-pair, .image-trio, .study-cta, .footer {
+      padding-left: 24px; padding-right: 24px;
+    }
+  }
+  @media (max-width: 480px) {
+    nav { padding: 16px 20px; }
+    .nav-links { gap: 18px; }
+    .nav-links a { font-size: 12px; }
+    .back-link-row, .study-header, .study-hero, .study-summary, .study-body, .study-image-block, .image-pair, .image-trio, .study-cta, .footer {
+      padding-left: 20px; padding-right: 20px;
+    }
+    .study-meta { gap: 24px; }
+    .study-cta-card { padding: 24px; }
+    .study-summary-card { padding: 22px 24px; }
+    .study-summary-jumps { flex-direction: column; align-items: stretch; gap: 0; padding-top: 14px; }
+    .study-summary-jumps a {
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+      margin-right: 0;
+      padding: 12px 0;
+      text-align: center;
+    }
+    .study-summary-jumps a:last-child { border-bottom: none; padding-bottom: 0; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">IslandTwig Studios</a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/design" class="active">Design</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+
+  <!-- BACK LINK -->
+  <div class="back-link-row">
+    <a href="/design" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Design
+    </a>
+  </div>
+
+  <!-- STUDY HEADER -->
+  <header class="study-header">
+    <div class="study-category">Brand &amp; Packaging · Ongoing Client</div>
+    <h1>Hey Bright Teeth Whitening.</h1>
+    <p class="study-tagline">Multi-year packaging work for my sister Ashley's teeth-whitening business. Three product lines in market, refreshed this year. Plus a piece of spillover work for one of her course attendees.</p>
+    <div class="study-meta">
+      <div class="study-meta-item">
+        <div class="study-meta-label">Discipline</div>
+        <div class="study-meta-value">Packaging · Brand Work · Print</div>
+      </div>
+      <div class="study-meta-item">
+        <div class="study-meta-label">Year</div>
+        <div class="study-meta-value">Ongoing since 2022</div>
+      </div>
+      <div class="study-meta-item">
+        <div class="study-meta-label">Status</div>
+        <div class="study-meta-value">Active client relationship</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO IMAGE -->
+  <!-- Source: PNG_image_2.PNG (Bright Strips box on neutral gray) -->
+  <div class="study-hero">
+    <div class="study-hero-image">
+      <img src="/images/case-studies/hey-bright/hero.jpeg" alt="Hey Bright Bright Strips teeth whitening box on a neutral gray background">
+    </div>
+  </div>
+
+  <!-- STUDY SUMMARY + JUMP LINKS -->
+  <div class="study-summary">
+    <div class="study-summary-card">
+      <div class="study-summary-label">In this showcase</div>
+      <p class="study-summary-text">Three teeth-whitening packages currently in production. A sweater and a course-attendee map built alongside the line. A piece of separate packaging work for one of Ashley's course clients.</p>
+      <div class="study-summary-jumps">
+        <a href="#context">The Relationship</a>
+        <a href="#packaging">The Packaging</a>
+        <a href="#extras">Extras</a>
+        <a href="#spillover">Spillover Work</a>
+        <a href="#reflection">Reflection</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE RELATIONSHIP -->
+  <section class="study-body">
+    <div class="study-section" id="context">
+      <div class="study-section-label">The Relationship</div>
+      <h2>Family rate, professional output.</h2>
+      <p>Hey Bright is my sister Ashley's teeth-whitening business. The work has been ongoing for a few years, picking up in the last two as her product line grew. Most of it happens through text messages. She has a need, I send options, she picks one, we iterate. The pace is informal but the output isn't.</p>
+      <p>Three current product lines are in production. Each one was updated this year as the brand refined. A few extras have come up along the way that aren't packaging but live in the same brand world. And one piece of paid work landed through her network rather than through her catalog, which is included here because it's part of how this relationship has actually worked.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       THE PACKAGING
+       Three product lines: Bright Strips, Glow & Go, Hey Triple Care
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="study-body">
+    <div class="study-section" id="packaging">
+      <div class="study-section-label">The Packaging</div>
+      <h2>Three product lines, one visual system.</h2>
+      <p>Bright Strips, Glow &amp; Go, and Hey Triple Care all sit on the same shelf and have to read as one brand. The wordmark family carries across the line. Each product gets its own color treatment to differentiate at a glance, but the structural moves stay consistent: a flat front, a tight name lockup, and a back panel that handles the dense information without crowding.</p>
+    </div>
+  </section>
+
+  <!-- Lifestyle hero shot (held in hand with nails) -->
+  <!-- Source: IMG_1971.PNG -->
+  <div class="study-image-block">
+    <div class="study-image">
+      <img src="/images/case-studies/hey-bright/lifestyle-shot.jpeg" alt="Hey Bright Bright Strips package held in hand">
+    </div>
+    <div class="study-image-caption">Bright Strips, the flagship product, in context.</div>
+  </div>
+
+  <!-- Bright Strips dieline -->
+  <!-- Source: PNG_image.PNG -->
+  <div class="study-image-block">
+    <div class="study-image">
+      <img src="/images/case-studies/hey-bright/bright-strips-dieline.jpeg" alt="Bright Strips packaging dieline showing front, back, and side panels flat">
+    </div>
+    <div class="study-image-caption">Bright Strips dieline. Front, back, and side panels laid flat for production.</div>
+  </div>
+
+  <!-- Glow & Go dieline -->
+  <!-- Source: IMG_6918.jpeg -->
+  <div class="study-image-block">
+    <div class="study-image">
+      <img src="/images/case-studies/hey-bright/glow-go-dieline.jpeg" alt="Glow and Go packaging dieline">
+    </div>
+    <div class="study-image-caption">Glow &amp; Go dieline. The second product line, refreshed this year.</div>
+  </div>
+
+  <!-- Hey Triple Care boxes stacked -->
+  <!-- Source: IMG_7772.JPEG -->
+  <div class="study-image-block">
+    <div class="study-image">
+      <img src="/images/case-studies/hey-bright/triple-care-boxes.jpeg" alt="Stack of Hey Triple Care packages">
+    </div>
+    <div class="study-image-caption">Hey Triple Care, in print. The third product completes the current line.</div>
+  </div>
+
+  <!-- Wordmark exploration / banner shot -->
+  <!-- Source: Screenshot_2025-08... -->
+  <div class="study-image-block narrow">
+    <div class="study-image">
+      <img src="/images/case-studies/hey-bright/wordmark-exploration.jpeg" alt="Hey Bright wordmark and brand exploration variants">
+    </div>
+    <div class="study-image-caption">A round of wordmark and banner exploration. The friendly typographic tone carries across the line.</div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       THE EXTRAS
+       Smile Club sweater, course participant map, tooth gems
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="study-body">
+    <div class="study-section" id="extras">
+      <div class="study-section-label">The Extras</div>
+      <h2>The pieces that aren't packaging.</h2>
+      <p>A few projects have come up alongside the product work. None of them are a full brand extension, but each one had a specific job. <strong>The Smile Club sweater</strong> is a personal piece for Ashley to wear at events. <strong>The course participant map</strong> lives on her website and tracks where her course students come from across the country. <strong>The Tooth Gems mark</strong> was an early piece for one of her side ventures, which we started together and is currently on pause.</p>
+    </div>
+  </section>
+
+  <!-- Smile Club hoodie + flat mark -->
+  <!-- Sources: IMG_0138.JPG (hoodie back) and IMG_0139.JPG or IMG_0140.JPG (flat mark) -->
+  <div class="image-pair">
+    <div class="study-image">
+      <img src="/images/case-studies/hey-bright/smile-club-hoodie.jpeg" alt="Hey Bright Smile Club hoodie back design">
+    </div>
+    <div class="study-image">
+      <img src="/images/case-studies/hey-bright/smile-club-mark.jpeg" alt="Hey Bright Smile Club mark flat">
+    </div>
+  </div>
+
+  <!-- Course participant map -->
+  <!-- TODO Nick: drop in the course attendee map image -->
+  <div class="study-image-block">
+    <div class="study-image">
+      <img src="/images/case-studies/hey-bright/course-attendee-map.jpeg" alt="US map of Hey Bright course participants across the country">
+    </div>
+    <div class="study-image-caption">Course Participant map. Lives on the Hey Bright website and grows as new students sign up.</div>
+  </div>
+
+  <!-- Tooth Gems -->
+  <!-- TODO Nick: drop in the tooth gems image(s) -->
+  <div class="study-image-block">
+    <div class="study-image">
+      <img src="/images/case-studies/hey-bright/tooth-gems.jpeg" alt="Hey Bright Tooth Gems mark and product treatment">
+    </div>
+    <div class="study-image-caption">Tooth Gems. An early mark for a parallel product line, currently on pause.</div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       SPILLOVER WORK: Solid Smiles
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="study-body">
+    <div class="study-section" id="spillover">
+      <div class="study-section-label">Spillover Work</div>
+      <h2>Solid Smiles.</h2>
+      <p>Ashley's whitening course includes a packaging component, and at some point she started selling my design work as part of what her students could buy through her. <strong>Solid Smiles</strong> was the first of those projects. The client took Ashley's course, wanted packaging for a teeth-whitening product of their own, and paid Ashley. Ashley paid me. I designed a box and a set of labels.</p>
+      <p>Same vertical as Hey Bright, different brand, different audience. The arrangement is the part worth mentioning. When a client relationship goes deep enough that the client starts reselling the service, the work compounds in a way a one-off project never does.</p>
+    </div>
+  </section>
+
+  <!-- Solid Smiles work -->
+  <!-- TODO Nick: drop in Solid Smiles box and labels images -->
+  <div class="study-image-block">
+    <div class="study-image">
+      <img src="/images/case-studies/hey-bright/solid-smiles.jpeg" alt="Solid Smiles teeth whitening box and product labels">
+    </div>
+    <div class="study-image-caption">Solid Smiles. Box and label set. Commissioned by Ashley on behalf of one of her course students.</div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       REFLECTION
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="study-body">
+    <div class="study-section" id="reflection">
+      <div class="study-section-label">Reflection</div>
+      <h2>The slow client is the durable client.</h2>
+      <p>Hey Bright has produced more shipped packaging than any of the big-arc projects I've worked on. It hasn't done it through a master plan. It's done it by being available when she needs an iteration, fast when she needs a turnaround, and willing to keep the format informal when the work doesn't need a contract for every revision.</p>
+      <p>Most freelance portfolios are organized around big stories. The truth is that <strong>a steady client who keeps coming back is a more accurate signal of how a working designer actually delivers value</strong> than any one dramatic project. That's the case Hey Bright makes for itself.</p>
+    </div>
+  </section>
+
+  <!-- STUDY CTA -->
+  <div class="study-cta">
+    <a href="/services" class="study-cta-card">
+      <div class="study-cta-inner">
+        <div>
+          <div class="study-cta-eyebrow">Available for work</div>
+          <h2>Need packaging that has to live on a shelf?</h2>
+          <p>I take on packaging and brand work for product-based businesses. Logos at $200, full brand systems from $800.</p>
+        </div>
+        <span class="study-cta-pill">
+          See services
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+      </div>
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-divider"></div>
+    <a href="mailto:hello@islandtwigstudios.com" class="footer-email">hello@islandtwigstudios.com</a>
+    <p class="footer-legal">&copy; 2026 IslandTwig Studios &middot; <a href="/privacy">Privacy</a></p>
+  </footer>
+
+</div>
+
+</body>
+</html>
