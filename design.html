@@ -112,12 +112,15 @@
   }
 
   .header-right {
-    font-size: 14px;
-    color: var(--cream-dim);
-    line-height: 1.7;
     max-width: 320px;
     flex-shrink: 0;
     padding-bottom: 4px;
+  }
+
+  .header-right p {
+    font-size: 14px;
+    color: var(--cream-dim);
+    line-height: 1.7;
   }
 
   .divider {
@@ -137,6 +140,62 @@
 
   @media (max-width: 1100px) { .masonry-wrap { columns: 2; } }
   @media (max-width: 680px)  { .masonry-wrap { columns: 1; padding: 0 20px 80px; } }
+
+  /* ═══ AVAILABILITY INDICATOR ═══ */
+
+  .availability-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 8px 0 0;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--sage);
+    letter-spacing: 0.02em;
+  }
+
+  .availability-bar::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--sage);
+    box-shadow: 0 0 8px rgba(122, 158, 135, 0.6);
+    flex-shrink: 0;
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(122, 158, 135, 0.6); }
+    50% { opacity: 0.6; box-shadow: 0 0 14px rgba(122, 158, 135, 0.8); }
+  }
+
+  /* ═══ HEADER CTA BUTTON ═══ */
+
+  .header-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    padding: 10px 20px;
+    background: rgba(184, 137, 106, 0.12);
+    border: 1px solid rgba(184, 137, 106, 0.25);
+    border-radius: 100px;
+    color: #b8896a;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: all 0.25s ease;
+  }
+
+  .header-cta:hover {
+    background: rgba(184, 137, 106, 0.2);
+    border-color: rgba(184, 137, 106, 0.4);
+    transform: translateY(-1px);
+  }
+
+  .header-cta svg { width: 13px; height: 13px; }
 
   .project-block {
     break-inside: avoid;
@@ -277,14 +336,21 @@
   </ul>
 </nav>
 
-<div class="page">
-  <div class="page-header">
-    <div class="header-left">
-      <div class="label">Design Studio</div>
-      <h1>Sports identity &<br>brand work.</h1>
+  <div class="page">
+    <div class="page-header">
+      <div class="header-left">
+        <div class="label">Design Studio</div>
+        <h1>Sports identity &<br>brand work.</h1>
+        <div class="availability-bar">Available for new projects</div>
+      </div>
+      <div class="header-right">
+        <p>Logos, brand systems, and naming for sports teams, small businesses, and indie products.</p>
+        <a href="/services" class="header-cta">
+          See services &amp; pricing
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
     </div>
-    <p class="header-right">Logos, brand systems, and naming for sports teams, small businesses, and indie products. Currently taking on a few new projects each month. <a href="/services" style="color: var(--sage); text-decoration: none; border-bottom: 1px solid rgba(122,158,135,0.4);">See services &rarr;</a></p>
-  </div>
 
   <div class="divider"></div>
 
