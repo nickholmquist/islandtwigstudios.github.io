@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Redesigning the Utah State Flag — IslandTwig Studios</title>
+<link rel="icon" type="image/png" href="images/appicons/favicon.png">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Redesigning the Utah State Flag — IslandTwig Studios">
+<meta property="og:description" content="Competition entry for Utah's More Than A Flag initiative. Honored by the Governor's office as one of 75 designs recognized statewide.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://islandtwigstudios.com/design/utah-flag">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@300&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #111110;
+    --surface: #1a1918;
+    --surface-bright: #21201e;
+    --cream: #e8e0d5;
+    --cream-bright: #f2ece4;
+    --cream-dim: #a09890;
+    --border: rgba(232, 224, 213, 0.08);
+    --sage: #7a9e87;
+    --sage-dim: rgba(122, 158, 135, 0.12);
+    --warm: #b8896a;
+    --warm-dim: rgba(184, 137, 106, 0.12);
+    --radius: 14px;
+    --radius-sm: 10px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body { background: var(--bg); color: var(--cream); font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.65; min-height: 100vh; }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0; opacity: 0.4;
+  }
+
+  /* ═══ NAV ═══ */
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 20px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    background: rgba(17,17,16,0.85);
+    backdrop-filter: blur(12px);
+  }
+  .nav-logo { font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cream); text-decoration: none; opacity: 0.7; transition: opacity 0.2s; }
+  .nav-logo:hover { opacity: 1; }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { color: var(--cream-dim); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.04em; transition: color 0.2s; }
+  .nav-links a.active { color: var(--sage); }
+  .nav-links a:hover { color: var(--cream); }
+
+  .page { position: relative; z-index: 1; padding-top: 80px; }
+
+  /* ═══ BACK LINK ═══ */
+
+  .back-link-row {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 32px 48px 0;
+  }
+  .back-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--cream-dim);
+    text-decoration: none;
+    transition: color 0.2s, gap 0.25s ease;
+  }
+  .back-link:hover { color: var(--sage); gap: 12px; }
+  .back-link svg { width: 12px; height: 12px; }
+
+  /* ═══ STUDY HEADER ═══ */
+
+  .study-header {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 32px 48px 48px;
+  }
+  .study-category {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--warm);
+    margin-bottom: 16px;
+  }
+  .study-header h1 {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 800; letter-spacing: -0.02em;
+    line-height: 1.1; color: var(--cream-bright);
+    margin-bottom: 18px;
+  }
+  .study-tagline {
+    font-size: 18px; font-weight: 300; color: var(--cream-dim);
+    line-height: 1.55; max-width: 680px;
+    margin-bottom: 32px;
+  }
+  .study-meta {
+    display: flex; gap: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .study-meta-item { display: flex; flex-direction: column; gap: 4px; }
+  .study-meta-label { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream-dim); }
+  .study-meta-value { font-size: 14px; font-weight: 500; color: var(--cream); }
+
+  /* Recognition pill, sits beside meta items */
+  .study-meta-honor {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 600;
+    color: var(--sage);
+    padding: 8px 14px;
+    background: var(--sage-dim);
+    border: 1px solid rgba(122, 158, 135, 0.18);
+    border-radius: 100px;
+    align-self: center;
+  }
+  .study-meta-honor svg { width: 12px; height: 12px; }
+
+  /* ═══ HERO IMAGE ═══ */
+
+  .study-hero {
+    max-width: 1200px;
+    margin: 0 auto 64px;
+    padding: 0 48px;
+  }
+  .study-hero-image {
+    width: 100%; aspect-ratio: 16 / 9;
+    background: var(--surface-bright);
+    border-radius: var(--radius);
+    overflow: hidden;
+    /* Flag art is centered. Show whole image, no crop. */
+    display: flex; align-items: center; justify-content: center;
+  }
+  .study-hero-image img {
+    width: 100%; height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* ═══ BODY SECTIONS ═══ */
+
+  .study-body {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+  .study-section { margin-bottom: 64px; }
+  .study-section-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--warm);
+    margin-bottom: 14px;
+  }
+  .study-section h2 {
+    font-size: 26px; font-weight: 700; color: var(--cream-bright);
+    letter-spacing: -0.01em; line-height: 1.2;
+    margin-bottom: 18px;
+  }
+  .study-section p {
+    font-size: 15px; font-weight: 300; color: var(--cream);
+    line-height: 1.75;
+    margin-bottom: 16px;
+  }
+  .study-section p:last-child { margin-bottom: 0; }
+  .study-section strong { color: var(--cream-bright); font-weight: 600; }
+
+  /* Pull quote */
+  .pull-quote {
+    margin: 32px 0;
+    padding: 24px 28px;
+    border-left: 3px solid var(--warm);
+    background: rgba(184, 137, 106, 0.05);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  }
+  .pull-quote p {
+    font-size: 17px; font-weight: 400;
+    color: var(--cream-bright); line-height: 1.55;
+    margin: 0;
+    font-style: italic;
+  }
+
+  /* ═══ IMAGE BLOCKS ═══ */
+
+  .study-image-block {
+    max-width: 1200px;
+    margin: 0 auto 64px;
+    padding: 0 48px;
+  }
+  .study-image-block.narrow { max-width: 920px; }
+  .study-image {
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--surface-bright);
+  }
+  .study-image img { width: 100%; height: auto; display: block; }
+  .study-image-caption {
+    margin-top: 12px;
+    font-size: 12px; color: var(--cream-dim);
+    text-align: center; font-style: italic;
+  }
+
+  /* ═══ RECOGNITION BLOCK ═══ */
+
+  .recognition-block {
+    max-width: 920px;
+    margin: 0 auto 64px;
+    padding: 0 48px;
+  }
+  .recognition-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  .recognition-card .study-section-label { margin-bottom: 12px; }
+  .recognition-card h2 {
+    font-size: 24px; font-weight: 700;
+    color: var(--cream-bright);
+    letter-spacing: -0.01em; line-height: 1.25;
+    margin-bottom: 12px;
+  }
+  .recognition-card p {
+    font-size: 14px; font-weight: 300;
+    color: var(--cream); line-height: 1.75;
+    margin-bottom: 12px;
+  }
+  .recognition-card p:last-child { margin-bottom: 0; }
+  .recognition-image {
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background: var(--surface-bright);
+    aspect-ratio: 3 / 4;
+  }
+  .recognition-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* Ceremony pair */
+  .ceremony-pair {
+    max-width: 1200px;
+    margin: 0 auto 64px;
+    padding: 0 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .ceremony-pair .study-image { margin: 0; }
+
+  /* ═══ FINAL CTA ═══ */
+
+  .study-cta {
+    max-width: 920px;
+    margin: 0 auto 64px;
+    padding: 0 48px;
+  }
+  .study-cta-card {
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 36px 40px;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  .study-cta-card::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 80% 50%, var(--warm-dim), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .study-cta-card:hover::before { opacity: 1; }
+  .study-cta-card:hover {
+    border-color: rgba(184, 137, 106, 0.18);
+    transform: translateY(-1px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+  }
+  .study-cta-inner {
+    position: relative; z-index: 1;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px; flex-wrap: wrap;
+  }
+  .study-cta-eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--warm);
+    margin-bottom: 10px;
+  }
+  .study-cta h2 {
+    font-size: 24px; font-weight: 700;
+    color: var(--cream-bright);
+    letter-spacing: -0.01em; line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .study-cta p {
+    font-size: 14px; font-weight: 300;
+    color: var(--cream-dim);
+    line-height: 1.6;
+  }
+  .study-cta-pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 14px; font-weight: 600; color: var(--warm);
+    padding: 12px 22px;
+    background: var(--warm-dim);
+    border: 1px solid rgba(184, 137, 106, 0.2);
+    border-radius: 100px;
+    flex-shrink: 0;
+  }
+  .study-cta-pill svg { width: 14px; height: 14px; }
+
+  /* ═══ FOOTER ═══ */
+
+  .footer { padding: 32px 0 64px; text-align: center; max-width: 920px; margin: 0 auto; padding-left: 48px; padding-right: 48px; }
+  .footer-divider { height: 1px; background: var(--border); margin-bottom: 28px; }
+  .footer-email { font-family: 'Fira Code', monospace; font-size: 12.5px; font-weight: 300; color: var(--cream-dim); text-decoration: none; letter-spacing: 0.02em; display: inline-block; margin-bottom: 20px; }
+  .footer-email:hover { color: var(--cream); }
+  .footer-legal { font-size: 11px; color: rgba(232, 224, 213, 0.18); }
+  .footer-legal a { color: inherit; text-decoration: none; }
+
+  @media (max-width: 900px) {
+    .recognition-card { grid-template-columns: 1fr; gap: 28px; }
+    .recognition-image { aspect-ratio: 4 / 3; max-width: 360px; margin: 0 auto; }
+    .ceremony-pair { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 768px) {
+    nav { padding: 18px 24px; }
+    .nav-links { gap: 24px; }
+    .back-link-row, .study-header, .study-hero, .study-body, .study-image-block, .recognition-block, .ceremony-pair, .study-cta, .footer {
+      padding-left: 24px; padding-right: 24px;
+    }
+  }
+  @media (max-width: 480px) {
+    nav { padding: 16px 20px; }
+    .nav-links { gap: 18px; }
+    .nav-links a { font-size: 12px; }
+    .back-link-row, .study-header, .study-hero, .study-body, .study-image-block, .recognition-block, .ceremony-pair, .study-cta, .footer {
+      padding-left: 20px; padding-right: 20px;
+    }
+    .study-meta { gap: 24px; }
+    .recognition-card { padding: 28px; }
+    .study-cta-card { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">IslandTwig Studios</a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/design" class="active">Design</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+
+  <!-- BACK LINK -->
+  <div class="back-link-row">
+    <a href="/design" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Design
+    </a>
+  </div>
+
+  <!-- STUDY HEADER -->
+  <header class="study-header">
+    <div class="study-category">Civic Identity · Vexillology · Competition</div>
+    <h1>Redesigning the Utah State Flag.</h1>
+    <p class="study-tagline">A competition entry for the state's More Than A Flag initiative. One of 75 designs honored statewide by the Governor's office.</p>
+    <div class="study-meta">
+      <div class="study-meta-item">
+        <div class="study-meta-label">Discipline</div>
+        <div class="study-meta-value">Identity · Vexillology · Civic design</div>
+      </div>
+      <div class="study-meta-item">
+        <div class="study-meta-label">Year</div>
+        <!-- TODO Nick: confirm year you submitted -->
+        <div class="study-meta-value">2022</div>
+      </div>
+      <div class="study-meta-item">
+        <div class="study-meta-label">Status</div>
+        <div class="study-meta-value">Competition entry · Honored</div>
+      </div>
+      <span class="study-meta-honor">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5L17 22l-5-3-5 3 1.5-8.5"/></svg>
+        1 of 75 honored statewide
+      </span>
+    </div>
+  </header>
+
+  <!-- HERO IMAGE -->
+  <!-- Source: 6F675E05F42047869D867EF6B2EE6507_4_5005_c.jpeg -->
+  <div class="study-hero">
+    <div class="study-hero-image">
+      <img src="images/case-studies/utah-flag/hero-final-submission.jpg" alt="Utah State Flag submission by Nick Holmquist: navy canton with four white stars, mountain silhouette dividing into white middle and red base, with a gold hexagonal beehive cell at center">
+    </div>
+  </div>
+
+  <!-- THE BRIEF -->
+  <section class="study-body">
+    <div class="study-section">
+      <div class="study-section-label">The Brief</div>
+      <h2>Utah opened its state flag up to anyone with a steady hand.</h2>
+      <p>In 2022, the State of Utah announced an open competition to redesign the state flag. The existing flag was a state seal on a blue field. Functional, but indistinguishable from a dozen other state flags at a distance, and built for a different era. The brief was simple. Submit a design. Anyone could enter.</p>
+      <p>I didn't enter to win. I entered because the prompt is one of the cleanest problems in graphic design. <strong>A flag has to mean something specific, look like something distinct, and survive every size from a phone screen to a windblown pole.</strong> If you can solve that for a state you actually live in, you're learning something the next paid project will need.</p>
+    </div>
+
+    <!-- THE CONSTRAINTS -->
+    <div class="study-section">
+      <div class="study-section-label">The Constraints</div>
+      <h2>Vexillology has rules. Most flags break them.</h2>
+      <p>The North American Vexillological Association's guidance is short and uncompromising. Use two or three basic colors. Keep it simple enough a child can draw it from memory. Use meaningful symbolism. Avoid lettering and seals. Be distinctive. Most US state flags fail at least three of those at once.</p>
+      <p>The harder constraint was Utah itself. The state's identity is densely packed with specific symbols. The beehive. The motto of industry. The mountains. A pioneer history that means very different things to different residents. I wanted a flag that <strong>kept what mattered without literalizing it.</strong> Something that read as Utah without illustrating Utah.</p>
+    </div>
+  </section>
+
+  <!-- THE WORK — Exploration Grid -->
+  <!-- Source: C34AEA6CD2694DDD87060A0387AC3EEA_1_105_c.jpeg -->
+  <div class="study-image-block">
+    <div class="study-image">
+      <img src="images/case-studies/utah-flag/first-flag-concepts.jpg" alt="Eight early Utah State Flag concept directions exploring different arrangements of mountains, beehives, hexagonal honeycomb cells, stars, and the heritage navy-white-red tri-color">
+    </div>
+    <div class="study-image-caption">Eight directions from the early exploration. Each one isolates a different question. Beehive or hexagon. Heritage tri-color or two-color. Stars or no stars. Literal mountain or abstracted ridge.</div>
+  </div>
+
+  <section class="study-body">
+    <div class="study-section">
+      <div class="study-section-label">The Work</div>
+      <h2>Eight directions, then a clear pair.</h2>
+      <p>The first round wasn't about taste. It was about reducing the variable space. Each composition tested one decision at a time. Whether the beehive should appear as the literal beehive icon, as a hexagonal honeycomb cluster, or as a single hex cell standing in for the whole hive. Whether the mountains should sit as a silhouette dividing the field or as a horizon line. Whether to keep the heritage navy-white-red palette or trade tradition for legibility.</p>
+      <p>After living with the grid for a few days, a pattern emerged. The strongest directions all shared three moves. <strong>Mountain silhouettes as the structural divider. The heritage tri-color, kept. A single gold hexagonal cell as the beehive's stand-in.</strong> Everything else was noise.</p>
+      <div class="pull-quote">
+        <p>"I wanted a flag that kept what mattered without literalizing it. Something that read as Utah without illustrating Utah."</p>
+      </div>
+      <p>I narrowed to two finals. Same structural logic, different opening notes. One leans on a canton of stars. The other lets the mountain ridge do all the work alone. Submitting two gave the committee a choice without splitting the design language.</p>
+    </div>
+  </section>
+
+  <!-- FINAL SUBMISSIONS + UTAH'S WINNING DESIGN -->
+  <!-- Source: BB3C758286EA43C29B00F8D9C6270652_1_105_c.jpeg -->
+  <div class="study-image-block narrow">
+    <div class="study-image">
+      <img src="images/case-studies/utah-flag/final-submissions-comparison.jpg" alt="Top: two final flag submissions side by side, both featuring mountain silhouettes, navy-white-red palette, and a gold hexagonal beehive cell. Bottom: Utah's adopted state flag for comparison, with similar mountain silhouette, tri-color, and beehive in a hexagonal badge.">
+    </div>
+    <div class="study-image-caption">Top: my two final submissions. Bottom: the design Utah eventually adopted, included on the original board for context.</div>
+  </div>
+
+  <section class="study-body">
+    <div class="study-section">
+      <h2>What both finals share.</h2>
+      <p>The hexagonal cell does the heaviest lifting. A traditional beehive icon, drawn well, can look beautiful on a coat of arms. On a flag, it loses everything below the second row of bees the moment you step back. A single hex cell carries the same meaning. It's the unit a beehive is made of. It scales. It reads from across a parking lot. It works in a one-color pin.</p>
+      <p>The mountains are deliberately abstracted. Not the Wasatch, not the Uintas, not any specific range. A ridge line that any Utahn would recognize as home without claiming a particular one.</p>
+    </div>
+  </section>
+
+  <!-- RECOGNITION -->
+  <section class="recognition-block">
+    <div class="recognition-card">
+      <div>
+        <div class="study-section-label">Recognition</div>
+        <h2>Honored by the Governor's office.</h2>
+        <p>Out of thousands of submissions to the More Than A Flag competition, 75 designs were selected for statewide recognition. Mine was one of them.</p>
+        <p>The recognition came with an honorarium from the Governor's office and an invitation to a ceremony at the State Capitol. The state's final adopted flag, designed by a separate process, arrived at a structurally similar place. Mountain silhouette, heritage tri-color, beehive in a hex badge. Independent convergence on the same answer is its own kind of validation.</p>
+      </div>
+      <div class="recognition-image">
+        <!-- TODO Nick: drop in the honorarium certificate photo here -->
+        <!-- placeholder until certificate image is added -->
+        <img src="images/case-studies/utah-flag/honorarium-certificate.jpg" alt="Honorarium certificate from the Utah Governor's office recognizing the flag submission">
+      </div>
+    </div>
+  </section>
+
+  <!-- CEREMONY PHOTOS -->
+  <!-- TODO Nick: drop in two ceremony photos from the State Capitol -->
+  <div class="ceremony-pair">
+    <div class="study-image">
+      <img src="images/case-studies/utah-flag/ceremony-1.jpg" alt="Recognition ceremony at the Utah State Capitol">
+    </div>
+    <div class="study-image">
+      <img src="images/case-studies/utah-flag/ceremony-2.jpg" alt="Recognition ceremony at the Utah State Capitol">
+    </div>
+  </div>
+
+  <!-- REFLECTION -->
+  <section class="study-body">
+    <div class="study-section">
+      <div class="study-section-label">Reflection</div>
+      <h2>The format does more of the work than I expected.</h2>
+      <p>The most useful thing about a flag brief is what it refuses. No lettering. No seal. No gradient that won't print. No flourish that doesn't survive a stiff wind. Every constraint pushes the design toward the same destination. <strong>The simplest mark that still means something.</strong></p>
+      <p>That refusal is what makes flag work compound into other work. Brand identity has the same physics. Logos don't get good by adding. They get good by losing everything that wasn't earning its place. Three months on a flag I never expected to win was the cheapest way I've ever bought that lesson.</p>
+      <p>The other thing that stayed with me. Civic design is reviewed by people who don't read design Twitter. The committee included educators, veterans, tribal representatives, schoolchildren who voted on the finalists. The work has to land for an audience that doesn't share your vocabulary. That's a useful corrective for anyone who designs for a living.</p>
+    </div>
+  </section>
+
+  <!-- STUDY CTA -->
+  <div class="study-cta">
+    <a href="/services" class="study-cta-card">
+      <div class="study-cta-inner">
+        <div>
+          <div class="study-cta-eyebrow">Available for work</div>
+          <h2>Working on a mark that has to last?</h2>
+          <p>I bring this same process to client identity work. Logos at $200, full brand systems from $800.</p>
+        </div>
+        <span class="study-cta-pill">
+          See services
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+      </div>
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-divider"></div>
+    <a href="mailto:hello@islandtwigstudios.com" class="footer-email">hello@islandtwigstudios.com</a>
+    <p class="footer-legal">&copy; 2026 IslandTwig Studios &middot; <a href="/privacy">Privacy</a></p>
+  </footer>
+
+</div>
+
+</body>
+</html>
