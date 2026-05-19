@@ -74,6 +74,8 @@
         }
 
         .nav-logo {
+            display: flex;
+            align-items: center;
             font-size: 14px;
             font-weight: 600;
             letter-spacing: 0.08em;
@@ -85,6 +87,12 @@
         }
 
         .nav-logo:hover { opacity: 1; }
+
+        .nav-logo-mark {
+            display: none;
+            height: 28px;
+            width: auto;
+        }
 
         .nav-links {
             display: flex;
@@ -652,6 +660,11 @@
             .content { padding: 40px 24px 0; }
             .intake-row-grid { grid-template-columns: 1fr; }
             .checkbox-grid { grid-template-columns: 1fr; }
+
+            /* Mobile nav: swap wordmark for logo mark, hide Home (logo serves that role) */
+            .nav-logo-text { display: none; }
+            .nav-logo-mark { display: block; }
+            .nav-link-home { display: none; }
         }
 
         @media (max-width: 480px) {
@@ -668,9 +681,12 @@
 <body>
 
     <nav>
-        <a href="/" class="nav-logo">IslandTwig Studios</a>
+        <a href="/" class="nav-logo" aria-label="IslandTwig Studios — Home">
+            <span class="nav-logo-text">IslandTwig Studios</span>
+            <img class="nav-logo-mark" src="images/islandtwig-mark.png" alt="IslandTwig Studios">
+        </a>
         <ul class="nav-links">
-            <li><a href="/">Home</a></li>
+            <li class="nav-link-home"><a href="/">Home</a></li>
             <li><a href="/design">Design</a></li>
             <li><a href="/services" class="active">Services</a></li>
             <li><a href="/about">About</a></li>
