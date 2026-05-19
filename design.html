@@ -3,18 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Design Studio — IslandTwig Studios</title>
-<link rel="icon" type="image/png" href="images/appicons/favicon.png">
+<title>Redesigning the Utah State Flag — IslandTwig Studios</title>
+<link rel="icon" type="image/png" href="/images/appicons/favicon.png">
 
 <!-- Open Graph -->
-<meta property="og:title" content="Design Studio — IslandTwig Studios">
-<meta property="og:description" content="Brand identity, sports identity, and naming work by Nick Holmquist. Logos from $200, full brand systems from $800.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://islandtwigstudios.com/design">
+<meta property="og:title" content="Redesigning the Utah State Flag — IslandTwig Studios">
+<meta property="og:description" content="Competition entry for Utah's More Than A Flag initiative. Honored by the Governor's office as one of 75 designs recognized statewide.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://islandtwigstudios.com/design/utah-flag">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@300&display=swap" rel="stylesheet">
+
 <style>
   :root {
     --bg: #111110;
@@ -23,7 +24,6 @@
     --cream: #e8e0d5;
     --cream-bright: #f2ece4;
     --cream-dim: #a09890;
-    --cream-faint: rgba(232, 224, 213, 0.05);
     --border: rgba(232, 224, 213, 0.08);
     --sage: #7a9e87;
     --sage-dim: rgba(122, 158, 135, 0.12);
@@ -34,368 +34,238 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-
-  body {
-    background: var(--bg);
-    color: var(--cream);
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    min-height: 100vh;
-    line-height: 1.6;
-  }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body { background: var(--bg); color: var(--cream); font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.65; min-height: 100vh; }
 
   body::before {
     content: '';
     position: fixed;
     inset: 0;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.4;
+    pointer-events: none; z-index: 0; opacity: 0.4;
   }
 
   /* ═══ NAV ═══ */
 
   nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     padding: 20px 48px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: flex; align-items: center; justify-content: space-between;
     border-bottom: 1px solid var(--border);
     background: rgba(17,17,16,0.85);
     backdrop-filter: blur(12px);
   }
-
-  .nav-logo {
-    font-size: 14px; font-weight: 600; letter-spacing: 0.08em;
-    text-transform: uppercase; color: var(--cream); text-decoration: none;
-    opacity: 0.7; transition: opacity 0.2s;
-  }
+  .nav-logo { font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cream); text-decoration: none; opacity: 0.7; transition: opacity 0.2s; }
   .nav-logo:hover { opacity: 1; }
-
   .nav-links { display: flex; gap: 36px; list-style: none; }
   .nav-links a { color: var(--cream-dim); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.04em; transition: color 0.2s; }
   .nav-links a.active { color: var(--sage); }
   .nav-links a:hover { color: var(--cream); }
 
-  /* ═══ PAGE STRUCTURE ═══ */
-
   .page { position: relative; z-index: 1; padding-top: 80px; }
 
-  .content {
+  /* ═══ BACK LINK ═══ */
+
+  .back-link-row {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 32px 48px 0;
+  }
+  .back-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--cream-dim);
+    text-decoration: none;
+    transition: color 0.2s, gap 0.25s ease;
+  }
+  .back-link:hover { color: var(--sage); gap: 12px; }
+  .back-link svg { width: 12px; height: 12px; }
+
+  /* ═══ STUDY HEADER ═══ */
+
+  .study-header {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 32px 48px 48px;
+  }
+  .study-category {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--warm);
+    margin-bottom: 16px;
+  }
+  .study-header h1 {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 800; letter-spacing: -0.02em;
+    line-height: 1.1; color: var(--cream-bright);
+    margin-bottom: 18px;
+  }
+  .study-tagline {
+    font-size: 18px; font-weight: 300; color: var(--cream-dim);
+    line-height: 1.55; max-width: 680px;
+    margin-bottom: 32px;
+  }
+  .study-meta {
+    display: flex; gap: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .study-meta-item { display: flex; flex-direction: column; gap: 4px; }
+  .study-meta-label { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream-dim); }
+  .study-meta-value { font-size: 14px; font-weight: 500; color: var(--cream); }
+
+  /* Recognition pill, sits beside meta items */
+  .study-meta-honor {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 600;
+    color: var(--sage);
+    padding: 8px 14px;
+    background: var(--sage-dim);
+    border: 1px solid rgba(122, 158, 135, 0.18);
+    border-radius: 100px;
+    align-self: center;
+  }
+  .study-meta-honor svg { width: 12px; height: 12px; }
+
+  /* ═══ HERO IMAGE ═══ */
+
+  .study-hero {
     max-width: 1200px;
+    margin: 0 auto 64px;
+    padding: 0 48px;
+  }
+  .study-hero-image {
+    width: 100%; aspect-ratio: 16 / 9;
+    background: var(--surface-bright);
+    border-radius: var(--radius);
+    overflow: hidden;
+    /* Flag art is centered. Show whole image, no crop. */
+    display: flex; align-items: center; justify-content: center;
+  }
+  .study-hero-image img {
+    width: 100%; height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* ═══ BODY SECTIONS ═══ */
+
+  .study-body {
+    max-width: 720px;
     margin: 0 auto;
     padding: 0 48px;
   }
+  .study-section { margin-bottom: 64px; }
+  .study-section-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--warm);
+    margin-bottom: 14px;
+  }
+  .study-section h2 {
+    font-size: 26px; font-weight: 700; color: var(--cream-bright);
+    letter-spacing: -0.01em; line-height: 1.2;
+    margin-bottom: 18px;
+  }
+  .study-section p {
+    font-size: 15px; font-weight: 300; color: var(--cream);
+    line-height: 1.75;
+    margin-bottom: 16px;
+  }
+  .study-section p:last-child { margin-bottom: 0; }
+  .study-section strong { color: var(--cream-bright); font-weight: 600; }
 
-  /* ═══ HEADER (tightened) ═══ */
+  /* Pull quote */
+  .pull-quote {
+    margin: 32px 0;
+    padding: 24px 28px;
+    border-left: 3px solid var(--warm);
+    background: rgba(184, 137, 106, 0.05);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  }
+  .pull-quote p {
+    font-size: 17px; font-weight: 400;
+    color: var(--cream-bright); line-height: 1.55;
+    margin: 0;
+    font-style: italic;
+  }
 
-  .page-header {
-    padding: 48px 0 32px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
+  /* ═══ IMAGE BLOCKS ═══ */
+
+  .study-image-block {
+    max-width: 1200px;
+    margin: 0 auto 64px;
+    padding: 0 48px;
+  }
+  .study-image-block.narrow { max-width: 920px; }
+  .study-image {
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--surface-bright);
+  }
+  .study-image img { width: 100%; height: auto; display: block; }
+  .study-image-caption {
+    margin-top: 12px;
+    font-size: 12px; color: var(--cream-dim);
+    text-align: center; font-style: italic;
+  }
+
+  /* ═══ RECOGNITION BLOCK ═══ */
+
+  .recognition-block {
+    max-width: 920px;
+    margin: 0 auto 64px;
+    padding: 0 48px;
+  }
+  .recognition-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 40px;
+    align-items: center;
   }
-
-  .header-left {
-    max-width: 540px;
-  }
-
-  .section-label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--cream-dim);
-    margin-bottom: 14px;
-  }
-
-  .section-label-warm { color: var(--warm); }
-
-  .page-header h1 {
-    font-size: clamp(24px, 2.8vw, 32px);
-    font-weight: 800;
-    letter-spacing: -0.01em;
-    line-height: 1.15;
+  .recognition-card .study-section-label { margin-bottom: 12px; }
+  .recognition-card h2 {
+    font-size: 24px; font-weight: 700;
     color: var(--cream-bright);
-    margin-bottom: 14px;
+    letter-spacing: -0.01em; line-height: 1.25;
+    margin-bottom: 12px;
   }
-
-  .header-tagline {
-    font-size: 14px;
-    color: var(--cream-dim);
-    line-height: 1.6;
-    max-width: 480px;
-    margin-bottom: 14px;
+  .recognition-card p {
+    font-size: 14px; font-weight: 300;
+    color: var(--cream); line-height: 1.75;
+    margin-bottom: 12px;
   }
-
-  /* Availability indicator */
-  .availability-bar {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--sage);
-    letter-spacing: 0.02em;
+  .recognition-card p:last-child { margin-bottom: 0; }
+  .recognition-image {
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background: var(--surface-bright);
+    aspect-ratio: 3 / 4;
   }
+  .recognition-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-  .availability-bar::before {
-    content: '';
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    background: var(--sage);
-    box-shadow: 0 0 8px rgba(122, 158, 135, 0.6);
-    animation: pulse 2.4s ease-in-out infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(122, 158, 135, 0.6); }
-    50% { opacity: 0.6; box-shadow: 0 0 14px rgba(122, 158, 135, 0.8); }
-  }
-
-  .header-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    flex-shrink: 0;
-    padding-bottom: 4px;
-  }
-
-  .header-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
-    background: rgba(184, 137, 106, 0.12);
-    border: 1px solid rgba(184, 137, 106, 0.25);
-    border-radius: 100px;
-    color: var(--warm);
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    transition: all 0.25s ease;
-  }
-  .header-cta:hover {
-    background: rgba(184, 137, 106, 0.2);
-    border-color: rgba(184, 137, 106, 0.4);
-    transform: translateY(-1px);
-  }
-  .header-cta svg { width: 13px; height: 13px; }
-
-  .divider {
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 48px;
-  }
-
-  /* ═══ FEATURED PROJECTS ═══ */
-
-  .featured-section {
-    margin-bottom: 64px;
-  }
-
-  .featured-label {
-    margin-bottom: 24px;
-  }
-
-  .featured-grid {
+  /* Ceremony pair */
+  .ceremony-pair {
+    max-width: 1200px;
+    margin: 0 auto 64px;
+    padding: 0 48px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
   }
+  .ceremony-pair .study-image { margin: 0; }
 
-  .featured-card {
-    display: block;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
-    text-decoration: none;
-    color: inherit;
-    transition: all 0.3s ease;
-    position: relative;
+  /* ═══ FINAL CTA ═══ */
+
+  .study-cta {
+    max-width: 920px;
+    margin: 0 auto 64px;
+    padding: 0 48px;
   }
-
-  .featured-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 80% 20%, var(--warm-dim), transparent 60%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  .featured-card:hover::before { opacity: 1; }
-  .featured-card:hover {
-    border-color: rgba(184, 137, 106, 0.18);
-    transform: translateY(-2px);
-    box-shadow: 0 12px 32px rgba(0,0,0,0.3);
-  }
-
-  .featured-card-image {
-    position: relative;
-    aspect-ratio: 16 / 10;
-    overflow: hidden;
-    background: var(--surface-bright);
-  }
-
-  .featured-card-image img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
-  }
-
-  .featured-card:hover .featured-card-image img { transform: scale(1.04); }
-
-  .featured-card-image .badge {
-    position: absolute;
-    top: 14px; left: 14px;
-    z-index: 2;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: 5px 10px;
-    border-radius: 100px;
-    background: rgba(17, 17, 16, 0.85);
-    color: var(--warm);
-    border: 1px solid rgba(184, 137, 106, 0.3);
-    backdrop-filter: blur(8px);
-  }
-
-  /* Sage-colored badge for recognition signals */
-  .featured-card-image .badge.badge-sage {
-    color: var(--sage);
-    border-color: rgba(122, 158, 135, 0.3);
-  }
-
-  .featured-card-body {
-    padding: 22px 24px 24px;
-    position: relative;
-    z-index: 2;
-  }
-
-  .featured-card-cat {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--warm);
-    margin-bottom: 6px;
-  }
-
-  .featured-card h2 {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--cream-bright);
-    letter-spacing: -0.01em;
-    line-height: 1.2;
-    margin-bottom: 8px;
-  }
-
-  .featured-card-desc {
-    font-size: 13.5px;
-    font-weight: 300;
-    color: var(--cream-dim);
-    line-height: 1.55;
-    margin-bottom: 14px;
-  }
-
-  .featured-card-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--warm);
-    transition: gap 0.25s ease;
-  }
-  .featured-card:hover .featured-card-link { gap: 10px; }
-  .featured-card-link svg { width: 13px; height: 13px; }
-
-  /* When there are an odd number of cards, the last one spans full width */
-  .featured-grid .featured-card.featured-card-wide {
-    grid-column: 1 / -1;
-  }
-  .featured-grid .featured-card-wide .featured-card-image {
-    aspect-ratio: 24 / 9;
-  }
-
-  /* ═══ GALLERY SECTIONS ═══ */
-
-  .gallery-section {
-    margin-bottom: 56px;
-  }
-
-  .gallery-label {
-    margin-bottom: 24px;
-  }
-
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-  }
-
-  .gallery-tile {
-    position: relative;
-    overflow: hidden;
-    border-radius: var(--radius-sm);
-    background: var(--surface);
-    aspect-ratio: 1 / 1;
-    cursor: pointer;
-    text-decoration: none;
-    color: inherit;
-    display: block;
-  }
-
-  .gallery-tile img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-  }
-
-  .gallery-tile:hover img { transform: scale(1.04); }
-
-  .gallery-tile-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(17,17,16,0.92) 0%, rgba(17,17,16,0.3) 50%, transparent 80%);
-    display: flex;
-    align-items: flex-end;
-    padding: 16px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .gallery-tile:hover .gallery-tile-overlay { opacity: 1; }
-
-  .gallery-tile-name {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--cream);
-  }
-
-  .gallery-tile-cat {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--sage);
-    margin-top: 3px;
-  }
-
-  /* ═══ BOTTOM CTA ═══ */
-
-  .bottom-cta {
+  .study-cta-card {
     display: block;
     background: var(--surface);
     border: 1px solid var(--border);
@@ -406,108 +276,82 @@
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
-    margin-bottom: 64px;
   }
-
-  .bottom-cta::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 90% 50%, var(--warm-dim), transparent 60%);
+  .study-cta-card::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 80% 50%, var(--warm-dim), transparent 60%);
     opacity: 0;
     transition: opacity 0.4s ease;
   }
-
-  .bottom-cta:hover::before { opacity: 1; }
-  .bottom-cta:hover {
+  .study-cta-card:hover::before { opacity: 1; }
+  .study-cta-card:hover {
     border-color: rgba(184, 137, 106, 0.18);
     transform: translateY(-1px);
     box-shadow: 0 12px 32px rgba(0,0,0,0.25);
   }
-
-  .bottom-cta-inner {
+  .study-cta-inner {
     position: relative; z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    flex-wrap: wrap;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px; flex-wrap: wrap;
   }
-
-  .bottom-cta-eyebrow {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--warm);
+  .study-cta-eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--warm);
     margin-bottom: 10px;
   }
-
-  .bottom-cta h2 {
-    font-size: clamp(22px, 2.5vw, 28px);
-    font-weight: 700;
+  .study-cta h2 {
+    font-size: 24px; font-weight: 700;
     color: var(--cream-bright);
-    letter-spacing: -0.01em;
-    line-height: 1.2;
+    letter-spacing: -0.01em; line-height: 1.2;
     margin-bottom: 8px;
   }
-
-  .bottom-cta p {
-    font-size: 14px;
-    font-weight: 300;
+  .study-cta p {
+    font-size: 14px; font-weight: 300;
     color: var(--cream-dim);
     line-height: 1.6;
-    max-width: 520px;
   }
-
-  .bottom-cta-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--warm);
+  .study-cta-pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 14px; font-weight: 600; color: var(--warm);
     padding: 12px 22px;
     background: var(--warm-dim);
     border: 1px solid rgba(184, 137, 106, 0.2);
     border-radius: 100px;
     flex-shrink: 0;
   }
-
-  .bottom-cta-pill svg { width: 14px; height: 14px; }
+  .study-cta-pill svg { width: 14px; height: 14px; }
 
   /* ═══ FOOTER ═══ */
 
-  .footer { padding: 32px 0 64px; text-align: center; }
+  .footer { padding: 32px 0 64px; text-align: center; max-width: 920px; margin: 0 auto; padding-left: 48px; padding-right: 48px; }
   .footer-divider { height: 1px; background: var(--border); margin-bottom: 28px; }
   .footer-email { font-family: 'Fira Code', monospace; font-size: 12.5px; font-weight: 300; color: var(--cream-dim); text-decoration: none; letter-spacing: 0.02em; display: inline-block; margin-bottom: 20px; }
   .footer-email:hover { color: var(--cream); }
   .footer-legal { font-size: 11px; color: rgba(232, 224, 213, 0.18); }
-  .footer-legal-link { color: inherit; text-decoration: none; }
-  .footer-legal-link:hover { color: var(--cream-dim); }
+  .footer-legal a { color: inherit; text-decoration: none; }
 
   @media (max-width: 900px) {
-    .page-header { flex-direction: column; align-items: flex-start; gap: 20px; }
-    .header-right { align-items: flex-start; }
-    .featured-grid { grid-template-columns: 1fr; }
-    .featured-grid .featured-card-wide .featured-card-image { aspect-ratio: 16 / 10; }
-    .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+    .recognition-card { grid-template-columns: 1fr; gap: 28px; }
+    .recognition-image { aspect-ratio: 4 / 3; max-width: 360px; margin: 0 auto; }
+    .ceremony-pair { grid-template-columns: 1fr; }
   }
-
   @media (max-width: 768px) {
     nav { padding: 18px 24px; }
     .nav-links { gap: 24px; }
-    .content { padding: 0 24px; }
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .back-link-row, .study-header, .study-hero, .study-body, .study-image-block, .recognition-block, .ceremony-pair, .study-cta, .footer {
+      padding-left: 24px; padding-right: 24px;
+    }
   }
-
   @media (max-width: 480px) {
     nav { padding: 16px 20px; }
     .nav-links { gap: 18px; }
     .nav-links a { font-size: 12px; }
-    .content { padding: 0 20px; }
-    .gallery-grid { grid-template-columns: 1fr; }
-    .bottom-cta { padding: 24px; }
+    .back-link-row, .study-header, .study-hero, .study-body, .study-image-block, .recognition-block, .ceremony-pair, .study-cta, .footer {
+      padding-left: 20px; padding-right: 20px;
+    }
+    .study-meta { gap: 24px; }
+    .recognition-card { padding: 28px; }
+    .study-cta-card { padding: 24px; }
   }
 </style>
 </head>
@@ -524,378 +368,169 @@
 </nav>
 
 <div class="page">
-  <div class="content">
 
-    <!-- HEADER -->
-    <header class="page-header">
-      <div class="header-left">
-        <div class="section-label">Design Studio</div>
-        <h1>Sports identity &amp; brand work.</h1>
-        <p class="header-tagline">Logos, brand systems, and naming for sports teams, small businesses, and indie products.</p>
-        <div class="availability-bar">Available for new projects</div>
+  <!-- BACK LINK -->
+  <div class="back-link-row">
+    <a href="/design" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Design
+    </a>
+  </div>
+
+  <!-- STUDY HEADER -->
+  <header class="study-header">
+    <div class="study-category">Civic Identity · Vexillology · Competition</div>
+    <h1>Redesigning the Utah State Flag.</h1>
+    <p class="study-tagline">A competition entry for the state's More Than A Flag initiative. One of 75 designs honored statewide by the Governor's office.</p>
+    <div class="study-meta">
+      <div class="study-meta-item">
+        <div class="study-meta-label">Discipline</div>
+        <div class="study-meta-value">Identity · Vexillology · Civic design</div>
       </div>
-      <div class="header-right">
-        <a href="/services" class="header-cta">
-          See services &amp; pricing
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+      <div class="study-meta-item">
+        <div class="study-meta-label">Year</div>
+        <!-- TODO Nick: confirm year you submitted -->
+        <div class="study-meta-value">2022</div>
       </div>
-    </header>
-
-    <div class="divider"></div>
-
-    <!-- ═══════════════════════════════════════════════════════════════
-         FEATURED CASE STUDIES
-         5 cards. Ordered: visual impact → recognition → paid work → scope.
-         Tier-1 case studies per project brief.
-         ═══════════════════════════════════════════════════════════════ -->
-    <section class="featured-section">
-      <div class="section-label section-label-warm featured-label">Featured Case Studies</div>
-
-      <div class="featured-grid">
-
-        <!-- 1. Utah Hockey Club Concepts -->
-        <!-- Case study page: TODO write /design/utah-hockey (mock exists) -->
-        <a href="/design/utah-hockey" class="featured-card">
-          <div class="featured-card-image">
-            <span class="badge">Case Study</span>
-            <img src="images/case-studies/utah-hockey/card-hero.jpg" alt="Utah hockey concept identities">
-          </div>
-          <div class="featured-card-body">
-            <div class="featured-card-cat">Sports Identity · Hockey · Concept</div>
-            <h2>Naming Utah's Hockey Team</h2>
-            <p class="featured-card-desc">Nine named directions for the franchise that became the Mammoth. Logo, wordmark, and full jersey kit for each, plus the rejected concepts and what they taught me about scope.</p>
-            <span class="featured-card-link">
-              View case study
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </span>
-          </div>
-        </a>
-
-        <!-- 2. Utah State Flag -->
-        <!-- Case study page: /design/utah-flag — SHIPPED -->
-        <a href="/design/utah-flag" class="featured-card">
-          <div class="featured-card-image">
-            <span class="badge badge-sage">Honored</span>
-            <img src="images/case-studies/utah-flag/card-hero.jpeg" alt="Utah State Flag submission">
-          </div>
-          <div class="featured-card-body">
-            <div class="featured-card-cat">Civic Identity · Vexillology</div>
-            <h2>Redesigning the Utah State Flag</h2>
-            <p class="featured-card-desc">A competition entry for Utah's More Than A Flag initiative. One of 75 designs honored statewide by the Governor's office.</p>
-            <span class="featured-card-link">
-              View case study
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </span>
-          </div>
-        </a>
-
-        <!-- 3. Hey Bright Teeth Whitening -->
-        <!-- Case study page: TODO write /design/hey-bright -->
-        <a href="/design/hey-bright" class="featured-card">
-          <div class="featured-card-image">
-            <span class="badge">Case Study</span>
-            <img src="images/case-studies/hey-bright/card-hero.jpg" alt="Hey Bright Teeth Whitening packaging">
-          </div>
-          <div class="featured-card-body">
-            <div class="featured-card-cat">Brand Identity · Packaging · Paid Client</div>
-            <h2>Hey Bright Teeth Whitening</h2>
-            <p class="featured-card-desc">A sustained packaging relationship for a teeth-whitening brand. Three product lines, sweater merch, a US course-attendee map, and tooth gem work for a client of the brand.</p>
-            <span class="featured-card-link">
-              View case study
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </span>
-          </div>
-        </a>
-
-        <!-- 4. QuickFuze Games -->
-        <!-- Case study page: TODO write /design/quickfuze -->
-        <a href="/design/quickfuze" class="featured-card">
-          <div class="featured-card-image">
-            <span class="badge">Case Study</span>
-            <img src="images/case-studies/quickfuze/card-hero.jpg" alt="QuickFuze Games board game and card game work">
-          </div>
-          <div class="featured-card-body">
-            <div class="featured-card-cat">Brand System · Game Design · Paid Client</div>
-            <h2>QuickFuze Games</h2>
-            <p class="featured-card-desc">Multi-product work for an indie game publisher. Company mark, full King of Battle board game system, a baby name card game with a custom font, and the supporting print collateral.</p>
-            <span class="featured-card-link">
-              View case study
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </span>
-          </div>
-        </a>
-
-        <!-- 5. NHL Midnight Edition - spans full width since it's the 5th of 5 -->
-        <!-- Case study page: TODO write /design/nhl-midnight -->
-        <a href="/design/nhl-midnight" class="featured-card featured-card-wide">
-          <div class="featured-card-image">
-            <span class="badge">Case Study</span>
-            <img src="images/case-studies/nhl-midnight/card-hero.jpg" alt="NHL Midnight Edition dark-mode alternate identities">
-          </div>
-          <div class="featured-card-body">
-            <div class="featured-card-cat">Sports Identity · Concept · Scope Study</div>
-            <h2>NHL Midnight Edition</h2>
-            <p class="featured-card-desc">Dark-mode alternate identities for all 32 NHL teams. One concept, thirty-two distinct expressions, organized by division. A study in how much a brand system bends without breaking.</p>
-            <span class="featured-card-link">
-              View case study
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </span>
-          </div>
-        </a>
-
+      <div class="study-meta-item">
+        <div class="study-meta-label">Status</div>
+        <div class="study-meta-value">Competition entry · Honored</div>
       </div>
-    </section>
+      <span class="study-meta-honor">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5L17 22l-5-3-5 3 1.5-8.5"/></svg>
+        1 of 75 honored statewide
+      </span>
+    </div>
+  </header>
 
-    <!-- ═══════════════════════════════════════════════════════════════
-         SPORTS CONCEPTS GALLERY (tier-2, no case study pages)
-         10 tiles. Uniform 1:1 size. Hover reveals name + category.
-         ═══════════════════════════════════════════════════════════════ -->
-    <section class="gallery-section">
-      <div class="section-label section-label-warm gallery-label">Sports Concepts</div>
+  <!-- HERO IMAGE -->
+  <!-- Source: 6F675E05F42047869D867EF6B2EE6507_4_5005_c.jpeg -->
+  <div class="study-hero">
+    <div class="study-hero-image">
+      <img src="/images/case-studies/utah-flag/hero-final-submission.jpeg" alt="Utah State Flag submission by Nick Holmquist: navy canton with four white stars, mountain silhouette dividing into white middle and red base, with a gold hexagonal beehive cell at center">
+    </div>
+  </div>
 
-      <div class="gallery-grid">
+  <!-- THE BRIEF -->
+  <section class="study-body">
+    <div class="study-section">
+      <div class="study-section-label">The Brief</div>
+      <h2>Utah opened its state flag up to anyone with a steady hand.</h2>
+      <p>In 2022, the State of Utah announced an open competition to redesign the state flag. The existing flag was a state seal on a blue field. Functional, but indistinguishable from a dozen other state flags at a distance, and built for a different era. The brief was simple. Submit a design. Anyone could enter.</p>
+      <p>I didn't enter to win. I entered because the prompt is one of the cleanest problems in graphic design. <strong>A flag has to mean something specific, look like something distinct, and survive every size from a phone screen to a windblown pole.</strong> If you can solve that for a state you actually live in, you're learning something the next paid project will need.</p>
+    </div>
 
-        <a href="#" class="gallery-tile">
-          <img src="images/gallery/skyraiders.jpg" alt="Salt Lake Skyraiders concept">
-          <div class="gallery-tile-overlay">
-            <div>
-              <div class="gallery-tile-name">Salt Lake Skyraiders</div>
-              <div class="gallery-tile-cat">Sports Identity · Football</div>
-            </div>
-          </div>
-        </a>
+    <!-- THE CONSTRAINTS -->
+    <div class="study-section">
+      <div class="study-section-label">The Constraints</div>
+      <h2>Vexillology has rules. Most flags break them.</h2>
+      <p>The North American Vexillological Association's guidance is short and uncompromising. Use two or three basic colors. Keep it simple enough a child can draw it from memory. Use meaningful symbolism. Avoid lettering and seals. Be distinctive. Most US state flags fail at least three of those at once.</p>
+      <p>The harder constraint was Utah itself. The state's identity is densely packed with specific symbols. The beehive. The motto of industry. The mountains. A pioneer history that means very different things to different residents. I wanted a flag that <strong>kept what mattered without literalizing it.</strong> Something that read as Utah without illustrating Utah.</p>
+    </div>
+  </section>
 
-        <a href="#" class="gallery-tile">
-          <img src="images/gallery/roadrunners.jpg" alt="Utah Roadrunners concept">
-          <div class="gallery-tile-overlay">
-            <div>
-              <div class="gallery-tile-name">Utah Roadrunners</div>
-              <div class="gallery-tile-cat">Sports Identity · Hockey</div>
-            </div>
-          </div>
-        </a>
+  <!-- THE WORK — Exploration Grid -->
+  <!-- Source: C34AEA6CD2694DDD87060A0387AC3EEA_1_105_c.jpeg -->
+  <div class="study-image-block">
+    <div class="study-image">
+      <img src="/images/case-studies/utah-flag/first-flag-concepts.jpeg" alt="Eight early Utah State Flag concept directions exploring different arrangements of mountains, beehives, hexagonal honeycomb cells, stars, and the heritage navy-white-red tri-color">
+    </div>
+    <div class="study-image-caption">Eight directions from the early exploration. Each one isolates a different question. Beehive or hexagon. Heritage tri-color or two-color. Stars or no stars. Literal mountain or abstracted ridge.</div>
+  </div>
 
-        <a href="#" class="gallery-tile">
-          <img src="images/gallery/florida-alliance.jpg" alt="Florida Alliance jerseys">
-          <div class="gallery-tile-overlay">
-            <div>
-              <div class="gallery-tile-name">Florida Alliance</div>
-              <div class="gallery-tile-cat">Jersey Design · Hockey</div>
-            </div>
-          </div>
-        </a>
-
-        <!-- Note: Orlando Magic City Edition won the contest. Consider a "Winner" badge or moving to featured. -->
-        <a href="#" class="gallery-tile">
-          <img src="images/gallery/magic-city-edition.jpg" alt="Orlando Magic City Edition concept">
-          <div class="gallery-tile-overlay">
-            <div>
-              <div class="gallery-tile-name">Orlando Magic City Edition</div>
-              <div class="gallery-tile-cat">Sports Identity · Basketball</div>
-            </div>
-          </div>
-        </a>
-
-        <!-- Note: Hawaii Rainbow Warriors placed top 8. Consider surfacing that. -->
-        <a href="#" class="gallery-tile">
-          <img src="images/gallery/rainbow-warriors.jpg" alt="Hawaii Rainbow Warriors concept">
-          <div class="gallery-tile-overlay">
-            <div>
-              <div class="gallery-tile-name">Hawaii Rainbow Warriors</div>
-              <div class="gallery-tile-cat">Sports Identity · Basketball</div>
-            </div>
-          </div>
-        </a>
-
-        <a href="#" class="gallery-tile">
-          <img src="images/gallery/tsu-armadillos.jpg" alt="TSU Armadillos concept">
-          <div class="gallery-tile-overlay">
-            <div>
-              <div class="gallery-tile-name">TSU Armadillos</div>
-              <div class="gallery-tile-cat">Sports Identity · Collegiate</div>
-            </div>
-          </div>
-        </a>
-
-        <a href="#" class="gallery-tile">
-          <img src="images/gallery/monstars.jpg" alt="Monstars concept">
-          <div class="gallery-tile-overlay">
-            <div>
-              <div class="gallery-tile-name">Monstars</div>
-              <div class="gallery-tile-cat">Sports Identity · Concept</div>
-            </div>
-          </div>
-        </a>
-
-        <a href="#" class="gallery-tile">
-          <img src="images/gallery/bengals.jpg" alt="Cincinnati Bengals concept">
-          <div class="gallery-tile-overlay">
-            <div>
-              <div class="gallery-tile-name">Cincinnati Bengals</div>
-              <div class="gallery-tile-cat">Sports Identity · Football · Concept</div>
-            </div>
-          </div>
-        </a>
-
-        <a href="#" class="gallery-tile">
-          <img src="images/gallery/utah-bolts.jpg" alt="Utah Bolts MLB concept">
-          <div class="gallery-tile-overlay">
-            <div>
-              <div class="gallery-tile-name">Utah Bolts</div>
-              <div class="gallery-tile-cat">Sports Identity · Baseball</div>
-            </div>
-          </div>
-        </a>
-
-        <a href="#" class="gallery-tile">
-          <img src="images/gallery/jazz-city-edition.jpg" alt="Utah Jazz City Edition concept">
-          <div class="gallery-tile-overlay">
-            <div>
-              <div class="gallery-tile-name">Utah Jazz City Edition</div>
-              <div class="gallery-tile-cat">Sports Identity · Basketball</div>
-            </div>
-          </div>
-        </a>
-
+  <section class="study-body">
+    <div class="study-section">
+      <div class="study-section-label">The Work</div>
+      <h2>Eight directions, then a clear pair.</h2>
+      <p>The first round wasn't about taste. It was about reducing the variable space. Each composition tested one decision at a time. Whether the beehive should appear as the literal beehive icon, as a hexagonal honeycomb cluster, or as a single hex cell standing in for the whole hive. Whether the mountains should sit as a silhouette dividing the field or as a horizon line. Whether to keep the heritage navy-white-red palette or trade tradition for legibility.</p>
+      <p>After living with the grid for a few days, a pattern emerged. The strongest directions all shared three moves. <strong>Mountain silhouettes as the structural divider. The heritage tri-color, kept. A single gold hexagonal cell as the beehive's stand-in.</strong> Everything else was noise.</p>
+      <div class="pull-quote">
+        <p>"I wanted a flag that kept what mattered without literalizing it. Something that read as Utah without illustrating Utah."</p>
       </div>
-    </section>
+      <p>I narrowed to two finals. Same structural logic, different opening notes. One leans on a canton of stars. The other lets the mountain ridge do all the work alone. Submitting two gave the committee a choice without splitting the design language.</p>
+    </div>
+  </section>
 
-    <!-- ═══════════════════════════════════════════════════════════════
-         BRAND & IDENTITY GALLERY (tier-2, no case study pages)
-         10 tiles. Same treatment as sports concepts.
-         ═══════════════════════════════════════════════════════════════ -->
-    <section class="gallery-section">
-      <div class="section-label section-label-warm gallery-label">Brand &amp; Identity</div>
+  <!-- FINAL SUBMISSIONS + UTAH'S WINNING DESIGN -->
+  <!-- Source: BB3C758286EA43C29B00F8D9C6270652_1_105_c.jpeg -->
+  <div class="study-image-block narrow">
+    <div class="study-image">
+      <img src="/images/case-studies/utah-flag/final-submissions-comparison.jpeg" alt="Top: two final flag submissions side by side, both featuring mountain silhouettes, navy-white-red palette, and a gold hexagonal beehive cell. Bottom: Utah's adopted state flag for comparison, with similar mountain silhouette, tri-color, and beehive in a hexagonal badge.">
+    </div>
+    <div class="study-image-caption">Top: my two final submissions. Bottom: the design Utah eventually adopted, included on the original board for context.</div>
+  </div>
 
-      <div class="gallery-grid">
+  <section class="study-body">
+    <div class="study-section">
+      <h2>What both finals share.</h2>
+      <p>The hexagonal cell does the heaviest lifting. A traditional beehive icon, drawn well, can look beautiful on a coat of arms. On a flag, it loses everything below the second row of bees the moment you step back. A single hex cell carries the same meaning. It's the unit a beehive is made of. It scales. It reads from across a parking lot. It works in a one-color pin.</p>
+      <p>The mountains are deliberately abstracted. Not the Wasatch, not the Uintas, not any specific range. A ridge line that any Utahn would recognize as home without claiming a particular one.</p>
+    </div>
+  </section>
 
-        <a href="#" class="gallery-tile">
-          <img src="images/gallery/triloop.jpg" alt="Triloop / Global Armory">
-          <div class="gallery-tile-overlay">
-            <div>
-              <div class="gallery-tile-name">Triloop</div>
-              <div class="gallery-tile-cat">Brand Identity · Logo</div>
-            </div>
-          </div>
-        </a>
-
-        <a href="#" class="gallery-tile">
-          <img src="images/gallery/bounce.jpg" alt="Bounce Messenger">
-          <div class="gallery-tile-overlay">
-            <div>
-              <div class="gallery-tile-name">Bounce Messenger</div>
-              <div class="gallery-tile-cat">Brand Identity · App</div>
-            </div>
-          </div>
-        </a>
-
-        <a href="#" class="gallery-tile">
-          <img src="images/gallery/nails-by-aubs.jpg" alt="Nails by Aubs">
-          <div class="gallery-tile-overlay">
-            <div>
-              <div class="gallery-tile-name">Nails by Aubs</div>
-              <div class="gallery-tile-cat">Brand Identity · Local Business</div>
-            </div>
-          </div>
-        </a>
-
-        <a href="#" class="gallery-tile">
-          <img src="images/gallery/get-it-write.jpg" alt="Get It Write">
-          <div class="gallery-tile-overlay">
-            <div>
-              <div class="gallery-tile-name">Get It Write</div>
-              <div class="gallery-tile-cat">Brand Identity · Logo</div>
-            </div>
-          </div>
-        </a>
-
-        <a href="#" class="gallery-tile">
-          <img src="images/gallery/making-waves.jpg" alt="Making Waves Charity">
-          <div class="gallery-tile-overlay">
-            <div>
-              <div class="gallery-tile-name">Making Waves</div>
-              <div class="gallery-tile-cat">Brand Identity · Nonprofit</div>
-            </div>
-          </div>
-        </a>
-
-        <a href="#" class="gallery-tile">
-          <img src="images/gallery/threaded-cactus.jpg" alt="Threaded Cactus Co">
-          <div class="gallery-tile-overlay">
-            <div>
-              <div class="gallery-tile-name">Threaded Cactus Co</div>
-              <div class="gallery-tile-cat">Brand Identity · Retail</div>
-            </div>
-          </div>
-        </a>
-
-        <a href="#" class="gallery-tile">
-          <img src="images/gallery/islandtwig-mark.jpg" alt="IslandTwig Studios mark">
-          <div class="gallery-tile-overlay">
-            <div>
-              <div class="gallery-tile-name">IslandTwig Studios</div>
-              <div class="gallery-tile-cat">Personal Brand · Studio Mark</div>
-            </div>
-          </div>
-        </a>
-
-        <a href="#" class="gallery-tile">
-          <img src="images/gallery/neptune.jpg" alt="Neptune social posts">
-          <div class="gallery-tile-overlay">
-            <div>
-              <div class="gallery-tile-name">Neptune</div>
-              <div class="gallery-tile-cat">Social Design · Spec</div>
-            </div>
-          </div>
-        </a>
-
-        <a href="#" class="gallery-tile">
-          <img src="images/gallery/golden-hour-seats.jpg" alt="Golden Hour Seats">
-          <div class="gallery-tile-overlay">
-            <div>
-              <div class="gallery-tile-name">Golden Hour Seats</div>
-              <div class="gallery-tile-cat">Brand Identity · Logo</div>
-            </div>
-          </div>
-        </a>
-
-        <a href="#" class="gallery-tile">
-          <img src="images/gallery/n-monogram.jpg" alt="Personal N monogram">
-          <div class="gallery-tile-overlay">
-            <div>
-              <div class="gallery-tile-name">N Monogram</div>
-              <div class="gallery-tile-cat">Personal Mark</div>
-            </div>
-          </div>
-        </a>
-
+  <!-- RECOGNITION -->
+  <section class="recognition-block">
+    <div class="recognition-card">
+      <div>
+        <div class="study-section-label">Recognition</div>
+        <h2>Honored by the Governor's office.</h2>
+        <p>Out of thousands of submissions to the More Than A Flag competition, 75 designs were selected for statewide recognition. Mine was one of them.</p>
+        <p>The recognition came with an honorarium from the Governor's office and an invitation to a ceremony at the State Capitol. The state's final adopted flag, designed by a separate process, arrived at a structurally similar place. Mountain silhouette, heritage tri-color, beehive in a hex badge. Independent convergence on the same answer is its own kind of validation.</p>
       </div>
-    </section>
+      <div class="recognition-image">
+        <!-- TODO Nick: drop in the honorarium certificate photo here -->
+        <!-- placeholder until certificate image is added -->
+        <img src="/images/case-studies/utah-flag/honorarium-certificate.jpeg" alt="Honorarium certificate from the Utah Governor's office recognizing the flag submission">
+      </div>
+    </div>
+  </section>
 
-    <!-- BOTTOM CTA -->
-    <a href="/services" class="bottom-cta">
-      <div class="bottom-cta-inner">
+  <!-- CEREMONY PHOTOS -->
+  <!-- TODO Nick: drop in two ceremony photos from the State Capitol -->
+  <div class="ceremony-pair">
+    <div class="study-image">
+      <img src="/images/case-studies/utah-flag/ceremony-1.jpeg" alt="Recognition ceremony at the Utah State Capitol">
+    </div>
+    <div class="study-image">
+      <img src="/images/case-studies/utah-flag/ceremony-2.jpeg" alt="Recognition ceremony at the Utah State Capitol">
+    </div>
+  </div>
+
+  <!-- REFLECTION -->
+  <section class="study-body">
+    <div class="study-section">
+      <div class="study-section-label">Reflection</div>
+      <h2>The format does more of the work than I expected.</h2>
+      <p>The most useful thing about a flag brief is what it refuses. No lettering. No seal. No gradient that won't print. No flourish that doesn't survive a stiff wind. Every constraint pushes the design toward the same destination. <strong>The simplest mark that still means something.</strong></p>
+      <p>That refusal is what makes flag work compound into other work. Brand identity has the same physics. Logos don't get good by adding. They get good by losing everything that wasn't earning its place. Three months on a flag I never expected to win was the cheapest way I've ever bought that lesson.</p>
+      <p>The other thing that stayed with me. Civic design is reviewed by people who don't read design Twitter. The committee included educators, veterans, tribal representatives, schoolchildren who voted on the finalists. The work has to land for an audience that doesn't share your vocabulary. That's a useful corrective for anyone who designs for a living.</p>
+    </div>
+  </section>
+
+  <!-- STUDY CTA -->
+  <div class="study-cta">
+    <a href="/services" class="study-cta-card">
+      <div class="study-cta-inner">
         <div>
-          <div class="bottom-cta-eyebrow">Available for work</div>
-          <h2>Have a project in mind?</h2>
-          <p>Logos from $200, brand identity from $500, full brand systems from $800. See pricing or start a project.</p>
+          <div class="study-cta-eyebrow">Available for work</div>
+          <h2>Working on a mark that has to last?</h2>
+          <p>I bring this same process to client identity work. Logos at $200, full brand systems from $800.</p>
         </div>
-        <span class="bottom-cta-pill">
-          Start a project
+        <span class="study-cta-pill">
+          See services
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </span>
       </div>
     </a>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div class="footer-divider"></div>
-      <a href="mailto:hello@islandtwigstudios.com" class="footer-email">hello@islandtwigstudios.com</a>
-      <p class="footer-legal">&copy; 2026 IslandTwig Studios &middot; <a href="/privacy" class="footer-legal-link">Privacy</a></p>
-    </footer>
-
   </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-divider"></div>
+    <a href="mailto:hello@islandtwigstudios.com" class="footer-email">hello@islandtwigstudios.com</a>
+    <p class="footer-legal">&copy; 2026 IslandTwig Studios &middot; <a href="/privacy">Privacy</a></p>
+  </footer>
+
 </div>
 
 </body>
