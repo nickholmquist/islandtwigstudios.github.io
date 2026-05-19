@@ -127,6 +127,60 @@
   }
   .study-meta-honor svg { width: 12px; height: 12px; }
 
+  /* Anchor jumps: offset for fixed nav so jumped-to sections don't sit underneath it */
+  .study-section[id], section[id] { scroll-margin-top: 96px; }
+
+  /* ═══ STUDY SUMMARY + JUMP LINKS ═══ */
+
+  .study-summary {
+    max-width: 920px;
+    margin: 0 auto 64px;
+    padding: 0 48px;
+  }
+  .study-summary-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 32px;
+  }
+  .study-summary-label {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--cream-dim);
+    margin-bottom: 12px;
+  }
+  .study-summary-text {
+    font-size: 15px; font-weight: 300;
+    color: var(--cream); line-height: 1.7;
+    margin-bottom: 4px;
+  }
+  .study-summary-jumps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+  }
+  .study-summary-jumps a {
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--warm);
+    text-decoration: none;
+    padding-right: 16px;
+    margin-right: 16px;
+    border-right: 1px solid var(--border);
+    transition: color 0.2s;
+  }
+  .study-summary-jumps a:last-child {
+    border-right: none;
+    margin-right: 0;
+    padding-right: 0;
+  }
+  .study-summary-jumps a:hover {
+    color: var(--cream-bright);
+  }
+
   /* ═══ HERO IMAGE ═══ */
 
   .study-hero {
@@ -376,12 +430,22 @@
     nav { padding: 16px 20px; }
     .nav-links { gap: 18px; }
     .nav-links a { font-size: 12px; }
-    .back-link-row, .study-header, .study-hero, .study-body, .study-image-block, .recognition-block, .ceremony-pair, .study-cta, .footer {
+    .back-link-row, .study-header, .study-hero, .study-summary, .study-body, .study-image-block, .recognition-block, .ceremony-pair, .study-cta, .footer {
       padding-left: 20px; padding-right: 20px;
     }
     .study-meta { gap: 24px; }
     .recognition-card { padding: 28px; }
     .study-cta-card { padding: 24px; }
+    .study-summary-card { padding: 22px 24px; }
+    .study-summary-jumps { flex-direction: column; align-items: stretch; gap: 0; padding-top: 14px; }
+    .study-summary-jumps a {
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+      margin-right: 0;
+      padding: 12px 0;
+      text-align: center;
+    }
+    .study-summary-jumps a:last-child { border-bottom: none; padding-bottom: 0; }
   }
 </style>
 </head>
@@ -440,9 +504,24 @@
     </div>
   </div>
 
+  <!-- STUDY SUMMARY + JUMP LINKS -->
+  <div class="study-summary">
+    <div class="study-summary-card">
+      <div class="study-summary-label">In this study</div>
+      <p class="study-summary-text">How eight initial directions narrowed to two finals. The specific sources behind each color, star, and angle. What happened at the State Capitol on February 7, 2023.</p>
+      <div class="study-summary-jumps">
+        <a href="#brief">The Brief</a>
+        <a href="#work">The Work</a>
+        <a href="#choices">Design Choices</a>
+        <a href="#recognition">Recognition</a>
+        <a href="#reflection">Reflection</a>
+      </div>
+    </div>
+  </div>
+
   <!-- THE BRIEF -->
   <section class="study-body">
-    <div class="study-section">
+    <div class="study-section" id="brief">
       <div class="study-section-label">The Brief</div>
       <h2>Utah opened its state flag up to anyone with a steady hand.</h2>
       <p>In 2022, the State of Utah announced an open competition to redesign the state flag. The existing flag was a state seal on a blue field. Functional, but indistinguishable from a dozen other state flags at a distance, and built for a different era. The brief was simple. Submit a design. Anyone could enter.</p>
@@ -468,7 +547,7 @@
   </div>
 
   <section class="study-body">
-    <div class="study-section">
+    <div class="study-section" id="work">
       <div class="study-section-label">The Work</div>
       <h2>Eight directions, then a clear pair.</h2>
       <p>The first round wasn't about taste. It was about reducing the variable space. Each composition tested one decision at a time. Whether the beehive should appear as the literal beehive icon, as a hexagonal honeycomb cluster, or as a single hex cell standing in for the whole hive. Whether the mountains should sit as a silhouette dividing the field or as a horizon line. Whether to keep the heritage navy-white-red palette or trade tradition for legibility.</p>
@@ -496,7 +575,7 @@
       <p>Both moves carried through to the design Utah eventually adopted. <strong>The state's final flag uses a mountain silhouette dividing a navy, white, and red field, with a beehive sitting inside a hexagonal badge.</strong> A separate process arrived at the same structural answer. That convergence is part of why mine was among the designs the state recognized.</p>
     </div>
 
-    <div class="study-section">
+    <div class="study-section" id="choices">
       <div class="study-section-label">Design Choices</div>
       <h2>Every choice has a source.</h2>
       <p>A flag has too few elements for any of them to be filler. Each color, each shape, each angle was a decision with a reference behind it. Naming the sources is what separates a flag that looks like Utah from one that just looks like a flag.</p>
@@ -539,7 +618,7 @@
   </section>
 
   <!-- RECOGNITION -->
-  <section class="recognition-block">
+  <section class="recognition-block" id="recognition">
     <div class="recognition-card">
       <div>
         <div class="study-section-label">Recognition</div>
@@ -578,7 +657,7 @@
 
   <!-- REFLECTION -->
   <section class="study-body">
-    <div class="study-section">
+    <div class="study-section" id="reflection">
       <div class="study-section-label">Reflection</div>
       <h2>The format does more of the work than I expected.</h2>
       <p>The most useful thing about a flag brief is what it refuses. No lettering. No seal. No gradient that won't print. No flourish that doesn't survive a stiff wind. Every constraint pushes the design toward the same destination. <strong>The simplest mark that still means something.</strong></p>
