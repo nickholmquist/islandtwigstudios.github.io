@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services — IslandTwig Studios</title>
+
+    <link rel="icon" type="image/png" href="images/appicons/favicon.png">
+
+    <meta property="og:title" content="Services — IslandTwig Studios">
+    <meta property="og:description" content="Brand identity and design services. Logos, brand systems, and naming work for small businesses and sports teams.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://islandtwigstudios.com/services">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@300&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #111110;
+            --surface: #1a1918;
+            --cream: #e8e0d5;
+            --cream-bright: #f2ece4;
+            --cream-dim: #a09890;
+            --cream-faint: rgba(232, 224, 213, 0.05);
+            --border: rgba(232, 224, 213, 0.08);
+            --sage: #7a9e87;
+            --sage-dim: rgba(122, 158, 135, 0.12);
+            --warm: #b8896a;
+            --warm-dim: rgba(184, 137, 106, 0.12);
+            --radius: 14px;
+            --radius-sm: 10px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--cream);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 400;
+            line-height: 1.65;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.4;
+        }
+
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 20px 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+            background: rgba(17, 17, 16, 0.85);
+            backdrop-filter: blur(12px);
+        }
+
+        .nav-logo {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--cream);
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .nav-logo:hover { opacity: 1; }
+
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--cream-dim);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            transition: color 0.2s;
+        }
+
+        .nav-links a.active { color: var(--sage); }
+        .nav-links a:hover { color: var(--cream); }
+
+        .page {
+            position: relative;
+            z-index: 1;
+            padding-top: 80px;
+        }
+
+        .content {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 56px 48px 0;
+        }
+
+        /* ═══ HEADER ═══ */
+
+        .header {
+            margin-bottom: 48px;
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--cream-dim);
+            margin-bottom: 14px;
+        }
+
+        .header h1 {
+            font-size: clamp(28px, 3.5vw, 40px);
+            font-weight: 800;
+            color: var(--cream-bright);
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            margin-bottom: 18px;
+            max-width: 700px;
+        }
+
+        .header p {
+            font-size: 15px;
+            font-weight: 300;
+            color: var(--cream-dim);
+            line-height: 1.7;
+            max-width: 580px;
+        }
+
+        .availability {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 18px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--sage);
+            letter-spacing: 0.02em;
+        }
+
+        .availability::before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--sage);
+            box-shadow: 0 0 8px rgba(122, 158, 135, 0.6);
+        }
+
+        /* ═══ TIERS ═══ */
+
+        .tiers {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+
+        .tier {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px 26px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+
+        .tier::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .tier:hover::before { opacity: 1; }
+        .tier:hover {
+            border-color: rgba(184, 137, 106, 0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+        }
+
+        .tier.t-logo::before     { background: radial-gradient(ellipse at 30% 10%, var(--sage-dim), transparent 60%); }
+        .tier.t-identity::before { background: radial-gradient(ellipse at 50% 10%, var(--warm-dim), transparent 60%); }
+        .tier.t-system::before   { background: radial-gradient(ellipse at 70% 10%, var(--warm-dim), transparent 60%); }
+
+        .tier.t-identity {
+            border-color: rgba(184, 137, 106, 0.18);
+        }
+
+        .tier-inner { position: relative; z-index: 1; display: flex; flex-direction: column; height: 100%; }
+
+        .tier-recommended {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--warm);
+            background: var(--warm-dim);
+            padding: 3px 9px;
+            border-radius: 100px;
+            z-index: 2;
+        }
+
+        .tier-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--cream-bright);
+            letter-spacing: -0.01em;
+            margin-bottom: 4px;
+        }
+
+        .tier-clarifier {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--sage);
+            margin-bottom: 14px;
+            font-style: italic;
+        }
+
+        .tier-price {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--cream-bright);
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            line-height: 1;
+        }
+
+        .tier-desc {
+            font-size: 13px;
+            font-weight: 300;
+            color: var(--cream-dim);
+            line-height: 1.65;
+            margin-bottom: 18px;
+        }
+
+        .tier-includes {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--cream-dim);
+            margin-bottom: 10px;
+            margin-top: auto;
+        }
+
+        .tier ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .tier li {
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--cream);
+            padding-left: 18px;
+            position: relative;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .tier li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 9px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--sage);
+            opacity: 0.5;
+        }
+
+        .tier li:last-child { margin-bottom: 0; }
+
+        /* ═══ CUSTOM TIER ═══ */
+
+        .custom-tier {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px 28px;
+            margin-bottom: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .custom-tier::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 90% 50%, var(--warm-dim), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .custom-tier:hover::before { opacity: 1; }
+        .custom-tier:hover { border-color: rgba(184, 137, 106, 0.15); }
+
+        .custom-tier-inner {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            width: 100%;
+        }
+
+        .custom-tier h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--cream-bright);
+            margin-bottom: 4px;
+            letter-spacing: -0.01em;
+        }
+
+        .custom-tier p {
+            font-size: 13px;
+            font-weight: 300;
+            color: var(--cream-dim);
+            line-height: 1.55;
+        }
+
+        .arrow-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: gap 0.25s ease, color 0.25s ease;
+            color: var(--warm);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .arrow-link svg { width: 13px; height: 13px; }
+        .arrow-link:hover { gap: 10px; color: var(--cream-bright); }
+
+        /* ═══ PROCESS ═══ */
+
+        .process-section {
+            margin-bottom: 56px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+        }
+
+        .process-section h2 {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--cream-dim);
+            margin-bottom: 24px;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .process-step h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--cream-bright);
+            margin-bottom: 6px;
+        }
+
+        .process-step .step-num {
+            font-family: 'Fira Code', monospace;
+            font-size: 11px;
+            color: var(--warm);
+            font-weight: 400;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .process-step p {
+            font-size: 13px;
+            font-weight: 300;
+            color: var(--cream-dim);
+            line-height: 1.6;
+        }
+
+        /* ═══ INTAKE FORM ═══ */
+
+        .intake-section {
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+            margin-bottom: 40px;
+        }
+
+        .intake-section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--cream-bright);
+            letter-spacing: -0.01em;
+            margin-bottom: 8px;
+        }
+
+        .intake-section .lead {
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--cream-dim);
+            line-height: 1.65;
+            margin-bottom: 28px;
+            max-width: 580px;
+        }
+
+        .intake-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px;
+        }
+
+        .intake-row {
+            margin-bottom: 22px;
+        }
+
+        .intake-row:last-of-type { margin-bottom: 28px; }
+
+        .intake-row label {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--cream-dim);
+            margin-bottom: 10px;
+        }
+
+        .intake-row input[type="text"],
+        .intake-row input[type="email"],
+        .intake-row textarea,
+        .intake-row select {
+            width: 100%;
+            background: rgba(0,0,0,0.25);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 12px 14px;
+            color: var(--cream);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .intake-row input:focus,
+        .intake-row textarea:focus,
+        .intake-row select:focus {
+            outline: none;
+            border-color: rgba(122, 158, 135, 0.4);
+            background: rgba(0,0,0,0.35);
+        }
+
+        .intake-row textarea {
+            resize: vertical;
+            min-height: 100px;
+            line-height: 1.55;
+        }
+
+        .intake-row select {
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23a09890' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            background-color: rgba(0,0,0,0.25);
+            padding-right: 36px;
+        }
+
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            background: rgba(0,0,0,0.2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .checkbox-item:hover { border-color: rgba(232, 224, 213, 0.15); }
+
+        .checkbox-item input {
+            width: 16px;
+            height: 16px;
+            accent-color: var(--sage);
+            cursor: pointer;
+        }
+
+        .checkbox-item label {
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--cream);
+            letter-spacing: 0;
+            text-transform: none;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .intake-row-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .submit-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding-top: 8px;
+            border-top: 1px solid var(--border);
+            margin-top: 24px;
+            padding-top: 24px;
+            flex-wrap: wrap;
+        }
+
+        .submit-btn {
+            background: var(--warm);
+            color: var(--bg);
+            border: none;
+            padding: 13px 26px;
+            border-radius: 100px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .submit-btn:hover {
+            background: var(--cream-bright);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(184, 137, 106, 0.3);
+        }
+
+        .submit-btn svg { width: 14px; height: 14px; }
+
+        .submit-note {
+            font-size: 12px;
+            font-weight: 300;
+            color: var(--cream-dim);
+            line-height: 1.5;
+        }
+
+        .submit-note a { color: var(--sage); text-decoration: none; transition: color 0.2s; }
+        .submit-note a:hover { color: var(--cream-bright); }
+
+        /* ═══ FOOTER ═══ */
+
+        .footer { padding: 64px 0 64px; text-align: center; }
+        .footer-divider { height: 1px; background: var(--border); margin-bottom: 28px; }
+
+        .social-row { display: flex; justify-content: center; gap: 16px; margin-bottom: 20px; }
+
+        .social-btn {
+            width: 38px; height: 38px; border-radius: 10px;
+            background: var(--cream-faint); border: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--cream-dim); text-decoration: none; transition: all 0.25s ease;
+        }
+        .social-btn:hover { background: rgba(232, 224, 213, 0.08); color: var(--cream); border-color: rgba(232, 224, 213, 0.12); }
+        .social-btn svg { width: 17px; height: 17px; }
+
+        .footer-email { font-family: 'Fira Code', monospace; font-size: 12.5px; font-weight: 300; color: var(--cream-dim); text-decoration: none; letter-spacing: 0.02em; transition: color 0.25s ease; display: inline-block; margin-bottom: 32px; }
+        .footer-email:hover { color: var(--cream); }
+
+        .maker-mark { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 28px; text-decoration: none; }
+        .maker-mark-icon { width: 28px; height: 28px; border-radius: 6px; opacity: 0.35; transition: opacity 0.3s ease; }
+        .maker-mark:hover .maker-mark-icon { opacity: 0.55; }
+        .maker-mark-label { font-size: 11px; font-weight: 400; letter-spacing: 0.06em; color: rgba(232, 224, 213, 0.22); transition: color 0.3s ease; }
+        .maker-mark:hover .maker-mark-label { color: rgba(232, 224, 213, 0.35); }
+        .footer-legal { font-size: 11px; color: rgba(232, 224, 213, 0.18); }
+        .footer-legal-link { color: inherit; text-decoration: none; transition: color 0.2s; }
+        .footer-legal-link:hover { color: var(--cream-dim); }
+
+        /* ═══ ANIMATIONS ═══ */
+
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .a1 { opacity:0; animation: fadeUp .6s ease .15s forwards; }
+        .a2 { opacity:0; animation: fadeUp .6s ease .25s forwards; }
+        .a3 { opacity:0; animation: fadeUp .6s ease .35s forwards; }
+        .a4 { opacity:0; animation: fadeUp .6s ease .45s forwards; }
+        .a5 { opacity:0; animation: fadeUp .6s ease .55s forwards; }
+        .a6 { opacity:0; animation: fadeUp .6s ease .65s forwards; }
+        .a7 { opacity:0; animation: fadeUp .6s ease .75s forwards; }
+        .a8 { opacity:0; animation: fadeUp .6s ease .85s forwards; }
+        .a-footer { opacity:0; animation: fadeUp .6s ease 1.0s forwards; }
+
+        @media (max-width: 900px) {
+            .tiers { grid-template-columns: 1fr; }
+            .process-grid { grid-template-columns: repeat(2, 1fr); }
+            .custom-tier-inner { flex-direction: column; align-items: flex-start; }
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 18px 24px; }
+            .nav-links { gap: 24px; }
+            .content { padding: 40px 24px 0; }
+            .intake-row-grid { grid-template-columns: 1fr; }
+            .checkbox-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            nav { padding: 16px 20px; }
+            .nav-links { gap: 18px; }
+            .nav-links a { font-size: 12px; }
+            .content { padding: 32px 20px 0; }
+            .process-grid { grid-template-columns: 1fr; }
+            .intake-card { padding: 22px; }
+            .tier { padding: 24px 22px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="nav-logo">IslandTwig Studios</a>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/design">Design</a></li>
+            <li><a href="/services" class="active">Services</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+    </nav>
+
+    <div class="page">
+        <div class="content">
+
+            <header class="header">
+                <p class="section-label a1">Services</p>
+                <h1 class="a2">Brand identity, made deliberate.</h1>
+                <p class="a2">Logos and brand systems for small businesses, indie products, and sports teams. Clear scope, clean files, fair pricing.</p>
+                <div class="availability a3">Currently taking on a few new projects each month</div>
+            </header>
+
+            <!-- TIERS -->
+            <div class="tiers">
+
+                <div class="tier t-logo a4">
+                    <div class="tier-inner">
+                        <h3 class="tier-name">Logo</h3>
+                        <p class="tier-clarifier">A mark that's yours.</p>
+                        <div class="tier-price">$200</div>
+                        <p class="tier-desc">A single logo concept direction, refined through two rounds of revisions. The starting point for a small project or side venture.</p>
+                        <div class="tier-includes">Includes</div>
+                        <ul>
+                            <li>2&ndash;3 initial concepts</li>
+                            <li>2 rounds of revisions</li>
+                            <li>Final files in color &amp; black/white</li>
+                            <li>PNG, SVG, PDF formats</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tier t-identity a5">
+                    <span class="tier-recommended">Most common</span>
+                    <div class="tier-inner">
+                        <h3 class="tier-name">Brand Identity</h3>
+                        <p class="tier-clarifier">What you need to launch.</p>
+                        <div class="tier-price">$500</div>
+                        <p class="tier-desc">A logo paired with the supporting pieces a small business actually needs to look coherent across a website, business cards, and social profiles.</p>
+                        <div class="tier-includes">Includes</div>
+                        <ul>
+                            <li>Primary logo + wordmark</li>
+                            <li>Color palette</li>
+                            <li>Typography pairing</li>
+                            <li>One-page brand sheet (PDF)</li>
+                            <li>All final files &amp; formats</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tier t-system a6">
+                    <div class="tier-inner">
+                        <h3 class="tier-name">Full Brand System</h3>
+                        <p class="tier-clarifier">What you need to scale.</p>
+                        <div class="tier-price">$800</div>
+                        <p class="tier-desc">Everything in Brand Identity, plus the supporting marks and documentation a brand needs to be applied consistently across a wide range of surfaces.</p>
+                        <div class="tier-includes">Includes</div>
+                        <ul>
+                            <li>Everything in Brand Identity</li>
+                            <li>Secondary marks &amp; logo variants</li>
+                            <li>Expanded color &amp; type rules</li>
+                            <li>Social profile asset set</li>
+                            <li>3&ndash;5 real-world mockups</li>
+                            <li>Multi-page brand guide (PDF)</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- CUSTOM TIER -->
+            <a href="#start" class="custom-tier a7">
+                <div class="custom-tier-inner">
+                    <div>
+                        <h3>Need something more?</h3>
+                        <p>Sports identity systems with jersey design, packaging, naming projects, or large-scale brand work. Quoted per project.</p>
+                    </div>
+                    <span class="arrow-link">
+                        Tell me about it
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </span>
+                </div>
+            </a>
+
+            <!-- PROCESS -->
+            <section class="process-section a8">
+                <h2>How it works</h2>
+                <div class="process-grid">
+                    <div class="process-step">
+                        <span class="step-num">01</span>
+                        <h4>Inquiry</h4>
+                        <p>Send the form below or email me. I'll respond within a day with questions and a rough timeline.</p>
+                    </div>
+                    <div class="process-step">
+                        <span class="step-num">02</span>
+                        <h4>Kickoff</h4>
+                        <p>50% deposit, a short brief, and we start. You'll get a clear schedule for concepts and revisions.</p>
+                    </div>
+                    <div class="process-step">
+                        <span class="step-num">03</span>
+                        <h4>Concepts &amp; Revisions</h4>
+                        <p>Concepts arrive together. We refine the direction you like best through the included revision rounds.</p>
+                    </div>
+                    <div class="process-step">
+                        <span class="step-num">04</span>
+                        <h4>Delivery</h4>
+                        <p>Final 50% on delivery. You get all source files, exports, and any guide documents in one package.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- INTAKE FORM -->
+            <section class="intake-section a8" id="start">
+                <h2>Start a project</h2>
+                <p class="lead">Tell me what you're working on. Anything you can share helps me get back to you with something useful instead of a generic reply.</p>
+
+                <form class="intake-card" action="mailto:hello@islandtwigstudios.com" method="post" enctype="text/plain">
+
+                    <div class="intake-row-grid">
+                        <div class="intake-row">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="intake-row">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+
+                    <div class="intake-row">
+                        <label for="project">Project name or company</label>
+                        <input type="text" id="project" name="project">
+                    </div>
+
+                    <div class="intake-row">
+                        <label>What are you looking for? (check all that apply)</label>
+                        <div class="checkbox-grid">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="ck-logo" name="needs" value="Logo">
+                                <label for="ck-logo">Logo</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="ck-identity" name="needs" value="Brand Identity">
+                                <label for="ck-identity">Brand Identity</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="ck-system" name="needs" value="Full Brand System">
+                                <label for="ck-system">Full Brand System</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="ck-sports" name="needs" value="Sports / team identity">
+                                <label for="ck-sports">Sports or team identity</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="ck-naming" name="needs" value="Naming">
+                                <label for="ck-naming">Naming</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="ck-other" name="needs" value="Something else">
+                                <label for="ck-other">Something else</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="intake-row-grid">
+                        <div class="intake-row">
+                            <label for="timeline">Timeline</label>
+                            <select id="timeline" name="timeline">
+                                <option value="">Pick one</option>
+                                <option value="ASAP">As soon as possible</option>
+                                <option value="2-4 weeks">2&ndash;4 weeks</option>
+                                <option value="1-2 months">1&ndash;2 months</option>
+                                <option value="Flexible">Flexible</option>
+                            </select>
+                        </div>
+                        <div class="intake-row">
+                            <label for="budget">Budget range</label>
+                            <select id="budget" name="budget">
+                                <option value="">Pick one</option>
+                                <option value="Under $200">Under $200</option>
+                                <option value="$200-500">$200&ndash;$500</option>
+                                <option value="$500-1000">$500&ndash;$1,000</option>
+                                <option value="$1000+">$1,000+</option>
+                                <option value="Not sure">Not sure yet</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="intake-row">
+                        <label for="details">Tell me about the project</label>
+                        <textarea id="details" name="details" placeholder="What's the business, team, or product? What's the feeling you want it to have? Anything you've seen that you like (or hate)?"></textarea>
+                    </div>
+
+                    <div class="submit-row">
+                        <button type="submit" class="submit-btn">
+                            Send it
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </button>
+                        <p class="submit-note">Or just email <a href="mailto:hello@islandtwigstudios.com">hello@islandtwigstudios.com</a> directly.</p>
+                    </div>
+
+                </form>
+            </section>
+
+            <footer class="footer a-footer">
+                <div class="footer-divider"></div>
+
+                <div class="social-row">
+                    <a href="https://www.instagram.com/islandtwigstudios" class="social-btn" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5"/>
+                            <circle cx="12" cy="12" r="5"/>
+                            <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
+                        </svg>
+                    </a>
+                    <a href="https://twitter.com/islandtwig" class="social-btn" aria-label="X / Twitter">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                    <a href="https://buymeacoffee.com/islandtwig" class="social-btn" aria-label="Buy Me A Coffee">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+                            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+                            <line x1="6" y1="1" x2="6" y2="4"/>
+                            <line x1="10" y1="1" x2="10" y2="4"/>
+                            <line x1="14" y1="1" x2="14" y2="4"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <a href="mailto:hello@islandtwigstudios.com" class="footer-email">hello@islandtwigstudios.com</a>
+
+                <a href="https://www.instagram.com/islandtwigstudios" class="maker-mark">
+                    <img class="maker-mark-icon" src="images/appicons/n_mark.png" alt="N" width="28" height="28">
+                    <span class="maker-mark-label">A Nick Holmquist project</span>
+                </a>
+
+                <p class="footer-legal">&copy; 2026 IslandTwig Studios &middot; <a href="/privacy" class="footer-legal-link">Privacy</a></p>
+            </footer>
+
+        </div>
+    </div>
+
+</body>
+</html>
