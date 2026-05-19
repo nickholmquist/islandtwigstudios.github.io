@@ -157,6 +157,127 @@
         .badge-live { background: var(--sage-dim); color: var(--sage); }
         .badge-soon { background: var(--cream-faint); color: var(--cream-dim); border: 1px solid var(--border); }
 
+        /* ═══ AVAILABILITY INDICATOR ═══ */
+
+        .availability-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 28px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--sage);
+            letter-spacing: 0.02em;
+        }
+
+        .availability-bar::before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--sage);
+            box-shadow: 0 0 8px rgba(122, 158, 135, 0.6);
+            flex-shrink: 0;
+            animation: pulse 2.4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(122, 158, 135, 0.6); }
+            50% { opacity: 0.6; box-shadow: 0 0 14px rgba(122, 158, 135, 0.8); }
+        }
+
+        /* ═══ HOME CTA CARD ═══ */
+
+        .home-cta {
+            display: block;
+            margin-top: 56px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 36px 40px;
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .home-cta::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 85% 50%, var(--warm-dim), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .home-cta:hover::before { opacity: 1; }
+        .home-cta:hover {
+            border-color: rgba(184, 137, 106, 0.18);
+            transform: translateY(-1px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+        }
+
+        .home-cta-inner {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .home-cta-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--warm);
+            margin-bottom: 10px;
+        }
+
+        .home-cta h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(22px, 2.5vw, 28px);
+            font-weight: 700;
+            color: var(--cream-bright);
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+            margin-bottom: 8px;
+        }
+
+        .home-cta p {
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--cream-dim);
+            line-height: 1.6;
+            max-width: 520px;
+        }
+
+        .home-cta-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--warm);
+            white-space: nowrap;
+            padding: 12px 22px;
+            background: var(--warm-dim);
+            border: 1px solid rgba(184, 137, 106, 0.2);
+            border-radius: 100px;
+            flex-shrink: 0;
+            transition: background 0.25s ease, border-color 0.25s ease;
+        }
+
+        .home-cta:hover .home-cta-pill {
+            background: rgba(184, 137, 106, 0.2);
+            border-color: rgba(184, 137, 106, 0.35);
+        }
+
+        .home-cta-pill svg { width: 14px; height: 14px; }
+
         .app-icon-img { flex-shrink: 0; object-fit: cover; box-shadow: 0 0 0 1px rgba(232, 224, 213, 0.12), 0 0 16px rgba(232, 224, 213, 0.05), 0 3px 14px rgba(0,0,0,0.45); }
         .app-icon-placeholder { flex-shrink: 0; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 1px rgba(232, 224, 213, 0.12), 0 0 16px rgba(232, 224, 213, 0.05), 0 3px 14px rgba(0,0,0,0.45); background: linear-gradient(145deg, #3a2e50, #2c2040); font-size: 1.3rem; }
         .app-icon-placeholder.placeholder-sage { background: linear-gradient(145deg, #3a4a3e, #2a3a2e); }
@@ -409,6 +530,8 @@
         .ar6 { opacity:0; animation: fadeUp .6s ease .55s forwards; }
         .ar7 { opacity:0; animation: fadeUp .6s ease .60s forwards; }
 
+        .a-indicator { opacity:0; animation: fadeUp .6s ease .10s forwards; }
+        .a-cta { opacity:0; animation: fadeUp .6s ease .85s forwards; }
         .a-footer { opacity:0; animation: fadeUp .6s ease 1.0s forwards; }
 
         @media (max-width: 900px) {
@@ -446,6 +569,8 @@
 
     <div class="page">
         <div class="content">
+
+            <div class="availability-bar a-indicator">Available for new projects</div>
 
             <div class="two-col">
 
@@ -585,6 +710,20 @@
                 </div>
 
             </div>
+
+            <a href="/services" class="home-cta a-cta">
+                <div class="home-cta-inner">
+                    <div>
+                        <div class="home-cta-label">Available for work</div>
+                        <h2>Have a project in mind?</h2>
+                        <p>Logos starting at $200, full brand systems, and naming work. See pricing or start a project below.</p>
+                    </div>
+                    <span class="home-cta-pill">
+                        Start a project
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </span>
+                </div>
+            </a>
 
             <footer class="footer a-footer">
                 <div class="footer-divider"></div>
