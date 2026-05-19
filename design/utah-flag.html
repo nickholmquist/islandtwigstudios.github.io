@@ -189,6 +189,36 @@
     font-style: italic;
   }
 
+  /* Design choice rows (color/geometry decisions inside The Work) */
+  .design-choice {
+    padding: 22px 0;
+    border-top: 1px solid var(--border);
+  }
+  .design-choice:last-child {
+    padding-bottom: 0;
+  }
+  .design-choice-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--cream-bright);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .design-choice-swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    border: 1px solid rgba(232, 224, 213, 0.15);
+    flex-shrink: 0;
+  }
+  .design-choice p {
+    margin-bottom: 0;
+  }
+
   /* ═══ IMAGE BLOCKS ═══ */
 
   .study-image-block {
@@ -406,7 +436,7 @@
   <!-- Source: 6F675E05F42047869D867EF6B2EE6507_4_5005_c.jpeg -->
   <div class="study-hero">
     <div class="study-hero-image">
-      <img src="/images/case-studies/utah-flag/hero-final-submission.jpeg" alt="Utah State Flag submission by Nick Holmquist: navy canton with four white stars, mountain silhouette dividing into white middle and red base, with a gold hexagonal beehive cell at center">
+      <img src="/images/case-studies/utah-flag/hero-final-submission.jpeg" alt="Utah State Flag submission by Nick Holmquist: navy canton with five white stars, mountain silhouette dividing into white middle and red base, with a gold hexagonal beehive cell at center">
     </div>
   </div>
 
@@ -462,9 +492,49 @@
   <section class="study-body">
     <div class="study-section">
       <h2>What both finals share.</h2>
-      <p>The hexagonal cell does the heaviest lifting. A traditional beehive icon, drawn well, can look beautiful on a coat of arms. On a flag, it loses everything below the second row of bees the moment you step back. A single hex cell carries the same meaning. It's the unit a beehive is made of. It scales. It reads from across a parking lot. It works in a one-color pin.</p>
-      <p>The mountains are deliberately abstracted. Not the Wasatch, not the Uintas, not any specific range. A ridge line that any Utahn would recognize as home without claiming a particular one.</p>
+      <p>Same structural logic in both. Mountain silhouette as the divider. Heritage tri-color, kept. Gold hexagonal cell at the center. The only meaningful difference between the two is the canton: one carries five white stars, the other lets the geometry do all the talking.</p>
       <p>Both moves carried through to the design Utah eventually adopted. <strong>The state's final flag uses a mountain silhouette dividing a navy, white, and red field, with a beehive sitting inside a hexagonal badge.</strong> A separate process arrived at the same structural answer. That convergence is part of why mine was among the designs the state recognized.</p>
+    </div>
+
+    <div class="study-section">
+      <div class="study-section-label">Design Choices</div>
+      <h2>Every choice has a source.</h2>
+      <p>A flag has too few elements for any of them to be filler. Each color, each shape, each angle was a decision with a reference behind it. Naming the sources is what separates a flag that looks like Utah from one that just looks like a flag.</p>
+
+      <div class="design-choice">
+        <div class="design-choice-label"><span class="design-choice-swatch" style="background:#003478"></span>Navy</div>
+        <p>Sampled from Utah's historic state flag, the same blue that has carried the state's identity since 1913. There was no reason to redesign what already worked. Using the same navy was a way to honor the legacy rather than replace it. The state's final adopted flag made the same call.</p>
+      </div>
+
+      <div class="design-choice">
+        <div class="design-choice-label"><span class="design-choice-swatch" style="background:#b22234"></span>Red</div>
+        <p>The color value is US flag red. The symbolism, on a Utah flag, is southern Utah's red rock landscape. Two references inside one color. The choice keeps the new flag in conversation with the American flag tradition while pointing at the geography that makes the state feel like itself.</p>
+      </div>
+
+      <div class="design-choice">
+        <div class="design-choice-label"><span class="design-choice-swatch" style="background:#ffcf48"></span>Yellow</div>
+        <p>Sampled from Sunglow, the Crayola color renamed "Bee-UTAH-ful" in the company's 2004 State Your Color contest. A seventh-grader from Murray named Rusty Griggs gave it the name, picked from 220 Utah entries by a Crayola committee for the first state-themed pack in Crayola's 100-year history. Bee-UTAH-ful is the kind of small, lower-case piece of state identity that won't show up on any official register. Using it as the flag's yellow is a quiet inside reference for the Utahns who would know.</p>
+      </div>
+
+      <div class="design-choice">
+        <div class="design-choice-label">Five stars</div>
+        <p>Two readings of the same five points. The Mighty 5 national parks: Arches, Bryce Canyon, Canyonlands, Capitol Reef, Zion. And the five federally recognized tribal nations of Utah: Diné (Navajo), Goshute, Paiute, Shoshone, and Ute. The final adopted state flag also lands on five-pointed symbolism for the tribal nations.</p>
+      </div>
+
+      <div class="design-choice">
+        <div class="design-choice-label">Mountain ridge</div>
+        <p>A clean abstraction. Not the Wasatch, not the Uintas, not any specific range. A composed ridge that any Utahn would recognize as home without claiming a particular one. The mountains are also the structural divider for the flag, separating navy from white from red.</p>
+      </div>
+
+      <div class="design-choice">
+        <div class="design-choice-label">Hexagon</div>
+        <p>The single beehive cell standing in for the whole hive. Utah is the Beehive State. A hex is the unit a beehive is built from. Drawing the abstract unit instead of the literal beehive icon gives the flag a symbol that scales. It reads at jersey distance. It survives a one-color pin. It works on a phone.</p>
+      </div>
+
+      <div class="design-choice">
+        <div class="design-choice-label">Geometry</div>
+        <p>The peaks of the mountain ridge are cut at the same angle as the sides of the hexagon. The kind of decision a viewer would not consciously notice but would feel as cohesion. The composition holds together because the geometry across the flag is the same geometry.</p>
+      </div>
     </div>
   </section>
 
