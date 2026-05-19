@@ -5,24 +5,44 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Design Studio — IslandTwig Studios</title>
 <link rel="icon" type="image/png" href="images/appicons/favicon.png">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Design Studio — IslandTwig Studios">
+<meta property="og:description" content="Brand identity, sports identity, and naming work by Nick Holmquist. Logos from $200, full brand systems from $800.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://islandtwigstudios.com/design">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@300&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #111110;
     --surface: #1a1918;
+    --surface-bright: #21201e;
     --cream: #e8e0d5;
+    --cream-bright: #f2ece4;
     --cream-dim: #a09890;
+    --cream-faint: rgba(232, 224, 213, 0.05);
+    --border: rgba(232, 224, 213, 0.08);
     --sage: #7a9e87;
-    --border: rgba(232,224,213,0.08);
+    --sage-dim: rgba(122, 158, 135, 0.12);
+    --warm: #b8896a;
+    --warm-dim: rgba(184, 137, 106, 0.12);
+    --radius: 14px;
+    --radius-sm: 10px;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
   body {
     background: var(--bg);
     color: var(--cream);
     font-family: 'Plus Jakarta Sans', sans-serif;
     min-height: 100vh;
+    line-height: 1.6;
   }
 
   body::before {
@@ -34,6 +54,8 @@
     z-index: 0;
     opacity: 0.4;
   }
+
+  /* ═══ NAV ═══ */
 
   nav {
     position: fixed;
@@ -49,105 +71,74 @@
   }
 
   .nav-logo {
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--cream);
-    text-decoration: none;
-    opacity: 0.7;
-    transition: opacity 0.2s;
+    font-size: 14px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--cream); text-decoration: none;
+    opacity: 0.7; transition: opacity 0.2s;
   }
-
   .nav-logo:hover { opacity: 1; }
 
-  .nav-links {
-    display: flex;
-    gap: 36px;
-    list-style: none;
-  }
-
-  .nav-links a {
-    color: var(--cream-dim);
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    transition: color 0.2s;
-  }
-
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { color: var(--cream-dim); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.04em; transition: color 0.2s; }
   .nav-links a.active { color: var(--sage); }
   .nav-links a:hover { color: var(--cream); }
 
-  .page {
-    position: relative;
-    z-index: 1;
-    padding-top: 80px;
+  /* ═══ PAGE STRUCTURE ═══ */
+
+  .page { position: relative; z-index: 1; padding-top: 80px; }
+
+  .content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px;
   }
 
+  /* ═══ HEADER (tightened) ═══ */
+
   .page-header {
-    padding: 56px 48px 40px;
+    padding: 48px 0 32px;
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
     gap: 40px;
-    max-width: 1400px;
-    margin: 0 auto;
   }
 
-  .header-left .label {
+  .header-left {
+    max-width: 540px;
+  }
+
+  .section-label {
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--sage);
-    margin-bottom: 12px;
+    color: var(--cream-dim);
+    margin-bottom: 14px;
   }
 
-  .header-left h1 {
-    font-size: clamp(32px, 4vw, 52px);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
+  .section-label-warm { color: var(--warm); }
+
+  .page-header h1 {
+    font-size: clamp(24px, 2.8vw, 32px);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    color: var(--cream-bright);
+    margin-bottom: 14px;
   }
 
-  .header-right {
-    max-width: 320px;
-    flex-shrink: 0;
-    padding-bottom: 4px;
-  }
-
-  .header-right p {
+  .header-tagline {
     font-size: 14px;
     color: var(--cream-dim);
-    line-height: 1.7;
+    line-height: 1.6;
+    max-width: 480px;
+    margin-bottom: 14px;
   }
 
-  .divider {
-    max-width: 1400px;
-    margin: 0 auto 40px;
-    padding: 0 48px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .masonry-wrap {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 48px 100px;
-    columns: 3;
-    column-gap: 12px;
-  }
-
-  @media (max-width: 1100px) { .masonry-wrap { columns: 2; } }
-  @media (max-width: 680px)  { .masonry-wrap { columns: 1; padding: 0 20px 80px; } }
-
-  /* ═══ AVAILABILITY INDICATOR ═══ */
-
+  /* Availability indicator */
   .availability-bar {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 10px;
-    margin: 8px 0 0;
     font-size: 12px;
     font-weight: 500;
     color: var(--sage);
@@ -156,12 +147,10 @@
 
   .availability-bar::before {
     content: '';
-    width: 7px;
-    height: 7px;
+    width: 7px; height: 7px;
     border-radius: 50%;
     background: var(--sage);
     box-shadow: 0 0 8px rgba(122, 158, 135, 0.6);
-    flex-shrink: 0;
     animation: pulse 2.4s ease-in-out infinite;
   }
 
@@ -170,157 +159,355 @@
     50% { opacity: 0.6; box-shadow: 0 0 14px rgba(122, 158, 135, 0.8); }
   }
 
-  /* ═══ HEADER CTA BUTTON ═══ */
+  .header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex-shrink: 0;
+    padding-bottom: 4px;
+  }
 
   .header-cta {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    margin-top: 16px;
     padding: 10px 20px;
     background: rgba(184, 137, 106, 0.12);
     border: 1px solid rgba(184, 137, 106, 0.25);
     border-radius: 100px;
-    color: #b8896a;
+    color: var(--warm);
     text-decoration: none;
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 0.02em;
     transition: all 0.25s ease;
   }
-
   .header-cta:hover {
     background: rgba(184, 137, 106, 0.2);
     border-color: rgba(184, 137, 106, 0.4);
     transform: translateY(-1px);
   }
-
   .header-cta svg { width: 13px; height: 13px; }
 
-  .project-block {
-    break-inside: avoid;
-    margin-bottom: 40px;
+  .divider {
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 48px;
   }
 
-  .img-card {
+  /* ═══ FEATURED PROJECTS ═══ */
+
+  .featured-section {
+    margin-bottom: 64px;
+  }
+
+  .featured-label {
+    margin-bottom: 24px;
+  }
+
+  .featured-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .featured-card {
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .featured-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 80% 20%, var(--warm-dim), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .featured-card:hover::before { opacity: 1; }
+  .featured-card:hover {
+    border-color: rgba(184, 137, 106, 0.18);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+  }
+
+  .featured-card-image {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: var(--surface-bright);
+  }
+
+  .featured-card-image img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .featured-card:hover .featured-card-image img { transform: scale(1.04); }
+
+  .featured-card-image .badge {
+    position: absolute;
+    top: 14px; left: 14px;
+    z-index: 2;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 100px;
+    background: rgba(17, 17, 16, 0.85);
+    color: var(--warm);
+    border: 1px solid rgba(184, 137, 106, 0.3);
+    backdrop-filter: blur(8px);
+  }
+
+  /* Sage-colored badge for recognition signals */
+  .featured-card-image .badge.badge-sage {
+    color: var(--sage);
+    border-color: rgba(122, 158, 135, 0.3);
+  }
+
+  .featured-card-body {
+    padding: 22px 24px 24px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .featured-card-cat {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--warm);
+    margin-bottom: 6px;
+  }
+
+  .featured-card h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--cream-bright);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .featured-card-desc {
+    font-size: 13.5px;
+    font-weight: 300;
+    color: var(--cream-dim);
+    line-height: 1.55;
+    margin-bottom: 14px;
+  }
+
+  .featured-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--warm);
+    transition: gap 0.25s ease;
+  }
+  .featured-card:hover .featured-card-link { gap: 10px; }
+  .featured-card-link svg { width: 13px; height: 13px; }
+
+  /* When there are an odd number of cards, the last one spans full width */
+  .featured-grid .featured-card.featured-card-wide {
+    grid-column: 1 / -1;
+  }
+  .featured-grid .featured-card-wide .featured-card-image {
+    aspect-ratio: 24 / 9;
+  }
+
+  /* ═══ GALLERY SECTIONS ═══ */
+
+  .gallery-section {
+    margin-bottom: 56px;
+  }
+
+  .gallery-label {
+    margin-bottom: 24px;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+
+  .gallery-tile {
     position: relative;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: var(--radius-sm);
     background: var(--surface);
-    margin-bottom: 8px;
+    aspect-ratio: 1 / 1;
     cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    display: block;
   }
 
-  .img-card img {
-    width: 100%;
-    height: auto;
-    display: block;
+  .gallery-tile img {
+    width: 100%; height: 100%;
+    object-fit: cover;
     transition: transform 0.5s ease;
   }
 
-  .img-card:hover img { transform: scale(1.03); }
+  .gallery-tile:hover img { transform: scale(1.04); }
 
-  .img-overlay {
+  .gallery-tile-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(17,17,16,0.88) 0%, transparent 55%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    background: linear-gradient(to top, rgba(17,17,16,0.92) 0%, rgba(17,17,16,0.3) 50%, transparent 80%);
     display: flex;
     align-items: flex-end;
-    padding: 20px;
+    padding: 16px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
 
-  .img-card:hover .img-overlay { opacity: 1; }
+  .gallery-tile:hover .gallery-tile-overlay { opacity: 1; }
 
-  .overlay-text .proj-name {
-    font-size: 15px;
+  .gallery-tile-name {
+    font-size: 14px;
     font-weight: 600;
     color: var(--cream);
-    letter-spacing: -0.01em;
   }
 
-  .overlay-text .proj-tag {
-    font-size: 11px;
-    color: var(--sage);
+  .gallery-tile-cat {
+    font-size: 10px;
     font-weight: 500;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
+    color: var(--sage);
     margin-top: 3px;
   }
 
-  .project-label {
-    border-left: 2px solid var(--sage);
-    padding-left: 12px;
-    margin-bottom: 12px;
+  /* ═══ BOTTOM CTA ═══ */
+
+  .bottom-cta {
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 36px 40px;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin-bottom: 64px;
   }
 
-  .project-label .name {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--cream);
-    letter-spacing: -0.01em;
+  .bottom-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 90% 50%, var(--warm-dim), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
   }
 
-  .project-label .cat {
-    font-size: 11px;
-    color: var(--cream-dim);
-    letter-spacing: 0.04em;
-    margin-top: 2px;
+  .bottom-cta:hover::before { opacity: 1; }
+  .bottom-cta:hover {
+    border-color: rgba(184, 137, 106, 0.18);
+    transform: translateY(-1px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.25);
   }
 
-  .on-light { background: #f0ece6; padding: 40px; }
-  .on-dark-navy { background: #0f1923; padding: 48px; }
-
-  /* Showcase variants for compact icon + screen presentation */
-  .img-card.icon-showcase,
-  .img-card.phone-showcase {
-    background: transparent;
-    border-radius: 0;
-    overflow: visible;
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0;
+  .bottom-cta-inner {
+    position: relative; z-index: 1;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
   }
-  .img-card.icon-showcase img,
-  .img-card.phone-showcase img {
-    width: 240px;
-    height: auto;
-    display: block;
-  }
-  .img-card.icon-showcase img { border-radius: 26px; box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
-  .img-card.phone-showcase img { border-radius: 14px; box-shadow: 0 6px 18px rgba(0,0,0,0.15); }
-  .img-card.icon-showcase .img-overlay,
-  .img-card.phone-showcase .img-overlay { display: none; }
 
-  /* 2x2 grid for mark variants */
-  .grid-2x2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
+  .bottom-cta-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--warm);
+    margin-bottom: 10px;
+  }
+
+  .bottom-cta h2 {
+    font-size: clamp(22px, 2.5vw, 28px);
+    font-weight: 700;
+    color: var(--cream-bright);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
     margin-bottom: 8px;
   }
 
-  .grid-2x2 .img-card {
-    margin-bottom: 0;
+  .bottom-cta p {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--cream-dim);
+    line-height: 1.6;
+    max-width: 520px;
+  }
+
+  .bottom-cta-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--warm);
+    padding: 12px 22px;
+    background: var(--warm-dim);
+    border: 1px solid rgba(184, 137, 106, 0.2);
+    border-radius: 100px;
+    flex-shrink: 0;
+  }
+
+  .bottom-cta-pill svg { width: 14px; height: 14px; }
+
+  /* ═══ FOOTER ═══ */
+
+  .footer { padding: 32px 0 64px; text-align: center; }
+  .footer-divider { height: 1px; background: var(--border); margin-bottom: 28px; }
+  .footer-email { font-family: 'Fira Code', monospace; font-size: 12.5px; font-weight: 300; color: var(--cream-dim); text-decoration: none; letter-spacing: 0.02em; display: inline-block; margin-bottom: 20px; }
+  .footer-email:hover { color: var(--cream); }
+  .footer-legal { font-size: 11px; color: rgba(232, 224, 213, 0.18); }
+  .footer-legal-link { color: inherit; text-decoration: none; }
+  .footer-legal-link:hover { color: var(--cream-dim); }
+
+  @media (max-width: 900px) {
+    .page-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .header-right { align-items: flex-start; }
+    .featured-grid { grid-template-columns: 1fr; }
+    .featured-grid .featured-card-wide .featured-card-image { aspect-ratio: 16 / 10; }
+    .gallery-grid { grid-template-columns: repeat(3, 1fr); }
   }
 
   @media (max-width: 768px) {
     nav { padding: 18px 24px; }
     .nav-links { gap: 24px; }
-    .page-header { padding: 40px 24px 32px; flex-direction: column; align-items: flex-start; gap: 16px; }
-    .header-right { max-width: 100%; }
-    .divider { padding: 0 24px; }
+    .content { padding: 0 24px; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
   @media (max-width: 480px) {
     nav { padding: 16px 20px; }
     .nav-links { gap: 18px; }
     .nav-links a { font-size: 12px; }
+    .content { padding: 0 20px; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .bottom-cta { padding: 24px; }
   }
 </style>
 </head>
@@ -336,216 +523,378 @@
   </ul>
 </nav>
 
-  <div class="page">
-    <div class="page-header">
+<div class="page">
+  <div class="content">
+
+    <!-- HEADER -->
+    <header class="page-header">
       <div class="header-left">
-        <div class="label">Design Studio</div>
-        <h1>Sports identity &<br>brand work.</h1>
+        <div class="section-label">Design Studio</div>
+        <h1>Sports identity &amp; brand work.</h1>
+        <p class="header-tagline">Logos, brand systems, and naming for sports teams, small businesses, and indie products.</p>
         <div class="availability-bar">Available for new projects</div>
       </div>
       <div class="header-right">
-        <p>Logos, brand systems, and naming for sports teams, small businesses, and indie products.</p>
         <a href="/services" class="header-cta">
           See services &amp; pricing
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
-    </div>
+    </header>
 
-  <div class="divider"></div>
+    <div class="divider"></div>
 
-  <div class="masonry-wrap">
+    <!-- ═══════════════════════════════════════════════════════════════
+         FEATURED CASE STUDIES
+         5 cards. Ordered: visual impact → recognition → paid work → scope.
+         Tier-1 case studies per project brief.
+         ═══════════════════════════════════════════════════════════════ -->
+    <section class="featured-section">
+      <div class="section-label section-label-warm featured-label">Featured Case Studies</div>
 
-    <!-- Utah Mountaineers -->
-    <div class="project-block">
-      <div class="project-label">
-        <div class="name">Utah Mountaineers</div>
-        <div class="cat">Sports identity · Hockey</div>
-      </div>
-      <div class="img-card">
-        <img src="images/mountaineers-overview.jpg" alt="Utah Mountaineers overview">
-        <div class="img-overlay"><div class="overlay-text"><div class="proj-name">Utah Mountaineers</div><div class="proj-tag">Brand system</div></div></div>
-      </div>
-      <div class="img-card">
-        <img src="images/mountaineers-symbols.jpg" alt="Hidden symbols">
-        <div class="img-overlay"><div class="overlay-text"><div class="proj-name">Hidden symbols</div><div class="proj-tag">Logo design</div></div></div>
-      </div>
-      <div class="img-card">
-        <img src="images/mountaineers-jerseys.jpg" alt="Jersey set">
-        <div class="img-overlay"><div class="overlay-text"><div class="proj-name">Jersey set</div><div class="proj-tag">Uniform design</div></div></div>
-      </div>
-      <div class="img-card">
-        <img src="images/mountaineers-caps.jpg" alt="Cap mockups">
-        <div class="img-overlay"><div class="overlay-text"><div class="proj-name">Cap mockups</div><div class="proj-tag">Merchandise</div></div></div>
-      </div>
-      <div class="img-card">
-        <img src="images/mountaineers-classic.jpg" alt="Reviving a Utah classic">
-        <div class="img-overlay"><div class="overlay-text"><div class="proj-name">Reviving a Utah classic</div><div class="proj-tag">Heritage identity</div></div></div>
-      </div>
-    </div>
+      <div class="featured-grid">
 
-    <!-- Utah Bolts -->
-    <div class="project-block">
-      <div class="project-label">
-        <div class="name">Utah Bolts</div>
-        <div class="cat">Sports identity · Baseball</div>
-      </div>
-      <div class="img-card">
-        <img src="images/bolts-marks.jpg" alt="Utah Bolts brand marks">
-        <div class="img-overlay"><div class="overlay-text"><div class="proj-name">Utah Bolts</div><div class="proj-tag">Brand marks</div></div></div>
-      </div>
-      <div class="img-card">
-        <img src="images/bolts-jerseys.jpg" alt="Utah Bolts jerseys">
-        <div class="img-overlay"><div class="overlay-text"><div class="proj-name">Jersey set</div><div class="proj-tag">Uniform design</div></div></div>
-      </div>
-      <div class="img-card">
-        <img src="images/bolts-alternates.jpg" alt="More alternates">
-        <div class="img-overlay"><div class="overlay-text"><div class="proj-name">More alternates</div><div class="proj-tag">Uniform design</div></div></div>
-      </div>
-    </div>
+        <!-- 1. Utah Hockey Club Concepts -->
+        <!-- Case study page: TODO write /design/utah-hockey (mock exists) -->
+        <a href="/design/utah-hockey" class="featured-card">
+          <div class="featured-card-image">
+            <span class="badge">Case Study</span>
+            <img src="images/case-studies/utah-hockey/card-hero.jpg" alt="Utah hockey concept identities">
+          </div>
+          <div class="featured-card-body">
+            <div class="featured-card-cat">Sports Identity · Hockey · Concept</div>
+            <h2>Naming Utah's Hockey Team</h2>
+            <p class="featured-card-desc">Nine named directions for the franchise that became the Mammoth. Logo, wordmark, and full jersey kit for each, plus the rejected concepts and what they taught me about scope.</p>
+            <span class="featured-card-link">
+              View case study
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </a>
 
-    <!-- Mammoth Utah -->
-    <div class="project-block">
-      <div class="project-label">
-        <div class="name">Mammoth Utah</div>
-        <div class="cat">Sports identity · Hockey</div>
-      </div>
-      <div class="img-card">
-        <img src="images/mammoth-overview.jpg" alt="Mammoth Utah overview">
-        <div class="img-overlay"><div class="overlay-text"><div class="proj-name">Mammoth Utah</div><div class="proj-tag">Brand system</div></div></div>
-      </div>
-      <div class="img-card">
-        <img src="images/mammoth-symbols.jpg" alt="Hidden symbols in Mammoth logo">
-        <div class="img-overlay"><div class="overlay-text"><div class="proj-name">Hidden symbols</div><div class="proj-tag">Logo design</div></div></div>
-      </div>
-      <div class="img-card">
-        <img src="images/mammoth-jerseys.jpg" alt="Mammoth jersey set">
-        <div class="img-overlay"><div class="overlay-text"><div class="proj-name">Jersey set</div><div class="proj-tag">Uniform design</div></div></div>
-      </div>
-      <div class="img-card">
-        <img src="images/mammoth-utah-concepts.jpg" alt="Utah HC naming concepts">
-        <div class="img-overlay"><div class="overlay-text"><div class="proj-name">Utah HC naming concepts</div><div class="proj-tag">Concept work</div></div></div>
-      </div>
-    </div>
+        <!-- 2. Utah State Flag -->
+        <!-- Case study page: /design/utah-flag — SHIPPED -->
+        <a href="/design/utah-flag" class="featured-card">
+          <div class="featured-card-image">
+            <span class="badge badge-sage">Honored</span>
+            <img src="images/case-studies/utah-flag/card-hero.jpg" alt="Utah State Flag submission">
+          </div>
+          <div class="featured-card-body">
+            <div class="featured-card-cat">Civic Identity · Vexillology</div>
+            <h2>Redesigning the Utah State Flag</h2>
+            <p class="featured-card-desc">A competition entry for Utah's More Than A Flag initiative. One of 75 designs honored statewide by the Governor's office.</p>
+            <span class="featured-card-link">
+              View case study
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </a>
 
-    <!-- Monstars -->
-    <div class="project-block">
-      <div class="project-label">
-        <div class="name">Monstars</div>
-        <div class="cat">Sports identity</div>
-      </div>
-      <div class="img-card">
-        <img src="images/monstars.jpg" alt="Monstars">
-        <div class="img-overlay"><div class="overlay-text"><div class="proj-name">Monstars</div><div class="proj-tag">Sports identity</div></div></div>
-      </div>
-    </div>
+        <!-- 3. Hey Bright Teeth Whitening -->
+        <!-- Case study page: TODO write /design/hey-bright -->
+        <a href="/design/hey-bright" class="featured-card">
+          <div class="featured-card-image">
+            <span class="badge">Case Study</span>
+            <img src="images/case-studies/hey-bright/card-hero.jpg" alt="Hey Bright Teeth Whitening packaging">
+          </div>
+          <div class="featured-card-body">
+            <div class="featured-card-cat">Brand Identity · Packaging · Paid Client</div>
+            <h2>Hey Bright Teeth Whitening</h2>
+            <p class="featured-card-desc">A sustained packaging relationship for a teeth-whitening brand. Three product lines, sweater merch, a US course-attendee map, and tooth gem work for a client of the brand.</p>
+            <span class="featured-card-link">
+              View case study
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </a>
 
-    <!-- Triloop -->
-    <div class="project-block">
-      <div class="project-label">
-        <div class="name">Triloop</div>
-        <div class="cat">Brand identity · Naming</div>
-      </div>
-      <div class="img-card">
-        <img src="images/triloop.jpg" alt="Triloop">
-        <div class="img-overlay"><div class="overlay-text"><div class="proj-name">Triloop</div><div class="proj-tag">Brand system</div></div></div>
-      </div>
-    </div>
+        <!-- 4. QuickFuze Games -->
+        <!-- Case study page: TODO write /design/quickfuze -->
+        <a href="/design/quickfuze" class="featured-card">
+          <div class="featured-card-image">
+            <span class="badge">Case Study</span>
+            <img src="images/case-studies/quickfuze/card-hero.jpg" alt="QuickFuze Games board game and card game work">
+          </div>
+          <div class="featured-card-body">
+            <div class="featured-card-cat">Brand System · Game Design · Paid Client</div>
+            <h2>QuickFuze Games</h2>
+            <p class="featured-card-desc">Multi-product work for an indie game publisher. Company mark, full King of Battle board game system, a baby name card game with a custom font, and the supporting print collateral.</p>
+            <span class="featured-card-link">
+              View case study
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </a>
 
-    <!-- N Monogram -->
-    <div class="project-block">
-      <div class="project-label">
-        <div class="name">N Monogram</div>
-        <div class="cat">Personal mark</div>
-      </div>
-      <div class="grid-2x2">
-        <div class="img-card">
-          <img src="images/n-orange.jpg" alt="N monogram orange">
-          <div class="img-overlay"><div class="overlay-text"><div class="proj-name">Orange</div><div class="proj-tag">Personal mark</div></div></div>
-        </div>
-        <div class="img-card">
-          <img src="images/n-frost.jpg" alt="N monogram frost">
-          <div class="img-overlay"><div class="overlay-text"><div class="proj-name">Frost</div><div class="proj-tag">Personal mark</div></div></div>
-        </div>
-        <div class="img-card">
-          <img src="images/n-teal.jpg" alt="N monogram teal">
-          <div class="img-overlay"><div class="overlay-text"><div class="proj-name">Teal</div><div class="proj-tag">Personal mark</div></div></div>
-        </div>
-        <div class="img-card">
-          <img src="images/n-purple.jpg" alt="N monogram purple">
-          <div class="img-overlay"><div class="overlay-text"><div class="proj-name">Purple</div><div class="proj-tag">Personal mark</div></div></div>
-        </div>
-      </div>
-    </div>
+        <!-- 5. NHL Midnight Edition - spans full width since it's the 5th of 5 -->
+        <!-- Case study page: TODO write /design/nhl-midnight -->
+        <a href="/design/nhl-midnight" class="featured-card featured-card-wide">
+          <div class="featured-card-image">
+            <span class="badge">Case Study</span>
+            <img src="images/case-studies/nhl-midnight/card-hero.jpg" alt="NHL Midnight Edition dark-mode alternate identities">
+          </div>
+          <div class="featured-card-body">
+            <div class="featured-card-cat">Sports Identity · Concept · Scope Study</div>
+            <h2>NHL Midnight Edition</h2>
+            <p class="featured-card-desc">Dark-mode alternate identities for all 32 NHL teams. One concept, thirty-two distinct expressions, organized by division. A study in how much a brand system bends without breaking.</p>
+            <span class="featured-card-link">
+              View case study
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </a>
 
-    <!-- Nails by Aubs -->
-    <div class="project-block">
-      <div class="project-label">
-        <div class="name">Nails by Aubs</div>
-        <div class="cat">Brand system</div>
       </div>
-      <div class="img-card">
-        <img src="images/nails-by-aubs.jpg" alt="Nails by Aubs">
-        <div class="img-overlay"><div class="overlay-text"><div class="proj-name">Nails by Aubs</div><div class="proj-tag">Brand system</div></div></div>
-      </div>
-    </div>
+    </section>
 
-    <!-- Bounce Messenger -->
-    <div class="project-block">
-      <div class="project-label">
-        <div class="name">Bounce Messenger</div>
-        <div class="cat">Brand identity · App icon</div>
-      </div>
-      <div class="img-card">
-        <img src="images/bounce-logo.jpg" alt="Bounce Messenger logo">
-        <div class="img-overlay"><div class="overlay-text"><div class="proj-name">Bounce Messenger</div><div class="proj-tag">Brand identity</div></div></div>
-      </div>
-      <div class="img-card">
-        <img src="images/bounce-colors.jpg" alt="Bounce color variants">
-        <div class="img-overlay"><div class="overlay-text"><div class="proj-name">Color variants</div><div class="proj-tag">Logo system</div></div></div>
-      </div>
-      <div class="img-card">
-        <img src="images/bounce-app.jpg" alt="Bounce app icon in use">
-        <div class="img-overlay"><div class="overlay-text"><div class="proj-name">App icon in use</div><div class="proj-tag">UI application</div></div></div>
-      </div>
-      <div class="img-card">
-        <img src="images/bounce-merch.jpg" alt="Bounce merchandise">
-        <div class="img-overlay"><div class="overlay-text"><div class="proj-name">Merchandise</div><div class="proj-tag">Brand application</div></div></div>
-      </div>
-    </div>
+    <!-- ═══════════════════════════════════════════════════════════════
+         SPORTS CONCEPTS GALLERY (tier-2, no case study pages)
+         10 tiles. Uniform 1:1 size. Hover reveals name + category.
+         ═══════════════════════════════════════════════════════════════ -->
+    <section class="gallery-section">
+      <div class="section-label section-label-warm gallery-label">Sports Concepts</div>
 
-    <!-- Poppy -->
-    <div class="project-block">
-      <div class="project-label">
-        <div class="name">Poppy</div>
-        <div class="cat">Product design · iOS</div>
-      </div>
-      <div class="img-card icon-showcase">
-        <img src="images/appicons/poppy_icon.png" alt="Poppy app icon">
-        <div class="img-overlay"><div class="overlay-text"><div class="proj-name">Poppy</div><div class="proj-tag">App icon</div></div></div>
-      </div>
-      <div class="img-card phone-showcase">
-        <img src="images/appicons/poppy_ss3.png" alt="Poppy themes screen">
-        <div class="img-overlay"><div class="overlay-text"><div class="proj-name">Themes &amp; palettes</div><div class="proj-tag">UI design</div></div></div>
-      </div>
-    </div>
+      <div class="gallery-grid">
 
-  </div>
+        <a href="#" class="gallery-tile">
+          <img src="images/gallery/skyraiders.jpg" alt="Salt Lake Skyraiders concept">
+          <div class="gallery-tile-overlay">
+            <div>
+              <div class="gallery-tile-name">Salt Lake Skyraiders</div>
+              <div class="gallery-tile-cat">Sports Identity · Football</div>
+            </div>
+          </div>
+        </a>
 
-  <div style="max-width: 1400px; margin: 0 auto; padding: 0 48px 100px;">
-    <a href="/services" style="display: block; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 36px 40px; text-decoration: none; color: inherit; position: relative; overflow: hidden; transition: all 0.3s ease;" onmouseover="this.style.borderColor='rgba(184, 137, 106, 0.18)'; this.style.transform='translateY(-1px)'; this.style.boxShadow='0 12px 32px rgba(0,0,0,0.25)';" onmouseout="this.style.borderColor='var(--border)'; this.style.transform='translateY(0)'; this.style.boxShadow='none';">
-      <div style="display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+        <a href="#" class="gallery-tile">
+          <img src="images/gallery/roadrunners.jpg" alt="Utah Roadrunners concept">
+          <div class="gallery-tile-overlay">
+            <div>
+              <div class="gallery-tile-name">Utah Roadrunners</div>
+              <div class="gallery-tile-cat">Sports Identity · Hockey</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="gallery-tile">
+          <img src="images/gallery/florida-alliance.jpg" alt="Florida Alliance jerseys">
+          <div class="gallery-tile-overlay">
+            <div>
+              <div class="gallery-tile-name">Florida Alliance</div>
+              <div class="gallery-tile-cat">Jersey Design · Hockey</div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Note: Orlando Magic City Edition won the contest. Consider a "Winner" badge or moving to featured. -->
+        <a href="#" class="gallery-tile">
+          <img src="images/gallery/magic-city-edition.jpg" alt="Orlando Magic City Edition concept">
+          <div class="gallery-tile-overlay">
+            <div>
+              <div class="gallery-tile-name">Orlando Magic City Edition</div>
+              <div class="gallery-tile-cat">Sports Identity · Basketball</div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Note: Hawaii Rainbow Warriors placed top 8. Consider surfacing that. -->
+        <a href="#" class="gallery-tile">
+          <img src="images/gallery/rainbow-warriors.jpg" alt="Hawaii Rainbow Warriors concept">
+          <div class="gallery-tile-overlay">
+            <div>
+              <div class="gallery-tile-name">Hawaii Rainbow Warriors</div>
+              <div class="gallery-tile-cat">Sports Identity · Basketball</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="gallery-tile">
+          <img src="images/gallery/tsu-armadillos.jpg" alt="TSU Armadillos concept">
+          <div class="gallery-tile-overlay">
+            <div>
+              <div class="gallery-tile-name">TSU Armadillos</div>
+              <div class="gallery-tile-cat">Sports Identity · Collegiate</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="gallery-tile">
+          <img src="images/gallery/monstars.jpg" alt="Monstars concept">
+          <div class="gallery-tile-overlay">
+            <div>
+              <div class="gallery-tile-name">Monstars</div>
+              <div class="gallery-tile-cat">Sports Identity · Concept</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="gallery-tile">
+          <img src="images/gallery/bengals.jpg" alt="Cincinnati Bengals concept">
+          <div class="gallery-tile-overlay">
+            <div>
+              <div class="gallery-tile-name">Cincinnati Bengals</div>
+              <div class="gallery-tile-cat">Sports Identity · Football · Concept</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="gallery-tile">
+          <img src="images/gallery/utah-bolts.jpg" alt="Utah Bolts MLB concept">
+          <div class="gallery-tile-overlay">
+            <div>
+              <div class="gallery-tile-name">Utah Bolts</div>
+              <div class="gallery-tile-cat">Sports Identity · Baseball</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="gallery-tile">
+          <img src="images/gallery/jazz-city-edition.jpg" alt="Utah Jazz City Edition concept">
+          <div class="gallery-tile-overlay">
+            <div>
+              <div class="gallery-tile-name">Utah Jazz City Edition</div>
+              <div class="gallery-tile-cat">Sports Identity · Basketball</div>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         BRAND & IDENTITY GALLERY (tier-2, no case study pages)
+         10 tiles. Same treatment as sports concepts.
+         ═══════════════════════════════════════════════════════════════ -->
+    <section class="gallery-section">
+      <div class="section-label section-label-warm gallery-label">Brand &amp; Identity</div>
+
+      <div class="gallery-grid">
+
+        <a href="#" class="gallery-tile">
+          <img src="images/gallery/triloop.jpg" alt="Triloop / Global Armory">
+          <div class="gallery-tile-overlay">
+            <div>
+              <div class="gallery-tile-name">Triloop</div>
+              <div class="gallery-tile-cat">Brand Identity · Logo</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="gallery-tile">
+          <img src="images/gallery/bounce.jpg" alt="Bounce Messenger">
+          <div class="gallery-tile-overlay">
+            <div>
+              <div class="gallery-tile-name">Bounce Messenger</div>
+              <div class="gallery-tile-cat">Brand Identity · App</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="gallery-tile">
+          <img src="images/gallery/nails-by-aubs.jpg" alt="Nails by Aubs">
+          <div class="gallery-tile-overlay">
+            <div>
+              <div class="gallery-tile-name">Nails by Aubs</div>
+              <div class="gallery-tile-cat">Brand Identity · Local Business</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="gallery-tile">
+          <img src="images/gallery/get-it-write.jpg" alt="Get It Write">
+          <div class="gallery-tile-overlay">
+            <div>
+              <div class="gallery-tile-name">Get It Write</div>
+              <div class="gallery-tile-cat">Brand Identity · Logo</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="gallery-tile">
+          <img src="images/gallery/making-waves.jpg" alt="Making Waves Charity">
+          <div class="gallery-tile-overlay">
+            <div>
+              <div class="gallery-tile-name">Making Waves</div>
+              <div class="gallery-tile-cat">Brand Identity · Nonprofit</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="gallery-tile">
+          <img src="images/gallery/threaded-cactus.jpg" alt="Threaded Cactus Co">
+          <div class="gallery-tile-overlay">
+            <div>
+              <div class="gallery-tile-name">Threaded Cactus Co</div>
+              <div class="gallery-tile-cat">Brand Identity · Retail</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="gallery-tile">
+          <img src="images/gallery/islandtwig-mark.jpg" alt="IslandTwig Studios mark">
+          <div class="gallery-tile-overlay">
+            <div>
+              <div class="gallery-tile-name">IslandTwig Studios</div>
+              <div class="gallery-tile-cat">Personal Brand · Studio Mark</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="gallery-tile">
+          <img src="images/gallery/neptune.jpg" alt="Neptune social posts">
+          <div class="gallery-tile-overlay">
+            <div>
+              <div class="gallery-tile-name">Neptune</div>
+              <div class="gallery-tile-cat">Social Design · Spec</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="gallery-tile">
+          <img src="images/gallery/golden-hour-seats.jpg" alt="Golden Hour Seats">
+          <div class="gallery-tile-overlay">
+            <div>
+              <div class="gallery-tile-name">Golden Hour Seats</div>
+              <div class="gallery-tile-cat">Brand Identity · Logo</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="gallery-tile">
+          <img src="images/gallery/n-monogram.jpg" alt="Personal N monogram">
+          <div class="gallery-tile-overlay">
+            <div>
+              <div class="gallery-tile-name">N Monogram</div>
+              <div class="gallery-tile-cat">Personal Mark</div>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- BOTTOM CTA -->
+    <a href="/services" class="bottom-cta">
+      <div class="bottom-cta-inner">
         <div>
-          <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #b8896a; margin-bottom: 10px;">Available for work</div>
-          <h2 style="font-size: clamp(22px, 2.5vw, 28px); font-weight: 700; color: #f2ece4; letter-spacing: -0.01em; line-height: 1.2; margin-bottom: 8px;">Have a project in mind?</h2>
-          <p style="font-size: 14px; font-weight: 300; color: #a09890; line-height: 1.6; max-width: 520px;">Logos starting at $200, full brand systems, and naming work. See pricing or start a project below.</p>
+          <div class="bottom-cta-eyebrow">Available for work</div>
+          <h2>Have a project in mind?</h2>
+          <p>Logos from $200, brand identity from $500, full brand systems from $800. See pricing or start a project.</p>
         </div>
-        <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: #b8896a; white-space: nowrap; padding: 12px 22px; background: rgba(184, 137, 106, 0.1); border: 1px solid rgba(184, 137, 106, 0.2); border-radius: 100px;">
+        <span class="bottom-cta-pill">
           Start a project
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 14px; height: 14px;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </span>
       </div>
     </a>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-divider"></div>
+      <a href="mailto:hello@islandtwigstudios.com" class="footer-email">hello@islandtwigstudios.com</a>
+      <p class="footer-legal">&copy; 2026 IslandTwig Studios &middot; <a href="/privacy" class="footer-legal-link">Privacy</a></p>
+    </footer>
+
   </div>
 </div>
 
