@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naming Utah's Hockey Team — IslandTwig Studios</title>
+<link rel="icon" type="image/png" href="/images/appicons/favicon.png">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Naming Utah's Hockey Team — IslandTwig Studios">
+<meta property="og:description" content="Nine full identity directions for Utah's new NHL franchise, designed in real time as the team's naming process unfolded across thirteen months. Including a Mammoth direction posted a year before the team picked Mammoth.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://islandtwigstudios.com/design/utah-hockey">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@300&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #111110;
+    --surface: #1a1918;
+    --surface-bright: #21201e;
+    --cream: #e8e0d5;
+    --cream-bright: #f2ece4;
+    --cream-dim: #a09890;
+    --border: rgba(232, 224, 213, 0.08);
+    --sage: #7a9e87;
+    --sage-dim: rgba(122, 158, 135, 0.12);
+    --warm: #b8896a;
+    --warm-dim: rgba(184, 137, 106, 0.12);
+    --radius: 14px;
+    --radius-sm: 10px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body { background: var(--bg); color: var(--cream); font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.65; min-height: 100vh; }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0; opacity: 0.4;
+  }
+
+  /* ═══ NAV ═══ */
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 20px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    background: rgba(17,17,16,0.85);
+    backdrop-filter: blur(12px);
+  }
+  .nav-logo {
+    display: flex; align-items: center;
+    font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cream); text-decoration: none; opacity: 0.7; transition: opacity 0.2s;
+  }
+  .nav-logo:hover { opacity: 1; }
+  .nav-logo-mark {
+    display: none;
+    height: 28px;
+    width: auto;
+  }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { color: var(--cream-dim); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.04em; transition: color 0.2s; }
+  .nav-links a.active { color: var(--sage); }
+  .nav-links a:hover { color: var(--cream); }
+
+  .page { position: relative; z-index: 1; padding-top: 80px; }
+
+  /* ═══ BACK LINK ═══ */
+
+  .back-link-row {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 32px 48px 0;
+  }
+  .back-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--cream-dim);
+    text-decoration: none;
+    transition: color 0.2s, gap 0.25s ease;
+  }
+  .back-link:hover { color: var(--sage); gap: 12px; }
+  .back-link svg { width: 12px; height: 12px; }
+
+  /* ═══ STUDY HEADER ═══ */
+
+  .study-header {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 32px 48px 48px;
+  }
+  .study-category {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--warm);
+    margin-bottom: 16px;
+  }
+  .study-header h1 {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 800; letter-spacing: -0.02em;
+    line-height: 1.1; color: var(--cream-bright);
+    margin-bottom: 18px;
+  }
+  .study-tagline {
+    font-size: 18px; font-weight: 300; color: var(--cream-dim);
+    line-height: 1.55; max-width: 680px;
+    margin-bottom: 32px;
+  }
+  .study-meta {
+    display: flex; gap: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .study-meta-item { display: flex; flex-direction: column; gap: 4px; }
+  .study-meta-label { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream-dim); }
+  .study-meta-value { font-size: 14px; font-weight: 500; color: var(--cream); }
+
+  /* Anchor jumps: offset for fixed nav */
+  .study-section[id], section[id] { scroll-margin-top: 96px; }
+
+  /* ═══ STUDY SUMMARY + JUMP LINKS ═══ */
+
+  .study-summary {
+    max-width: 920px;
+    margin: 0 auto 64px;
+    padding: 0 48px;
+  }
+  .study-summary-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 32px;
+  }
+  .study-summary-label {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--cream-dim);
+    margin-bottom: 12px;
+  }
+  .study-summary-text {
+    font-size: 15px; font-weight: 300;
+    color: var(--cream); line-height: 1.7;
+    margin-bottom: 4px;
+  }
+  .study-summary-jumps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+  }
+  .study-summary-jumps a {
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--warm);
+    text-decoration: none;
+    padding-right: 16px;
+    margin-right: 16px;
+    border-right: 1px solid var(--border);
+    transition: color 0.2s;
+  }
+  .study-summary-jumps a:last-child {
+    border-right: none;
+    margin-right: 0;
+    padding-right: 0;
+  }
+  .study-summary-jumps a:hover {
+    color: var(--cream-bright);
+  }
+
+  /* ═══ HERO IMAGE ═══ */
+
+  .study-hero {
+    max-width: 1200px;
+    margin: 0 auto 48px;
+    padding: 0 48px;
+  }
+  .study-hero-image {
+    width: 100%; aspect-ratio: 16 / 9;
+    background: var(--surface-bright);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .study-hero-image img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ═══ BODY SECTIONS ═══ */
+
+  .study-body {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+  .study-section { margin-bottom: 56px; }
+  .study-section-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--warm);
+    margin-bottom: 14px;
+  }
+  .study-section h2 {
+    font-size: 26px; font-weight: 700; color: var(--cream-bright);
+    letter-spacing: -0.01em; line-height: 1.2;
+    margin-bottom: 18px;
+  }
+  .study-section p {
+    font-size: 15px; font-weight: 300; color: var(--cream);
+    line-height: 1.75;
+    margin-bottom: 16px;
+  }
+  .study-section p:last-child { margin-bottom: 0; }
+  .study-section strong { color: var(--cream-bright); font-weight: 600; }
+
+  /* Pull quote */
+  .pull-quote {
+    margin: 32px 0;
+    padding: 24px 28px;
+    border-left: 3px solid var(--warm);
+    background: rgba(184, 137, 106, 0.05);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  }
+  .pull-quote p {
+    font-size: 17px; font-weight: 400;
+    color: var(--cream-bright); line-height: 1.55;
+    margin: 0;
+    font-style: italic;
+  }
+
+  /* Phase eyebrow inside The Work */
+  .phase-eyebrow {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 10px;
+  }
+
+  /* ═══ IMAGE BLOCKS ═══ */
+
+  .study-image-block {
+    max-width: 1200px;
+    margin: 0 auto 48px;
+    padding: 0 48px;
+  }
+  .study-image-block.narrow { max-width: 920px; }
+  .study-image {
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--surface-bright);
+  }
+  .study-image img { width: 100%; height: auto; display: block; }
+  .study-image-caption {
+    margin-top: 12px;
+    font-size: 12px; color: var(--cream-dim);
+    text-align: center; font-style: italic;
+  }
+
+  /* Image pair (two images side by side) */
+  .image-pair {
+    max-width: 1200px;
+    margin: 0 auto 48px;
+    padding: 0 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .image-pair .study-image { margin: 0; }
+
+  /* ═══ MAMMOTH BLOCK (highlighted) ═══ */
+
+  .mammoth-block {
+    max-width: 920px;
+    margin: 0 auto 56px;
+    padding: 0 48px;
+  }
+  .mammoth-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .mammoth-card::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 100% 0%, var(--warm-dim), transparent 60%);
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  .mammoth-card-inner { position: relative; z-index: 1; }
+  .mammoth-card .study-section-label { margin-bottom: 12px; }
+  .mammoth-card h2 {
+    font-size: 26px; font-weight: 700;
+    color: var(--cream-bright);
+    letter-spacing: -0.01em; line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .mammoth-card p {
+    font-size: 15px; font-weight: 300;
+    color: var(--cream); line-height: 1.75;
+    margin-bottom: 14px;
+  }
+  .mammoth-card p:last-child { margin-bottom: 0; }
+  .mammoth-card strong { color: var(--cream-bright); font-weight: 600; }
+
+  .timeline-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding: 18px 0 4px;
+    margin-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+  .timeline-pair-item .timeline-label {
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--cream-dim);
+    margin-bottom: 4px;
+  }
+  .timeline-pair-item .timeline-value {
+    font-size: 14px; font-weight: 600;
+    color: var(--cream-bright);
+    line-height: 1.4;
+  }
+
+  /* ═══ FINAL CTA ═══ */
+
+  .study-cta {
+    max-width: 920px;
+    margin: 0 auto 64px;
+    padding: 0 48px;
+  }
+  .study-cta-card {
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 36px 40px;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  .study-cta-card::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 80% 50%, var(--warm-dim), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .study-cta-card:hover::before { opacity: 1; }
+  .study-cta-card:hover {
+    border-color: rgba(184, 137, 106, 0.18);
+    transform: translateY(-1px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+  }
+  .study-cta-inner {
+    position: relative; z-index: 1;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px; flex-wrap: wrap;
+  }
+  .study-cta-eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--warm);
+    margin-bottom: 10px;
+  }
+  .study-cta h2 {
+    font-size: 24px; font-weight: 700;
+    color: var(--cream-bright);
+    letter-spacing: -0.01em; line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .study-cta p {
+    font-size: 14px; font-weight: 300;
+    color: var(--cream-dim);
+    line-height: 1.6;
+  }
+  .study-cta-pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 14px; font-weight: 600; color: var(--warm);
+    padding: 12px 22px;
+    background: var(--warm-dim);
+    border: 1px solid rgba(184, 137, 106, 0.2);
+    border-radius: 100px;
+    flex-shrink: 0;
+  }
+  .study-cta-pill svg { width: 14px; height: 14px; }
+
+  /* ═══ FOOTER ═══ */
+
+  .footer { padding: 32px 0 64px; text-align: center; max-width: 920px; margin: 0 auto; padding-left: 48px; padding-right: 48px; }
+  .footer-divider { height: 1px; background: var(--border); margin-bottom: 28px; }
+  .footer-email { font-family: 'Fira Code', monospace; font-size: 12.5px; font-weight: 300; color: var(--cream-dim); text-decoration: none; letter-spacing: 0.02em; display: inline-block; margin-bottom: 20px; }
+  .footer-email:hover { color: var(--cream); }
+  .footer-legal { font-size: 11px; color: rgba(232, 224, 213, 0.18); }
+  .footer-legal a { color: inherit; text-decoration: none; }
+
+  @media (max-width: 900px) {
+    .image-pair { grid-template-columns: 1fr; }
+    .timeline-pair { grid-template-columns: 1fr; gap: 14px; }
+  }
+  @media (max-width: 768px) {
+    nav { padding: 18px 24px; }
+    .nav-links { gap: 24px; }
+    .back-link-row, .study-header, .study-hero, .study-summary, .study-body, .study-image-block, .image-pair, .mammoth-block, .study-cta, .footer {
+      padding-left: 24px; padding-right: 24px;
+    }
+
+    /* Mobile nav: swap wordmark for logo mark, hide Home (logo serves that role) */
+    .nav-logo-text { display: none; }
+    .nav-logo-mark { display: block; }
+    .nav-link-home { display: none; }
+  }
+  @media (max-width: 480px) {
+    nav { padding: 16px 20px; }
+    .nav-links { gap: 18px; }
+    .nav-links a { font-size: 12px; }
+    .back-link-row, .study-header, .study-hero, .study-summary, .study-body, .study-image-block, .image-pair, .mammoth-block, .study-cta, .footer {
+      padding-left: 20px; padding-right: 20px;
+    }
+    .study-meta { gap: 24px; }
+    .study-cta-card { padding: 24px; }
+    .mammoth-card { padding: 28px; }
+    .study-summary-card { padding: 22px 24px; }
+    .study-summary-jumps { flex-direction: column; align-items: stretch; gap: 0; padding-top: 14px; }
+    .study-summary-jumps a {
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+      margin-right: 0;
+      padding: 12px 0;
+      text-align: center;
+    }
+    .study-summary-jumps a:last-child { border-bottom: none; padding-bottom: 0; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo" aria-label="IslandTwig Studios — Home">
+    <span class="nav-logo-text">IslandTwig Studios</span>
+    <img class="nav-logo-mark" src="/images/islandtwig-mark.png" alt="IslandTwig Studios">
+  </a>
+  <ul class="nav-links">
+    <li class="nav-link-home"><a href="/">Home</a></li>
+    <li><a href="/design" class="active">Design</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+
+  <!-- BACK LINK -->
+  <div class="back-link-row">
+    <a href="/design" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Design
+    </a>
+  </div>
+
+  <!-- STUDY HEADER -->
+  <header class="study-header">
+    <div class="study-category">Sports Identity · Concept · NHL</div>
+    <h1>Naming Utah's Hockey Team.</h1>
+    <p class="study-tagline">Nine full identity directions for Utah's new NHL franchise, designed in real time as the team's naming process unfolded across thirteen months. Including a Mammoth concept posted a year before the team picked Mammoth.</p>
+    <div class="study-meta">
+      <div class="study-meta-item">
+        <div class="study-meta-label">Discipline</div>
+        <div class="study-meta-value">Sports Identity · Logo · Wordmark · Jersey</div>
+      </div>
+      <div class="study-meta-item">
+        <div class="study-meta-label">Year</div>
+        <div class="study-meta-value">2024 to 2025</div>
+      </div>
+      <div class="study-meta-item">
+        <div class="study-meta-label">Status</div>
+        <div class="study-meta-value">Concept · Self-directed</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO IMAGE: Yeti 2.0 (full system, official palette) -->
+  <!-- Source: Artboard_11.png -->
+  <div class="study-hero">
+    <div class="study-hero-image">
+      <img src="/images/case-studies/utah-hockey/hero.jpeg" alt="Utah Yeti 2.0 identity system: primary mark, wordmark, shoulder patches, and home, away, and alternate jerseys in the official Utah Hockey Club palette of light blue, white, black, and purple">
+    </div>
+  </div>
+
+  <!-- STUDY SUMMARY + JUMP LINKS -->
+  <div class="study-summary">
+    <div class="study-summary-card">
+      <div class="study-summary-label">In this study</div>
+      <p class="study-summary-text">Thirteen months of real-time concept work for a franchise that didn't have a name yet. The directions that survived the fan vote and the one I killed in public. What the official palette leak did to the project. And the Mammoth I posted in May 2024.</p>
+      <div class="study-summary-jumps">
+        <a href="#brief">The Brief</a>
+        <a href="#work">The Work</a>
+        <a href="#mammoth">The Mammoth Moment</a>
+        <a href="#venom">The Venom Decision</a>
+        <a href="#reception">Reception</a>
+        <a href="#reflection">Reflection</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE BRIEF -->
+  <section class="study-body">
+    <div class="study-section" id="brief">
+      <div class="study-section-label">The Brief</div>
+      <h2>A franchise without a name, a public with opinions.</h2>
+      <p>In April 2024, Ryan Smith's group acquired the Arizona Coyotes and relocated the franchise to Utah. The team began the 2024 to 2025 season as "Utah Hockey Club," a placeholder while ownership ran a thirteen-month fan-driven naming process. Twenty names went to an initial poll. Six made it to a finalist round. The final answer wouldn't land until May 2025.</p>
+      <p>That gap, between the franchise arriving and the franchise having a name, was the opening. <strong>A full identity system for an NHL team is a brief any sports identity designer would take. The team hadn't hired anyone yet, so I gave myself the brief.</strong> I committed to drawing full directions, not just marks. Primary logo, wordmark, shoulder patches, home, away, and alternate jerseys for each named candidate I picked up. I posted the work as I made it, dated, in public.</p>
+    </div>
+
+    <div class="study-section">
+      <div class="study-section-label">The Constraints</div>
+      <h2>Match the public list. Move with the public clock.</h2>
+      <p>Two rules from the start. <strong>The directions had to come from the names the team and the fans were actually voting on,</strong> not from my own list of pitches the team would never see. That meant working from the official poll list once it dropped, and reasonable guesses before it did.</p>
+      <p>The other constraint was time. The naming process ran in public, with announcements and leaks and finalist rounds spaced out over more than a year. <strong>Each phase of the team's process changed what a concept needed to do.</strong> Pre-poll concepts were anticipatory. Post-poll concepts had to commit to names the team had already validated. Post-color-leak concepts had to rebuild palette by palette to match the team's announced direction. The case study isn't a portfolio of finished marks. It's a record of how a designer responds when the brief keeps moving.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       THE WORK — Phase 1: Pre-poll
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="study-body">
+    <div class="study-section" id="work">
+      <div class="study-section-label">The Work</div>
+      <h2>Four phases, nine directions.</h2>
+      <p>The work organizes naturally by what the team knew, and when. Four phases, each with its own logic for what made a concept worth posting.</p>
+
+      <div class="phase-eyebrow">Phase 1 · Pre-poll · April 18 to May 7, 2024</div>
+      <p>Before the team announced the official poll, the names floating around fan communities were the obvious ones. I started with Salt Lake Skyraiders on April 18, the same day the franchise relocation became official. Then Yeti, Outlaws, and Mammoth followed across the next two weeks. <strong>These were bets on what the names might be. When the poll list dropped on May 8, three of my four pre-poll directions were on it.</strong></p>
+    </div>
+  </section>
+
+  <!-- TODO Nick: drop in Phase 1 hero image (Yeti or Outlaws full system board, dated April 2024) -->
+  <div class="study-image-block">
+    <div class="study-image">
+      <img src="/images/case-studies/utah-hockey/phase1-yeti-original.jpeg" alt="Utah Yeti original direction, April 2024">
+    </div>
+    <div class="study-image-caption">Yeti, original direction. Posted April 21, 2024, with a recolor following on April 25.</div>
+  </div>
+
+  <!-- TODO Nick: drop in Phase 1 Outlaws or Skyraiders image -->
+  <div class="image-pair">
+    <div class="study-image">
+      <img src="/images/case-studies/utah-hockey/phase1-outlaws.jpeg" alt="Utah Outlaws direction">
+    </div>
+    <div class="study-image">
+      <img src="/images/case-studies/utah-hockey/phase1-skyraiders.jpeg" alt="Salt Lake Skyraiders direction">
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       PHASE 2: Poll-era
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="study-body">
+    <div class="study-section">
+      <div class="phase-eyebrow">Phase 2 · Poll-era · May 13 to May 26, 2024</div>
+      <p>After the team published the official twenty-name poll, the work shifted from speculation to selection. I picked the names with the strongest visual hooks and built them out. Mountaineers, then Swarm, then Black Diamonds. Each direction got the same full treatment: primary mark, wordmark, jersey set. <strong>Each one was an answer to a name that real fans were actually voting on.</strong></p>
+    </div>
+  </section>
+
+  <!-- Mountaineers as the lead Phase 2 visual -->
+  <!-- TODO Nick: source is mountaineers-overview.jpg -->
+  <div class="study-image-block">
+    <div class="study-image">
+      <img src="/images/case-studies/utah-hockey/mountaineers-overview.jpeg" alt="Utah Mountaineers concept work: ram skull primary mark, alternate badge, script wordmark, and four jersey treatments in green, cream, and gold">
+    </div>
+    <div class="study-image-caption">Utah Mountaineers, posted May 13, 2024. Ram skull primary, four-jersey kit including a faux-retro and a throwback classic.</div>
+  </div>
+
+  <div class="image-pair">
+    <div class="study-image">
+      <img src="/images/case-studies/utah-hockey/phase2-swarm.jpeg" alt="Utah Swarm direction">
+    </div>
+    <div class="study-image">
+      <img src="/images/case-studies/utah-hockey/phase2-black-diamonds.jpeg" alt="Utah Black Diamonds direction">
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       PHASE 3: Color leak
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="study-body">
+    <div class="study-section">
+      <div class="phase-eyebrow">Phase 3 · The color leak · June 3, 2024</div>
+      <p>On June 3, the team's official colors leaked. Blue, black, and white. Suddenly every direction I'd posted was in the wrong palette. Each concept had been designed around its name's own color story. The leak forced a question: keep the original palettes or rebuild everything to match the team's reality?</p>
+      <p>I rebuilt everything. <strong>Every direction got a full recolor into the official blue, black, and white.</strong> The point of the project shifted slightly. Pre-leak, the concepts were speculative answers to "what could this team look like?" Post-leak, they were applied answers to "what does this team look like if they pick this name?" The directions became more useful as the constraints tightened, not less.</p>
+    </div>
+  </section>
+
+  <!-- TODO Nick: drop in a before/after recolor visual if you have one -->
+  <div class="study-image-block">
+    <div class="study-image">
+      <img src="/images/case-studies/utah-hockey/phase3-recolor.jpeg" alt="Side-by-side comparison of a direction before and after the official color leak recolor">
+    </div>
+    <div class="study-image-caption">Original palette versus official palette. The systems hold together because the structure was designed to absorb a palette change.</div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       PHASE 4: The long tail
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="study-body">
+    <div class="study-section">
+      <div class="phase-eyebrow">Phase 4 · The long tail · June 12, 2024 to March 18, 2025</div>
+      <p>After the official colors landed, the team narrowed the field. Six finalists, then three, then a final answer. The work entered a slower mode. I added Utah Blizzard on June 12. Then iterated on the finalist names with second-pass concepts: Yeti 2.0 in October 2024, Outlaws 2.0 in March 2025. <strong>The directions that survived the public vote deserved better versions than my first drafts.</strong></p>
+      <p>Yeti 2.0 is the work this case study leads with. The team rejected Yeti in January 2025 over a trademark conflict with Yeti Holdings, but until that ruling, Yeti was the runaway public favorite. The 2.0 is what the team would have looked like if the trademark had cleared.</p>
+    </div>
+  </section>
+
+  <!-- TODO Nick: Blizzard image -->
+  <div class="study-image-block">
+    <div class="study-image">
+      <img src="/images/case-studies/utah-hockey/phase4-blizzard.jpeg" alt="Utah Blizzard direction">
+    </div>
+    <div class="study-image-caption">Utah Blizzard, posted June 12, 2024. Built into the official palette from the start.</div>
+  </div>
+
+  <div class="image-pair">
+    <div class="study-image">
+      <img src="/images/case-studies/utah-hockey/phase4-yeti-2.jpeg" alt="Yeti 2.0 iteration">
+    </div>
+    <div class="study-image">
+      <img src="/images/case-studies/utah-hockey/phase4-outlaws-2.jpeg" alt="Outlaws 2.0 iteration">
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       THE MAMMOTH MOMENT
+       ═══════════════════════════════════════════════════════════════ -->
+  <div class="mammoth-block" id="mammoth">
+    <div class="mammoth-card">
+      <div class="mammoth-card-inner">
+        <div class="study-section-label">The Mammoth Moment</div>
+        <h2>I posted Mammoth five days before the official poll. The team picked Mammoth a year later.</h2>
+        <p>The franchise's relocation was confirmed April 18, 2024. The team's official twenty-name poll dropped May 8. I posted a full Mammoth direction on May 3, five days before the poll list went public. Mammoth was on the list. The team made it a finalist in June 2024. Then they survived the trademark loss of Yeti, the public favorite. <strong>On May 7, 2025, the team officially revealed Mammoth as the franchise's name.</strong></p>
+        <p>I didn't predict the name. I picked one of the obvious candidates a few days before the team validated it. But the system I'd designed for Mammoth in May 2024, before the team's brand work was public, used the same conceptual moves the team's eventual identity would land on. Mammoth as a beast that anchors Utah's prehistoric record. Earth tones grounded by a darker primary. A heavy, weighted mark that scales.</p>
+        <p>The lesson isn't that I called the name. The lesson is that <strong>working in public, on a real brief, before the client has hired anyone, is one of the highest-leverage things a sports identity designer can do.</strong> Either your direction is somewhere near where the team lands, in which case the work compounds. Or it isn't, in which case you've still produced a finished system that anyone considering hiring you can see. Both outcomes are useful.</p>
+        <div class="timeline-pair">
+          <div class="timeline-pair-item">
+            <div class="timeline-label">My Mammoth posted</div>
+            <div class="timeline-value">May 3, 2024</div>
+          </div>
+          <div class="timeline-pair-item">
+            <div class="timeline-label">Team revealed Mammoth</div>
+            <div class="timeline-value">May 7, 2025</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TODO Nick: Mammoth visual lead -->
+  <div class="study-image-block">
+    <div class="study-image">
+      <img src="/images/case-studies/utah-hockey/mammoth-overview.jpeg" alt="Utah Mammoth concept work posted May 3, 2024">
+    </div>
+    <div class="study-image-caption">My Mammoth direction, posted May 3, 2024. Recolored May 6 once the original palette tested poorly with my audience.</div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       THE VENOM DECISION
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="study-body">
+    <div class="study-section" id="venom">
+      <div class="study-section-label">The Venom Decision</div>
+      <h2>I posted Venom. I pulled it down.</h2>
+      <p>Somewhere between Blizzard and Yeti 2.0, I built a Venom direction. Posted it. The feedback was immediate and consistent across platforms. Multiple respondents read the primary mark as anatomical. It wasn't the intent and it wasn't recoverable through tweaks. <strong>Killing it was cheaper than defending it.</strong></p>
+      <p>The Venom direction isn't shown here, on purpose. Showing it would undercut why removing it mattered. The point isn't the mark. The point is that <strong>the audience told me what they saw, and what they saw was the actual mark, not the one I drew.</strong> A designer who can't separate intent from reception is going to ship work that fails the same way again.</p>
+      <p>Most concept work is judged by the marks that survive. The work I'm most proud of from this project is one that didn't.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       RECEPTION
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="study-body">
+    <div class="study-section" id="reception">
+      <div class="study-section-label">Reception</div>
+      <h2>Fans responded. So did the team's community.</h2>
+      <p>The concepts ran on Facebook, Reddit, Instagram, and X across the thirteen months of the naming process. Reddit and Twitter, in particular, surface sports identity work to audiences that care about the craft, and the directions found that audience. <strong>Comments arrived from fans who had been following the team's naming process closely, who recognized which name a concept was answering, and who had specific opinions about whether each one earned the franchise.</strong></p>
+      <p>The Venom feedback came through the same channels. So did the encouragement on Mountaineers, the debate around Black Diamonds, and the reception to Yeti 2.0 once the trademark issue made Yeti unrecoverable. <strong>The community wasn't a passive audience. It was a working brief.</strong> Every post taught me something about which directions resonated with the people the team was building for.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       REFLECTION
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="study-body">
+    <div class="study-section" id="reflection">
+      <div class="study-section-label">Reflection</div>
+      <h2>Concept work isn't fake work. It's the work.</h2>
+      <p>The sports identity world has a cottage industry of concept artists, and most of it lives at the level of single marks on flat backgrounds. The bar to do this seriously is higher. <strong>Real concept work means committing to full systems, posting them dated, accepting public critique, and iterating in front of an audience.</strong> Anything less is mood-boarding.</p>
+      <p>Across thirteen months, nine named directions, multiple recolors, and one pulled mark, the project produced something a portfolio piece can't fake: <strong>a documented record of how I work when the brief is moving and the audience is responding in real time.</strong> A team hiring a brand designer for an actual franchise is hiring against exactly that. The case study is one piece of evidence that the work holds up under those conditions.</p>
+      <p>The other thing I learned, which the Mammoth moment makes concrete: <strong>good guesses in this industry aren't lucky. They're the result of paying close enough attention to a community to know what name will feel right when the team picks it.</strong> That attention is most of the job.</p>
+    </div>
+  </section>
+
+  <!-- STUDY CTA -->
+  <div class="study-cta">
+    <a href="/services" class="study-cta-card">
+      <div class="study-cta-inner">
+        <div>
+          <div class="study-cta-eyebrow">Available for work</div>
+          <h2>Looking for a designer who treats your brief like the actual brief?</h2>
+          <p>I take on sports identity, brand work, and packaging. Logos at $200, full brand systems from $800.</p>
+        </div>
+        <span class="study-cta-pill">
+          See services
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+      </div>
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-divider"></div>
+    <a href="mailto:hello@islandtwigstudios.com" class="footer-email">hello@islandtwigstudios.com</a>
+    <p class="footer-legal">&copy; 2026 IslandTwig Studios &middot; <a href="/privacy">Privacy</a></p>
+  </footer>
+
+</div>
+
+</body>
+</html>
