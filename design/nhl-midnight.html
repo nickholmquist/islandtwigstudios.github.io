@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NHL Midnight Edition — IslandTwig Studios</title>
+<link rel="icon" type="image/png" href="/images/appicons/favicon.png">
+
+<!-- Open Graph -->
+<meta property="og:title" content="NHL Midnight Edition — IslandTwig Studios">
+<meta property="og:description" content="Dark-mode alternate identities for all 32 NHL teams. Started during the 2024 Stanley Cup Finals as Black Panther and Black Gold for Florida and Edmonton. Expanded over the following weeks into a complete league system, presented division by division.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://islandtwigstudios.com/design/nhl-midnight">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@300&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #111110;
+    --surface: #1a1918;
+    --surface-bright: #21201e;
+    --cream: #e8e0d5;
+    --cream-bright: #f2ece4;
+    --cream-dim: #a09890;
+    --border: rgba(232, 224, 213, 0.08);
+    --sage: #7a9e87;
+    --sage-dim: rgba(122, 158, 135, 0.12);
+    --warm: #b8896a;
+    --warm-dim: rgba(184, 137, 106, 0.12);
+    --radius: 14px;
+    --radius-sm: 10px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body { background: var(--bg); color: var(--cream); font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.65; min-height: 100vh; }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0; opacity: 0.4;
+  }
+
+  /* ═══ NAV ═══ */
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 20px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    background: rgba(17,17,16,0.85);
+    backdrop-filter: blur(12px);
+  }
+  .nav-logo {
+    display: flex; align-items: center;
+    font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cream); text-decoration: none; opacity: 0.7; transition: opacity 0.2s;
+  }
+  .nav-logo:hover { opacity: 1; }
+  .nav-logo-mark {
+    display: none;
+    height: 28px;
+    width: auto;
+  }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { color: var(--cream-dim); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.04em; transition: color 0.2s; }
+  .nav-links a.active { color: var(--sage); }
+  .nav-links a:hover { color: var(--cream); }
+
+  .page { position: relative; z-index: 1; padding-top: 80px; }
+
+  /* ═══ BACK LINK ═══ */
+
+  .back-link-row {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 32px 48px 0;
+  }
+  .back-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--cream-dim);
+    text-decoration: none;
+    transition: color 0.2s, gap 0.25s ease;
+  }
+  .back-link:hover { color: var(--sage); gap: 12px; }
+  .back-link svg { width: 12px; height: 12px; }
+
+  /* ═══ STUDY HEADER ═══ */
+
+  .study-header {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 32px 48px 48px;
+  }
+  .study-category {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--warm);
+    margin-bottom: 16px;
+  }
+  .study-header h1 {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 800; letter-spacing: -0.02em;
+    line-height: 1.1; color: var(--cream-bright);
+    margin-bottom: 18px;
+  }
+  .study-tagline {
+    font-size: 18px; font-weight: 300; color: var(--cream-dim);
+    line-height: 1.55; max-width: 680px;
+    margin-bottom: 32px;
+  }
+  .study-meta {
+    display: flex; gap: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .study-meta-item { display: flex; flex-direction: column; gap: 4px; }
+  .study-meta-label { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream-dim); }
+  .study-meta-value { font-size: 14px; font-weight: 500; color: var(--cream); }
+
+  /* Anchor jumps: offset for fixed nav */
+  .study-section[id], section[id] { scroll-margin-top: 96px; }
+
+  /* ═══ STUDY SUMMARY + JUMP LINKS ═══ */
+
+  .study-summary {
+    max-width: 920px;
+    margin: 0 auto 64px;
+    padding: 0 48px;
+  }
+  .study-summary-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 32px;
+  }
+  .study-summary-label {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--cream-dim);
+    margin-bottom: 12px;
+  }
+  .study-summary-text {
+    font-size: 15px; font-weight: 300;
+    color: var(--cream); line-height: 1.7;
+    margin-bottom: 4px;
+  }
+  .study-summary-jumps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+  }
+  .study-summary-jumps a {
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--warm);
+    text-decoration: none;
+    padding-right: 16px;
+    margin-right: 16px;
+    border-right: 1px solid var(--border);
+    transition: color 0.2s;
+  }
+  .study-summary-jumps a:last-child {
+    border-right: none;
+    margin-right: 0;
+    padding-right: 0;
+  }
+  .study-summary-jumps a:hover {
+    color: var(--cream-bright);
+  }
+
+  /* ═══ HERO IMAGE ═══ */
+
+  .study-hero {
+    max-width: 1200px;
+    margin: 0 auto 48px;
+    padding: 0 48px;
+  }
+  .study-hero-image {
+    width: 100%; aspect-ratio: 16 / 9;
+    background: var(--surface-bright);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .study-hero-image img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ═══ BODY SECTIONS ═══ */
+
+  .study-body {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+  .study-section { margin-bottom: 56px; }
+  .study-section-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--warm);
+    margin-bottom: 14px;
+  }
+  .study-section h2 {
+    font-size: 26px; font-weight: 700; color: var(--cream-bright);
+    letter-spacing: -0.01em; line-height: 1.2;
+    margin-bottom: 18px;
+  }
+  .study-section p {
+    font-size: 15px; font-weight: 300; color: var(--cream);
+    line-height: 1.75;
+    margin-bottom: 16px;
+  }
+  .study-section p:last-child { margin-bottom: 0; }
+  .study-section strong { color: var(--cream-bright); font-weight: 600; }
+
+  /* Division eyebrow inside The Expansion */
+  .division-eyebrow {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 10px;
+  }
+  .division-teams {
+    font-size: 14px; font-weight: 500;
+    color: var(--cream); line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  .division-teams .day-label {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--cream-dim);
+    margin-right: 6px;
+  }
+
+  /* ═══ IMAGE BLOCKS ═══ */
+
+  .study-image-block {
+    max-width: 1200px;
+    margin: 0 auto 48px;
+    padding: 0 48px;
+  }
+  .study-image-block.narrow { max-width: 920px; }
+  .study-image {
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--surface-bright);
+  }
+  .study-image img { width: 100%; height: auto; display: block; }
+  .study-image-caption {
+    margin-top: 12px;
+    font-size: 12px; color: var(--cream-dim);
+    text-align: center; font-style: italic;
+  }
+
+  /* Image pair (two side by side) */
+  .image-pair {
+    max-width: 1200px;
+    margin: 0 auto 48px;
+    padding: 0 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .image-pair .study-image { margin: 0; }
+
+  /* ═══ HIGHLIGHT BLOCK (used for The Origin moment, mirrors mammoth-block from utah-hockey) ═══ */
+
+  .highlight-block {
+    max-width: 920px;
+    margin: 0 auto 56px;
+    padding: 0 48px;
+  }
+  .highlight-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .highlight-card::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 100% 0%, var(--warm-dim), transparent 60%);
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  .highlight-card-inner { position: relative; z-index: 1; }
+  .highlight-card .study-section-label { margin-bottom: 12px; }
+  .highlight-card h2 {
+    font-size: 26px; font-weight: 700;
+    color: var(--cream-bright);
+    letter-spacing: -0.01em; line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .highlight-card p {
+    font-size: 15px; font-weight: 300;
+    color: var(--cream); line-height: 1.75;
+    margin-bottom: 14px;
+  }
+  .highlight-card p:last-child { margin-bottom: 0; }
+  .highlight-card strong { color: var(--cream-bright); font-weight: 600; }
+
+  .timeline-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding: 18px 0 4px;
+    margin-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+  .timeline-pair-item .timeline-label {
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--cream-dim);
+    margin-bottom: 4px;
+  }
+  .timeline-pair-item .timeline-value {
+    font-size: 14px; font-weight: 600;
+    color: var(--cream-bright);
+    line-height: 1.4;
+  }
+
+  /* ═══ FINAL CTA ═══ */
+
+  .study-cta {
+    max-width: 920px;
+    margin: 0 auto 64px;
+    padding: 0 48px;
+  }
+  .study-cta-card {
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 36px 40px;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  .study-cta-card::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 80% 50%, var(--warm-dim), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .study-cta-card:hover::before { opacity: 1; }
+  .study-cta-card:hover {
+    border-color: rgba(184, 137, 106, 0.18);
+    transform: translateY(-1px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+  }
+  .study-cta-inner {
+    position: relative; z-index: 1;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px; flex-wrap: wrap;
+  }
+  .study-cta-eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--warm);
+    margin-bottom: 10px;
+  }
+  .study-cta h2 {
+    font-size: 24px; font-weight: 700;
+    color: var(--cream-bright);
+    letter-spacing: -0.01em; line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .study-cta p {
+    font-size: 14px; font-weight: 300;
+    color: var(--cream-dim);
+    line-height: 1.6;
+  }
+  .study-cta-pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 14px; font-weight: 600; color: var(--warm);
+    padding: 12px 22px;
+    background: var(--warm-dim);
+    border: 1px solid rgba(184, 137, 106, 0.2);
+    border-radius: 100px;
+    flex-shrink: 0;
+  }
+  .study-cta-pill svg { width: 14px; height: 14px; }
+
+  /* ═══ FOOTER ═══ */
+
+  .footer { padding: 32px 0 64px; text-align: center; max-width: 920px; margin: 0 auto; padding-left: 48px; padding-right: 48px; }
+  .footer-divider { height: 1px; background: var(--border); margin-bottom: 28px; }
+  .footer-email { font-family: 'Fira Code', monospace; font-size: 12.5px; font-weight: 300; color: var(--cream-dim); text-decoration: none; letter-spacing: 0.02em; display: inline-block; margin-bottom: 20px; }
+  .footer-email:hover { color: var(--cream); }
+  .footer-legal { font-size: 11px; color: rgba(232, 224, 213, 0.18); }
+  .footer-legal a { color: inherit; text-decoration: none; }
+
+  @media (max-width: 900px) {
+    .image-pair { grid-template-columns: 1fr; }
+    .timeline-pair { grid-template-columns: 1fr; gap: 14px; }
+  }
+  @media (max-width: 768px) {
+    nav { padding: 18px 24px; }
+    .nav-links { gap: 24px; }
+    .back-link-row, .study-header, .study-hero, .study-summary, .study-body, .study-image-block, .image-pair, .highlight-block, .study-cta, .footer {
+      padding-left: 24px; padding-right: 24px;
+    }
+
+    /* Mobile nav: swap wordmark for logo mark, hide Home (logo serves that role) */
+    .nav-logo-text { display: none; }
+    .nav-logo-mark { display: block; }
+    .nav-link-home { display: none; }
+  }
+  @media (max-width: 480px) {
+    nav { padding: 16px 20px; }
+    .nav-links { gap: 18px; }
+    .nav-links a { font-size: 12px; }
+    .back-link-row, .study-header, .study-hero, .study-summary, .study-body, .study-image-block, .image-pair, .highlight-block, .study-cta, .footer {
+      padding-left: 20px; padding-right: 20px;
+    }
+    .study-meta { gap: 24px; }
+    .study-cta-card { padding: 24px; }
+    .highlight-card { padding: 28px; }
+    .study-summary-card { padding: 22px 24px; }
+    .study-summary-jumps { flex-direction: column; align-items: stretch; gap: 0; padding-top: 14px; }
+    .study-summary-jumps a {
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+      margin-right: 0;
+      padding: 12px 0;
+      text-align: center;
+    }
+    .study-summary-jumps a:last-child { border-bottom: none; padding-bottom: 0; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo" aria-label="IslandTwig Studios — Home">
+    <span class="nav-logo-text">IslandTwig Studios</span>
+    <img class="nav-logo-mark" src="/images/islandtwig-mark.png" alt="IslandTwig Studios">
+  </a>
+  <ul class="nav-links">
+    <li class="nav-link-home"><a href="/">Home</a></li>
+    <li><a href="/design" class="active">Design</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+
+  <!-- BACK LINK -->
+  <div class="back-link-row">
+    <a href="/design" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to Design
+    </a>
+  </div>
+
+  <!-- STUDY HEADER -->
+  <header class="study-header">
+    <div class="study-category">Sports Identity · Concept · NHL</div>
+    <h1>NHL Midnight Edition.</h1>
+    <p class="study-tagline">Dark-mode alternate identities for all 32 NHL teams. Started as a two-team blackout experiment during the 2024 Stanley Cup Finals. Expanded over the following weeks into a complete league system, presented division by division.</p>
+    <div class="study-meta">
+      <div class="study-meta-item">
+        <div class="study-meta-label">Discipline</div>
+        <div class="study-meta-value">Sports Identity · Alternate Branding · Jersey</div>
+      </div>
+      <div class="study-meta-item">
+        <div class="study-meta-label">Year</div>
+        <div class="study-meta-value">Summer 2024</div>
+      </div>
+      <div class="study-meta-item">
+        <div class="study-meta-label">Status</div>
+        <div class="study-meta-value">Concept · Self-directed</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO IMAGE: all-32 grid composite (proof of scope) -->
+  <!-- TODO Nick: drop in the all-32 grid composite (16:9) -->
+  <div class="study-hero">
+    <div class="study-hero-image">
+      <img src="/images/case-studies/nhl-midnight/hero.jpg" alt="Composite grid of all 32 NHL teams' Midnight Edition alternate identities, dark-mode jersey concepts shown together as a complete league set.">
+    </div>
+  </div>
+
+  <!-- STUDY SUMMARY + JUMP LINKS -->
+  <div class="study-summary">
+    <div class="study-summary-card">
+      <div class="study-summary-label">In this study</div>
+      <p class="study-summary-text">Thirty-two dark-mode alternate jerseys, presented eight at a time across four divisions. Started with the two teams in the 2024 Stanley Cup Finals and grew into a complete league set. A creative break from Utah Hockey, and a study in how an NHL jersey is actually built.</p>
+      <div class="study-summary-jumps">
+        <a href="#brief">The Brief</a>
+        <a href="#origin">The Origin</a>
+        <a href="#expansion">The Expansion</a>
+        <a href="#choices">Design Choices</a>
+        <a href="#reflection">Reflection</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE BRIEF -->
+  <section class="study-body">
+    <div class="study-section" id="brief">
+      <div class="study-section-label">The Brief</div>
+      <h2>A break from Utah, and a deep dive into how a jersey is actually built.</h2>
+      <p>By June 2024, I'd been working on Utah Hockey concept directions for over a year. The project was producing, but I needed a change of scenery. The 2024 Stanley Cup Finals were starting. Florida Panthers and Edmonton Oilers. <strong>I designed a blackout alternate jersey for each, with original names: Black Panther and Black Gold.</strong> Two teams, posted for fun, with no plan past that.</p>
+      <p>The other half of the why was technical. <strong>I wanted my mockups to be more realistic.</strong> A jersey concept that doesn't honor how an NHL jersey is actually constructed reads as a t-shirt with a logo on it. Where the panels meet, where the stripes wrap, how the chest crest sits next to the laces, how sleeve numbers interact with cuff striping. The Utah Hockey work had pushed the brand side as far as I could push it on my own. This project was for getting better at the cloth.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       THE ORIGIN. Highlighted card (mirrors mammoth-block pattern from utah-hockey)
+       ═══════════════════════════════════════════════════════════════ -->
+  <div class="highlight-block" id="origin">
+    <div class="highlight-card">
+      <div class="highlight-card-inner">
+        <div class="study-section-label">The Origin</div>
+        <h2>Two teams, two original names, posted during the 2024 Stanley Cup Finals.</h2>
+        <p>The first pair didn't have a system name yet. <strong>Black Panther for Florida.</strong> The team's logo and palette pulled into a near-black treatment. <strong>Black Gold for Edmonton.</strong> The Oilers' royal blue dropped into a deep navy, the orange holding its weight against the dark.</p>
+        <p>The names were mine. The Black Panther reference is the obvious one. Black Gold is the term for crude oil, which is the team's actual namesake. <strong>Both names earned themselves into the project by surviving the first round of feedback.</strong> The system label "Midnight Edition" came later, when the project expanded past these two.</p>
+        <div class="timeline-pair">
+          <div class="timeline-pair-item">
+            <div class="timeline-label">First two posted</div>
+            <div class="timeline-value">June 2024 · Stanley Cup Finals</div>
+          </div>
+          <div class="timeline-pair-item">
+            <div class="timeline-label">Expanded to all 32</div>
+            <div class="timeline-value">July 2024 onward</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Black Panther + Black Gold image pair -->
+  <!-- TODO Nick: drop in Black Panther + Black Gold (the original two) -->
+  <div class="image-pair">
+    <div class="study-image">
+      <img src="/images/case-studies/nhl-midnight/black-panther.jpg" alt="Black Panther: Florida Panthers Midnight Edition blackout alternate jersey concept">
+    </div>
+    <div class="study-image">
+      <img src="/images/case-studies/nhl-midnight/black-gold.jpg" alt="Black Gold: Edmonton Oilers Midnight Edition blackout alternate jersey concept">
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       THE EXPANSION
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="study-body">
+    <div class="study-section" id="expansion">
+      <div class="study-section-label">The Expansion</div>
+      <h2>Thirty-two jerseys, eight at a time, division by division.</h2>
+      <p>By July 2024, the response to Black Panther and Black Gold was enough to justify the next move. <strong>Do the league.</strong> All 32 teams. The naming convention got a system label: Midnight Edition. The bespoke names from the origin stayed.</p>
+      <p>The rollout discipline mattered. <strong>Posting 32 jerseys in a single drop would have buried every individual concept under the next one.</strong> Instead I went division by division, four teams in one drop, four more the next day. That gave each team a moment of its own and gave the audience a reason to come back.</p>
+    </div>
+  </section>
+
+  <!-- PACIFIC DIVISION -->
+  <section class="study-body">
+    <div class="study-section">
+      <div class="division-eyebrow">Pacific Division</div>
+      <p class="division-teams"><span class="day-label">Day 1</span>Ducks, Flames, Oilers, Kings.<br><span class="day-label">Day 2</span>Sharks, Kraken, Canucks, Golden Knights.</p>
+    </div>
+  </section>
+
+  <!-- TODO Nick: drop in Pacific Division composite -->
+  <div class="study-image-block">
+    <div class="study-image">
+      <img src="/images/case-studies/nhl-midnight/pacific-division.jpg" alt="Pacific Division Midnight Edition composite: Ducks, Flames, Oilers, Kings, Sharks, Kraken, Canucks, Golden Knights">
+    </div>
+    <div class="study-image-caption">Pacific Division. Eight teams across two drops.</div>
+  </div>
+
+  <!-- CENTRAL DIVISION -->
+  <section class="study-body">
+    <div class="study-section">
+      <div class="division-eyebrow">Central Division</div>
+      <p class="division-teams"><span class="day-label">Day 1</span>Blackhawks, Avalanche, Stars, Wild.<br><span class="day-label">Day 2</span>Predators, Blues, Utah Hockey Club, Jets.</p>
+    </div>
+  </section>
+
+  <!-- TODO Nick: drop in Central Division composite -->
+  <div class="study-image-block">
+    <div class="study-image">
+      <img src="/images/case-studies/nhl-midnight/central-division.jpg" alt="Central Division Midnight Edition composite: Blackhawks, Avalanche, Stars, Wild, Predators, Blues, Utah Hockey Club, Jets">
+    </div>
+    <div class="study-image-caption">Central Division. Including Utah Hockey Club in its first-season placeholder identity.</div>
+  </div>
+
+  <!-- ATLANTIC DIVISION -->
+  <section class="study-body">
+    <div class="study-section">
+      <div class="division-eyebrow">Atlantic Division</div>
+      <p class="division-teams"><span class="day-label">Day 1</span>Bruins, Sabres, Red Wings, Panthers.<br><span class="day-label">Day 2</span>Canadiens, Senators, Lightning, Maple Leafs.</p>
+    </div>
+  </section>
+
+  <!-- TODO Nick: drop in Atlantic Division composite -->
+  <div class="study-image-block">
+    <div class="study-image">
+      <img src="/images/case-studies/nhl-midnight/atlantic-division.jpg" alt="Atlantic Division Midnight Edition composite: Bruins, Sabres, Red Wings, Panthers, Canadiens, Senators, Lightning, Maple Leafs">
+    </div>
+    <div class="study-image-caption">Atlantic Division. Including the second pass at the Panthers, this time as part of the system.</div>
+  </div>
+
+  <!-- METROPOLITAN DIVISION -->
+  <section class="study-body">
+    <div class="study-section">
+      <div class="division-eyebrow">Metropolitan Division</div>
+      <p class="division-teams"><span class="day-label">Day 1</span>Hurricanes, Blue Jackets, Devils, Islanders.<br><span class="day-label">Day 2</span>Rangers, Flyers, Penguins, Capitals.</p>
+    </div>
+  </section>
+
+  <!-- TODO Nick: drop in Metropolitan Division composite -->
+  <div class="study-image-block">
+    <div class="study-image">
+      <img src="/images/case-studies/nhl-midnight/metropolitan-division.jpg" alt="Metropolitan Division Midnight Edition composite: Hurricanes, Blue Jackets, Devils, Islanders, Rangers, Flyers, Penguins, Capitals">
+    </div>
+    <div class="study-image-caption">Metropolitan Division. The final eight, closing out the league set.</div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       DESIGN CHOICES
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="study-body">
+    <div class="study-section" id="choices">
+      <div class="study-section-label">Design Choices</div>
+      <h2>What thirty-two teams ask of one system.</h2>
+      <p>A few decisions held the project together.</p>
+      <p><strong>The blackout palette is the system, not the look.</strong> Each team keeps its own identity inside a near-black register. The Penguins are still the Penguins. The Stars are still the Stars. The Midnight Edition treatment is what they all share. The differentiation is what they all keep.</p>
+      <p><strong>Bespoke names only for the original two.</strong> Black Panther and Black Gold earned their names through the Finals moment they were posted in. Trying to invent thirty more original alternate names would have either watered them down or pulled focus away from the visuals. The system label does the job for the other thirty.</p>
+      <p><strong>The rollout cadence was a design decision.</strong> Four teams in one drop, four more the next day, then on to the next division. Posting all thirty-two at once would have hidden the individual work. Spacing the drops gave each team its own moment and built sustained engagement across the project.</p>
+      <p><strong>Honoring jersey construction was the technical goal.</strong> Panel seams, stripe wraps, crest placement relative to the laces, sleeve number positioning, cuff striping. Concepts that ignore these details read as t-shirts with logos on them. The goal across all thirty-two was a mockup that an NHL designer could look at and not immediately catch.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       REFLECTION
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="study-body">
+    <div class="study-section" id="reflection">
+      <div class="study-section-label">Reflection</div>
+      <h2>Designing for one team teaches a brand. Designing for thirty-two teaches a system.</h2>
+      <p>The project started as a break from Utah and ended as the largest single body of sports identity work I've done. <strong>Thirty-two teams is the kind of scope that's only possible when the brief is your own.</strong> No client would commission this. No team would want the rest. The completeness is what makes it a portfolio piece, and the completeness is only possible because it was self-directed.</p>
+      <p>The other thing the project taught was the difference between brand work and system work. <strong>Designing one alternate jersey is a brand exercise. The team is the constraint, and the alternate is the answer.</strong> Designing thirty-two alternates from the same palette rule is a system exercise. The rule is the constraint, and the thirty-two answers have to be different enough to be individual and consistent enough to belong to one project. That tension is the whole job.</p>
+      <p>Reception was mostly positive across platforms, with the predictable amount of pushback that comes from a designer touching every fan base's team at once. <strong>The negative feedback was small enough to absorb and specific enough to learn from.</strong> A designer who can't read the difference between a real critique and noise won't survive a project this size. The project taught that filter, too.</p>
+    </div>
+  </section>
+
+  <!-- STUDY CTA -->
+  <div class="study-cta">
+    <a href="/services" class="study-cta-card">
+      <div class="study-cta-inner">
+        <div>
+          <div class="study-cta-eyebrow">Available for work</div>
+          <h2>Need a system that has to scale to a roster?</h2>
+          <p>I take on sports identity, brand systems, and packaging. Logos at $200, full brand systems from $800.</p>
+        </div>
+        <span class="study-cta-pill">
+          See services
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+      </div>
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-divider"></div>
+    <a href="mailto:hello@islandtwigstudios.com" class="footer-email">hello@islandtwigstudios.com</a>
+    <p class="footer-legal">&copy; 2026 IslandTwig Studios &middot; <a href="/privacy">Privacy</a></p>
+  </footer>
+
+</div>
+
+</body>
+</html>
