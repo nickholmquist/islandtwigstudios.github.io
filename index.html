@@ -53,6 +53,26 @@
         .badge-live { background: var(--sage-dim); color: var(--sage); }
         .badge-soon { background: var(--cream-faint); color: var(--cream-dim); border: 1px solid var(--border); }
 
+        /* ═══ HOME HEADLINE ═══ */
+
+        .home-headline {
+            font-size: clamp(36px, 5vw, 68px);
+            font-weight: 800;
+            color: var(--cream-bright);
+            letter-spacing: -0.02em;
+            line-height: 1.05;
+            margin-bottom: 14px;
+        }
+
+        .home-subheadline {
+            font-size: clamp(15px, 1.6vw, 18px);
+            font-weight: 300;
+            color: var(--cream-dim);
+            line-height: 1.55;
+            margin-bottom: 28px;
+            max-width: 480px;
+        }
+
         /* ═══ AVAILABILITY INDICATOR ═══ */
 
         .availability-bar {
@@ -384,10 +404,12 @@
     <div class="page">
         <div class="content">
 
+            <h1 class="home-headline al1">Look as good as you play.</h1>
+            <p class="home-subheadline al1">Logos, marks, and brand systems built for your team.</p>
             <a href="/services" class="availability-bar a-indicator">Available for new projects</a>
 
             <!-- ═══ DESIGN HERO (full width) ═══ -->
-            <a href="/design/utah-hockey" class="hero-design al2">
+            <a href="/design/utah-hockey" class="hero-design al3">
                 <div class="hero-design-image">
                     <img src="images/case-studies/utah-hockey/hero.jpeg" alt="Composite grid of nine Utah Hockey concept logos designed for the new Utah NHL franchise: Yeti, Outlaws, Mammoth, Mountaineers, Swarm, and Black Diamonds among them">
                 </div>
