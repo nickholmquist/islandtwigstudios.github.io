@@ -56,7 +56,7 @@
         /* ═══ HOME HEADLINE ═══ */
 
         .home-headline {
-            font-size: clamp(36px, 5vw, 68px);
+            font-size: clamp(30px, 4vw, 54px);
             font-weight: 800;
             color: var(--cream-bright);
             letter-spacing: -0.02em;
@@ -69,8 +69,21 @@
             font-weight: 300;
             color: var(--cream-dim);
             line-height: 1.55;
-            margin-bottom: 28px;
             max-width: 480px;
+        }
+
+        .home-hero-row {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 32px;
+            margin-bottom: 28px;
+        }
+
+        .home-hero-text { min-width: 0; }
+
+        @media (max-width: 640px) {
+            .home-hero-row { flex-direction: column; align-items: flex-start; gap: 16px; }
         }
 
         /* ═══ AVAILABILITY INDICATOR ═══ */
@@ -79,7 +92,6 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            margin-bottom: 32px;
             font-size: 13.5px;
             font-weight: 600;
             color: var(--sage);
@@ -404,9 +416,13 @@
     <div class="page">
         <div class="content">
 
-            <h1 class="home-headline al1">Look as good as you play.</h1>
-            <p class="home-subheadline al1">Logos & brand systems built for your team.</p>
-            <a href="/services" class="availability-bar a-indicator">Available for new projects</a>
+            <div class="home-hero-row al1">
+                <div class="home-hero-text">
+                    <h1 class="home-headline">Look as good as you play.</h1>
+                    <p class="home-subheadline">Logos &amp; brand systems built for your team.</p>
+                </div>
+                <a href="/services" class="availability-bar a-indicator">Available for new projects</a>
+            </div>
 
             <!-- ═══ DESIGN HERO (full width) ═══ -->
             <a href="/design/utah-hockey" class="hero-design al3">
