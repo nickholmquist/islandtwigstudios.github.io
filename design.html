@@ -213,7 +213,17 @@
     border-color: rgba(122, 158, 135, 0.3);
   }
 
-  .featured-card-
+  .featured-card-body {
+    padding: 22px 24px 24px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Wide card: constrain body text width and add breathing room */
+  .featured-card-wide .featured-card-body {
+    padding: 28px 32px 32px;
+    max-width: 720px;
+  }
 
   .featured-card-cat {
     font-size: 10px;
@@ -253,12 +263,25 @@
   .featured-card:hover .featured-card-link { gap: 10px; }
   .featured-card-link svg { width: 13px; height: 13px; }
 
-  /* When there are an odd number of cards, the last one spans full width */
   .featured-grid .featured-card.featured-card-wide {
     grid-column: 1 / -1;
   }
   .featured-grid .featured-card-wide .featured-card-image {
-    aspect-ratio: 24 / 9;
+    aspect-ratio: 16 / 9; /* default for wide cards */
+  }
+  .featured-grid .featured-card-wide.card-ultrawide .featured-card-image {
+    aspect-ratio: 24 / 9; /* for the NHL Midnight jersey wall */
+  }
+
+  /* 3-up row for secondary case studies */
+  .featured-grid-three {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 64px;
+  }
+
+  @media (max-width: 900px) {
+    .featured-grid-three { grid-template-columns: 1fr; }
   }
 
   /* ═══ GALLERY SECTIONS ═══ */
@@ -515,18 +538,15 @@
     <div class="divider"></div>
 
     <!-- ═══════════════════════════════════════════════════════════════
-         FEATURED CASE STUDIES
-         5 cards. Ordered: visual impact → recognition → paid work → scope.
-         Tier-1 case studies per project brief.
+         FEATURED: UTAH HOCKEY + NHL MIDNIGHT (full width, stacked)
          ═══════════════════════════════════════════════════════════════ -->
     <section class="featured-section">
-      <div class="section-label section-label-warm featured-label">Featured Case Studies</div>
+      <div class="section-label section-label-warm featured-label">Featured Work</div>
 
       <div class="featured-grid">
 
-        <!-- 1. Utah Hockey Club Concepts -->
-        <!-- Case study page: TODO write /design/utah-hockey (mock exists) -->
-        <a href="/design/utah-hockey" class="featured-card">
+        <!-- 1. Utah Hockey: full width, 16:9 -->
+        <a href="/design/utah-hockey" class="featured-card featured-card-wide">
           <div class="featured-card-image">
             <span class="badge">Case Study</span>
             <img src="images/case-studies/utah-hockey/card-hero.jpg" alt="Utah hockey concept identities">
@@ -542,63 +562,8 @@
           </div>
         </a>
 
-        <!-- 2. Utah State Flag -->
-        <!-- Case study page: /design/utah-flag — SHIPPED -->
-        <a href="/design/utah-flag" class="featured-card">
-          <div class="featured-card-image">
-            <span class="badge badge-sage">Honored</span>
-            <img src="images/case-studies/utah-flag/card-hero.jpg" alt="Utah State Flag submission">
-          </div>
-          <div class="featured-card-body">
-            <div class="featured-card-cat">Civic Identity · Vexillology</div>
-            <h2>Redesigning the Utah State Flag</h2>
-            <p class="featured-card-desc">A competition entry for Utah's More Than A Flag initiative. One of 70 designs honored statewide by the Governor's office.</p>
-            <span class="featured-card-link">
-              View case study
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </span>
-          </div>
-        </a>
-
-        <!-- 3. Hey Bright Teeth Whitening -->
-        <!-- Case study page: TODO write /design/hey-bright -->
-        <a href="/design/hey-bright" class="featured-card">
-          <div class="featured-card-image">
-            <span class="badge">Case Study</span>
-            <img src="images/case-studies/hey-bright/card-hero.jpg" alt="Hey Bright Teeth Whitening packaging">
-          </div>
-          <div class="featured-card-body">
-            <div class="featured-card-cat">Brand Identity · Packaging · Paid Client</div>
-            <h2>Hey Bright Teeth Whitening</h2>
-            <p class="featured-card-desc">A sustained packaging relationship for a teeth-whitening brand. Three product lines, sweater merch, a US course-attendee map, and tooth gem work for a client of the brand.</p>
-            <span class="featured-card-link">
-              View case study
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </span>
-          </div>
-        </a>
-
-        <!-- 4. QuickFuze Games -->
-        <!-- Case study page: TODO write /design/quickfuze -->
-        <a href="/design/quickfuze" class="featured-card">
-          <div class="featured-card-image">
-            <span class="badge">Case Study</span>
-            <img src="images/case-studies/quickfuze/card-hero.jpg" alt="QuickFuze Games board game and card game work">
-          </div>
-          <div class="featured-card-body">
-            <div class="featured-card-cat">Brand System · Game Design · Paid Client</div>
-            <h2>QuickFuze Games</h2>
-            <p class="featured-card-desc">Multi-product work for an indie game publisher. Company mark, full King of Battle board game system, a baby name card game with a custom font, and the supporting print collateral.</p>
-            <span class="featured-card-link">
-              View case study
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </span>
-          </div>
-        </a>
-
-        <!-- 5. NHL Midnight Edition - spans full width since it's the 5th of 5 -->
-        <!-- Case study page: TODO write /design/nhl-midnight -->
-        <a href="/design/nhl-midnight" class="featured-card featured-card-wide">
+        <!-- 2. NHL Midnight: full width, 24:9 ultrawide -->
+        <a href="/design/nhl-midnight" class="featured-card featured-card-wide card-ultrawide">
           <div class="featured-card-image">
             <span class="badge">Case Study</span>
             <img src="images/case-studies/nhl-midnight/card-hero.jpg" alt="NHL Midnight Edition dark-mode alternate identities">
@@ -618,8 +583,7 @@
     </section>
 
     <!-- ═══════════════════════════════════════════════════════════════
-         SPORTS CONCEPTS GALLERY (tier-2, no case study pages)
-         10 tiles. Uniform 1:1 size. Hover reveals name + category.
+         SPORTS CONCEPTS GALLERY
          ═══════════════════════════════════════════════════════════════ -->
     <section class="gallery-section">
       <div class="section-label section-label-warm gallery-label">More Sports Work</div>
@@ -712,6 +676,153 @@
       </div>
     </section>
 
+    <!-- ═══════════════════════════════════════════════════════════════
+         SECONDARY CASE STUDIES: Hey Bright, Utah Flag, QuickFuze
+         3-up compact row. These prove paid client execution.
+         ═══════════════════════════════════════════════════════════════ -->
+    <section class="featured-section">
+      <div class="section-label section-label-warm featured-label">Client Work</div>
+
+      <div class="featured-grid featured-grid-three">
+
+        <a href="/design/hey-bright" class="featured-card">
+          <div class="featured-card-image">
+            <span class="badge">Case Study</span>
+            <img src="images/case-studies/hey-bright/card-hero.jpg" alt="Hey Bright Teeth Whitening packaging">
+          </div>
+          <div class="featured-card-body">
+            <div class="featured-card-cat">Brand Identity · Packaging · Paid</div>
+            <h2>Hey Bright</h2>
+            <span class="featured-card-link">
+              View case study
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a href="/design/utah-flag" class="featured-card">
+          <div class="featured-card-image">
+            <span class="badge badge-sage">Honored</span>
+            <img src="images/case-studies/utah-flag/card-hero.jpg" alt="Utah State Flag submission">
+          </div>
+          <div class="featured-card-body">
+            <div class="featured-card-cat">Civic Identity · Competition</div>
+            <h2>Utah State Flag</h2>
+            <span class="featured-card-link">
+              View case study
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a href="/design/quickfuze" class="featured-card">
+          <div class="featured-card-image">
+            <span class="badge">Case Study</span>
+            <img src="images/case-studies/quickfuze/card-hero.jpg" alt="QuickFuze Games board game and card game work">
+          </div>
+          <div class="featured-card-body">
+            <div class="featured-card-cat">Brand System · Game Design · Paid</div>
+            <h2>QuickFuze Games</h2>
+            <span class="featured-card-link">
+              View case study
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         OTHER WORK GALLERY
+         ═══════════════════════════════════════════════════════════════ -->
+    <section class="gallery-section">
+      <div class="section-label gallery-label">Other Work</div>
+
+      <div class="gallery-grid">
+
+        <a href="#" class="gallery-tile">
+          <img src="images/gallery/triloop.jpg" alt="Triloop / Global Armory">
+          <div class="gallery-tile-overlay">
+            <div>
+              <div class="gallery-tile-name">Triloop</div>
+              <div class="gallery-tile-cat">Brand Identity · Logo</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="gallery-tile">
+          <img src="images/gallery/bounce.jpg" alt="Bounce Messenger">
+          <div class="gallery-tile-overlay">
+            <div>
+              <div class="gallery-tile-name">Bounce Messenger</div>
+              <div class="gallery-tile-cat">Brand Identity · App</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="gallery-tile">
+          <img src="images/gallery/nailsbyaubs.jpg" alt="Nails by Aubs">
+          <div class="gallery-tile-overlay">
+            <div>
+              <div class="gallery-tile-name">Nails by Aubs</div>
+              <div class="gallery-tile-cat">Brand Identity · Local Business</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="gallery-tile">
+          <img src="images/gallery/get-it-write.jpg" alt="Get It Write">
+          <div class="gallery-tile-overlay">
+            <div>
+              <div class="gallery-tile-name">Get It Write</div>
+              <div class="gallery-tile-cat">Brand Identity · Logo</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="gallery-tile">
+          <img src="images/gallery/making-waves.jpg" alt="Making Waves Charity">
+          <div class="gallery-tile-overlay">
+            <div>
+              <div class="gallery-tile-name">Making Waves</div>
+              <div class="gallery-tile-cat">Brand Identity · Nonprofit</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="gallery-tile">
+          <img src="images/gallery/threaded-cactus.jpg" alt="Threaded Cactus Co">
+          <div class="gallery-tile-overlay">
+            <div>
+              <div class="gallery-tile-name">Threaded Cactus Co</div>
+              <div class="gallery-tile-cat">Brand Identity · Retail</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="gallery-tile">
+          <img src="images/gallery/golden-hour-seats.jpg" alt="Golden Hour Seats">
+          <div class="gallery-tile-overlay">
+            <div>
+              <div class="gallery-tile-name">Golden Hour Seats</div>
+              <div class="gallery-tile-cat">Brand Identity · Logo</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="gallery-tile">
+          <img src="images/gallery/n-monogram.jpg" alt="N Monogram personal mark">
+          <div class="gallery-tile-overlay">
+            <div>
+              <div class="gallery-tile-name">N Monogram</div>
+              <div class="gallery-tile-cat">Personal Mark</div>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </section>
 
     <!-- BOTTOM CTA -->
     <a href="/services" class="bottom-cta">
