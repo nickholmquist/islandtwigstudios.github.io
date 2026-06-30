@@ -399,7 +399,7 @@
             height: auto;
             display: block;
             transition: transform 0.5s ease;
-            aspect-ratio: 4/3;
+            aspect-ratio: 16/10;
             object-fit: cover;
         }
 
@@ -443,6 +443,134 @@
         .design-cta-inner { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
         .design-cta .cta-title { font-size: 15px; font-weight: 700; color: var(--cream-bright); margin-bottom: 3px; }
         .design-cta .cta-desc { font-size: 12px; font-weight: 300; color: var(--cream-dim); line-height: 1.5; }
+
+        /* ═══ HOMEPAGE HERO (full width, replaces two-col split) ═══ */
+
+        .hero-design {
+            display: block;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin-bottom: 16px;
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .hero-design::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 80% 10%, var(--warm-dim), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .hero-design:hover::before { opacity: 1; }
+        .hero-design:hover {
+            border-color: rgba(184, 137, 106, 0.18);
+            transform: translateY(-2px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+        }
+
+        .hero-design-image { position: relative; z-index: 1; aspect-ratio: 16 / 9; overflow: hidden; background: var(--bg); }
+        .hero-design-image img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+        .hero-design:hover .hero-design-image img { transform: scale(1.03); }
+
+        .hero-design-body { position: relative; z-index: 1; padding: 28px 32px 32px; }
+        .hero-design-body h2 { font-size: clamp(24px, 3vw, 34px); font-weight: 800; color: var(--cream-bright); letter-spacing: -0.01em; line-height: 1.15; margin-bottom: 10px; }
+        .hero-design-desc { position: relative; z-index: 1; font-size: 14.5px; font-weight: 300; color: var(--cream-dim); line-height: 1.6; max-width: 620px; margin-bottom: 16px; }
+
+        /* ═══ SECONDARY DESIGN ROW (4-up, full width) ═══ */
+
+        .design-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+
+        .design-row-wide { margin-bottom: 16px; }
+        .design-row-wide .design-img-card img { aspect-ratio: 24 / 9; }
+
+        .view-all-row { margin-bottom: 56px; }
+
+        /* ═══ AVAILABLE FOR WORK BANNER (full width) ═══ */
+
+        .work-banner {
+            display: block;
+            background: var(--surface);
+            border: 1px solid rgba(184, 137, 106, 0.18);
+            border-radius: var(--radius);
+            padding: 32px 36px;
+            margin-bottom: 64px;
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .work-banner::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 85% 30%, var(--warm-dim), transparent 60%); opacity: 0.5; transition: opacity 0.4s ease; }
+        .work-banner:hover::before { opacity: 1; }
+        .work-banner:hover { border-color: rgba(184, 137, 106, 0.35); transform: translateY(-1px); box-shadow: 0 12px 32px rgba(0,0,0,0.25); }
+
+        .work-banner-inner { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+        .work-banner h2 { font-size: clamp(20px, 2.4vw, 26px); font-weight: 700; color: var(--cream-bright); letter-spacing: -0.01em; margin-bottom: 6px; }
+        .work-banner p { font-size: 13.5px; font-weight: 300; color: var(--cream-dim); max-width: 480px; }
+        .work-banner-pill { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--warm); padding: 12px 22px; background: var(--warm-dim); border: 1px solid rgba(184, 137, 106, 0.25); border-radius: 100px; flex-shrink: 0; transition: background 0.25s ease, gap 0.25s ease; }
+        .work-banner:hover .work-banner-pill { gap: 12px; background: rgba(184, 137, 106, 0.22); }
+        .work-banner-pill svg { width: 13px; height: 13px; }
+
+        /* ═══ APPS (compact, secondary) ═══ */
+
+        .apps-section { margin-bottom: 8px; }
+
+        .apps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+
+        .app-tile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 12px;
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.25s ease;
+        }
+
+        .app-tile::before { content: ''; position: absolute; inset: 0; opacity: 0; transition: opacity 0.35s ease; }
+        .app-tile.t-coral::before    { background: radial-gradient(ellipse at 12% 50%, var(--coral-dim), transparent 60%); }
+        .app-tile.t-sky::before      { background: radial-gradient(ellipse at 12% 50%, var(--sky-dim), transparent 60%); }
+        .app-tile.t-warm::before     { background: radial-gradient(ellipse at 12% 50%, var(--warm-dim), transparent 60%); }
+        .app-tile.t-lavender::before { background: radial-gradient(ellipse at 12% 50%, var(--lavender-dim), transparent 60%); }
+        .app-tile.t-sage::before     { background: radial-gradient(ellipse at 12% 50%, var(--sage-dim), transparent 60%); }
+        .app-tile:hover::before { opacity: 1; }
+        .app-tile:hover { border-color: rgba(232, 224, 213, 0.1); transform: translateY(-1px); }
+
+        .app-tile .app-icon-img, .app-tile .app-icon-placeholder { width: 32px; height: 32px; border-radius: 8px; position: relative; z-index: 1; flex-shrink: 0; font-size: 0.95rem; }
+        .app-tile-text { min-width: 0; position: relative; z-index: 1; }
+        .app-tile-name { font-size: 12.5px; font-weight: 600; color: var(--cream-bright); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .app-tile-status { font-size: 10px; color: var(--sage); font-weight: 500; letter-spacing: 0.02em; }
+
+        @media (max-width: 900px) {
+            .design-row { grid-template-columns: 1fr; }
+            .apps-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 480px) {
+            .design-row { grid-template-columns: 1fr; }
+            .apps-grid { grid-template-columns: 1fr; }
+            .hero-design-body { padding: 22px 20px 26px; }
+            .work-banner { padding: 24px; }
+        }
 
         /* ═══ APP ROWS ═══ */
 
@@ -584,156 +712,147 @@
 
             <div class="availability-bar a-indicator">Available for new projects</div>
 
-            <div class="two-col">
+            <!-- ═══ DESIGN HERO (full width) ═══ -->
+            <p class="section-label section-label-warm al1">Design Studio</p>
 
-                <!-- LEFT: DESIGN (now prominent) -->
-                <div class="col-design">
-                    <p class="section-label al1">Design Studio</p>
+            <a href="/design/utah-hockey" class="hero-design al2">
+                <div class="hero-design-image">
+                    <img src="images/case-studies/utah-hockey/hero.jpeg" alt="Composite grid of nine Utah Hockey concept logos designed for the new Utah NHL franchise: Yeti, Outlaws, Mammoth, Mountaineers, Swarm, and Black Diamonds among them">
+                </div>
+                <div class="hero-design-body">
+                    <span class="cat-tag">Sports identity · Concept · NHL</span>
+                    <h2>Naming Utah's Hockey Team</h2>
+                    <p class="hero-design-desc">Nine identity directions for Utah's new NHL franchise, designed in real time across thirteen months. Includes a Mammoth concept posted a year before the team picked Mammoth.</p>
+                    <span class="arrow-link link-warm">
+                        View case study
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </span>
+                </div>
+            </a>
 
-                    <a href="/design/utah-hockey" class="featured-design al2">
-                        <div class="design-feature-meta">
-                            <span class="cat-tag">Sports identity · Concept · NHL</span>
-                            <h2>Naming Utah's Hockey Team</h2>
+            <div class="design-row-wide al3">
+                <a href="/design/nhl-midnight" class="design-img-card">
+                    <img src="images/case-studies/nhl-midnight/card-hero.jpg" alt="NHL Midnight Edition dark-mode alternate identities">
+                    <div class="design-img-overlay">
+                        <div>
+                            <div class="overlay-name">NHL Midnight Edition</div>
+                            <div class="overlay-tag">Sports identity · 32 teams</div>
                         </div>
-                        <div class="design-feature-image">
-                            <img src="images/case-studies/utah-hockey/hero.jpeg" alt="Composite grid of nine Utah Hockey concept logos designed for the new Utah NHL franchise: Yeti, Outlaws, Mammoth, Mountaineers, Swarm, and Black Diamonds among them">
+                    </div>
+                </a>
+            </div>
+
+            <div class="design-row al3">
+                <a href="/design/utah-flag" class="design-img-card">
+                    <img src="images/case-studies/utah-flag/hero-final-submission.jpeg" alt="Utah State Flag final submission">
+                    <div class="design-img-overlay">
+                        <div>
+                            <div class="overlay-name">Utah State Flag</div>
+                            <div class="overlay-tag">Civic identity · 1 of 70 honored</div>
                         </div>
-                        <p class="design-feature-desc">Nine identity directions for Utah's new NHL franchise, designed in real time across thirteen months. Includes a Mammoth concept posted a year before the team picked Mammoth.</p>
-                        <span class="arrow-link link-warm design-feature-cta">
-                            View case study
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                        </span>
+                    </div>
+                </a>
+                <a href="/design/hey-bright" class="design-img-card">
+                    <img src="images/case-studies/hey-bright/card-hero.jpg" alt="Hey Bright Teeth Whitening packaging">
+                    <div class="design-img-overlay">
+                        <div>
+                            <div class="overlay-name">Hey Bright</div>
+                            <div class="overlay-tag">Packaging · Ongoing client</div>
+                        </div>
+                    </div>
+                </a>
+                <a href="/design/quickfuze" class="design-img-card">
+                    <img src="images/case-studies/quickfuze/card-hero.jpg" alt="QuickFuze Games board game and card game work">
+                    <div class="design-img-overlay">
+                        <div>
+                            <div class="overlay-name">QuickFuze Games</div>
+                            <div class="overlay-tag">Brand · Game design · 2 games</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <a href="/design" class="design-cta view-all-row al3" style="display: block;">
+                <div class="design-cta-inner">
+                    <div>
+                        <div class="cta-title">Brand &amp; Identity Design</div>
+                        <div class="cta-desc">Sports identity, brand systems, and naming work.</div>
+                    </div>
+                    <span class="arrow-link link-warm" style="flex-shrink:0;">
+                        View all work
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </span>
+                </div>
+            </a>
+
+            <!-- ═══ AVAILABLE FOR WORK (full-width banner) ═══ -->
+            <a href="/services" class="work-banner a-cta">
+                <div class="work-banner-inner">
+                    <div>
+                        <h2>Have a project in mind?</h2>
+                        <p>Logos, brand systems, and naming work starting at $200.</p>
+                    </div>
+                    <span class="work-banner-pill">
+                        Start a project
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </span>
+                </div>
+            </a>
+
+            <!-- ═══ APPS (secondary, compact) ═══ -->
+            <div class="apps-section">
+                <p class="section-label ar1">Also Building</p>
+
+                <div class="apps-grid">
+                    <a href="https://apps.apple.com/us/app/poppy-popper/id6753832202" class="app-tile t-sage ar2">
+                        <img src="images/appicons/poppy_icon.png" alt="Poppy" class="app-icon-img">
+                        <div class="app-tile-text">
+                            <div class="app-tile-name">Poppy</div>
+                            <div class="app-tile-status">Available now</div>
+                        </div>
                     </a>
 
-                    <p class="section-label spaced al3">More Work</p>
+                    <a href="https://apps.apple.com/us/app/nine-draw/id6757319447" class="app-tile t-coral ar2">
+                        <img src="images/appicons/nineDraw.png" alt="Nine Draw" class="app-icon-img">
+                        <div class="app-tile-text">
+                            <div class="app-tile-name">Nine Draw</div>
+                            <div class="app-tile-status">Available</div>
+                        </div>
+                    </a>
 
-                    <div class="design-img-stack">
-                        <a href="/design/nhl-midnight" class="design-img-card al4">
-                            <img src="images/case-studies/nhl-midnight/card-hero.jpg" alt="NHL Midnight Edition dark-mode alternate identities">
-                            <div class="design-img-overlay">
-                                <div>
-                                    <div class="overlay-name">NHL Midnight Edition</div>
-                                    <div class="overlay-tag">Sports identity · 32 teams</div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="/design/hey-bright" class="design-img-card al5">
-                            <img src="images/case-studies/hey-bright/card-hero.jpg" alt="Hey Bright Teeth Whitening packaging">
-                            <div class="design-img-overlay">
-                                <div>
-                                    <div class="overlay-name">Hey Bright</div>
-                                    <div class="overlay-tag">Packaging · Ongoing client</div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="/design/utah-flag" class="design-img-card al6">
-                            <img src="images/case-studies/utah-flag/hero-final-submission.jpeg" alt="Utah State Flag final submission">
-                            <div class="design-img-overlay">
-                                <div>
-                                    <div class="overlay-name">Utah State Flag</div>
-                                    <div class="overlay-tag">Civic identity · 1 of 70 honored</div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="/design/quickfuze" class="design-img-card al7">
-                            <img src="images/case-studies/quickfuze/card-hero.jpg" alt="QuickFuze Games board game and card game work">
-                            <div class="design-img-overlay">
-                                <div>
-                                    <div class="overlay-name">QuickFuze Games</div>
-                                    <div class="overlay-tag">Brand · Game design · 2 games</div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                    <a href="https://apps.apple.com/us/app/midnight-solitaire-card-game/id6759999894" class="app-tile t-sky ar3">
+                        <img src="images/appicons/mnsolitaire.png" alt="Midnight Solitaire" class="app-icon-img">
+                        <div class="app-tile-text">
+                            <div class="app-tile-name">Midnight Solitaire</div>
+                            <div class="app-tile-status">Available</div>
+                        </div>
+                    </a>
 
-                    <a href="/design" class="design-cta al8" style="margin-top: 8px; display: block;">
-                        <div class="design-cta-inner">
-                            <div>
-                                <div class="cta-title">Brand &amp; Identity Design</div>
-                                <div class="cta-desc">Sports identity, brand systems, and naming work.</div>
-                            </div>
-                            <span class="arrow-link link-warm" style="flex-shrink:0;">
-                                View all
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                            </span>
+                    <!-- NOTE: these two still point to "#" in the live source. Need real App Store links or a "soon" badge instead of "Available". -->
+                    <a href="#" class="app-tile t-warm ar3">
+                        <img src="images/appicons/tempoicon_new.png" alt="Hit the Mark" class="app-icon-img">
+                        <div class="app-tile-text">
+                            <div class="app-tile-name">Hit the Mark</div>
+                            <div class="app-tile-status">Available</div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="app-tile t-lavender ar3">
+                        <img src="images/appicons/restedAppIcon.jpg" alt="Rested" class="app-icon-img">
+                        <div class="app-tile-text">
+                            <div class="app-tile-name">Rested</div>
+                            <div class="app-tile-status">Available</div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="app-tile t-sage ar3">
+                        <div class="app-icon-placeholder placeholder-sage">🃏</div>
+                        <div class="app-tile-text">
+                            <div class="app-tile-name">Reveal</div>
+                            <div class="app-tile-status">Available</div>
                         </div>
                     </a>
                 </div>
-
-                <!-- RIGHT: APPS (now secondary, flat list) -->
-                <div class="col-apps">
-                    <p class="section-label section-label-warm ar1">Available for Work</p>
-
-                    <a href="/services" class="home-cta a-cta">
-                        <div class="home-cta-inner">
-                            <h2>Have a project in mind?</h2>
-                            <p>Logos, brand systems, and naming work starting at $200.</p>
-                            <span class="home-cta-pill">
-                                Start a project
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                            </span>
-                        </div>
-                    </a>
-
-                    <p class="section-label spaced ar1">Apps</p>
-
-                    <div class="app-list">
-                        <a href="https://apps.apple.com/us/app/poppy-popper/id6753832202" class="app-row c-sage is-featured ar2">
-                            <img src="images/appicons/poppy_icon.png" alt="Poppy" class="app-icon-img">
-                            <div class="app-row-text">
-                                <h3 class="app-name">Poppy</h3>
-                                <p class="app-desc">A satisfyingly tactile tapping game with handcrafted charm.</p>
-                            </div>
-                            <span class="badge badge-live">Available Now</span>
-                        </a>
-
-                        <a href="https://apps.apple.com/us/app/nine-draw/id6757319447" class="app-row c-coral ar3">
-                            <img src="images/appicons/nineDraw.png" alt="Nine Draw" class="app-icon-img">
-                            <div class="app-row-text">
-                                <h3 class="app-name">Nine Draw</h3>
-                                <p class="app-desc">A nine-card higher-or-lower challenge that tests your instincts.</p>
-                            </div>
-                            <span class="badge badge-live">Available</span>
-                        </a>
-
-                        <a href="https://apps.apple.com/us/app/midnight-solitaire-card-game/id6759999894" class="app-row c-sky ar4">
-                            <img src="images/appicons/mnsolitaire.png" alt="Midnight Solitaire" class="app-icon-img">
-                            <div class="app-row-text">
-                                <h3 class="app-name">Midnight Solitaire</h3>
-                                <p class="app-desc">Classic solitaire with a refined dark aesthetic and wind-down mode.</p>
-                            </div>
-                            <span class="badge badge-live">Available</span>
-                        </a>
-
-                        <a href="#" class="app-row c-warm ar5">
-                            <img src="images/appicons/tempoicon_new.png" alt="Hit the Mark" class="app-icon-img">
-                            <div class="app-row-text">
-                                <h3 class="app-name">Hit the Mark</h3>
-                                <p class="app-desc">Put your timing to the test and hit the target time.</p>
-                            </div>
-                            <span class="badge badge-live">Available</span>
-                        </a>
-
-                        <a href="#" class="app-row c-lavender ar6">
-                            <img src="images/appicons/restedAppIcon.jpg" alt="Rested" class="app-icon-img">
-                            <div class="app-row-text">
-                                <h3 class="app-name">Rested</h3>
-                                <p class="app-desc">A REM cycle calculator to help you wake up refreshed.</p>
-                            </div>
-                            <span class="badge badge-live">Available</span>
-                        </a>
-
-                        <a href="#" class="app-row c-sage ar7">
-                            <div class="app-icon-placeholder placeholder-sage">🃏</div>
-                            <div class="app-row-text">
-                                <h3 class="app-name">Reveal</h3>
-                                <p class="app-desc">Bid-and-win card strategy game. A take on the classic GOPS.</p>
-                            </div>
-                            <span class="badge badge-live">Available</span>
-                        </a>
-                    </div>
-                </div>
-
             </div>
 
             <footer class="footer a-footer">
