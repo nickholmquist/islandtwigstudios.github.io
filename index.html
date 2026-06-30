@@ -70,8 +70,8 @@
         }
 
         /* Ambient depth layer: soft color blooms in your own warm/sage tones,
-           plus a faint diagonal knit texture that nods at jersey fabric without
-           announcing itself. Sits behind all content, scrolls with the page. */
+           plus a faint grid that reads as considered rather than decorative.
+           Sits behind all content, scrolls with the page. */
         body::after {
             content: '';
             position: absolute;
@@ -79,10 +79,11 @@
             pointer-events: none;
             z-index: 0;
             background:
-                repeating-linear-gradient(45deg, rgba(232, 224, 213, 0.018) 0px, rgba(232, 224, 213, 0.018) 1px, transparent 1px, transparent 7px),
-                radial-gradient(ellipse 1000px 700px at 8% 4%, var(--warm-dim), transparent 60%),
-                radial-gradient(ellipse 1100px 800px at 96% 48%, var(--sage-dim), transparent 60%),
-                radial-gradient(ellipse 900px 650px at 12% 96%, var(--warm-dim), transparent 60%);
+                repeating-linear-gradient(0deg, rgba(232, 224, 213, 0.018) 0px, rgba(232, 224, 213, 0.018) 1px, transparent 1px, transparent 40px),
+                repeating-linear-gradient(90deg, rgba(232, 224, 213, 0.018) 0px, rgba(232, 224, 213, 0.018) 1px, transparent 1px, transparent 40px),
+                radial-gradient(ellipse 1000px 700px at 8% 4%, rgba(184, 137, 106, 0.08), transparent 60%),
+                radial-gradient(ellipse 1100px 800px at 96% 48%, rgba(122, 158, 135, 0.08), transparent 60%),
+                radial-gradient(ellipse 900px 650px at 12% 96%, rgba(184, 137, 106, 0.08), transparent 60%);
         }
 
         nav {
