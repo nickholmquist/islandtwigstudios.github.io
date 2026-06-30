@@ -50,6 +50,7 @@
         }
 
         body {
+            position: relative;
             background: var(--bg);
             color: var(--cream);
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -66,6 +67,22 @@
             pointer-events: none;
             z-index: 0;
             opacity: 0.4;
+        }
+
+        /* Ambient depth layer: soft color blooms in your own warm/sage tones,
+           plus a faint diagonal knit texture that nods at jersey fabric without
+           announcing itself. Sits behind all content, scrolls with the page. */
+        body::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            background:
+                repeating-linear-gradient(45deg, rgba(232, 224, 213, 0.018) 0px, rgba(232, 224, 213, 0.018) 1px, transparent 1px, transparent 7px),
+                radial-gradient(ellipse 1000px 700px at 8% 4%, var(--warm-dim), transparent 60%),
+                radial-gradient(ellipse 1100px 800px at 96% 48%, var(--sage-dim), transparent 60%),
+                radial-gradient(ellipse 900px 650px at 12% 96%, var(--warm-dim), transparent 60%);
         }
 
         nav {
@@ -170,14 +187,26 @@
         /* ═══ AVAILABILITY INDICATOR ═══ */
 
         .availability-bar {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 10px;
-            margin-bottom: 28px;
-            font-size: 12px;
-            font-weight: 500;
+            margin-bottom: 32px;
+            font-size: 13.5px;
+            font-weight: 600;
             color: var(--sage);
             letter-spacing: 0.02em;
+            text-decoration: none;
+            padding: 10px 20px 10px 16px;
+            background: var(--sage-dim);
+            border: 1px solid rgba(122, 158, 135, 0.25);
+            border-radius: 100px;
+            transition: all 0.25s ease;
+        }
+
+        .availability-bar:hover {
+            background: rgba(122, 158, 135, 0.2);
+            border-color: rgba(122, 158, 135, 0.4);
+            transform: translateY(-1px);
         }
 
         .availability-bar::before {
@@ -710,11 +739,9 @@
     <div class="page">
         <div class="content">
 
-            <div class="availability-bar a-indicator">Available for new projects</div>
+            <a href="/services" class="availability-bar a-indicator">Available for new projects</a>
 
             <!-- ═══ DESIGN HERO (full width) ═══ -->
-            <p class="section-label section-label-warm al1">Design Studio</p>
-
             <a href="/design/utah-hockey" class="hero-design al2">
                 <div class="hero-design-image">
                     <img src="images/case-studies/utah-hockey/hero.jpeg" alt="Composite grid of nine Utah Hockey concept logos designed for the new Utah NHL franchise: Yeti, Outlaws, Mammoth, Mountaineers, Swarm, and Black Diamonds among them">
