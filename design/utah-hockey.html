@@ -15,62 +15,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/base.css">
 
 <style>
-  :root {
-    --bg: #111110;
-    --surface: #1a1918;
-    --surface-bright: #21201e;
-    --cream: #e8e0d5;
-    --cream-bright: #f2ece4;
-    --cream-dim: #a09890;
-    --border: rgba(232, 224, 213, 0.08);
-    --sage: #7a9e87;
-    --sage-dim: rgba(122, 158, 135, 0.12);
-    --warm: #b8896a;
-    --warm-dim: rgba(184, 137, 106, 0.12);
-    --radius: 14px;
-    --radius-sm: 10px;
-  }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-  body { background: var(--bg); color: var(--cream); font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.65; min-height: 100vh; }
-
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-    pointer-events: none; z-index: 0; opacity: 0.4;
-  }
-
-  /* ═══ NAV ═══ */
-
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    padding: 20px 48px;
-    display: flex; align-items: center; justify-content: space-between;
-    border-bottom: 1px solid var(--border);
-    background: rgba(17,17,16,0.85);
-    backdrop-filter: blur(12px);
-  }
-  .nav-logo {
-    display: flex; align-items: center;
-    font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cream); text-decoration: none; opacity: 0.7; transition: opacity 0.2s;
-  }
-  .nav-logo:hover { opacity: 1; }
-  .nav-logo-mark {
-    display: none;
-    height: 28px;
-    width: auto;
-  }
-  .nav-links { display: flex; gap: 36px; list-style: none; }
-  .nav-links a { color: var(--cream-dim); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.04em; transition: color 0.2s; }
-  .nav-links a.active { color: var(--sage); }
-  .nav-links a:hover { color: var(--cream); }
-
-  .page { position: relative; z-index: 1; padding-top: 80px; }
 
   /* ═══ BACK LINK ═══ */
 
@@ -197,11 +145,7 @@
 
   /* ═══ BODY SECTIONS ═══ */
 
-  .study-body {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 48px;
-  }
+  .study-
   .study-section { margin-bottom: 56px; }
   .study-section-label {
     font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
@@ -412,21 +356,20 @@
     .timeline-pair { grid-template-columns: 1fr; gap: 14px; }
   }
   @media (max-width: 768px) {
-    nav { padding: 18px 24px; }
-    .nav-links { gap: 24px; }
+
+
     .back-link-row, .study-header, .study-hero, .study-summary, .study-body, .study-image-block, .image-pair, .mammoth-block, .study-cta, .footer {
       padding-left: 24px; padding-right: 24px;
     }
 
     /* Mobile nav: swap wordmark for logo mark, hide Home (logo serves that role) */
     .nav-logo-text { display: none; }
-    .nav-logo-mark { display: block; }
+
     .nav-link-home { display: none; }
   }
   @media (max-width: 480px) {
-    nav { padding: 16px 20px; }
-    .nav-links { gap: 18px; }
-    .nav-links a { font-size: 12px; }
+
+
     .back-link-row, .study-header, .study-hero, .study-summary, .study-body, .study-image-block, .image-pair, .mammoth-block, .study-cta, .footer {
       padding-left: 20px; padding-right: 20px;
     }
