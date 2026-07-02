@@ -5,6 +5,7 @@
    cards, footers, case study components) stays in each page's own
    <style> block, since those genuinely differ between the standard
    pages and the case study template.
+
    Linked via: <link rel="stylesheet" href="/css/base.css">
    Must be linked AFTER the Plus Jakarta Sans font import and
    BEFORE each page's own <style> block, so page-specific rules
@@ -45,11 +46,9 @@ html {
 body {
     position: relative;
     background-color: var(--bg);
-    /* Grid lives on body background so it tiles the full document
-       reliably regardless of page height or viewport size */
-    background-image:
-        linear-gradient(rgba(232, 224, 213, 0.022) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(232, 224, 213, 0.022) 1px, transparent 1px);
+    /* Grid: SVG tile is rasterized before tiling so it renders
+       identically across all screen densities and viewport sizes */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M 40 0 L 0 0 0 40' fill='none' stroke='rgba(232%2C224%2C213%2C0.07)' stroke-width='0.5'/%3E%3C/svg%3E");
     background-size: 40px 40px;
     color: var(--cream);
     font-family: 'Plus Jakarta Sans', sans-serif;
