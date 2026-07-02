@@ -73,12 +73,14 @@ body::after {
     inset: 0;
     pointer-events: none;
     z-index: 0;
-    background:
-        repeating-linear-gradient(0deg, rgba(232, 224, 213, 0.018) 0px, rgba(232, 224, 213, 0.018) 1px, transparent 1px, transparent 26px),
-        repeating-linear-gradient(90deg, rgba(232, 224, 213, 0.018) 0px, rgba(232, 224, 213, 0.018) 1px, transparent 1px, transparent 26px),
+    background-image:
+        linear-gradient(rgba(232, 224, 213, 0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(232, 224, 213, 0.022) 1px, transparent 1px),
         radial-gradient(ellipse 1000px 700px at 8% 4%, rgba(184, 137, 106, 0.08), transparent 60%),
         radial-gradient(ellipse 1100px 800px at 96% 48%, rgba(122, 158, 135, 0.08), transparent 60%),
         radial-gradient(ellipse 900px 650px at 12% 96%, rgba(184, 137, 106, 0.08), transparent 60%);
+    background-size: 26px 26px, 26px 26px, 100% 100%, 100% 100%, 100% 100%;
+    background-repeat: repeat, repeat, no-repeat, no-repeat, no-repeat;
 }
 
 /* ═══ NAV ═══ */
