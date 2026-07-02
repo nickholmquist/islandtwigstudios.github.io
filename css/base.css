@@ -5,7 +5,6 @@
    cards, footers, case study components) stays in each page's own
    <style> block, since those genuinely differ between the standard
    pages and the case study template.
-
    Linked via: <link rel="stylesheet" href="/css/base.css">
    Must be linked AFTER the Plus Jakarta Sans font import and
    BEFORE each page's own <style> block, so page-specific rules
