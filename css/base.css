@@ -45,7 +45,13 @@ html {
 
 body {
     position: relative;
-    background: var(--bg);
+    background-color: var(--bg);
+    /* Grid lives on body background so it tiles the full document
+       reliably regardless of page height or viewport size */
+    background-image:
+        linear-gradient(rgba(232, 224, 213, 0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(232, 224, 213, 0.022) 1px, transparent 1px);
+    background-size: 40px 40px;
     color: var(--cream);
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 400;
@@ -67,20 +73,18 @@ body::before {
 /* Ambient depth layer: soft warm/sage color blooms plus a faint grid.
    Scrolls with the page (anchored to body, not the viewport) so the
    blooms land in different spots as you move down a long page. */
+/* Ambient color blooms: fixed to viewport so they always show
+   regardless of scroll position or page height */
 body::after {
     content: '';
-    position: absolute;
+    position: fixed;
     inset: 0;
     pointer-events: none;
     z-index: 0;
-    background-image:
-        linear-gradient(rgba(232, 224, 213, 0.022) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(232, 224, 213, 0.022) 1px, transparent 1px),
-        radial-gradient(ellipse 1000px 700px at 8% 4%, rgba(184, 137, 106, 0.08), transparent 60%),
-        radial-gradient(ellipse 1100px 800px at 96% 48%, rgba(122, 158, 135, 0.08), transparent 60%),
-        radial-gradient(ellipse 900px 650px at 12% 96%, rgba(184, 137, 106, 0.08), transparent 60%);
-    background-size: 26px 26px, 26px 26px, 100% 100%, 100% 100%, 100% 100%;
-    background-repeat: repeat, repeat, no-repeat, no-repeat, no-repeat;
+    background:
+        radial-gradient(ellipse 60% 55% at 8% 20%, rgba(184, 137, 106, 0.09), transparent 70%),
+        radial-gradient(ellipse 65% 65% at 96% 50%, rgba(122, 158, 135, 0.09), transparent 70%),
+        radial-gradient(ellipse 55% 50% at 15% 88%, rgba(184, 137, 106, 0.07), transparent 70%);
 }
 
 /* ═══ NAV ═══ */
