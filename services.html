@@ -99,19 +99,19 @@
             transition: all 0.3s ease;
         }
 
-        /* Tier example image band — sits flush at the top of the card */
+        /* Tier example image band — sits flush at the top, fills full card width.
+           Image defines its own height so there's no empty space on any edge. */
         .tier-image {
             width: 100%;
-            aspect-ratio: 3 / 2;
             overflow: hidden;
             background: var(--surface-bright);
             border-bottom: 1px solid var(--border);
+            line-height: 0;
         }
 
         .tier-image img {
             width: 100%;
-            height: 100%;
-            object-fit: contain;
+            height: auto;
             display: block;
             transition: transform 0.5s ease;
         }
