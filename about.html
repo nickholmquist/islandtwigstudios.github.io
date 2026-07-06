@@ -93,28 +93,90 @@
 
         .subsection strong { color: var(--cream); font-weight: 600; }
 
-        .discipline-list {
+        /* Availability pill — matches the home page */
+        .availability-bar {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 24px;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--sage);
+            letter-spacing: 0.02em;
+            text-decoration: none;
+            padding: 10px 20px 10px 16px;
+            background: var(--sage-dim);
+            border: 1px solid rgba(122, 158, 135, 0.25);
+            border-radius: 100px;
+            transition: all 0.25s ease;
+        }
+
+        .availability-bar:hover {
+            background: rgba(122, 158, 135, 0.2);
+            border-color: rgba(122, 158, 135, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .availability-bar::before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--sage);
+            box-shadow: 0 0 8px rgba(122, 158, 135, 0.6);
+            flex-shrink: 0;
+            animation: pulse 2.4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(122, 158, 135, 0.6); }
+            50% { opacity: 0.6; box-shadow: 0 0 14px rgba(122, 158, 135, 0.8); }
+        }
+
+        /* Pull quote — the signature line, breaks wider for impact */
+        .pull-quote {
+            margin: 48px 0;
+            padding: 32px 0 32px 28px;
+            border-left: 3px solid var(--warm);
+            position: relative;
+        }
+
+        .pull-quote p {
+            font-size: clamp(19px, 2.4vw, 26px);
+            font-weight: 700;
+            color: var(--cream-bright);
+            line-height: 1.35;
+            letter-spacing: -0.01em;
+        }
+
+        /* Principle list — replaces the old service list in Practice */
+        .principle-list {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 20px;
         }
 
-        .discipline-list li {
-            font-size: 14px;
-            font-weight: 400;
-            color: var(--cream);
-            padding-left: 16px;
+        .principle-list li {
+            padding-left: 18px;
             border-left: 2px solid var(--sage);
-            line-height: 1.5;
         }
 
-        .discipline-list li span {
+        .principle-list .principle-name {
             display: block;
-            font-size: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--cream-bright);
+            margin-bottom: 5px;
+            letter-spacing: -0.01em;
+        }
+
+        .principle-list .principle-desc {
+            display: block;
+            font-size: 13.5px;
             font-weight: 300;
             color: var(--cream-dim);
-            margin-top: 2px;
+            line-height: 1.6;
         }
 
         /* ═══ RIGHT COLUMN ═══ */
@@ -303,38 +365,50 @@
 
             <div class="two-col">
 
-                <!-- LEFT: BIO + PRACTICE -->
+                <!-- LEFT: BIO + STORY + PRACTICE -->
                 <div class="col-left">
                     <p class="section-label al1">About</p>
 
                     <h1 class="hello al2">Hi, I&rsquo;m Nick.</h1>
 
                     <div class="intro al2">
-                        <p>I&rsquo;m a designer working out of Utah. IslandTwig Studios is the home for my brand identity work across sports teams, consumer brands, and naming projects. It&rsquo;s also where the small iOS games I&rsquo;ve built along the way live.</p>
-                        <p>Most of my projects start with a word. A team name, a product hook, a feeling worth holding onto. From there the work becomes a mark, a system, a thing you can put on a jersey or hold in your hand.</p>
+                        <p>I&rsquo;m the designer behind IslandTwig Studios. I build sports identities that give teams something worth representing. Every project runs on research, gets shaped by story, and is designed to pull players, fans, and communities together.</p>
                     </div>
 
+                    <a href="/services" class="availability-bar al2">Available for new projects</a>
+
                     <div class="subsection al3">
+                        <h3>Why sports?</h3>
+                        <p>Growing up, I saw what a team&rsquo;s identity could do. The best ones became part of the community. Stitched onto jerseys, worn around town on the weekend, passed down for years. They gave people something to belong to.</p>
+                        <p>I also saw the opposite. When I played rugby, our branding never matched the pride we had for the team. The logo was generic, the merch was forgettable, and I always wished we had something people were actually excited to wear.</p>
+                        <p>That stuck with me. Today I help schools, leagues, and organizations build identities that players wear with pride, fans rally behind, and communities remember.</p>
+                    </div>
+
+                    <div class="pull-quote al3">
+                        <p>I don&rsquo;t design logos for sports teams. I build identities that players wear with pride, fans rally behind, and communities remember.</p>
+                    </div>
+
+                    <div class="subsection al4">
                         <h3>Practice</h3>
-                        <ul class="discipline-list">
+                        <ul class="principle-list">
                             <li>
-                                Sports identity
-                                <span>Hockey, baseball, and concept work for teams that don&rsquo;t exist yet.</span>
+                                <span class="principle-name">Research before design</span>
+                                <span class="principle-desc">Every project starts with the team, its people, and the history it has or the one it wants to create. Strong identities aren&rsquo;t pulled from a template. They&rsquo;re built from a story.</span>
                             </li>
                             <li>
-                                Brand &amp; identity systems
-                                <span>Logos, naming, type, color &mdash; the whole stack.</span>
+                                <span class="principle-name">Built for the real world</span>
+                                <span class="principle-desc">From jerseys and helmets to social graphics and merch, every mark is made to hold up wherever fans actually meet the brand.</span>
                             </li>
                             <li>
-                                Product design
-                                <span>iOS games and tools built in the same calm, tactile language.</span>
+                                <span class="principle-name">Made to last</span>
+                                <span class="principle-desc">Trends fade. I build identities that look right today and still hold up years from now.</span>
                             </li>
                         </ul>
                     </div>
 
                     <div class="subsection al4">
                         <h3>Background</h3>
-                        <p>By day I work in technical success at a software company. It sounds unrelated, but the discipline of debugging complex systems sits closer to design than people think. Both come down to constraints, attention, and respect for how a thing wants to be used.</p>
+                        <p>Outside IslandTwig, I work in technical success at a software company. That work taught me to think in systems, solve messy problems, and sweat the details. The same instincts show up in every identity I design.</p>
                     </div>
                 </div>
 
@@ -347,7 +421,7 @@
                     <div class="contact-card ar2">
                         <div class="contact-card-inner">
                             <h2>Let&rsquo;s talk.</h2>
-                            <p>Open for identity work, brand systems, and naming. Always happy to hear from folks building something quietly ambitious.</p>
+                            <p>Open for sports identity, brand systems, and naming. Whether your team has history or is just getting started, I&rsquo;d love to hear what you&rsquo;re building.</p>
                             <a href="mailto:hello@islandtwigstudios.com" class="contact-email">hello@islandtwigstudios.com</a>
                             <div class="meta-line">Based in Utah</div>
                         </div>
@@ -390,7 +464,7 @@
                     <span class="maker-mark-label">A Nick Holmquist project</span>
                 </a>
 
-                <p class="footer-legal">&copy; 2025 IslandTwig Studios &middot; <a href="/privacy" class="footer-legal-link">Privacy</a></p>
+                <p class="footer-legal">&copy; 2026 IslandTwig Studios &middot; <a href="/privacy" class="footer-legal-link">Privacy</a></p>
             </footer>
 
         </div>
