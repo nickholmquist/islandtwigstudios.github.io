@@ -537,6 +537,29 @@
         .submit-note a { color: var(--sage); text-decoration: none; transition: color 0.2s; }
         .submit-note a:hover { color: var(--cream-bright); }
 
+        .form-status {
+            margin-top: 18px;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.55;
+            display: none;
+        }
+        .form-status.show { display: block; }
+        .form-status.success {
+            color: var(--sage);
+            padding: 14px 16px;
+            background: var(--sage-dim);
+            border: 1px solid rgba(122, 158, 135, 0.25);
+            border-radius: var(--radius-sm);
+        }
+        .form-status.error {
+            color: var(--coral);
+            padding: 14px 16px;
+            background: var(--coral-dim);
+            border: 1px solid rgba(168, 110, 98, 0.3);
+            border-radius: var(--radius-sm);
+        }
+
         /* ═══ FOOTER ═══ */
 
         .footer { padding: 64px 0 64px; text-align: center; }
@@ -629,7 +652,7 @@
             <header class="header">
                 <p class="section-label a1">Services</p>
                 <h1 class="a2">Every great team deserves an identity worth wearing.</h1>
-                <p class="a2">Whether you're launching a new program or rebranding an established organization, every package is designed to give your team a stronger identity and a foundation for years to come.</p>
+                <p class="a2">Whether you're launching a new program or rebranding an established one, every package builds a stronger identity and a foundation that lasts.</p>
                 <div class="availability a3">Available for new projects</div>
             </header>
 
@@ -693,7 +716,7 @@
                             <li>Everything in Brand Identity</li>
                             <li>Secondary marks &amp; logo variants</li>
                             <li>Expanded color &amp; type rules</li>
-                            <li>Social profile asset set</li>
+                            <li>Social &amp; gameday graphics</li>
                             <li>3&ndash;5 real-world mockups</li>
                             <li>Multi-page brand guide (PDF)</li>
                         </ul>
@@ -748,7 +771,7 @@
                 <h2>Start a project</h2>
                 <p class="lead">Tell me what you're working on. Anything you can share helps me get back to you with something useful instead of a generic reply.</p>
 
-                <form class="intake-card" action="mailto:hello@islandtwigstudios.com" method="post" enctype="text/plain">
+                <form class="intake-card" id="intake-form" action="https://formspree.io/f/mgojdjre" method="POST">
 
                     <div class="intake-row-grid">
                         <div class="intake-row">
@@ -762,7 +785,7 @@
                     </div>
 
                     <div class="intake-row">
-                        <label for="project">Project name or company</label>
+                        <label for="project">Team or project name</label>
                         <input type="text" id="project" name="project">
                     </div>
 
@@ -774,20 +797,24 @@
                                 <label for="ck-logo">Logo</label>
                             </div>
                             <div class="checkbox-item">
-                                <input type="checkbox" id="ck-identity" name="needs" value="Brand Identity">
-                                <label for="ck-identity">Brand Identity</label>
+                                <input type="checkbox" id="ck-system" name="needs" value="Full identity system">
+                                <label for="ck-system">Full identity system</label>
                             </div>
                             <div class="checkbox-item">
-                                <input type="checkbox" id="ck-system" name="needs" value="Full Brand System">
-                                <label for="ck-system">Full Brand System</label>
+                                <input type="checkbox" id="ck-jerseys" name="needs" value="Jerseys & uniforms">
+                                <label for="ck-jerseys">Jerseys &amp; uniforms</label>
                             </div>
                             <div class="checkbox-item">
-                                <input type="checkbox" id="ck-sports" name="needs" value="Sports / team identity">
-                                <label for="ck-sports">Sports or team identity</label>
+                                <input type="checkbox" id="ck-numbers" name="needs" value="Numbers & nameplates">
+                                <label for="ck-numbers">Numbers &amp; nameplates</label>
                             </div>
                             <div class="checkbox-item">
                                 <input type="checkbox" id="ck-naming" name="needs" value="Naming">
                                 <label for="ck-naming">Naming</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="ck-graphics" name="needs" value="Social & gameday graphics">
+                                <label for="ck-graphics">Social &amp; gameday graphics</label>
                             </div>
                             <div class="checkbox-item">
                                 <input type="checkbox" id="ck-other" name="needs" value="Something else">
@@ -825,6 +852,9 @@
                         <textarea id="details" name="details" placeholder="What's the business, team, or product? What's the feeling you want it to have? Anything you've seen that you like (or hate)?"></textarea>
                     </div>
 
+                    <!-- Honeypot: hidden from humans, catches bots -->
+                    <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;" aria-hidden="true">
+
                     <div class="submit-row">
                         <button type="submit" class="submit-btn">
                             Send it
@@ -832,6 +862,8 @@
                         </button>
                         <p class="submit-note">Or just email <a href="mailto:hello@islandtwigstudios.com">hello@islandtwigstudios.com</a> directly.</p>
                     </div>
+
+                    <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
 
                 </form>
             </section>
@@ -876,5 +908,54 @@
         </div>
     </div>
 
+
+    <script>
+        (function () {
+            var form = document.getElementById('intake-form');
+            var status = document.getElementById('form-status');
+            if (!form) return;
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                var btn = form.querySelector('.submit-btn');
+                var originalBtnHTML = btn.innerHTML;
+                btn.disabled = true;
+                btn.style.opacity = '0.6';
+                btn.textContent = 'Sending...';
+
+                var data = new FormData(form);
+                fetch(form.action, {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                }).then(function (response) {
+                    if (response.ok) {
+                        form.reset();
+                        status.className = 'form-status success show';
+                        status.textContent = "Thanks, your message is on its way. I'll get back to you within a day.";
+                        btn.innerHTML = originalBtnHTML;
+                        btn.disabled = false;
+                        btn.style.opacity = '1';
+                    } else {
+                        response.json().then(function (d) {
+                            var msg = "Something went wrong. Please email hello@islandtwigstudios.com directly.";
+                            if (d && d.errors && d.errors.length) { msg = d.errors.map(function (er) { return er.message; }).join(', '); }
+                            status.className = 'form-status error show';
+                            status.textContent = msg;
+                            btn.innerHTML = originalBtnHTML;
+                            btn.disabled = false;
+                            btn.style.opacity = '1';
+                        });
+                    }
+                }).catch(function () {
+                    status.className = 'form-status error show';
+                    status.textContent = "Something went wrong. Please email hello@islandtwigstudios.com directly.";
+                    btn.innerHTML = originalBtnHTML;
+                    btn.disabled = false;
+                    btn.style.opacity = '1';
+                });
+            });
+        })();
+    </script>
 </body>
 </html>
