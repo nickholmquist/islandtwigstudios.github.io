@@ -6,6 +6,10 @@
    <style> block, since those genuinely differ between the standard
    pages and the case study template.
 
+   Theme: cream/light is the default (:root). Dark is the original
+   palette, applied via [data-theme="dark"] on <html>. Toggle sets
+   the attribute and persists to localStorage — see js/theme.js.
+
    Linked via: <link rel="stylesheet" href="/css/base.css">
    Must be linked AFTER the Plus Jakarta Sans font import and
    BEFORE each page's own <style> block, so page-specific rules
@@ -13,26 +17,64 @@
    ═══════════════════════════════════════════════════════════════ */
 
 :root {
-    --bg: #111110;
-    --surface: #1a1918;
-    --surface-bright: #21201e;
-    --cream: #e8e0d5;
-    --cream-bright: #f2ece4;
-    --cream-dim: #a09890;
-    --cream-faint: rgba(232, 224, 213, 0.05);
-    --border: rgba(232, 224, 213, 0.08);
-    --sage: #7a9e87;
-    --sage-dim: rgba(122, 158, 135, 0.12);
-    --warm: #b8896a;
-    --warm-dim: rgba(184, 137, 106, 0.12);
-    --sky: #6a8fa0;
-    --sky-dim: rgba(106, 143, 160, 0.12);
-    --lavender: #8a7aaa;
-    --lavender-dim: rgba(138, 122, 170, 0.12);
-    --coral: #a86e62;
-    --coral-dim: rgba(168, 110, 98, 0.12);
+    /* LIGHT (default) — warm cream */
+    --bg: #f2ece0;
+    --surface: #fbf8f2;
+    --surface-raised: #ffffff;
+    --text: #3a3830;
+    --text-strong: #1f1e1b;
+    --text-dim: #6e6857;
+    --text-faint: rgba(31, 30, 27, 0.05);
+    --border: rgba(31, 30, 27, 0.10);
+    --nav-border: rgba(31, 30, 27, 0.12);
+    --nav-bg: rgba(242, 236, 224, 0.85);
+    --accent: #567161;
+    --accent-dim: rgba(86, 113, 97, 0.14);
+    --accent-warm: #8c6138;
+    --accent-warm-dim: rgba(140, 97, 56, 0.14);
+    --hue-sky: #4f7488;
+    --hue-sky-dim: rgba(79, 116, 136, 0.12);
+    --hue-lavender: #6f5f90;
+    --hue-lavender-dim: rgba(111, 95, 144, 0.12);
+    --hue-coral: #8a5245;
+    --hue-coral-dim: rgba(138, 82, 69, 0.12);
     --radius: 14px;
     --radius-sm: 10px;
+
+    --grid-stroke: rgba(31, 30, 27, 0.05);
+    --noise-opacity: 0.12;
+    --bloom-warm-1: rgba(140, 97, 56, 0.045);
+    --bloom-sage-1: rgba(86, 113, 97, 0.045);
+    --bloom-warm-2: rgba(140, 97, 56, 0.035);
+}
+
+[data-theme="dark"] {
+    --bg: #111110;
+    --surface: #1a1918;
+    --surface-raised: #21201e;
+    --text: #e8e0d5;
+    --text-strong: #f2ece4;
+    --text-dim: #a09890;
+    --text-faint: rgba(232, 224, 213, 0.05);
+    --border: rgba(232, 224, 213, 0.08);
+    --nav-border: rgba(232, 224, 213, 0.14);
+    --nav-bg: rgba(17, 17, 16, 0.85);
+    --accent: #7a9e87;
+    --accent-dim: rgba(122, 158, 135, 0.12);
+    --accent-warm: #b8896a;
+    --accent-warm-dim: rgba(184, 137, 106, 0.12);
+    --hue-sky: #6a8fa0;
+    --hue-sky-dim: rgba(106, 143, 160, 0.12);
+    --hue-lavender: #8a7aaa;
+    --hue-lavender-dim: rgba(138, 122, 170, 0.12);
+    --hue-coral: #a86e62;
+    --hue-coral-dim: rgba(168, 110, 98, 0.12);
+
+    --grid-stroke: rgba(232, 224, 213, 0.07);
+    --noise-opacity: 0.4;
+    --bloom-warm-1: rgba(184, 137, 106, 0.09);
+    --bloom-sage-1: rgba(122, 158, 135, 0.09);
+    --bloom-warm-2: rgba(184, 137, 106, 0.07);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -47,14 +89,21 @@ body {
     position: relative;
     background-color: var(--bg);
     /* Grid: SVG tile is rasterized before tiling so it renders
-       identically across all screen densities and viewport sizes */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M 40 0 L 0 0 0 40' fill='none' stroke='rgba(232%2C224%2C213%2C0.07)' stroke-width='0.5'/%3E%3C/svg%3E");
+       identically across all screen densities and viewport sizes.
+       Stroke color is baked into the data URI, so it's duplicated
+       per theme below rather than parameterized with a var(). */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M 40 0 L 0 0 0 40' fill='none' stroke='rgba(31%2C30%2C27%2C0.05)' stroke-width='0.5'/%3E%3C/svg%3E");
     background-size: 28px 28px;
-    color: var(--cream);
+    color: var(--text);
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 400;
     line-height: 1.6;
     min-height: 100vh;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+[data-theme="dark"] body {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M 40 0 L 0 0 0 40' fill='none' stroke='rgba(232%2C224%2C213%2C0.07)' stroke-width='0.5'/%3E%3C/svg%3E");
 }
 
 /* Film grain. Fixed to viewport, sits behind everything. */
@@ -65,14 +114,11 @@ body::before {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
     pointer-events: none;
     z-index: 0;
-    opacity: 0.4;
+    opacity: var(--noise-opacity);
 }
 
-/* Ambient depth layer: soft warm/sage color blooms plus a faint grid.
-   Scrolls with the page (anchored to body, not the viewport) so the
-   blooms land in different spots as you move down a long page. */
-/* Ambient color blooms: fixed to viewport so they always show
-   regardless of scroll position or page height */
+/* Ambient depth layer: soft warm/sage color blooms. Fixed to
+   viewport so they always show regardless of scroll position. */
 body::after {
     content: '';
     position: fixed;
@@ -80,9 +126,9 @@ body::after {
     pointer-events: none;
     z-index: 0;
     background:
-        radial-gradient(ellipse 60% 55% at 8% 20%, rgba(184, 137, 106, 0.09), transparent 70%),
-        radial-gradient(ellipse 65% 65% at 96% 50%, rgba(122, 158, 135, 0.09), transparent 70%),
-        radial-gradient(ellipse 55% 50% at 15% 88%, rgba(184, 137, 106, 0.07), transparent 70%);
+        radial-gradient(ellipse 60% 55% at 8% 20%, var(--bloom-warm-1), transparent 70%),
+        radial-gradient(ellipse 65% 65% at 96% 50%, var(--bloom-sage-1), transparent 70%),
+        radial-gradient(ellipse 55% 50% at 15% 88%, var(--bloom-warm-2), transparent 70%);
 }
 
 /* ═══ NAV ═══ */
@@ -95,8 +141,8 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid rgba(232, 224, 213, 0.14);
-    background: rgba(17, 17, 16, 0.85);
+    border-bottom: 1px solid var(--nav-border);
+    background: var(--nav-bg);
     backdrop-filter: blur(12px);
 }
 
@@ -107,7 +153,7 @@ nav {
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--cream-bright);
+    color: var(--text-strong);
     text-decoration: none;
     opacity: 0.92;
     transition: opacity 0.2s;
@@ -121,10 +167,10 @@ nav {
     width: auto;
 }
 
-.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
 
 .nav-links a {
-    color: var(--cream);
+    color: var(--text);
     text-decoration: none;
     font-size: 13px;
     font-weight: 500;
@@ -132,8 +178,32 @@ nav {
     transition: color 0.2s;
 }
 
-.nav-links a.active { color: var(--sage); }
-.nav-links a:hover { color: var(--cream-bright); }
+.nav-links a.active { color: var(--accent); }
+.nav-links a:hover { color: var(--text-strong); }
+
+/* ═══ THEME TOGGLE ═══ */
+
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--nav-border);
+    background: transparent;
+    color: var(--text-dim);
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.theme-toggle:hover { color: var(--text); border-color: var(--accent); }
+.theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.theme-toggle svg { width: 15px; height: 15px; }
+.theme-toggle .icon-moon { display: none; }
+[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
+[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
 
 /* ═══ PAGE STRUCTURE (shared root container) ═══ */
 

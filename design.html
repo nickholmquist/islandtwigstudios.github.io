@@ -3,6 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+    (function(){
+      var t = localStorage.getItem('islandtwig-theme');
+      if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+    })();
+    </script>
 <title>Design Studio — IslandTwig Studios</title>
 <link rel="icon" type="image/png" href="images/appicons/favicon.png">
 
@@ -47,24 +53,24 @@
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--cream-dim);
+    color: var(--text-dim);
     margin-bottom: 14px;
   }
 
-  .section-label-warm { color: var(--warm); }
+  .section-label-warm { color: var(--accent-warm); }
 
   .page-header h1 {
     font-size: clamp(24px, 2.8vw, 32px);
     font-weight: 800;
     letter-spacing: -0.01em;
     line-height: 1.15;
-    color: var(--cream-bright);
+    color: var(--text-strong);
     margin-bottom: 14px;
   }
 
   .header-tagline {
     font-size: 14px;
-    color: var(--cream-dim);
+    color: var(--text-dim);
     line-height: 1.6;
     max-width: 480px;
     margin-bottom: 14px;
@@ -77,7 +83,7 @@
     gap: 10px;
     font-size: 12px;
     font-weight: 500;
-    color: var(--sage);
+    color: var(--accent);
     letter-spacing: 0.02em;
   }
 
@@ -85,14 +91,14 @@
     content: '';
     width: 7px; height: 7px;
     border-radius: 50%;
-    background: var(--sage);
-    box-shadow: 0 0 8px rgba(122, 158, 135, 0.6);
+    background: var(--accent);
+    box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 60%, transparent);
     animation: pulse 2.4s ease-in-out infinite;
   }
 
   @keyframes pulse {
-    0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(122, 158, 135, 0.6); }
-    50% { opacity: 0.6; box-shadow: 0 0 14px rgba(122, 158, 135, 0.8); }
+    0%, 100% { opacity: 1; box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 60%, transparent); }
+    50% { opacity: 0.6; box-shadow: 0 0 14px color-mix(in srgb, var(--accent) 80%, transparent); }
   }
 
   .header-right {
@@ -108,10 +114,10 @@
     align-items: center;
     gap: 8px;
     padding: 10px 20px;
-    background: rgba(184, 137, 106, 0.12);
-    border: 1px solid rgba(184, 137, 106, 0.25);
+    background: color-mix(in srgb, var(--accent-warm) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent-warm) 25%, transparent);
     border-radius: 100px;
-    color: var(--warm);
+    color: var(--accent-warm);
     text-decoration: none;
     font-size: 13px;
     font-weight: 600;
@@ -119,8 +125,8 @@
     transition: all 0.25s ease;
   }
   .header-cta:hover {
-    background: rgba(184, 137, 106, 0.2);
-    border-color: rgba(184, 137, 106, 0.4);
+    background: color-mix(in srgb, var(--accent-warm) 20%, transparent);
+    border-color: color-mix(in srgb, var(--accent-warm) 40%, transparent);
     transform: translateY(-1px);
   }
   .header-cta svg { width: 13px; height: 13px; }
@@ -162,7 +168,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at 80% 20%, var(--warm-dim), transparent 60%);
+    background: radial-gradient(ellipse at 80% 20%, var(--accent-warm-dim), transparent 60%);
     opacity: 0;
     transition: opacity 0.4s ease;
     pointer-events: none;
@@ -171,7 +177,7 @@
 
   .featured-card:hover::before { opacity: 1; }
   .featured-card:hover {
-    border-color: rgba(184, 137, 106, 0.18);
+    border-color: color-mix(in srgb, var(--accent-warm) 18%, transparent);
     transform: translateY(-2px);
     box-shadow: 0 12px 32px rgba(0,0,0,0.3);
   }
@@ -180,7 +186,7 @@
     position: relative;
     aspect-ratio: 16 / 10;
     overflow: hidden;
-    background: var(--surface-bright);
+    background: var(--surface-raised);
   }
 
   .featured-card-image img {
@@ -202,15 +208,15 @@
     padding: 5px 10px;
     border-radius: 100px;
     background: rgba(17, 17, 16, 0.85);
-    color: var(--warm);
+    color: var(--accent-warm);
     border: 1px solid rgba(184, 137, 106, 0.3);
     backdrop-filter: blur(8px);
   }
 
   /* Sage-colored badge for recognition signals */
   .featured-card-image .badge.badge-sage {
-    color: var(--sage);
-    border-color: rgba(122, 158, 135, 0.3);
+    color: var(--accent);
+    border-color: color-mix(in srgb, var(--accent) 30%, transparent);
   }
 
   .featured-card-body {
@@ -230,14 +236,14 @@
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--warm);
+    color: var(--accent-warm);
     margin-bottom: 6px;
   }
 
   .featured-card h2 {
     font-size: 20px;
     font-weight: 700;
-    color: var(--cream-bright);
+    color: var(--text-strong);
     letter-spacing: -0.01em;
     line-height: 1.2;
     margin-bottom: 8px;
@@ -246,7 +252,7 @@
   .featured-card-desc {
     font-size: 13.5px;
     font-weight: 300;
-    color: var(--cream-dim);
+    color: var(--text-dim);
     line-height: 1.55;
     margin-bottom: 14px;
   }
@@ -257,7 +263,7 @@
     gap: 6px;
     font-size: 13px;
     font-weight: 600;
-    color: var(--warm);
+    color: var(--accent-warm);
     transition: gap 0.25s ease;
   }
   .featured-card:hover .featured-card-link { gap: 10px; }
@@ -297,7 +303,7 @@
   .gallery-desc {
     font-size: 13px;
     font-weight: 300;
-    color: var(--cream-dim);
+    color: var(--text-dim);
     line-height: 1.6;
     max-width: 560px;
     margin-bottom: 24px;
@@ -345,7 +351,7 @@
   .gallery-tile-name {
     font-size: 14px;
     font-weight: 600;
-    color: var(--cream);
+    color: var(--text);
   }
 
   .gallery-tile-cat {
@@ -353,7 +359,7 @@
     font-weight: 500;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--sage);
+    color: var(--accent);
     margin-top: 3px;
   }
 
@@ -371,13 +377,13 @@
     background: rgba(17, 17, 16, 0.82);
     backdrop-filter: blur(6px);
     border: 1px solid rgba(122, 158, 135, 0.35);
-    color: var(--sage);
+    color: var(--accent);
     pointer-events: none;
   }
 
   .gallery-tile-badge.badge-warm {
-    border-color: rgba(184, 137, 106, 0.35);
-    color: var(--warm);
+    border-color: color-mix(in srgb, var(--accent-warm) 35%, transparent);
+    color: var(--accent-warm);
   }
 
   /* ═══ BOTTOM CTA ═══ */
@@ -400,14 +406,14 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at 90% 50%, var(--warm-dim), transparent 60%);
+    background: radial-gradient(ellipse at 90% 50%, var(--accent-warm-dim), transparent 60%);
     opacity: 0;
     transition: opacity 0.4s ease;
   }
 
   .bottom-cta:hover::before { opacity: 1; }
   .bottom-cta:hover {
-    border-color: rgba(184, 137, 106, 0.18);
+    border-color: color-mix(in srgb, var(--accent-warm) 18%, transparent);
     transform: translateY(-1px);
     box-shadow: 0 12px 32px rgba(0,0,0,0.25);
   }
@@ -426,14 +432,14 @@
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--warm);
+    color: var(--accent-warm);
     margin-bottom: 10px;
   }
 
   .bottom-cta h2 {
     font-size: clamp(22px, 2.5vw, 28px);
     font-weight: 700;
-    color: var(--cream-bright);
+    color: var(--text-strong);
     letter-spacing: -0.01em;
     line-height: 1.2;
     margin-bottom: 8px;
@@ -442,7 +448,7 @@
   .bottom-cta p {
     font-size: 14px;
     font-weight: 300;
-    color: var(--cream-dim);
+    color: var(--text-dim);
     line-height: 1.6;
     max-width: 520px;
   }
@@ -453,10 +459,10 @@
     gap: 8px;
     font-size: 14px;
     font-weight: 600;
-    color: var(--warm);
+    color: var(--accent-warm);
     padding: 12px 22px;
-    background: var(--warm-dim);
-    border: 1px solid rgba(184, 137, 106, 0.2);
+    background: var(--accent-warm-dim);
+    border: 1px solid color-mix(in srgb, var(--accent-warm) 20%, transparent);
     border-radius: 100px;
     flex-shrink: 0;
   }
@@ -467,11 +473,11 @@
 
   .footer { padding: 32px 0 64px; text-align: center; }
   .footer-divider { height: 1px; background: var(--border); margin-bottom: 28px; }
-  .footer-email { font-family: 'Fira Code', monospace; font-size: 12.5px; font-weight: 300; color: var(--cream-dim); text-decoration: none; letter-spacing: 0.02em; display: inline-block; margin-bottom: 20px; }
-  .footer-email:hover { color: var(--cream); }
-  .footer-legal { font-size: 11px; color: rgba(232, 224, 213, 0.18); }
+  .footer-email { font-family: 'Fira Code', monospace; font-size: 12.5px; font-weight: 300; color: var(--text-dim); text-decoration: none; letter-spacing: 0.02em; display: inline-block; margin-bottom: 20px; }
+  .footer-email:hover { color: var(--text); }
+  .footer-legal { font-size: 11px; color: color-mix(in srgb, var(--text) 18%, transparent); }
   .footer-legal-link { color: inherit; text-decoration: none; }
-  .footer-legal-link:hover { color: var(--cream-dim); }
+  .footer-legal-link:hover { color: var(--text-dim); }
 
   @media (max-width: 900px) {
     .page-header { flex-direction: column; align-items: flex-start; gap: 20px; }
@@ -519,18 +525,18 @@
     transition: all 0.25s ease;
   }
   .app-tile::before { content: ''; position: absolute; inset: 0; opacity: 0; transition: opacity 0.35s ease; }
-  .app-tile.t-coral::before    { background: radial-gradient(ellipse at 12% 50%, var(--coral-dim), transparent 60%); }
-  .app-tile.t-sky::before      { background: radial-gradient(ellipse at 12% 50%, var(--sky-dim), transparent 60%); }
-  .app-tile.t-warm::before     { background: radial-gradient(ellipse at 12% 50%, var(--warm-dim), transparent 60%); }
-  .app-tile.t-lavender::before { background: radial-gradient(ellipse at 12% 50%, var(--lavender-dim), transparent 60%); }
-  .app-tile.t-sage::before     { background: radial-gradient(ellipse at 12% 50%, var(--sage-dim), transparent 60%); }
+  .app-tile.t-coral::before    { background: radial-gradient(ellipse at 12% 50%, var(--hue-coral-dim), transparent 60%); }
+  .app-tile.t-sky::before      { background: radial-gradient(ellipse at 12% 50%, var(--hue-sky-dim), transparent 60%); }
+  .app-tile.t-warm::before     { background: radial-gradient(ellipse at 12% 50%, var(--accent-warm-dim), transparent 60%); }
+  .app-tile.t-lavender::before { background: radial-gradient(ellipse at 12% 50%, var(--hue-lavender-dim), transparent 60%); }
+  .app-tile.t-sage::before     { background: radial-gradient(ellipse at 12% 50%, var(--accent-dim), transparent 60%); }
   .app-tile:hover::before { opacity: 1; }
-  .app-tile:hover { border-color: rgba(232, 224, 213, 0.1); transform: translateY(-1px); }
+  .app-tile:hover { border-color: color-mix(in srgb, var(--text) 10%, transparent); transform: translateY(-1px); }
   .app-tile .app-icon-img, .app-tile .app-icon-placeholder { width: 32px; height: 32px; border-radius: 8px; position: relative; z-index: 1; flex-shrink: 0; font-size: 0.95rem; }
   .app-icon-placeholder { display: flex; align-items: center; justify-content: center; background: linear-gradient(145deg, #3a4a3e, #2a3a2e); }
   .app-tile-text { min-width: 0; position: relative; z-index: 1; }
-  .app-tile-name { font-size: 12.5px; font-weight: 600; color: var(--cream-bright); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .app-tile-status { font-size: 10px; color: var(--sage); font-weight: 500; letter-spacing: 0.02em; }
+  .app-tile-name { font-size: 12.5px; font-weight: 600; color: var(--text-strong); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .app-tile-status { font-size: 10px; color: var(--accent); font-weight: 500; letter-spacing: 0.02em; }
   @media (max-width: 900px) { .apps-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 480px) { .apps-grid { grid-template-columns: 1fr; } }
 
@@ -561,7 +567,7 @@
   #lightbox-img {
     display: block; width: 100%;
     max-height: 78vh; object-fit: contain;
-    background: var(--surface-bright);
+    background: var(--surface-raised);
   }
   #lightbox-caption {
     padding: 14px 20px;
@@ -570,22 +576,22 @@
   }
   #lightbox-caption-name {
     font-size: 14px; font-weight: 600;
-    color: var(--cream-bright); margin-bottom: 3px;
+    color: var(--text-strong); margin-bottom: 3px;
   }
   #lightbox-caption-cat {
     font-size: 10px; font-weight: 600;
     letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--sage);
+    color: var(--accent);
   }
   #lightbox-close {
     position: fixed; top: 16px; right: 20px; z-index: 2;
     width: 38px; height: 38px; border-radius: 10px;
     background: var(--surface); border: 1px solid var(--border);
-    color: var(--cream-dim); font-size: 20px; line-height: 1;
+    color: var(--text-dim); font-size: 20px; line-height: 1;
     cursor: pointer; display: flex; align-items: center; justify-content: center;
     transition: all 0.2s ease;
   }
-  #lightbox-close:hover { color: var(--cream); background: rgba(232,224,213,0.08); }
+  #lightbox-close:hover { color: var(--text); background: rgba(232,224,213,0.08); }
 
 </style>
 </head>
@@ -601,6 +607,12 @@
     <li><a href="/design" class="active">Design</a></li>
     <li><a href="/services">Services</a></li>
     <li><a href="/about">About</a></li>
+            <li class="nav-link-toggle">
+                <button class="theme-toggle" type="button" aria-label="Toggle dark theme">
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
+            </li>
   </ul>
 </nav>
 
@@ -1036,5 +1048,6 @@
 }());
 </script>
 
+    <script src="/js/theme.js"></script>
 </body>
 </html>
