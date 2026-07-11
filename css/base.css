@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   IslandTwig Studios — Base Stylesheet
+   IslandTwig Studios. Base Stylesheet
    Shared across every page: design tokens, reset, nav, and the
    page background treatment. Page-specific layout (content widths,
    cards, footers, case study components) stays in each page's own
@@ -8,7 +8,7 @@
 
    Theme: cream/light is the default (:root). Dark is the original
    palette, applied via [data-theme="dark"] on <html>. Toggle sets
-   the attribute and persists to localStorage — see js/theme.js.
+   the attribute and persists to localStorage. See js/theme.js.
 
    Linked via: <link rel="stylesheet" href="/css/base.css">
    Must be linked AFTER the Plus Jakarta Sans font import and
@@ -17,19 +17,21 @@
    ═══════════════════════════════════════════════════════════════ */
 
 :root {
-    /* LIGHT (default) — warm cream */
-    --bg: #f2ece0;
-    --surface: #fbf8f2;
-    --surface-raised: #ffffff;
-    --text: #3a3830;
-    --text-strong: #1f1e1b;
-    --text-dim: #6e6857;
-    --text-faint: rgba(31, 30, 27, 0.05);
-    --border: rgba(31, 30, 27, 0.10);
-    --nav-border: rgba(31, 30, 27, 0.12);
-    --nav-bg: rgba(242, 236, 224, 0.85);
-    --accent: #567161;
-    --accent-dim: rgba(86, 113, 97, 0.14);
+    /* LIGHT (default). Warmed neutrals built around the brand green,
+       not the old cream. See the light-theme palette fix brief for
+       the reasoning behind each value. */
+    --bg: #f4f2ea;
+    --surface: #eae8dd;
+    --surface-raised: #f8f6ef;
+    --text: #2a2e28;
+    --text-strong: #14170f;
+    --text-dim: #5f645b;
+    --text-faint: rgba(42, 46, 40, 0.05);
+    --border: rgba(42, 46, 40, 0.10);
+    --nav-border: rgba(42, 46, 40, 0.12);
+    --nav-bg: rgba(244, 242, 234, 0.85);
+    --accent: #4f6b54;
+    --accent-dim: rgba(79, 107, 84, 0.14);
     --accent-warm: #8c6138;
     --accent-warm-dim: rgba(140, 97, 56, 0.14);
     --hue-sky: #4f7488;
@@ -41,11 +43,11 @@
     --radius: 14px;
     --radius-sm: 10px;
 
-    --grid-stroke: rgba(31, 30, 27, 0.05);
-    --noise-opacity: 0.12;
-    --bloom-warm-1: rgba(140, 97, 56, 0.045);
-    --bloom-sage-1: rgba(86, 113, 97, 0.045);
-    --bloom-warm-2: rgba(140, 97, 56, 0.035);
+    --grid-stroke: rgba(42, 46, 40, 0.05);
+    --noise-opacity: 0.02;
+    --bloom-warm-1: rgba(176, 106, 65, 0.045);
+    --bloom-sage-1: rgba(79, 107, 84, 0.045);
+    --bloom-warm-2: rgba(176, 106, 65, 0.035);
 }
 
 [data-theme="dark"] {
@@ -92,7 +94,7 @@ body {
        identically across all screen densities and viewport sizes.
        Stroke color is baked into the data URI, so it's duplicated
        per theme below rather than parameterized with a var(). */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M 40 0 L 0 0 0 40' fill='none' stroke='rgba(31%2C30%2C27%2C0.05)' stroke-width='0.5'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M 40 0 L 0 0 0 40' fill='none' stroke='rgba(42%2C46%2C40%2C0.05)' stroke-width='0.5'/%3E%3C/svg%3E");
     background-size: 28px 28px;
     color: var(--text);
     font-family: 'Plus Jakarta Sans', sans-serif;

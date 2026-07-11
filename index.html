@@ -28,23 +28,44 @@
     <style>
 
         :root {
-            --band-invert-bg: #111110;
-            --band-invert-text: #e8e0d5;
-            --band-invert-text-dim: #a09890;
-            --band-solid-1: #3e5a3e;
-            --band-solid-2: #8a5a38;
-            --band-solid-text: #faf6ee;
-            --band-solid-text-dim: rgba(250, 246, 238, 0.72);
+            /* Closing CTA collapses to the light surface, no longer an
+               inverted black block. */
+            --band-invert-bg: #eae8dd;
+            --band-invert-text: #2a2e28;
+            --band-invert-text-dim: #5f645b;
+            /* Problem band gets the same light-surface look but never
+               had a dark-theme card treatment to preserve, so it's a
+               separate token pair: transparent in dark, blending with
+               the page exactly as it already did. */
+            --problem-bg: #eae8dd;
+            --problem-text: #2a2e28;
+            --problem-text-dim: #5f645b;
+            /* Process band is the one full-width color moment: deep green. */
+            --accent-deep: #4c5a50;
+            --accent-light: #6d8a72;
+            --process-text: #f1f3ee;
+            --process-text-dim: rgba(241, 243, 238, 0.97);
+            /* Clay: the single warm counterpoint, used only for the
+               philosophy pull-quote callout. */
+            --clay: #b06a41;
+            --clay-text: #f6ede4;
         }
 
         [data-theme="dark"] {
+            /* Dark theme values are unchanged from before this fix,
+               just carried over under the new token names. */
             --band-invert-bg: #f2ece0;
             --band-invert-text: #221f1a;
             --band-invert-text-dim: #6e6857;
-            --band-solid-1: #82a37e;
-            --band-solid-2: #b8896a;
-            --band-solid-text: #16140f;
-            --band-solid-text-dim: rgba(22, 20, 15, 0.68);
+            --problem-bg: transparent;
+            --problem-text: var(--text-strong);
+            --problem-text-dim: var(--text-dim);
+            --accent-deep: #82a37e;
+            --accent-light: #16140f;
+            --process-text: #16140f;
+            --process-text-dim: rgba(22, 20, 15, 0.68);
+            --clay: #b8896a;
+            --clay-text: #16140f;
         }
 
         .content {
@@ -124,6 +145,7 @@
         /* ═══ PROBLEM ═══ */
 
         .problem-band {
+            background: var(--problem-bg);
             padding: 72px 0;
             position: relative;
             overflow: hidden;
@@ -138,13 +160,13 @@
             margin-bottom: 16px;
             position: relative;
             z-index: 1;
-            color: var(--text-strong);
+            color: var(--problem-text);
         }
 
         .problem-sub {
             font-size: 16px;
             font-weight: 400;
-            color: var(--text-dim);
+            color: var(--problem-text-dim);
             line-height: 1.6;
             max-width: 620px;
             position: relative;
@@ -200,8 +222,8 @@
             margin-top: 32px;
             padding: 32px 36px;
             border-radius: var(--radius);
-            background: var(--band-solid-2);
-            color: var(--band-solid-text);
+            background: var(--clay);
+            color: var(--clay-text);
             font-size: 20px;
             font-weight: 600;
             line-height: 1.5;
@@ -211,20 +233,20 @@
         /* ═══ PROCESS (full-bleed solid band) ═══ */
 
         .process-band {
-            background: var(--band-solid-1);
-            color: var(--band-solid-text);
+            background: var(--accent-deep);
+            color: var(--process-text);
             padding: 80px 0;
             position: relative;
             overflow: hidden;
         }
 
-        .process-band .eyebrow { color: var(--band-solid-text); opacity: 0.7; }
+        .process-band .eyebrow { color: var(--accent-light); opacity: 0.7; }
 
         .process-band h2 {
             font-size: clamp(26px, 3.2vw, 34px);
             font-weight: 700;
             letter-spacing: -0.01em;
-            color: var(--band-solid-text);
+            color: var(--process-text);
             margin-bottom: 40px;
             max-width: 560px;
         }
@@ -252,7 +274,7 @@
             font-family: 'Fira Code', monospace;
             font-size: 26px;
             font-weight: 400;
-            color: var(--band-solid-text);
+            color: var(--accent-light);
             opacity: 0.55;
             margin-bottom: 16px;
         }
@@ -260,7 +282,7 @@
         .process-card h3 {
             font-size: 16px;
             font-weight: 700;
-            color: var(--band-solid-text);
+            color: var(--process-text);
             letter-spacing: -0.01em;
             margin-bottom: 10px;
         }
@@ -268,7 +290,7 @@
         .process-card p {
             font-size: 13px;
             font-weight: 400;
-            color: var(--band-solid-text-dim);
+            color: var(--process-text-dim);
             line-height: 1.55;
         }
 
@@ -632,9 +654,9 @@
         <section class="process-band">
             <svg class="stripe-mark" style="top: -20px; left: -30px; width: 200px; height: 200px; opacity: 0.4;" viewBox="0 0 200 200">
                 <g transform="rotate(-22 100 100)">
-                    <rect x="20" y="30" width="120" height="14" rx="7" fill="var(--band-solid-text)" opacity="0.14"/>
-                    <rect x="40" y="60" width="140" height="14" rx="7" fill="var(--band-solid-text)" opacity="0.1"/>
-                    <rect x="10" y="90" width="90" height="14" rx="7" fill="var(--band-solid-text)" opacity="0.08"/>
+                    <rect x="20" y="30" width="120" height="14" rx="7" fill="var(--process-text)" opacity="0.14"/>
+                    <rect x="40" y="60" width="140" height="14" rx="7" fill="var(--process-text)" opacity="0.1"/>
+                    <rect x="10" y="90" width="90" height="14" rx="7" fill="var(--process-text)" opacity="0.08"/>
                 </g>
             </svg>
             <div class="content">
