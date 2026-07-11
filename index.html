@@ -31,7 +31,7 @@
             --band-invert-bg: #111110;
             --band-invert-text: #e8e0d5;
             --band-invert-text-dim: #a09890;
-            --band-solid-1: #3f5c4d;
+            --band-solid-1: #3e5a3e;
             --band-solid-2: #8a5a38;
             --band-solid-text: #faf6ee;
             --band-solid-text-dim: rgba(250, 246, 238, 0.72);
@@ -41,7 +41,7 @@
             --band-invert-bg: #f2ece0;
             --band-invert-text: #221f1a;
             --band-invert-text-dim: #6e6857;
-            --band-solid-1: #7a9e87;
+            --band-solid-1: #82a37e;
             --band-solid-2: #b8896a;
             --band-solid-text: #16140f;
             --band-solid-text-dim: rgba(22, 20, 15, 0.68);
@@ -159,11 +159,9 @@
         }
         .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
 
-        /* ═══ PROBLEM (full-bleed invert band) ═══ */
+        /* ═══ PROBLEM ═══ */
 
         .problem-band {
-            background: var(--band-invert-bg);
-            color: var(--band-invert-text);
             padding: 72px 0;
             position: relative;
             overflow: hidden;
@@ -178,12 +176,13 @@
             margin-bottom: 16px;
             position: relative;
             z-index: 1;
+            color: var(--text-strong);
         }
 
         .problem-sub {
             font-size: 16px;
             font-weight: 400;
-            color: var(--band-invert-text-dim);
+            color: var(--text-dim);
             line-height: 1.6;
             max-width: 620px;
             position: relative;
@@ -643,13 +642,13 @@
             </div>
         </section>
 
-        <!-- PROBLEM (full-bleed band) -->
+        <!-- PROBLEM -->
         <section class="problem-band">
             <svg class="stripe-mark" style="bottom: -30px; right: -20px; width: 220px; height: 220px; opacity: 0.5;" viewBox="0 0 200 200">
                 <g transform="rotate(-22 100 100)">
-                    <rect x="10" y="40" width="120" height="14" rx="7" fill="var(--band-invert-text)" opacity="0.12"/>
-                    <rect x="30" y="70" width="150" height="14" rx="7" fill="var(--band-invert-text)" opacity="0.1"/>
-                    <rect x="0" y="100" width="90" height="14" rx="7" fill="var(--band-invert-text)" opacity="0.08"/>
+                    <rect x="10" y="40" width="120" height="14" rx="7" fill="var(--accent-warm)" opacity="0.3"/>
+                    <rect x="30" y="70" width="150" height="14" rx="7" fill="var(--accent)" opacity="0.25"/>
+                    <rect x="0" y="100" width="90" height="14" rx="7" fill="var(--accent-warm)" opacity="0.2"/>
                 </g>
             </svg>
             <div class="content">
