@@ -73,7 +73,45 @@
 
         .hero-section { position: relative; overflow: hidden; padding: 40px 0 72px; }
 
+        .hero-split {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 40px;
+            align-items: center;
+        }
+
         .hero { position: relative; z-index: 1; max-width: 820px; }
+
+        .hero-portrait {
+            position: relative;
+            z-index: 1;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 18px;
+            overflow: hidden;
+        }
+
+        .hero-portrait::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 30% 20%, var(--accent-dim), transparent 60%);
+            opacity: 0.7;
+        }
+
+        .hero-portrait img {
+            position: relative;
+            z-index: 1;
+            display: block;
+            width: 100%;
+            max-width: 260px;
+            margin: 0 auto;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 10px 28px rgba(0,0,0,0.22);
+        }
 
         .hero h1 {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -154,7 +192,30 @@
 
         /* ═══ PHILOSOPHY ═══ */
 
-        .philosophy { padding: 80px 0; max-width: 760px; }
+        .philosophy-split {
+            display: grid;
+            grid-template-columns: 1fr 0.85fr;
+            gap: 48px;
+            align-items: start;
+            padding: 80px 0;
+        }
+
+        .philosophy { max-width: 600px; }
+
+        .philosophy-image {
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            aspect-ratio: 16 / 9;
+            background: var(--surface);
+        }
+
+        .philosophy-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
 
         .philosophy h2 {
             font-size: clamp(26px, 3.2vw, 34px);
@@ -192,6 +253,8 @@
             background: var(--band-solid-1);
             color: var(--band-solid-text);
             padding: 80px 0;
+            position: relative;
+            overflow: hidden;
         }
 
         .process-band .eyebrow { color: var(--band-solid-text); opacity: 0.7; }
@@ -502,13 +565,18 @@
         @media (max-width: 900px) {
             .process-grid { grid-template-columns: 1fr 1fr; }
             .design-row { grid-template-columns: 1fr 1fr; }
+            .hero-split { grid-template-columns: 1fr; }
+            .hero-portrait { max-width: 280px; margin: 8px auto 0; }
+            .philosophy-split { grid-template-columns: 1fr; }
+            .philosophy { max-width: none; }
+            .philosophy-image { max-width: 480px; margin: 8px auto 0; }
         }
 
         @media (max-width: 768px) {
             .content { padding: 0 24px; }
             .hero-section { padding: 32px 0 56px; }
             .problem-band, .process-band { padding: 56px 0; }
-            .philosophy { padding: 56px 0; }
+            .philosophy-split { padding: 56px 0; }
             .closing-cta { padding: 72px 0; }
         }
 
@@ -558,13 +626,18 @@
                 </g>
             </svg>
             <div class="content">
-                <div class="hero">
-                    <p class="eyebrow a1">Sports Identity Studio</p>
-                    <h1 class="a2">Every great team has a story.</h1>
-                    <p class="hero-subhead a3">Every great community has traditions. I create the identity that brings them together.</p>
-                    <div class="hero-actions a4">
-                        <a href="/services" class="btn btn-primary">Start a Legacy Workshop</a>
-                        <a href="/design" class="btn btn-secondary">See the work</a>
+                <div class="hero-split">
+                    <div class="hero">
+                        <p class="eyebrow a1">Sports Identity Studio</p>
+                        <h1 class="a2">Every great team has a story.</h1>
+                        <p class="hero-subhead a3">Every great community has traditions. I create the identity that brings them together.</p>
+                        <div class="hero-actions a4">
+                            <a href="/services" class="btn btn-primary">Start a Legacy Workshop</a>
+                            <a href="/design" class="btn btn-secondary">See the work</a>
+                        </div>
+                    </div>
+                    <div class="hero-portrait a3">
+                        <img src="images/ProfilePic.JPEG" alt="Nick Holmquist, founder of IslandTwig Studios">
                     </div>
                 </div>
             </div>
@@ -572,25 +645,44 @@
 
         <!-- PROBLEM (full-bleed band) -->
         <section class="problem-band">
+            <svg class="stripe-mark" style="bottom: -30px; right: -20px; width: 220px; height: 220px; opacity: 0.5;" viewBox="0 0 200 200">
+                <g transform="rotate(-22 100 100)">
+                    <rect x="10" y="40" width="120" height="14" rx="7" fill="var(--band-invert-text)" opacity="0.12"/>
+                    <rect x="30" y="70" width="150" height="14" rx="7" fill="var(--band-invert-text)" opacity="0.1"/>
+                    <rect x="0" y="100" width="90" height="14" rx="7" fill="var(--band-invert-text)" opacity="0.08"/>
+                </g>
+            </svg>
             <div class="content">
                 <p class="problem-line">Most teams have a logo. Few have an identity that reflects who they are.</p>
-                <p class="problem-sub">A team launches once. A mark nobody's excited to wear sets a ceiling that's slow and costly to recover from.</p>
+                <p class="problem-sub">A logo marks you. An identity means something to the people who wear it.</p>
             </div>
         </section>
 
         <!-- PHILOSOPHY -->
         <div class="content">
-            <section class="philosophy">
-                <p class="eyebrow">Why this work matters</p>
-                <h2>The best identities aren't designed in a vacuum. They're discovered.</h2>
-                <p>When I played rugby, our branding never matched the pride we had for the team. The logo was generic, the merch was forgettable, and I always wished we had something people were actually excited to wear.</p>
-                <p>That stuck with me. The identities that last aren't pulled from a template. They come from the people, the place, and the traditions a team already carries.</p>
-                <blockquote class="pull-quote">I don't design logos for sports teams. I build identities that players wear with pride, fans rally behind, and communities remember.</blockquote>
-            </section>
+            <div class="philosophy-split">
+                <section class="philosophy">
+                    <p class="eyebrow">Why this work matters</p>
+                    <h2>The best identities aren't designed in a vacuum. They're discovered.</h2>
+                    <p>When I played rugby, our branding never matched the pride we had for the team. The logo was generic, the merch was forgettable, and I always wished we had something people were actually excited to wear.</p>
+                    <p>That stuck with me. The identities that last aren't pulled from a template. They come from the people, the place, and the traditions a team already carries.</p>
+                    <blockquote class="pull-quote">I don't design logos for sports teams. I build identities that players wear with pride, fans rally behind, and communities remember.</blockquote>
+                </section>
+                <div class="philosophy-image">
+                    <img src="images/case-studies/utah-flag/hero-final-submission.jpeg" alt="Final Utah State Flag submission design" loading="lazy">
+                </div>
+            </div>
         </div>
 
         <!-- PROCESS (full-bleed band) -->
         <section class="process-band">
+            <svg class="stripe-mark" style="top: -20px; left: -30px; width: 200px; height: 200px; opacity: 0.4;" viewBox="0 0 200 200">
+                <g transform="rotate(-22 100 100)">
+                    <rect x="20" y="30" width="120" height="14" rx="7" fill="var(--band-solid-text)" opacity="0.14"/>
+                    <rect x="40" y="60" width="140" height="14" rx="7" fill="var(--band-solid-text)" opacity="0.1"/>
+                    <rect x="10" y="90" width="90" height="14" rx="7" fill="var(--band-solid-text)" opacity="0.08"/>
+                </g>
+            </svg>
             <div class="content">
                 <p class="eyebrow">The Legacy to New Era™ System</p>
                 <h2>How an identity gets built.</h2>
