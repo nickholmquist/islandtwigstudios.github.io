@@ -122,7 +122,10 @@
         .fit-col h3 { font-size: 15px; font-weight: 700; color: var(--lw-strong); margin-bottom: 16px; letter-spacing: -0.01em; }
         .fit-list { list-style: none; padding: 0; margin: 0; }
         .fit-list li { font-size: 14.5px; color: var(--lw-dim); line-height: 1.5; padding: 9px 0 9px 26px; position: relative; }
-        .fit-col.yes .fit-list li:before { content: 'Y'; position: absolute; left: 0; color: #3d6b47; font-weight: 700; }
+        .fit-col.yes .fit-list li:before { content: '\2713'; position: absolute; left: 0; color: #3d6b47; font-weight: 700; }
+        .fit-note { font-size: 14px; color: var(--lw-dim); margin-top: 18px; }
+        .fit-note a { color: var(--lw-accent); text-decoration: none; transition: color 0.2s; }
+        .fit-note a:hover { color: var(--lw-strong); }
         .fit-col.no .fit-list li:before { content: 'X'; position: absolute; left: 0; color: var(--lw-accent); font-weight: 700; }
 
         .testimonial-placeholder {
@@ -386,7 +389,6 @@
                     <div class="fit-col no">
                         <h3>It's not a fit if you</h3>
                         <ul class="fit-list">
-                            <li>Only want a logo, fast and cheap</li>
                             <li>Want to skip the discovery and jump to a sketch</li>
                             <li>Don't see the value in story and positioning</li>
                             <li>Are looking for a template, not an identity</li>
@@ -394,6 +396,7 @@
                         </ul>
                     </div>
                 </div>
+                <p class="fit-note">Just need a single logo file, no discovery process? <a href="/services">See the Logo tier on Services</a>.</p>
             </div>
         </section>
 
