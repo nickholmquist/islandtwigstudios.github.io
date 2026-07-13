@@ -39,7 +39,6 @@
         }
 
         .content { max-width: 1040px; margin: 0 auto; padding: 0 48px; }
-        .content-narrow { max-width: 760px; margin: 0 auto; padding: 0 48px; }
 
         .eyebrow-pill {
             display: inline-block; font-size: 11px; font-weight: 800;
@@ -132,7 +131,7 @@
         }
         .testimonial-placeholder p { font-size: 15px; color: var(--lw-dim); font-style: italic; }
 
-        .faq-item { border-bottom: 1px solid var(--lw-border-light); padding: 22px 0; }
+        .faq-item { max-width: 680px; border-bottom: 1px solid var(--lw-border-light); padding: 22px 0; }
         .faq-item h3 { font-size: 16px; font-weight: 700; color: var(--lw-strong); margin-bottom: 8px; letter-spacing: -0.01em; }
         .faq-item p { font-size: 15px; color: var(--lw-dim); line-height: 1.6; }
 
@@ -187,7 +186,7 @@
             .outcome-grid, .deliverable-grid, .fit-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 768px) {
-            .content, .content-narrow { padding: 0 24px; }
+            .content { padding: 0 24px; }
             .agenda { grid-template-columns: 1fr; }
 
             /* Mobile nav: swap wordmark for logo mark, hide Home (logo serves that role) */
@@ -196,7 +195,7 @@
             .nav-link-home { display: none; }
         }
         @media (max-width: 480px) {
-            .content, .content-narrow { padding: 0 20px; }
+            .content { padding: 0 20px; }
             .phase-row { grid-template-columns: 1fr; }
             .step { grid-template-columns: 1fr; gap: 8px; }
         }
@@ -243,7 +242,7 @@
         </section>
 
         <section class="sec sec-soft">
-            <div class="content-narrow">
+            <div class="content">
                 <p class="section-label">Why this work matters</p>
                 <h2 class="big">The best identities aren't designed in a vacuum. They're discovered.</h2>
                 <p class="body">When I played rugby, our branding never matched the pride we had for the team. The logo was generic, the merch was forgettable, and I always wished we had something people were actually excited to wear.</p>
@@ -310,7 +309,7 @@
         </section>
 
         <section class="sec sec-dark">
-            <div class="content-narrow">
+            <div class="content">
                 <p class="section-label">Who you'll work with</p>
                 <h2 class="big">I'm Nick.</h2>
                 <p class="body">I design sports identities for teams and communities entering a new chapter. One studio, one designer, working directly with you start to finish. No account managers, no handoffs.</p>
@@ -319,6 +318,8 @@
             </div>
         </section>
 
+        <!-- Testimonials section hidden until there's a real client quote to put here.
+             Re-enable by uncommenting once one lands (Utah Flag or Hey Bright would do it).
         <section class="sec sec-cream">
             <div class="content">
                 <p class="section-label" style="text-align:center;">Don't just take my word for it</p>
@@ -328,6 +329,7 @@
                 </div>
             </div>
         </section>
+        -->
 
         <section class="sec sec-soft">
             <div class="content">
@@ -396,7 +398,7 @@
         </section>
 
         <section class="sec sec-soft">
-            <div class="content-narrow">
+            <div class="content">
                 <p class="section-label">Still curious</p>
                 <h2 class="big">Questions, answered.</h2>
                 <div class="faq-item">
