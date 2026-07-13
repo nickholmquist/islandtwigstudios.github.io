@@ -242,11 +242,6 @@
     z-index: 2;
   }
 
-  /* Wide card: constrain body text width and add breathing room */
-  .featured-card-wide .featured-card-body {
-    padding: 28px 32px 32px;
-    max-width: 720px;
-  }
 
   .featured-card-cat {
     font-size: var(--fs-micro);
@@ -285,16 +280,6 @@
   }
   .featured-card:hover .featured-card-link { gap: 10px; }
   .featured-card-link svg { width: 13px; height: 13px; }
-
-  .featured-grid .featured-card.featured-card-wide {
-    grid-column: 1 / -1;
-  }
-  .featured-grid .featured-card-wide .featured-card-image {
-    aspect-ratio: 16 / 9; /* default for wide cards */
-  }
-  .featured-grid .featured-card-wide.card-ultrawide .featured-card-image {
-    aspect-ratio: 24 / 9; /* for the NHL Midnight jersey wall */
-  }
 
   /* 3-up row for secondary case studies */
   .featured-grid-three {
@@ -515,7 +500,6 @@
     .page-header { flex-direction: column; align-items: flex-start; gap: 20px; }
     .header-right { align-items: flex-start; }
     .featured-grid { grid-template-columns: 1fr; }
-    .featured-grid .featured-card-wide .featured-card-image { aspect-ratio: 16 / 10; }
     .gallery-grid { grid-template-columns: repeat(3, 1fr); }
   }
 
@@ -673,8 +657,8 @@
 
       <div class="featured-grid">
 
-        <!-- 1. Utah Hockey: full width, 16:9 -->
-        <a href="/design/utah-hockey" class="featured-card featured-card-wide">
+        <!-- 1. Utah Hockey: paired with NHL Midnight, two large columns -->
+        <a href="/design/utah-hockey" class="featured-card">
           <div class="featured-card-image">
             <span class="badge">Case Study</span>
             <img src="images/case-studies/utah-hockey/card-hero.jpg" alt="Utah hockey concept identities">
@@ -690,8 +674,8 @@
           </div>
         </a>
 
-        <!-- 2. NHL Midnight: full width, 24:9 ultrawide -->
-        <a href="/design/nhl-midnight" class="featured-card featured-card-wide card-ultrawide">
+        <!-- 2. NHL Midnight: paired with Utah Hockey, two large columns -->
+        <a href="/design/nhl-midnight" class="featured-card">
           <div class="featured-card-image">
             <span class="badge">Case Study</span>
             <img src="images/case-studies/nhl-midnight/card-hero.jpg" alt="NHL Midnight Edition dark-mode alternate identities">
