@@ -45,7 +45,7 @@
   /* .eyebrow is defined in base.css (shared pill, every page). */
 
   .page-header h1 {
-    font-size: clamp(28px, 3.5vw, 40px);
+    font-size: var(--fs-h1);
     font-weight: 800;
     letter-spacing: -0.02em;
     line-height: 1.15;
@@ -54,7 +54,7 @@
   }
 
   .header-tagline {
-    font-size: 14px;
+    font-size: var(--fs-small);
     color: var(--text-dim);
     line-height: 1.6;
     max-width: 480px;
@@ -66,7 +66,7 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    font-size: 12px;
+    font-size: var(--fs-caption);
     font-weight: 500;
     color: var(--accent);
     letter-spacing: 0.02em;
@@ -104,7 +104,7 @@
     border-radius: 100px;
     color: var(--accent-warm);
     text-decoration: none;
-    font-size: 13px;
+    font-size: var(--fs-small);
     font-weight: 600;
     letter-spacing: 0.02em;
     transition: all 0.25s ease;
@@ -218,7 +218,7 @@
     position: absolute;
     top: 14px; left: 14px;
     z-index: 2;
-    font-size: 9px;
+    font-size: var(--fs-micro);
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -249,7 +249,7 @@
   }
 
   .featured-card-cat {
-    font-size: 10px;
+    font-size: var(--fs-micro);
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -258,7 +258,7 @@
   }
 
   .featured-card h2 {
-    font-size: 20px;
+    font-size: var(--fs-h3);
     font-weight: 700;
     color: var(--text-strong);
     letter-spacing: -0.01em;
@@ -267,7 +267,7 @@
   }
 
   .featured-card-desc {
-    font-size: 13.5px;
+    font-size: var(--fs-small);
     font-weight: 400;
     color: var(--text-dim);
     line-height: 1.55;
@@ -278,7 +278,7 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-size: 13px;
+    font-size: var(--fs-small);
     font-weight: 600;
     color: var(--accent-warm);
     transition: gap 0.25s ease;
@@ -317,7 +317,7 @@
   }
 
   .gallery-desc {
-    font-size: 13px;
+    font-size: var(--fs-small);
     font-weight: 400;
     color: var(--text-dim);
     line-height: 1.6;
@@ -365,13 +365,13 @@
   .gallery-tile:hover .gallery-tile-overlay { opacity: 1; }
 
   .gallery-tile-name {
-    font-size: 14px;
+    font-size: var(--fs-small);
     font-weight: 600;
     color: var(--text);
   }
 
   .gallery-tile-cat {
-    font-size: 10px;
+    font-size: var(--fs-micro);
     font-weight: 500;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -384,7 +384,7 @@
     top: 10px;
     left: 10px;
     z-index: 2;
-    font-size: 9px;
+    font-size: var(--fs-micro);
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -443,7 +443,7 @@
   }
 
   .bottom-cta-eyebrow {
-    font-size: 11px;
+    font-size: var(--fs-label);
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -452,7 +452,7 @@
   }
 
   .bottom-cta h2 {
-    font-size: clamp(22px, 2.5vw, 28px);
+    font-size: var(--fs-h2);
     font-weight: 700;
     color: var(--text-strong);
     letter-spacing: -0.01em;
@@ -461,7 +461,7 @@
   }
 
   .bottom-cta p {
-    font-size: 14px;
+    font-size: var(--fs-small);
     font-weight: 400;
     color: var(--text-dim);
     line-height: 1.6;
@@ -472,7 +472,7 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: 14px;
+    font-size: var(--fs-small);
     font-weight: 600;
     color: var(--accent-warm);
     padding: 12px 22px;
@@ -505,9 +505,9 @@
   .maker-mark { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 28px; text-decoration: none; }
   .maker-mark-icon { width: 28px; height: 28px; border-radius: 6px; opacity: 0.35; transition: opacity 0.3s ease; }
   .maker-mark:hover .maker-mark-icon { opacity: 0.55; }
-  .maker-mark-label { font-size: 11px; font-weight: 400; letter-spacing: 0.06em; color: color-mix(in srgb, var(--text-on-dark) 40%, transparent); transition: color 0.3s ease; }
+  .maker-mark-label { font-size: var(--fs-label); font-weight: 400; letter-spacing: 0.06em; color: color-mix(in srgb, var(--text-on-dark) 40%, transparent); transition: color 0.3s ease; }
   .maker-mark:hover .maker-mark-label { color: color-mix(in srgb, var(--text-on-dark) 55%, transparent); }
-  .footer-legal { font-size: 11px; color: color-mix(in srgb, var(--text-on-dark) 40%, transparent); }
+  .footer-legal { font-size: var(--fs-label); color: color-mix(in srgb, var(--text-on-dark) 40%, transparent); }
   .footer-legal-link { color: inherit; text-decoration: none; transition: color 0.2s; }
   .footer-legal-link:hover { color: var(--text-on-dark); }
 
@@ -567,8 +567,8 @@
   .app-tile .app-icon-img, .app-tile .app-icon-placeholder { width: 32px; height: 32px; border-radius: 8px; position: relative; z-index: 1; flex-shrink: 0; font-size: 0.95rem; }
   .app-icon-placeholder { display: flex; align-items: center; justify-content: center; background: linear-gradient(145deg, #3a4a3e, #2a3a2e); }
   .app-tile-text { min-width: 0; position: relative; z-index: 1; }
-  .app-tile-name { font-size: 12.5px; font-weight: 600; color: var(--text-strong); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .app-tile-status { font-size: 10px; color: var(--accent); font-weight: 500; letter-spacing: 0.02em; }
+  .app-tile-name { font-size: var(--fs-caption); font-weight: 600; color: var(--text-strong); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .app-tile-status { font-size: var(--fs-micro); color: var(--accent); font-weight: 500; letter-spacing: 0.02em; }
   @media (max-width: 900px) { .apps-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 480px) { .apps-grid { grid-template-columns: 1fr; } }
 
@@ -607,11 +607,11 @@
     border-top: 1px solid var(--border);
   }
   #lightbox-caption-name {
-    font-size: 14px; font-weight: 600;
+    font-size: var(--fs-small); font-weight: 600;
     color: var(--text-strong); margin-bottom: 3px;
   }
   #lightbox-caption-cat {
-    font-size: 10px; font-weight: 600;
+    font-size: var(--fs-micro); font-weight: 600;
     letter-spacing: 0.1em; text-transform: uppercase;
     color: var(--accent);
   }
@@ -619,7 +619,7 @@
     position: fixed; top: 16px; right: 20px; z-index: 2;
     width: 38px; height: 38px; border-radius: 10px;
     background: var(--surface); border: 1px solid var(--border);
-    color: var(--text-dim); font-size: 20px; line-height: 1;
+    color: var(--text-dim); font-size: var(--fs-h3); line-height: 1;
     cursor: pointer; display: flex; align-items: center; justify-content: center;
     transition: all 0.2s ease;
   }
