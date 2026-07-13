@@ -88,6 +88,27 @@
     --radius: 12px;
     --radius-sm: 8px;
 
+    /* Type scale, site-wide. Every font-size declaration on every
+       page should reference one of these instead of a hardcoded
+       pixel value. That's what keeps pages from drifting apart the
+       way they did before this existed. Plain body text needs no
+       declaration at all; see `body` below. */
+    --fs-micro: 10px;       /* tiny tags/badges */
+    --fs-label: 11px;       /* uppercase kicker labels (.eyebrow, meta labels) */
+    --fs-caption: 12px;     /* captions, fine print, footer legal */
+    --fs-small: 14px;       /* small/secondary body text (card descriptions) */
+    --fs-body: 15px;        /* default paragraph text */
+    --fs-body-lg: 16.5px;   /* lead paragraph directly under a heading */
+    --fs-lead: 18px;        /* hero subhead / most prominent intro line */
+    --fs-h4: 16px;          /* small headings, card titles */
+    --fs-h3: 20px;          /* sub-headings */
+    --fs-h2: clamp(26px, 3.2vw, 34px);   /* section/band heading */
+    --fs-h1: clamp(28px, 3.5vw, 40px);   /* page-intro heading */
+    --fs-hero: clamp(38px, 5.4vw, 56px); /* big standalone hero heading */
+    /* Case-study title only: sits above a meta bar, a legitimately
+       distinct role from both h1 tiers above, not a stray one-off. */
+    --fs-h1-study: clamp(32px, 4vw, 48px);
+
     --grid-stroke: rgba(255, 255, 255, 0.05);
     --noise-opacity: 0.15;
     --bloom-warm-1: rgba(217, 102, 60, 0.07);
@@ -115,6 +136,7 @@ body {
     color: var(--text);
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 400;
+    font-size: var(--fs-body);
     line-height: 1.6;
     min-height: 100vh;
 }
