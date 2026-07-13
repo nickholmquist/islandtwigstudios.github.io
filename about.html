@@ -27,6 +27,22 @@
             padding: 56px 48px 0;
         }
 
+        /* Full-bleed light "rest stop" band wrapping the page body,
+           matching the homepage's banding. Scoped custom-property
+           overrides mean every existing rule below (which already
+           references these tokens) resolves to light-band-appropriate
+           colors without needing its own edit. */
+        .about-content-band {
+            background: var(--surface-cream);
+            padding-bottom: 64px;
+            --text-strong: #2a2e28;
+            --text: #2a2e28;
+            --text-dim: #5f645b;
+            --text-faint: rgba(42, 46, 40, 0.05);
+            --border: var(--border-on-light);
+            --surface: var(--surface-card);
+        }
+
         .two-col {
             display: grid;
             grid-template-columns: 1.3fr 1fr;
@@ -362,6 +378,7 @@
     </nav>
 
     <div class="page">
+        <section class="about-content-band">
         <div class="content">
 
             <div class="two-col">
@@ -428,6 +445,7 @@
 
             </div>
         </div>
+        </section>
 
         <footer class="footer a-footer">
             <div class="content">

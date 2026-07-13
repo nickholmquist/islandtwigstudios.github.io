@@ -23,13 +23,67 @@
         .content {
             max-width: 980px;
             margin: 0 auto;
-            padding: 56px 48px 0;
+            padding: 0 48px;
         }
 
         /* ═══ HEADER ═══ */
 
         .header {
             margin-bottom: 48px;
+            padding-top: 56px;
+        }
+
+        /* Full-bleed bands, matching the homepage's banding. Scoped
+           custom-property overrides on the light bands mean every
+           existing rule below (already written against these tokens)
+           resolves to light-band-appropriate colors without its own
+           edit. */
+        .services-band-light {
+            background: var(--surface-cream);
+            padding: 56px 0 64px;
+            --text-strong: #2a2e28;
+            --text: #2a2e28;
+            --text-dim: #5f645b;
+            --text-faint: rgba(42, 46, 40, 0.05);
+            --border: var(--border-on-light);
+            --surface: var(--surface-card);
+            --surface-raised: #ffffff;
+        }
+
+        .services-band-dark { padding: 64px 0; }
+
+        .services-band-soft {
+            background: var(--surface-soft);
+            padding: 64px 0;
+            --text-strong: #2a2e28;
+            --text: #2a2e28;
+            --text-dim: #5f645b;
+            --text-faint: rgba(42, 46, 40, 0.05);
+            --border: var(--border-on-light);
+            --surface: var(--surface-card);
+            --surface-raised: #ffffff;
+        }
+
+        /* Form fields inside the light band need their own override:
+           the dark-canvas translucent-black fields and the select
+           arrow's fill color are hardcoded, not token-driven. */
+        .services-band-soft .intake-row input[type="text"],
+        .services-band-soft .intake-row input[type="email"],
+        .services-band-soft .intake-row textarea,
+        .services-band-soft .intake-row select {
+            background-color: rgba(0,0,0,0.035);
+        }
+        .services-band-soft .intake-row input:focus,
+        .services-band-soft .intake-row textarea:focus,
+        .services-band-soft .intake-row select:focus {
+            background-color: rgba(0,0,0,0.06);
+        }
+        .services-band-soft .intake-row select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%235f645b' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+            background-color: rgba(0,0,0,0.035);
+        }
+        .services-band-soft .checkbox-item {
+            background: rgba(0,0,0,0.035);
         }
 
         .section-label {
@@ -258,6 +312,8 @@
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
+            color: inherit;
+            text-decoration: none;
         }
 
         .custom-tier::before {
@@ -315,12 +371,6 @@
 
         /* ═══ PROCESS ═══ */
 
-        .process-section {
-            margin-bottom: 56px;
-            padding-top: 40px;
-            border-top: 1px solid var(--border);
-        }
-
         .process-section h2 {
             font-size: 11px;
             font-weight: 600;
@@ -360,12 +410,6 @@
         }
 
         /* ═══ INTAKE FORM ═══ */
-
-        .intake-section {
-            padding-top: 40px;
-            border-top: 1px solid var(--border);
-            margin-bottom: 40px;
-        }
 
         .intake-section h2 {
             font-size: 24px;
@@ -610,7 +654,10 @@
         @media (max-width: 768px) {
 
 
-            .content { padding: 40px 24px 0; }
+            .content { padding: 0 24px; }
+            .header { padding-top: 40px; }
+            .services-band-light { padding: 40px 0 48px; }
+            .services-band-dark, .services-band-soft { padding: 48px 0; }
             .intake-row-grid { grid-template-columns: 1fr; }
             .checkbox-grid { grid-template-columns: 1fr; }
 
@@ -623,7 +670,8 @@
         @media (max-width: 480px) {
 
 
-            .content { padding: 32px 20px 0; }
+            .content { padding: 0 20px; }
+            .header { padding-top: 32px; }
             .process-grid { grid-template-columns: 1fr; }
             .intake-card { padding: 22px; }
             .tier-inner { padding: 24px 22px; }
@@ -654,6 +702,10 @@
                 <p class="a2">Whether you're launching a new program or rebranding an established one, every package builds a stronger identity and a foundation that lasts.</p>
                 <div class="availability a3">Available for new projects</div>
             </header>
+        </div>
+
+        <section class="services-band-light">
+        <div class="content">
 
             <!-- TIERS -->
             <div class="tiers">
@@ -738,6 +790,12 @@
                 </div>
             </a>
 
+        </div>
+        </section>
+
+        <section class="services-band-dark">
+        <div class="content">
+
             <!-- PROCESS -->
             <section class="process-section a8">
                 <h2>How it works</h2>
@@ -764,6 +822,12 @@
                     </div>
                 </div>
             </section>
+
+        </div>
+        </section>
+
+        <section class="services-band-soft">
+        <div class="content">
 
             <!-- INTAKE FORM -->
             <section class="intake-section a8" id="start">
@@ -871,6 +935,7 @@
                 </form>
             </section>
         </div>
+        </section>
 
         <footer class="footer a-footer">
             <div class="content">
