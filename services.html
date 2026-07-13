@@ -65,36 +65,23 @@
         }
 
         /* Form fields inside a light band need their own override:
-           the dark-canvas translucent-black fields and the select
-           arrow's fill color are hardcoded, not token-driven. Covers
-           both light variants since the intake form has lived in
-           either depending on the page's band sequence. */
+           the dark-canvas translucent-black fields are hardcoded,
+           not token-driven. Covers both light variants since the
+           intake form has lived in either depending on the page's
+           band sequence. */
         .services-band-light .intake-row input[type="text"],
         .services-band-light .intake-row input[type="email"],
         .services-band-light .intake-row textarea,
-        .services-band-light .intake-row select,
         .services-band-soft .intake-row input[type="text"],
         .services-band-soft .intake-row input[type="email"],
-        .services-band-soft .intake-row textarea,
-        .services-band-soft .intake-row select {
+        .services-band-soft .intake-row textarea {
             background-color: rgba(0,0,0,0.035);
         }
         .services-band-light .intake-row input:focus,
         .services-band-light .intake-row textarea:focus,
-        .services-band-light .intake-row select:focus,
         .services-band-soft .intake-row input:focus,
-        .services-band-soft .intake-row textarea:focus,
-        .services-band-soft .intake-row select:focus {
+        .services-band-soft .intake-row textarea:focus {
             background-color: rgba(0,0,0,0.06);
-        }
-        .services-band-light .intake-row select,
-        .services-band-soft .intake-row select {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%235f645b' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
-            background-color: rgba(0,0,0,0.035);
-        }
-        .services-band-light .checkbox-item,
-        .services-band-soft .checkbox-item {
-            background: rgba(0,0,0,0.035);
         }
 
         /* .eyebrow is defined in base.css (shared pill, every page). */
@@ -523,6 +510,7 @@
         .intake-section {
             max-width: 680px;
             margin: 0 auto;
+            scroll-margin-top: 88px;
         }
 
         .intake-card {
@@ -550,8 +538,7 @@
 
         .intake-row input[type="text"],
         .intake-row input[type="email"],
-        .intake-row textarea,
-        .intake-row select {
+        .intake-row textarea {
             width: 100%;
             background: rgba(0,0,0,0.25);
             border: 1px solid var(--border);
@@ -565,8 +552,7 @@
         }
 
         .intake-row input:focus,
-        .intake-row textarea:focus,
-        .intake-row select:focus {
+        .intake-row textarea:focus {
             outline: none;
             border-color: color-mix(in srgb, var(--accent) 40%, transparent);
             background: rgba(0,0,0,0.35);
@@ -576,59 +562,6 @@
             resize: vertical;
             min-height: 100px;
             line-height: 1.55;
-        }
-
-        .intake-row select {
-            appearance: none;
-            -webkit-appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23a09890' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 14px center;
-            background-color: rgba(0,0,0,0.25);
-            padding-right: 36px;
-        }
-
-        .checkbox-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-        }
-
-        .checkbox-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 14px;
-            background: rgba(0,0,0,0.2);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .checkbox-item:hover { border-color: color-mix(in srgb, var(--text) 15%, transparent); }
-
-        .checkbox-item input {
-            width: 16px;
-            height: 16px;
-            accent-color: var(--accent);
-            cursor: pointer;
-        }
-
-        .checkbox-item label {
-            font-size: var(--fs-small);
-            font-weight: 400;
-            color: var(--text);
-            letter-spacing: 0;
-            text-transform: none;
-            margin: 0;
-            cursor: pointer;
-        }
-
-        .intake-row-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 18px;
         }
 
         .submit-row {
@@ -757,8 +690,6 @@
             .header { padding-top: 40px; }
             .services-band-light { padding: 40px 0 48px; }
             .services-band-dark, .services-band-soft { padding: 48px 0; }
-            .intake-row-grid { grid-template-columns: 1fr; }
-            .checkbox-grid { grid-template-columns: 1fr; }
 
             /* Mobile nav: swap wordmark for logo mark, hide Home (logo serves that role) */
             .nav-logo-text { display: none; }
@@ -959,75 +890,24 @@
 
                 <form class="intake-card" id="intake-form" action="https://formspree.io/f/mgojdjre" method="POST">
 
-                    <div class="intake-row-grid">
-                        <div class="intake-row">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="intake-row">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
+                    <div class="intake-row">
+                        <label for="name">Your name</label>
+                        <input type="text" id="name" name="name" required>
                     </div>
 
                     <div class="intake-row">
-                        <label for="project">Team or project name</label>
-                        <input type="text" id="project" name="project">
+                        <label for="team">Team or organization</label>
+                        <input type="text" id="team" name="team" required>
                     </div>
 
                     <div class="intake-row">
-                        <label>What are you looking for? (check all that apply)</label>
-                        <div class="checkbox-grid">
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="ck-mark" name="needs" value="Legacy Mark">
-                                <label for="ck-mark">Legacy Mark</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="ck-system" name="needs" value="Legacy to New Era System">
-                                <label for="ck-system">Legacy to New Era System</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="ck-elevate" name="needs" value="Elevate the Identity">
-                                <label for="ck-elevate">Elevate the Identity</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="ck-naming" name="needs" value="Naming">
-                                <label for="ck-naming">Naming</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="ck-other" name="needs" value="Something else">
-                                <label for="ck-other">Something else</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="intake-row-grid">
-                        <div class="intake-row">
-                            <label for="timeline">Timeline</label>
-                            <select id="timeline" name="timeline">
-                                <option value="">Pick one</option>
-                                <option value="ASAP">As soon as possible</option>
-                                <option value="2-4 weeks">2&ndash;4 weeks</option>
-                                <option value="1-2 months">1&ndash;2 months</option>
-                                <option value="Flexible">Flexible</option>
-                            </select>
-                        </div>
-                        <div class="intake-row">
-                            <label for="budget">Budget range</label>
-                            <select id="budget" name="budget">
-                                <option value="">Pick one</option>
-                                <option value="Under $500">Under $500</option>
-                                <option value="$500-1200">$500&ndash;$1,200</option>
-                                <option value="$1200-2000">$1,200&ndash;$2,000</option>
-                                <option value="$2000+">$2,000+</option>
-                                <option value="Not sure">Not sure yet</option>
-                            </select>
-                        </div>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
                     </div>
 
                     <div class="intake-row">
-                        <label for="details">Tell me about the project</label>
-                        <textarea id="details" name="details" placeholder="What's the business, team, or product? What's the feeling you want it to have? Anything you've seen that you like (or hate)?"></textarea>
+                        <label for="message">Tell me about your team</label>
+                        <textarea id="message" name="message" placeholder="Where are you, what's the situation, and what are you hoping to build?" required></textarea>
                     </div>
 
                     <!-- Honeypot: hidden from humans, catches bots -->
