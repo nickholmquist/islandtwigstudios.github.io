@@ -130,10 +130,42 @@
     margin-bottom: 48px;
   }
 
+  /* ═══ BANDS ═══
+     Full-bleed alternating sections, matching the homepage's banding.
+     Scoped custom-property overrides mean every existing rule below
+     (which already references these tokens) resolves to light-band-
+     appropriate colors without needing its own edit. */
+
+  .design-band-light {
+    background: var(--surface-cream);
+    padding: 64px 0;
+    --text-strong: #2a2e28;
+    --text: #2a2e28;
+    --text-dim: #5f645b;
+    --text-faint: rgba(42, 46, 40, 0.05);
+    --border: var(--border-on-light);
+    --surface: var(--surface-card);
+    --surface-raised: #ffffff;
+  }
+
+  .design-band-dark { padding: 64px 0; }
+
+  .design-band-soft {
+    background: var(--surface-soft);
+    padding: 64px 0;
+    --text-strong: #2a2e28;
+    --text: #2a2e28;
+    --text-dim: #5f645b;
+    --text-faint: rgba(42, 46, 40, 0.05);
+    --border: var(--border-on-light);
+    --surface: var(--surface-card);
+    --surface-raised: #ffffff;
+  }
+
   /* ═══ FEATURED PROJECTS ═══ */
 
   .featured-section {
-    margin-bottom: 64px;
+    margin-bottom: 0;
   }
 
   .featured-label {
@@ -277,7 +309,6 @@
   .featured-grid-three {
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
-    margin-bottom: 64px;
   }
 
   @media (max-width: 900px) {
@@ -287,7 +318,7 @@
   /* ═══ GALLERY SECTIONS ═══ */
 
   .gallery-section {
-    margin-bottom: 56px;
+    margin-bottom: 0;
   }
 
   .gallery-label {
@@ -393,7 +424,6 @@
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
-    margin-bottom: 64px;
   }
 
   .bottom-cta::before {
@@ -640,7 +670,10 @@
     </header>
 
     <div class="divider"></div>
+  </div>
 
+  <section class="design-band-light">
+  <div class="content">
     <!-- ═══════════════════════════════════════════════════════════════
          FEATURED: UTAH HOCKEY + NHL MIDNIGHT (full width, stacked)
          ═══════════════════════════════════════════════════════════════ -->
@@ -685,7 +718,11 @@
 
       </div>
     </section>
+  </div>
+  </section>
 
+  <section class="design-band-dark">
+  <div class="content">
     <!-- ═══════════════════════════════════════════════════════════════
          SPORTS CONCEPTS GALLERY
          ═══════════════════════════════════════════════════════════════ -->
@@ -789,7 +826,11 @@
 
       </div>
     </section>
+  </div>
+  </section>
 
+  <section class="design-band-soft">
+  <div class="content">
     <!-- ═══════════════════════════════════════════════════════════════
          SECONDARY CASE STUDIES: Hey Bright, Utah Flag, QuickFuze
          3-up compact row. These prove paid client execution.
@@ -846,7 +887,11 @@
 
       </div>
     </section>
+  </div>
+  </section>
 
+  <section class="design-band-dark">
+  <div class="content">
     <!-- ═══════════════════════════════════════════════════════════════
          OTHER WORK GALLERY
          ═══════════════════════════════════════════════════════════════ -->
@@ -937,7 +982,11 @@
 
       </div>
     </section>
+  </div>
+  </section>
 
+  <section class="design-band-light">
+  <div class="content">
     <!-- ═══════════════════════════════════════════════════════════════
          ALSO BUILDING (apps) — the broader range of work
          ═══════════════════════════════════════════════════════════════ -->
@@ -986,6 +1035,7 @@
     </a>
 
   </div>
+  </section>
 
   <!-- FOOTER -->
   <footer class="footer">
