@@ -447,25 +447,11 @@
         }
         .signature-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-        .signature-phases-label {
-            font-size: var(--fs-label);
-            font-weight: 600;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: var(--text-dim);
-            margin-bottom: 24px;
-        }
-
-        /* ═══ PROCESS ═══ */
-
-        .process-section h2 {
-            font-size: var(--fs-label);
-            font-weight: 600;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: var(--text-dim);
-            margin-bottom: 24px;
-        }
+        /* ═══ PROCESS ═══
+           Matches the homepage's process-band card treatment: cards
+           are always a lighter surface than their band, with a
+           Fira Code accent number, regardless of whether the band
+           itself is light (signature phases) or dark (how it works). */
 
         .process-grid {
             display: grid;
@@ -474,26 +460,38 @@
         }
 
         .process-step {
-            background: var(--surface);
+            background: var(--surface-raised);
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 22px 20px;
+            padding: 24px 22px;
+        }
+
+        /* Dark-band process cards (How it Works) become cream, same
+           as the homepage. Needs its own dark-on-light text scope:
+           .services-band-dark doesn't otherwise redeclare
+           --text-strong/--text-dim, since its own text is correctly
+           light-on-dark; only the card sitting inside it needs to flip. */
+        .services-band-dark .process-step {
+            background: var(--surface-cream);
+            border-color: var(--border-on-light);
+            --text-strong: #2a2e28;
+            --text-dim: #5f645b;
         }
 
         .process-step h4 {
             font-size: var(--fs-h4);
             font-weight: 700;
             color: var(--text-strong);
-            margin-bottom: 6px;
+            margin-bottom: 10px;
         }
 
         .process-step .step-num {
-            font-family: 'Fira Code', monospace;
-            font-size: var(--fs-label);
-            color: var(--accent-warm);
-            font-weight: 400;
-            margin-bottom: 8px;
             display: block;
+            font-family: 'Fira Code', monospace;
+            font-size: 26px;
+            font-weight: 400;
+            color: var(--accent);
+            margin-bottom: 16px;
         }
 
         .process-step p {
@@ -793,7 +791,6 @@
         <div class="content">
 
             <header class="header">
-                <p class="eyebrow a1">Services</p>
                 <h1 class="a2">Every great team has a story. Every great community has traditions.</h1>
                 <p class="a2">We create the identity that brings them together. Rather than designing logos in a vacuum, IslandTwig uncovers what makes an organization unique and transforms it into an identity people are proud to represent.</p>
                 <div class="availability a3">Available for new projects</div>
@@ -810,8 +807,7 @@
                     <p class="signature-tagline">From overlooked to unforgettable.</p>
                     <p class="signature-desc">A complete sports identity system for organizations entering a new chapter. Whether you're launching a brand-new team or modernizing an established program, this service uncovers your organization's story and transforms it into an identity built to represent your community for years to come.</p>
                     <div class="signature-actions">
-                        <a href="/legacy-session#start" class="btn-signature">Start a Legacy Session</a>
-                        <a href="/legacy-session" class="arrow-link">Learn more about the process<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                        <a href="/legacy-session" class="btn-signature">Start a Legacy Session</a>
                     </div>
                 </div>
                 <div class="signature-image a6">
@@ -820,12 +816,12 @@
             </div>
 
             <div class="signature-phases a7">
-                <p class="signature-phases-label">The Process</p>
+                <p class="eyebrow">The Process</p>
                 <div class="process-grid">
                     <div class="process-step">
                         <span class="step-num">01</span>
                         <h4>Discover the Legacy</h4>
-                        <p>Every project begins with the Legacy Workshop, uncovering your organization's history, community roots, culture, and traditions.</p>
+                        <p>Every project begins with the Legacy Session, uncovering your organization's history, community roots, culture, and traditions.</p>
                     </div>
                     <div class="process-step">
                         <span class="step-num">02</span>
@@ -919,7 +915,7 @@
 
             <!-- PROCESS -->
             <section class="process-section a8">
-                <h2>How it works</h2>
+                <h2 class="eyebrow">How it works</h2>
                 <div class="process-grid">
                     <div class="process-step">
                         <span class="step-num">01</span>

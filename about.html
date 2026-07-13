@@ -102,45 +102,23 @@
 
         .subsection strong { color: var(--text); font-weight: 600; }
 
-        /* Availability pill — matches the home page */
-        .availability-bar {
+        /* Primary CTA button, matching the homepage's .btn.btn-primary exactly. */
+        .btn {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            margin-top: 24px;
-            font-size: var(--fs-small);
-            font-weight: 600;
-            color: var(--accent);
-            letter-spacing: 0.02em;
-            text-decoration: none;
-            padding: 10px 20px 10px 16px;
-            background: var(--accent-dim);
-            border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+            justify-content: center;
+            gap: 8px;
+            padding: 15px 28px;
             border-radius: 100px;
+            font-size: var(--fs-small);
+            font-weight: 700;
+            text-decoration: none;
             transition: all 0.25s ease;
         }
+        .btn-primary { background: var(--accent); color: var(--on-accent-text); }
+        .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 10px 24px rgba(0,0,0,0.25); }
 
-        .availability-bar:hover {
-            background: color-mix(in srgb, var(--accent) 20%, transparent);
-            border-color: color-mix(in srgb, var(--accent) 40%, transparent);
-            transform: translateY(-1px);
-        }
-
-        .availability-bar::before {
-            content: '';
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: var(--accent);
-            box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 60%, transparent);
-            flex-shrink: 0;
-            animation: pulse 2.4s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 60%, transparent); }
-            50% { opacity: 0.6; box-shadow: 0 0 14px color-mix(in srgb, var(--accent) 80%, transparent); }
-        }
+        .contact-pill { margin-top: 4px; margin-bottom: 20px; }
 
         /* Closing emphasis line for the Why sports story */
         .why-close {
@@ -149,25 +127,46 @@
             margin-top: 16px !important;
         }
 
-        /* Principle list — replaces the old service list in Practice */
+        /* ═══ PRACTICE (dark green band, breaks up the page's all-cream
+           feel, matching the process-band treatment used elsewhere) ═══ */
+
+        .practice-band {
+            background: var(--bg);
+            padding: 72px 0;
+        }
+
+        .practice-band h2 {
+            font-size: var(--fs-h2);
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: var(--text-on-dark);
+            margin-bottom: 32px;
+            max-width: 560px;
+        }
+
+        /* Principle list: cream cards on the dark band, same
+           language as the homepage's process-card / services.html's
+           process-step. */
         .principle-list {
             list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
         }
 
         .principle-list li {
-            padding-left: 18px;
-            border-left: 2px solid var(--accent);
+            background: var(--surface-cream);
+            border: 1px solid var(--border-on-light);
+            border-radius: var(--radius);
+            padding: 26px 24px;
         }
 
         .principle-list .principle-name {
             display: block;
-            font-size: var(--fs-body);
+            font-size: var(--fs-h4);
             font-weight: 700;
-            color: var(--text-strong);
-            margin-bottom: 5px;
+            color: #2a2e28;
+            margin-bottom: 8px;
             letter-spacing: -0.01em;
         }
 
@@ -175,7 +174,7 @@
             display: block;
             font-size: var(--fs-small);
             font-weight: 400;
-            color: var(--text-dim);
+            color: #5f645b;
             line-height: 1.6;
         }
 
@@ -256,11 +255,6 @@
             margin-bottom: 16px;
         }
 
-        .contact-pill {
-            margin-top: 4px;
-            margin-bottom: 20px;
-        }
-
         .contact-or {
             font-size: var(--fs-caption) !important;
             color: var(--text-dim) !important;
@@ -279,16 +273,6 @@
         }
 
         .contact-email:hover { color: var(--text-strong); }
-
-        .meta-line {
-            margin-top: 24px;
-            padding-top: 18px;
-            border-top: 1px solid var(--border);
-            font-size: var(--fs-label);
-            font-weight: 400;
-            letter-spacing: 0.06em;
-            color: var(--text-dim);
-        }
 
         /* ═══ FOOTER ═══ */
 
@@ -333,12 +317,14 @@
 
         @media (max-width: 900px) {
             .two-col { grid-template-columns: 1fr; gap: 48px; }
+            .principle-list { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 768px) {
 
 
             .content { padding: 40px 24px 0; }
+            .practice-band { padding: 56px 0; }
 
             /* Mobile nav: swap wordmark for logo mark, hide Home (logo serves that role) */
             .nav-logo-text { display: none; }
@@ -376,7 +362,7 @@
 
             <div class="two-col">
 
-                <!-- LEFT: BIO + STORY + PRACTICE -->
+                <!-- LEFT: BIO + STORY -->
                 <div class="col-left">
                     <p class="eyebrow al1">About</p>
 
@@ -393,45 +379,62 @@
                         <p>That stuck with me. Today I help schools, leagues, and organizations build identities that bring people together.</p>
                         <p class="why-close">I don&rsquo;t design logos for sports teams. I build identities that players wear with pride, fans rally behind, and communities remember.</p>
                     </div>
+                </div>
 
-                    <div class="subsection al4">
-                        <h3>Practice</h3>
-                        <ul class="principle-list">
-                            <li>
-                                <span class="principle-name">Research before design</span>
-                                <span class="principle-desc">Every project starts with the team, its people, and the history it has or the one it wants to create. Strong identities aren&rsquo;t pulled from a template. They&rsquo;re built from a story.</span>
-                            </li>
-                            <li>
-                                <span class="principle-name">Built for the real world</span>
-                                <span class="principle-desc">From jerseys and helmets to social graphics and merch, every mark is made to hold up wherever fans actually meet the brand.</span>
-                            </li>
-                            <li>
-                                <span class="principle-name">Made to last</span>
-                                <span class="principle-desc">Trends fade. I build identities that look right today and still hold up years from now.</span>
-                            </li>
-                        </ul>
+                <!-- RIGHT: PORTRAIT -->
+                <div class="col-right">
+                    <div class="portrait-card ar1">
+                        <img src="images/ProfilePic.JPEG" alt="Nick Holmquist">
                     </div>
+                </div>
 
-                    <div class="subsection al4">
+            </div>
+        </div>
+        </section>
+
+        <!-- PRACTICE (dark band) -->
+        <section class="practice-band">
+        <div class="content">
+            <p class="eyebrow">Practice</p>
+            <h2>Three principles behind every project.</h2>
+            <ul class="principle-list">
+                <li>
+                    <span class="principle-name">Research before design</span>
+                    <span class="principle-desc">Every project starts with the team, its people, and the history it has or the one it wants to create. Strong identities aren&rsquo;t pulled from a template. They&rsquo;re built from a story.</span>
+                </li>
+                <li>
+                    <span class="principle-name">Built for the real world</span>
+                    <span class="principle-desc">From jerseys and helmets to social graphics and merch, every mark is made to hold up wherever fans actually meet the brand.</span>
+                </li>
+                <li>
+                    <span class="principle-name">Made to last</span>
+                    <span class="principle-desc">Trends fade. I build identities that look right today and still hold up years from now.</span>
+                </li>
+            </ul>
+        </div>
+        </section>
+
+        <!-- BACKGROUND + CONTACT (light band) -->
+        <section class="about-content-band">
+        <div class="content">
+
+            <div class="two-col">
+
+                <div class="col-left">
+                    <div class="subsection" style="margin-top: 0; padding-top: 0; border-top: none;">
                         <h3>Background</h3>
                         <p>Outside IslandTwig, I work in technical success at a software company. That work taught me to think in systems, solve messy problems, and sweat the details. The same instincts show up in every identity I design.</p>
                     </div>
                 </div>
 
-                <!-- RIGHT: MARK + CONTACT -->
                 <div class="col-right">
-                    <div class="portrait-card ar1">
-                        <img src="images/ProfilePic.JPEG" alt="Nick Holmquist">
-                    </div>
-
                     <div class="contact-card ar2">
                         <div class="contact-card-inner">
                             <h2>Let&rsquo;s talk.</h2>
                             <p>Open for sports identity, brand systems, and naming. Whether your team has history or is just getting started, I&rsquo;d love to hear what you&rsquo;re building.</p>
-                            <a href="/services#start" class="availability-bar contact-pill">Start a project</a>
+                            <a href="/legacy-session" class="btn btn-primary contact-pill">Start a Legacy Session</a>
                             <p class="contact-or">Or email me directly at</p>
                             <a href="mailto:hello@islandtwigstudios.com" class="contact-email">hello@islandtwigstudios.com</a>
-                            <div class="meta-line">Based in Utah</div>
                         </div>
                     </div>
                 </div>
