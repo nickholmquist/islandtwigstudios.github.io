@@ -30,6 +30,22 @@
             padding: 0 48px;
         }
 
+        /* Full-bleed light "rest stop" band wrapping the page body,
+           matching the homepage's banding. Scoped custom-property
+           overrides mean every existing rule below (which already
+           references these tokens) resolves to light-band-appropriate
+           colors without needing its own edit. */
+        .privacy-content-band {
+            background: var(--surface-cream);
+            padding-bottom: 64px;
+            --text-strong: #2a2e28;
+            --text: #2a2e28;
+            --text-dim: #5f645b;
+            --text-faint: rgba(42, 46, 40, 0.05);
+            --border: var(--border-on-light);
+            --surface: var(--surface-card);
+        }
+
         /* ═══ HERO ═══ */
 
         .hero {
@@ -250,6 +266,7 @@
     </nav>
 
     <div class="page">
+        <section class="privacy-content-band">
         <div class="content">
 
             <header class="hero">
@@ -382,6 +399,7 @@
 
             </div>
         </div>
+        </section>
 
         <footer class="footer">
             <div class="content">
