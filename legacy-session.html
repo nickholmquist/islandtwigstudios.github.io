@@ -38,7 +38,12 @@
             --lw-radius-sm: var(--radius-sm, 8px);
         }
 
-        .content { max-width: 1040px; margin: 0 auto; padding: 0 48px; }
+        .content { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+
+        /* The intake form reads better as a centered column than
+           stretched to the page's full width, matching the same
+           narrower-and-centered treatment used on services.html. */
+        .lw-start .content { max-width: 680px; }
 
         /* .eyebrow is defined in base.css (shared pill, every page). */
 
@@ -131,7 +136,6 @@
         .lw-start { background: var(--lw-bg); color: var(--lw-on-dark); padding: 72px 0 80px; }
         .lw-start h2 { font-size: var(--fs-h1); font-weight: 800; color: var(--lw-on-dark); letter-spacing: -0.02em; margin-bottom: 12px; }
         .lw-start .start-sub { font-size: var(--fs-body-lg); color: var(--lw-on-dark-dim); line-height: 1.6; max-width: 520px; margin-bottom: 32px; }
-        .intake-card { max-width: 620px; }
         .field { margin-bottom: 18px; }
         .field label { display: block; font-size: var(--fs-small); font-weight: 600; color: var(--lw-on-dark); margin-bottom: 7px; }
         .field input, .field textarea {
