@@ -57,7 +57,7 @@
         /* ═══ LEFT COLUMN ═══ */
 
         .hello {
-            font-size: clamp(28px, 3.5vw, 40px);
+            font-size: var(--fs-h1);
             font-weight: 800;
             color: var(--text-strong);
             letter-spacing: -0.02em;
@@ -66,7 +66,7 @@
         }
 
         .intro p {
-            font-size: 16px;
+            font-size: var(--fs-body-lg);
             font-weight: 400;
             color: var(--text);
             line-height: 1.7;
@@ -82,7 +82,7 @@
         }
 
         .subsection h3 {
-            font-size: 11px;
+            font-size: var(--fs-label);
             font-weight: 600;
             letter-spacing: 0.14em;
             text-transform: uppercase;
@@ -91,7 +91,7 @@
         }
 
         .subsection p {
-            font-size: 14px;
+            font-size: var(--fs-small);
             font-weight: 400;
             color: var(--text-dim);
             line-height: 1.7;
@@ -108,7 +108,7 @@
             align-items: center;
             gap: 10px;
             margin-top: 24px;
-            font-size: 13.5px;
+            font-size: var(--fs-small);
             font-weight: 600;
             color: var(--accent);
             letter-spacing: 0.02em;
@@ -164,7 +164,7 @@
 
         .principle-list .principle-name {
             display: block;
-            font-size: 15px;
+            font-size: var(--fs-body);
             font-weight: 700;
             color: var(--text-strong);
             margin-bottom: 5px;
@@ -173,7 +173,7 @@
 
         .principle-list .principle-desc {
             display: block;
-            font-size: 13.5px;
+            font-size: var(--fs-small);
             font-weight: 400;
             color: var(--text-dim);
             line-height: 1.6;
@@ -241,7 +241,7 @@
         .contact-card-inner { position: relative; z-index: 1; }
 
         .contact-card h2 {
-            font-size: 18px;
+            font-size: var(--fs-h3);
             font-weight: 700;
             color: var(--text-strong);
             margin-bottom: 8px;
@@ -249,7 +249,7 @@
         }
 
         .contact-card p {
-            font-size: 13px;
+            font-size: var(--fs-small);
             font-weight: 400;
             color: var(--text-dim);
             line-height: 1.6;
@@ -262,7 +262,7 @@
         }
 
         .contact-or {
-            font-size: 12px !important;
+            font-size: var(--fs-caption) !important;
             color: var(--text-dim) !important;
             margin-bottom: 6px !important;
         }
@@ -270,7 +270,7 @@
         .contact-email {
             display: inline-block;
             font-family: 'Fira Code', monospace;
-            font-size: 13px;
+            font-size: 12.5px;
             font-weight: 300;
             color: var(--accent-warm);
             text-decoration: none;
@@ -284,7 +284,7 @@
             margin-top: 24px;
             padding-top: 18px;
             border-top: 1px solid var(--border);
-            font-size: 11px;
+            font-size: var(--fs-label);
             font-weight: 400;
             letter-spacing: 0.06em;
             color: var(--text-dim);
@@ -311,9 +311,9 @@
         .maker-mark { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 28px; text-decoration: none; }
         .maker-mark-icon { width: 28px; height: 28px; border-radius: 6px; opacity: 0.35; transition: opacity 0.3s ease; }
         .maker-mark:hover .maker-mark-icon { opacity: 0.55; }
-        .maker-mark-label { font-size: 11px; font-weight: 400; letter-spacing: 0.06em; color: color-mix(in srgb, var(--text) 22%, transparent); transition: color 0.3s ease; }
+        .maker-mark-label { font-size: var(--fs-label); font-weight: 400; letter-spacing: 0.06em; color: color-mix(in srgb, var(--text) 22%, transparent); transition: color 0.3s ease; }
         .maker-mark:hover .maker-mark-label { color: color-mix(in srgb, var(--text) 35%, transparent); }
-        .footer-legal { font-size: 11px; color: color-mix(in srgb, var(--text) 18%, transparent); }
+        .footer-legal { font-size: var(--fs-label); color: color-mix(in srgb, var(--text) 18%, transparent); }
         .footer-legal-link { color: inherit; text-decoration: none; transition: color 0.2s; }
         .footer-legal-link:hover { color: var(--text-dim); }
 
