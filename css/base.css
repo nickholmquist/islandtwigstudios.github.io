@@ -6,9 +6,17 @@
    <style> block, since those genuinely differ between the standard
    pages and the case study template.
 
-   Theme: cream/light is the default (:root). Dark is the original
-   palette, applied via [data-theme="dark"] on <html>. Toggle sets
-   the attribute and persists to localStorage. See js/theme.js.
+   Single theme, dark-green-led, warm orange accent. No toggle, no
+   [data-theme="dark"] block. The dark green canvas (--bg) is the
+   page background everywhere. Existing "card" surfaces across the
+   site (--surface, --surface-raised) are translucent light panels
+   on that dark canvas, not literal light cards, so every page's
+   text stays legible without page-by-page edits.
+
+   The homepage's own light "rest stop" bands (Problem, Philosophy,
+   Selected Work) are a deliberate homepage-only exception: they use
+   --surface-cream / --surface-soft plus their own page-scoped dark
+   text tokens, defined in index.html itself, not here.
 
    Linked via: <link rel="stylesheet" href="/css/base.css">
    Must be linked AFTER the Plus Jakarta Sans font import and
@@ -17,66 +25,69 @@
    ═══════════════════════════════════════════════════════════════ */
 
 :root {
-    /* LIGHT (default). Warmed neutrals built around the brand green,
-       not the old cream. See the light-theme palette fix brief for
-       the reasoning behind each value. */
-    --bg: #f4f2ea;
-    --surface: #eae8dd;
-    --surface-raised: #f8f6ef;
-    --text: #2a2e28;
-    --text-strong: #14170f;
-    --text-dim: #5f645b;
-    --text-faint: rgba(42, 46, 40, 0.05);
-    --border: rgba(42, 46, 40, 0.10);
-    --nav-border: rgba(42, 46, 40, 0.12);
-    --nav-bg: rgba(244, 242, 234, 0.85);
-    --accent: #4f6b54;
-    --accent-dim: rgba(79, 107, 84, 0.14);
-    --accent-warm: #8c6138;
-    --accent-warm-dim: rgba(140, 97, 56, 0.14);
+    /* Page canvas, site-wide */
+    --bg: #2b352e;
+    --bg-deep: #232c26;
+
+    /* Accent thread, site-wide */
+    --accent: #d9663c;
+    --accent-hover: #c25730;
+    --accent-dim: rgba(217, 102, 60, 0.16);
+
+    /* Default text, site-wide. The canvas is dark green everywhere,
+       so these resolve to light values rather than the old dark
+       near-black set. */
+    --text-strong: #f7f5ef;
+    --text: #f7f5ef;
+    --text-dim: rgba(241, 243, 238, 0.72);
+    --text-faint: rgba(247, 245, 239, 0.05);
+
+    /* Borders, site-wide */
+    --border: rgba(255, 255, 255, 0.14);
+    --nav-border: rgba(255, 255, 255, 0.14);
+    --nav-bg: rgba(43, 53, 46, 0.85);
+
+    /* Card surfaces on the dark canvas: translucent panels, not
+       literal light cards. */
+    --surface: rgba(255, 255, 255, 0.08);
+    --surface-raised: rgba(255, 255, 255, 0.13);
+
+    /* Legacy aliases so nothing dangles. */
+    --accent-warm: var(--accent);
+    --accent-warm-dim: var(--accent-dim);
+
+    /* Explicit light/dark text pair, matched to the naming the
+       homepage band table uses. Same values as --text-strong /
+       --text-dim above; kept as distinct names for clarity where
+       a rule specifically means "text on the dark canvas." */
+    --text-on-dark: #f7f5ef;
+    --text-on-dark-dim: rgba(241, 243, 238, 0.72);
+    --border-on-dark: rgba(255, 255, 255, 0.14);
+
+    /* Homepage-only light "rest stop" surfaces. Referenced by
+       index.html's own page-scoped band tokens, not used elsewhere. */
+    --surface-cream: #f4f2ea;
+    --surface-soft: #eae8dd;
+    --surface-card: #d9d5c6;
+    --border-on-light: #ccc7b6;
+
+    /* Category hues for case-study accent coding. Unchanged, low
+       usage, not part of this pass. */
     --hue-sky: #4f7488;
     --hue-sky-dim: rgba(79, 116, 136, 0.12);
     --hue-lavender: #6f5f90;
     --hue-lavender-dim: rgba(111, 95, 144, 0.12);
     --hue-coral: #8a5245;
     --hue-coral-dim: rgba(138, 82, 69, 0.12);
-    --radius: 14px;
-    --radius-sm: 10px;
 
-    --grid-stroke: rgba(42, 46, 40, 0.05);
-    --noise-opacity: 0.02;
-    --bloom-warm-1: rgba(176, 106, 65, 0.045);
-    --bloom-sage-1: rgba(79, 107, 84, 0.045);
-    --bloom-warm-2: rgba(176, 106, 65, 0.035);
-}
+    --radius: 12px;
+    --radius-sm: 8px;
 
-[data-theme="dark"] {
-    --bg: #111110;
-    --surface: #1a1918;
-    --surface-raised: #21201e;
-    --text: #e8e0d5;
-    --text-strong: #f2ece4;
-    --text-dim: #a09890;
-    --text-faint: rgba(232, 224, 213, 0.05);
-    --border: rgba(232, 224, 213, 0.08);
-    --nav-border: rgba(232, 224, 213, 0.14);
-    --nav-bg: rgba(17, 17, 16, 0.85);
-    --accent: #7a9e87;
-    --accent-dim: rgba(122, 158, 135, 0.12);
-    --accent-warm: #b8896a;
-    --accent-warm-dim: rgba(184, 137, 106, 0.12);
-    --hue-sky: #6a8fa0;
-    --hue-sky-dim: rgba(106, 143, 160, 0.12);
-    --hue-lavender: #8a7aaa;
-    --hue-lavender-dim: rgba(138, 122, 170, 0.12);
-    --hue-coral: #a86e62;
-    --hue-coral-dim: rgba(168, 110, 98, 0.12);
-
-    --grid-stroke: rgba(232, 224, 213, 0.07);
-    --noise-opacity: 0.4;
-    --bloom-warm-1: rgba(184, 137, 106, 0.09);
-    --bloom-sage-1: rgba(122, 158, 135, 0.09);
-    --bloom-warm-2: rgba(184, 137, 106, 0.07);
+    --grid-stroke: rgba(255, 255, 255, 0.05);
+    --noise-opacity: 0.15;
+    --bloom-warm-1: rgba(217, 102, 60, 0.07);
+    --bloom-sage-1: rgba(217, 102, 60, 0.05);
+    --bloom-warm-2: rgba(217, 102, 60, 0.04);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -92,20 +103,15 @@ body {
     background-color: var(--bg);
     /* Grid: SVG tile is rasterized before tiling so it renders
        identically across all screen densities and viewport sizes.
-       Stroke color is baked into the data URI, so it's duplicated
-       per theme below rather than parameterized with a var(). */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M 40 0 L 0 0 0 40' fill='none' stroke='rgba(42%2C46%2C40%2C0.05)' stroke-width='0.5'/%3E%3C/svg%3E");
+       Stroke color is baked into the data URI, so it can't be
+       parameterized with a var() directly. */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M 40 0 L 0 0 0 40' fill='none' stroke='rgba(255%2C255%2C255%2C0.05)' stroke-width='0.5'/%3E%3C/svg%3E");
     background-size: 28px 28px;
     color: var(--text);
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 400;
     line-height: 1.6;
     min-height: 100vh;
-    transition: background-color 0.25s ease, color 0.25s ease;
-}
-
-[data-theme="dark"] body {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M 40 0 L 0 0 0 40' fill='none' stroke='rgba(232%2C224%2C213%2C0.07)' stroke-width='0.5'/%3E%3C/svg%3E");
 }
 
 /* Film grain. Fixed to viewport, sits behind everything. */
@@ -119,8 +125,8 @@ body::before {
     opacity: var(--noise-opacity);
 }
 
-/* Ambient depth layer: soft warm/sage color blooms. Fixed to
-   viewport so they always show regardless of scroll position. */
+/* Ambient depth layer: soft orange blooms. Fixed to viewport so
+   they always show regardless of scroll position. */
 body::after {
     content: '';
     position: fixed;
@@ -181,35 +187,15 @@ nav {
 }
 
 .nav-links a.active { color: var(--accent); }
-.nav-links a:hover { color: var(--text-strong); }
-
-/* ═══ THEME TOGGLE ═══ */
-
-.theme-toggle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    border: 1px solid var(--nav-border);
-    background: transparent;
-    color: var(--text-dim);
-    cursor: pointer;
-    transition: color 0.2s, border-color 0.2s;
-}
-
-.theme-toggle:hover { color: var(--text); border-color: var(--accent); }
-.theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-
-.theme-toggle svg { width: 15px; height: 15px; }
-.theme-toggle .icon-moon { display: none; }
-[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
-[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
+.nav-links a:hover { color: var(--accent); }
 
 /* ═══ PAGE STRUCTURE (shared root container) ═══ */
 
 .page { position: relative; z-index: 1; padding-top: 80px; }
+
+/* Footer sits deeper than the page canvas, site-wide. Every page
+   uses the same .footer class for its footer wrapper. */
+.footer { background: var(--bg-deep); }
 
 /* Mobile nav: swap wordmark for logo mark, hide Home (logo serves that role).
    Repeated per-page inside each page's own breakpoints today since it's
