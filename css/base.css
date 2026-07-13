@@ -191,7 +191,11 @@ nav {
 
 /* ═══ PAGE STRUCTURE (shared root container) ═══ */
 
-.page { position: relative; z-index: 1; padding-top: 80px; }
+/* Background matches body's own so the top nav-offset padding
+   doesn't leave a gap where the fixed ambient bloom/grain layers
+   show through unobstructed while every section below it (each with
+   its own opaque background) blocks them, which read as a seam. */
+.page { position: relative; z-index: 1; padding-top: 80px; background: var(--bg); }
 
 /* Footer sits deeper than the page canvas, site-wide. Every page
    uses the same .footer class for its footer wrapper. */
