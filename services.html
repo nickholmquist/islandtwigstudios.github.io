@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" href="images/appicons/favicon.png">
 
     <meta property="og:title" content="Services — IslandTwig Studios">
-    <meta property="og:description" content="Sports identity and brand design. Logos, brand systems, and full identity packages for teams and organizations.">
+    <meta property="og:description" content="The Legacy to New Era System: a complete sports identity built from your organization's own story. Plus Legacy Mark and Elevate the Identity for teams that need a different starting point.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://islandtwigstudios.com/services">
 
@@ -64,24 +64,35 @@
             --surface-raised: #ffffff;
         }
 
-        /* Form fields inside the light band need their own override:
+        /* Form fields inside a light band need their own override:
            the dark-canvas translucent-black fields and the select
-           arrow's fill color are hardcoded, not token-driven. */
+           arrow's fill color are hardcoded, not token-driven. Covers
+           both light variants since the intake form has lived in
+           either depending on the page's band sequence. */
+        .services-band-light .intake-row input[type="text"],
+        .services-band-light .intake-row input[type="email"],
+        .services-band-light .intake-row textarea,
+        .services-band-light .intake-row select,
         .services-band-soft .intake-row input[type="text"],
         .services-band-soft .intake-row input[type="email"],
         .services-band-soft .intake-row textarea,
         .services-band-soft .intake-row select {
             background-color: rgba(0,0,0,0.035);
         }
+        .services-band-light .intake-row input:focus,
+        .services-band-light .intake-row textarea:focus,
+        .services-band-light .intake-row select:focus,
         .services-band-soft .intake-row input:focus,
         .services-band-soft .intake-row textarea:focus,
         .services-band-soft .intake-row select:focus {
             background-color: rgba(0,0,0,0.06);
         }
+        .services-band-light .intake-row select,
         .services-band-soft .intake-row select {
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%235f645b' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
             background-color: rgba(0,0,0,0.035);
         }
+        .services-band-light .checkbox-item,
         .services-band-soft .checkbox-item {
             background: rgba(0,0,0,0.035);
         }
@@ -182,14 +193,14 @@
         }
 
         .tier.t-logo::before     { background: radial-gradient(ellipse at 30% 10%, var(--accent-dim), transparent 60%); }
-        .tier.t-identity::before { background: radial-gradient(ellipse at 50% 10%, var(--accent-warm-dim), transparent 60%); }
         .tier.t-system::before   { background: radial-gradient(ellipse at 70% 10%, var(--accent-warm-dim), transparent 60%); }
 
-        .tier.t-identity {
-            border-color: color-mix(in srgb, var(--accent-warm) 18%, transparent);
-        }
-
         .tier-inner { position: relative; z-index: 1; display: flex; flex-direction: column; height: 100%; padding: 28px 26px; }
+
+        /* Two-card variant for "Other Ways to Work Together": these
+           two are meant to feel complementary, not part of a pricing
+           ladder, so no third column and no "recommended" badge. */
+        .tiers-two { grid-template-columns: repeat(2, 1fr); }
 
         .tier-recommended {
             position: absolute;
@@ -364,6 +375,86 @@
 
         .arrow-link svg { width: 13px; height: 13px; }
         .arrow-link:hover { gap: 10px; color: var(--text-strong); }
+
+        /* ═══ SIGNATURE OFFER ═══
+           The Legacy to New Era System is the flagship service and
+           should visually dominate the page: a larger heading scale,
+           a two-column hero-style layout, and its own CTA, distinct
+           from the two smaller supporting-service cards below it. */
+
+        .signature-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 48px;
+            align-items: center;
+            margin-bottom: 56px;
+        }
+
+        .signature-text h2 {
+            font-size: var(--fs-h1);
+            font-weight: 800;
+            color: var(--text-strong);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 10px;
+        }
+
+        .signature-tagline {
+            font-size: var(--fs-lead);
+            font-weight: 600;
+            color: var(--accent-warm);
+            margin-bottom: 16px;
+        }
+
+        .signature-desc {
+            font-size: var(--fs-body-lg);
+            font-weight: 400;
+            color: var(--text-dim);
+            line-height: 1.7;
+            margin-bottom: 28px;
+            max-width: 520px;
+        }
+
+        .signature-actions {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        .btn-signature {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 26px;
+            border-radius: 100px;
+            background: var(--accent-warm);
+            color: var(--on-accent-text);
+            font-size: var(--fs-small);
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+        .btn-signature:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 10px 24px rgba(0,0,0,0.2); }
+
+        .signature-image {
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            background: var(--surface-raised);
+            aspect-ratio: 4 / 3;
+        }
+        .signature-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .signature-phases-label {
+            font-size: var(--fs-label);
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            margin-bottom: 24px;
+        }
 
         /* ═══ PROCESS ═══ */
 
@@ -652,6 +743,8 @@
             .tiers { grid-template-columns: 1fr; }
             .process-grid { grid-template-columns: repeat(2, 1fr); }
             .custom-tier-inner { flex-direction: column; align-items: flex-start; }
+            .signature-grid { grid-template-columns: 1fr; }
+            .signature-image { order: -1; aspect-ratio: 16 / 9; }
         }
 
         @media (max-width: 768px) {
@@ -701,79 +794,104 @@
 
             <header class="header">
                 <p class="eyebrow a1">Services</p>
-                <h1 class="a2">Every great team deserves an identity worth wearing.</h1>
-                <p class="a2">Whether you're launching a new program or rebranding an established one, every package builds a stronger identity and a foundation that lasts.</p>
+                <h1 class="a2">Every great team has a story. Every great community has traditions.</h1>
+                <p class="a2">We create the identity that brings them together. Rather than designing logos in a vacuum, IslandTwig uncovers what makes an organization unique and transforms it into an identity people are proud to represent.</p>
                 <div class="availability a3">Available for new projects</div>
-                <p class="a3" style="margin-top: 14px;">Every project starts with a <strong>Legacy Call</strong>. <a href="/legacy-call" class="arrow-link">Start here<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></p>
             </header>
         </div>
 
-        <section class="services-band-light">
+        <section class="services-band-light signature-band">
         <div class="content">
 
-            <!-- TIERS -->
-            <div class="tiers">
-
-                <div class="tier t-logo a4">
-                    <div class="tier-image">
-                        <img src="images/services/tier-logo.jpg" alt="Utah Yeti primary logo mark, an example of a single-logo project">
-                    </div>
-                    <div class="tier-inner">
-                        <h3 class="tier-name">Logo</h3>
-                        <p class="tier-clarifier">A mark that's yours.</p>
-                        <div class="tier-price">$500</div>
-                        <div class="tier-timeline">1&ndash;2 weeks</div>
-                        <p class="tier-desc">A single logo concept direction, refined through two rounds of revisions. The starting point for a small project or side venture.</p>
-                        <div class="tier-includes">Includes</div>
-                        <ul>
-                            <li>2&ndash;3 initial concepts</li>
-                            <li>2 rounds of revisions</li>
-                            <li>Final files in color &amp; black/white</li>
-                            <li>PNG, SVG, PDF formats</li>
-                        </ul>
+            <!-- SIGNATURE OFFER: LEGACY TO NEW ERA SYSTEM -->
+            <p class="eyebrow a4">Signature Offer</p>
+            <div class="signature-grid">
+                <div class="signature-text a5">
+                    <h2>Legacy to New Era System</h2>
+                    <p class="signature-tagline">From overlooked to unforgettable.</p>
+                    <p class="signature-desc">A complete sports identity system for organizations entering a new chapter. Whether you're launching a brand-new team or modernizing an established program, this service uncovers your organization's story and transforms it into an identity built to represent your community for years to come.</p>
+                    <div class="signature-actions">
+                        <a href="/legacy-call#start" class="btn-signature">Start a Legacy Call</a>
+                        <a href="/legacy-call" class="arrow-link">Learn more about the process<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
                     </div>
                 </div>
+                <div class="signature-image a6">
+                    <img src="images/services/tier-system.jpg" alt="Utah Yeti full brand system: primary and secondary marks, wordmark lockups, jerseys, number set, and color palette, an example of the Legacy to New Era System">
+                </div>
+            </div>
 
-                <div class="tier t-identity a5">
-                    <span class="tier-recommended">Most common</span>
+            <div class="signature-phases a7">
+                <p class="signature-phases-label">The Process</p>
+                <div class="process-grid">
+                    <div class="process-step">
+                        <span class="step-num">01</span>
+                        <h4>Discover the Legacy</h4>
+                        <p>Every project begins with the Legacy Workshop, uncovering your organization's history, community roots, culture, and traditions.</p>
+                    </div>
+                    <div class="process-step">
+                        <span class="step-num">02</span>
+                        <h4>Define the Identity</h4>
+                        <p>Research becomes strategy: core themes, symbolism, visual direction, and the design principles that guide every decision.</p>
+                    </div>
+                    <div class="process-step">
+                        <span class="step-num">03</span>
+                        <h4>Craft the System</h4>
+                        <p>Strategy becomes identity: primary logo, wordmark, color palette, typography, and a complete set of brand guidelines.</p>
+                    </div>
+                    <div class="process-step">
+                        <span class="step-num">04</span>
+                        <h4>Launch into a New Era</h4>
+                        <p>The identity is introduced to the world, with mockups, rollout guidance, and the story behind the mark.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        </section>
+
+        <section class="services-band-soft">
+        <div class="content">
+
+            <!-- OTHER WAYS TO WORK TOGETHER -->
+            <p class="eyebrow a4">Other Ways to Work Together</p>
+            <div class="tiers tiers-two">
+
+                <div class="tier t-logo a5">
                     <div class="tier-image">
-                        <img src="images/services/tier-identity.jpg" alt="Utah Yeti brand identity: primary mark, wordmark, color palette, and typography pairing">
+                        <img src="images/services/tier-logo.jpg" alt="Utah Yeti primary logo mark, an example of a Legacy Mark project">
                     </div>
                     <div class="tier-inner">
-                        <h3 class="tier-name">Brand Identity</h3>
-                        <p class="tier-clarifier">What you need to launch.</p>
-                        <div class="tier-price">$1,200</div>
-                        <div class="tier-timeline">2&ndash;3 weeks</div>
-                        <p class="tier-desc">A logo paired with the supporting pieces a team or organization needs to look coherent across merchandise, digital, and print.</p>
-                        <div class="tier-includes">Includes</div>
+                        <h3 class="tier-name">Legacy Mark</h3>
+                        <p class="tier-clarifier">Starting with the mark.</p>
+                        <!-- Pricing hidden for now, kept here to re-enable later.
+                        <div class="tier-price">$500</div>
+                        <div class="tier-timeline">1&ndash;2 weeks</div>
+                        -->
+                        <p class="tier-desc">For organizations that need a professionally crafted team mark without investing in a complete identity system. The same craftsmanship and thoughtful design that defines every IslandTwig project, at a smaller scale.</p>
+                        <div class="tier-includes">Ideal for</div>
                         <ul>
-                            <li>Primary logo + wordmark</li>
-                            <li>Color palette</li>
-                            <li>Typography pairing</li>
-                            <li>One-page brand sheet (PDF)</li>
-                            <li>All final files &amp; formats</li>
+                            <li>New clubs</li>
+                            <li>Small organizations</li>
+                            <li>Budget-conscious teams</li>
+                            <li>Early-stage programs</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="tier t-system a6">
                     <div class="tier-image">
-                        <img src="images/services/tier-system.jpg" alt="Utah Yeti full brand system: primary and secondary marks, wordmark lockups, jerseys, number set, and color palette">
+                        <img src="images/services/tier-identity.jpg" alt="Utah Yeti brand identity applied across merchandise and gameday graphics, an example of Elevate the Identity work">
                     </div>
                     <div class="tier-inner">
-                        <h3 class="tier-name">Full Brand System</h3>
-                        <p class="tier-clarifier">What you need to scale.</p>
-                        <div class="tier-price">$2,000</div>
-                        <div class="tier-timeline">4&ndash;5 weeks</div>
-                        <p class="tier-desc">Everything in Brand Identity, plus the supporting marks and documentation a brand needs to be applied consistently across a wide range of surfaces.</p>
-                        <div class="tier-includes">Includes</div>
+                        <h3 class="tier-name">Elevate the Identity</h3>
+                        <p class="tier-clarifier">Bring your identity to life.</p>
+                        <p class="tier-desc">Once an identity is established, it can be expanded into every experience your organization creates. Every engagement is custom-scoped to fit your goals.</p>
+                        <div class="tier-includes">Examples</div>
                         <ul>
-                            <li>Everything in Brand Identity</li>
-                            <li>Secondary marks &amp; logo variants</li>
-                            <li>Expanded color &amp; type rules</li>
-                            <li>Social &amp; gameday graphics</li>
-                            <li>3&ndash;5 real-world mockups</li>
-                            <li>Multi-page brand guide (PDF)</li>
+                            <li>Uniform &amp; merchandise systems</li>
+                            <li>Gameday &amp; social graphics</li>
+                            <li>Event &amp; environmental branding</li>
+                            <li>Ongoing creative direction</li>
                         </ul>
                     </div>
                 </div>
@@ -784,8 +902,8 @@
             <a href="#start" class="custom-tier a7">
                 <div class="custom-tier-inner">
                     <div>
-                        <h3>Need something more?</h3>
-                        <p>Sports identity systems with jersey design, packaging, naming projects, or large-scale brand work. Quoted per project.</p>
+                        <h3>Not sure what you need?</h3>
+                        <p>Tell me about your organization and I'll help you figure out the right starting point.</p>
                     </div>
                     <span class="arrow-link">
                         Tell me about it
@@ -830,12 +948,12 @@
         </div>
         </section>
 
-        <section class="services-band-soft">
+        <section class="services-band-light">
         <div class="content">
 
             <!-- INTAKE FORM -->
             <section class="intake-section a8" id="start">
-                <h2>Start a project</h2>
+                <h2>Ready to define your team's next chapter?</h2>
                 <p class="lead">Tell me what you're working on. Anything you can share helps me get back to you with something useful instead of a generic reply.</p>
 
                 <form class="intake-card" id="intake-form" action="https://formspree.io/f/mgojdjre" method="POST">
@@ -860,32 +978,20 @@
                         <label>What are you looking for? (check all that apply)</label>
                         <div class="checkbox-grid">
                             <div class="checkbox-item">
-                                <input type="checkbox" id="ck-logo" name="needs" value="Logo">
-                                <label for="ck-logo">Logo</label>
+                                <input type="checkbox" id="ck-mark" name="needs" value="Legacy Mark">
+                                <label for="ck-mark">Legacy Mark</label>
                             </div>
                             <div class="checkbox-item">
-                                <input type="checkbox" id="ck-identity" name="needs" value="Brand Identity">
-                                <label for="ck-identity">Brand Identity</label>
+                                <input type="checkbox" id="ck-system" name="needs" value="Legacy to New Era System">
+                                <label for="ck-system">Legacy to New Era System</label>
                             </div>
                             <div class="checkbox-item">
-                                <input type="checkbox" id="ck-system" name="needs" value="Full identity system">
-                                <label for="ck-system">Full identity system</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="ck-jerseys" name="needs" value="Jerseys & uniforms">
-                                <label for="ck-jerseys">Jerseys &amp; uniforms</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="ck-numbers" name="needs" value="Numbers & nameplates">
-                                <label for="ck-numbers">Numbers &amp; nameplates</label>
+                                <input type="checkbox" id="ck-elevate" name="needs" value="Elevate the Identity">
+                                <label for="ck-elevate">Elevate the Identity</label>
                             </div>
                             <div class="checkbox-item">
                                 <input type="checkbox" id="ck-naming" name="needs" value="Naming">
                                 <label for="ck-naming">Naming</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="ck-graphics" name="needs" value="Social & gameday graphics">
-                                <label for="ck-graphics">Social &amp; gameday graphics</label>
                             </div>
                             <div class="checkbox-item">
                                 <input type="checkbox" id="ck-other" name="needs" value="Something else">
