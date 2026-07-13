@@ -289,12 +289,30 @@
 
   /* ═══ FOOTER ═══ */
 
-  .footer { padding: 32px 0 64px; text-align: center; }
+  .footer { padding: 64px 0 64px; text-align: center; }
   .footer-inner { max-width: 920px; margin: 0 auto; padding: 0 48px; }
-  .footer-email { font-family: 'Fira Code', monospace; font-size: 12.5px; font-weight: 300; color: var(--text-dim); text-decoration: none; letter-spacing: 0.02em; display: inline-block; margin-bottom: 20px; }
-  .footer-email:hover { color: var(--text); }
-  .footer-legal { font-size: 11px; color: color-mix(in srgb, var(--text) 18%, transparent); }
-  .footer-legal a { color: inherit; text-decoration: none; }
+  .social-row { display: flex; justify-content: center; gap: 16px; margin-bottom: 20px; }
+
+  .social-btn {
+    width: 38px; height: 38px; border-radius: 10px;
+    background: var(--text-faint); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-dim); text-decoration: none; transition: all 0.25s ease;
+  }
+  .social-btn:hover { background: var(--accent-dim); color: var(--text); border-color: var(--accent-dim); }
+  .social-btn svg { width: 17px; height: 17px; }
+
+  .footer-email { font-family: 'Fira Code', monospace; font-size: 12.5px; font-weight: 300; color: var(--accent); text-decoration: none; letter-spacing: 0.02em; transition: color 0.25s ease; display: inline-block; margin-bottom: 32px; }
+  .footer-email:hover { color: var(--accent-hover); }
+
+  .maker-mark { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 28px; text-decoration: none; }
+  .maker-mark-icon { width: 28px; height: 28px; border-radius: 6px; opacity: 0.35; transition: opacity 0.3s ease; }
+  .maker-mark:hover .maker-mark-icon { opacity: 0.55; }
+  .maker-mark-label { font-size: 11px; font-weight: 400; letter-spacing: 0.06em; color: color-mix(in srgb, var(--text-on-dark) 40%, transparent); transition: color 0.3s ease; }
+  .maker-mark:hover .maker-mark-label { color: color-mix(in srgb, var(--text-on-dark) 55%, transparent); }
+  .footer-legal { font-size: 11px; color: color-mix(in srgb, var(--text-on-dark) 40%, transparent); }
+  .footer-legal-link { color: inherit; text-decoration: none; transition: color 0.2s; }
+  .footer-legal-link:hover { color: var(--text-on-dark); }
 
   @media (max-width: 900px) {
     .image-pair, .image-trio { grid-template-columns: 1fr; }
@@ -596,8 +614,38 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-inner">
+      <div class="social-row">
+        <a href="https://www.instagram.com/islandtwigstudios" class="social-btn" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="5"/>
+            <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <a href="https://twitter.com/islandtwig" class="social-btn" aria-label="X / Twitter">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+        <a href="https://buymeacoffee.com/islandtwig" class="social-btn" aria-label="Buy Me A Coffee">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+            <line x1="6" y1="1" x2="6" y2="4"/>
+            <line x1="10" y1="1" x2="10" y2="4"/>
+            <line x1="14" y1="1" x2="14" y2="4"/>
+          </svg>
+        </a>
+      </div>
+
       <a href="mailto:hello@islandtwigstudios.com" class="footer-email">hello@islandtwigstudios.com</a>
-      <p class="footer-legal">&copy; 2026 IslandTwig Studios &middot; <a href="/privacy">Privacy</a></p>
+
+      <a href="https://www.instagram.com/islandtwigstudios" class="maker-mark">
+        <img class="maker-mark-icon" src="/images/appicons/n_mark.png" alt="N" width="28" height="28">
+        <span class="maker-mark-label">A Nick Holmquist project</span>
+      </a>
+
+      <p class="footer-legal">&copy; 2026 IslandTwig Studios &middot; <a href="/privacy" class="footer-legal-link">Privacy</a></p>
     </div>
   </footer>
 
