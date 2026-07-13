@@ -27,7 +27,6 @@
 :root {
     /* Page canvas, site-wide */
     --bg: #2b352e;
-    --bg-deep: #232c26;
 
     /* Accent thread, site-wide */
     --accent: #d9663c;
@@ -197,9 +196,10 @@ nav {
    its own opaque background) blocks them, which read as a seam. */
 .page { position: relative; z-index: 1; padding-top: 80px; background: var(--bg); }
 
-/* Footer sits deeper than the page canvas, site-wide. Every page
-   uses the same .footer class for its footer wrapper. */
-.footer { background: var(--bg-deep); }
+/* Footer matches the nav/hero green exactly, site-wide, so the last
+   band before it needs to be a different color (light) to keep a
+   visible seam. Every page uses the same .footer class. */
+.footer { background: var(--bg); }
 
 /* Mobile nav: swap wordmark for logo mark, hide Home (logo serves that role).
    Repeated per-page inside each page's own breakpoints today since it's
