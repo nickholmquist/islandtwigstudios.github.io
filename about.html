@@ -24,7 +24,14 @@
         .content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 56px 48px 0;
+            padding: 0 48px;
+        }
+
+        /* Dark green hero band, matching the intro treatment used on
+           every other page (homepage hero, Legacy Session hero). */
+        .about-hero {
+            background: var(--bg);
+            padding: 72px 0 80px;
         }
 
         /* Full-bleed light "rest stop" band wrapping the page body,
@@ -34,7 +41,7 @@
            colors without needing its own edit. */
         .about-content-band {
             background: var(--surface-cream);
-            padding-bottom: 64px;
+            padding: 64px 0;
             --text-strong: #2a2e28;
             --text: #2a2e28;
             --text-dim: #5f645b;
@@ -75,21 +82,6 @@
 
         .intro p:last-child { margin-bottom: 0; }
 
-        .subsection {
-            margin-top: 40px;
-            padding-top: 32px;
-            border-top: 1px solid var(--border);
-        }
-
-        .subsection h3 {
-            font-size: var(--fs-label);
-            font-weight: 600;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 14px;
-        }
-
         .subsection p {
             font-size: var(--fs-small);
             font-weight: 400;
@@ -101,6 +93,18 @@
         .subsection p:last-child { margin-bottom: 0; }
 
         .subsection strong { color: var(--text); font-weight: 600; }
+
+        /* Background: its own standalone block, bumped up from the
+           subsection default so it doesn't read as an appendix. */
+        .background-block p {
+            font-size: var(--fs-body-lg);
+            font-weight: 400;
+            color: var(--text-dim);
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .background-block p:last-child { margin-bottom: 0; }
 
         /* Primary CTA button, matching the homepage's .btn.btn-primary exactly. */
         .btn {
@@ -323,7 +327,9 @@
         @media (max-width: 768px) {
 
 
-            .content { padding: 40px 24px 0; }
+            .content { padding: 0 24px; }
+            .about-hero { padding: 56px 0 64px; }
+            .about-content-band { padding: 48px 0; }
             .practice-band { padding: 56px 0; }
 
             /* Mobile nav: swap wordmark for logo mark, hide Home (logo serves that role) */
@@ -335,7 +341,7 @@
         @media (max-width: 480px) {
 
 
-            .content { padding: 32px 20px 0; }
+            .content { padding: 0 20px; }
             .portrait-card { padding: 32px; }
             .contact-card { padding: 22px; }
         }
@@ -358,12 +364,13 @@
     </nav>
 
     <div class="page">
-        <section class="about-content-band">
+        <!-- HERO (dark green band) -->
+        <section class="about-hero">
         <div class="content">
 
             <div class="two-col">
 
-                <!-- LEFT: BIO + STORY -->
+                <!-- LEFT: INTRO -->
                 <div class="col-left">
                     <p class="eyebrow al1">About</p>
 
@@ -372,9 +379,29 @@
                     <div class="intro al2">
                         <p>I&rsquo;m the designer behind IslandTwig Studios. I build sports identities that give teams something worth representing. Every project runs on research, gets shaped by story, and is designed to pull players, fans, and communities together.</p>
                     </div>
+                </div>
 
+                <!-- RIGHT: PORTRAIT -->
+                <div class="col-right">
+                    <div class="portrait-card ar1">
+                        <img src="images/ProfilePic.JPEG" alt="Nick Holmquist">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </section>
+
+        <!-- WHY SPORTS + CONTACT (light band) -->
+        <section class="about-content-band">
+        <div class="content">
+
+            <div class="two-col">
+
+                <!-- LEFT: WHY SPORTS -->
+                <div class="col-left">
                     <div class="subsection al3">
-                        <h3>Why sports?</h3>
+                        <p class="eyebrow">Why sports?</p>
                         <p>Growing up, I saw what a team&rsquo;s identity could do. The best ones became part of the community. Stitched onto jerseys, worn around town on the weekend, passed down for years. They gave people something to belong to.</p>
                         <p>I also saw the opposite. When I played rugby, our branding never matched the pride we had for the team. The logo was generic, the merch was forgettable, and I always wished we had something people were actually excited to wear.</p>
                         <p>That stuck with me. Today I help schools, leagues, and organizations build identities that bring people together.</p>
@@ -382,10 +409,16 @@
                     </div>
                 </div>
 
-                <!-- RIGHT: PORTRAIT -->
+                <!-- RIGHT: CONTACT -->
                 <div class="col-right">
-                    <div class="portrait-card ar1">
-                        <img src="images/ProfilePic.JPEG" alt="Nick Holmquist">
+                    <div class="contact-card ar2">
+                        <div class="contact-card-inner">
+                            <h2>Let&rsquo;s talk.</h2>
+                            <p>Open for sports identity, brand systems, and naming. Whether your team has history or is just getting started, I&rsquo;d love to hear what you&rsquo;re building.</p>
+                            <a href="/legacy-session" class="btn btn-primary contact-pill">Start a Legacy Session</a>
+                            <p class="contact-or">Or email me directly at</p>
+                            <a href="mailto:hello@islandtwigstudios.com" class="contact-email">hello@islandtwigstudios.com</a>
+                        </div>
                     </div>
                 </div>
 
@@ -415,31 +448,12 @@
         </div>
         </section>
 
-        <!-- BACKGROUND + CONTACT (light band) -->
+        <!-- BACKGROUND (light band, single column) -->
         <section class="about-content-band">
         <div class="content">
-
-            <div class="two-col">
-
-                <div class="col-left">
-                    <div class="subsection" style="margin-top: 0; padding-top: 0; border-top: none;">
-                        <h3>Background</h3>
-                        <p>Outside IslandTwig, I work in technical success at a software company. That work taught me to think in systems, solve messy problems, and sweat the details. The same instincts show up in every identity I design.</p>
-                    </div>
-                </div>
-
-                <div class="col-right">
-                    <div class="contact-card ar2">
-                        <div class="contact-card-inner">
-                            <h2>Let&rsquo;s talk.</h2>
-                            <p>Open for sports identity, brand systems, and naming. Whether your team has history or is just getting started, I&rsquo;d love to hear what you&rsquo;re building.</p>
-                            <a href="/legacy-session" class="btn btn-primary contact-pill">Start a Legacy Session</a>
-                            <p class="contact-or">Or email me directly at</p>
-                            <a href="mailto:hello@islandtwigstudios.com" class="contact-email">hello@islandtwigstudios.com</a>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="background-block">
+                <p class="eyebrow">Background</p>
+                <p>Outside IslandTwig, I work in technical success at a software company. That work taught me to think in systems, solve messy problems, and sweat the details. The same instincts show up in every identity I design.</p>
             </div>
         </div>
         </section>
