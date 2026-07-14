@@ -106,7 +106,7 @@
             transition: all 0.25s ease;
         }
 
-        .btn-primary { background: var(--accent); color: var(--on-accent-text); }
+        .btn-primary { background: var(--accent); color: #fff; }
         .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 10px 24px rgba(0,0,0,0.25); }
 
         .btn-secondary {
@@ -542,6 +542,9 @@
             <span class="nav-logo-text">IslandTwig Studios</span>
             <img class="nav-logo-mark" src="images/islandtwig-mark.png" alt="IslandTwig Studios">
         </a>
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
         <ul class="nav-links">
             <li class="nav-link-home"><a href="/" class="active">Home</a></li>
             <li><a href="/legacy-session">Legacy Session</a></li>
@@ -839,5 +842,6 @@
         });
     }());
     </script>
+    <script src="/js/nav.js"></script>
 </body>
 </html>

@@ -592,7 +592,8 @@
         }
 
         .submit-btn:hover {
-            background: var(--text-strong);
+            background: var(--bg);
+            color: var(--text-on-dark);
             transform: translateY(-1px);
             box-shadow: 0 6px 18px color-mix(in srgb, var(--accent-warm) 30%, transparent);
         }
@@ -689,10 +690,8 @@
             .services-band-light { padding: 40px 0 48px; }
             .services-band-dark, .services-band-soft { padding: 48px 0; }
 
-            /* Mobile nav: swap wordmark for logo mark, hide Home (logo serves that role) */
+            /* Mobile nav: swap wordmark for logo mark */
             .nav-logo-text { display: none; }
-
-            .nav-link-home { display: none; }
         }
 
         @media (max-width: 480px) {
@@ -713,6 +712,9 @@
             <span class="nav-logo-text">IslandTwig Studios</span>
             <img class="nav-logo-mark" src="images/islandtwig-mark.png" alt="IslandTwig Studios">
         </a>
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
         <ul class="nav-links">
             <li class="nav-link-home"><a href="/">Home</a></li>
             <li><a href="/legacy-session">Legacy Session</a></li>
@@ -1015,5 +1017,6 @@
             });
         })();
     </script>
+    <script src="/js/nav.js"></script>
 </body>
 </html>

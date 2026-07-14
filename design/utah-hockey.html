@@ -396,10 +396,8 @@
     .footer-inner { padding-left: 24px; padding-right: 24px; }
     .study-band-light { padding: 32px 0; }
 
-    /* Mobile nav: swap wordmark for logo mark, hide Home (logo serves that role) */
+    /* Mobile nav: swap wordmark for logo mark */
     .nav-logo-text { display: none; }
-
-    .nav-link-home { display: none; }
   }
   @media (max-width: 480px) {
 
@@ -431,6 +429,9 @@
     <span class="nav-logo-text">IslandTwig Studios</span>
     <img class="nav-logo-mark" src="/images/islandtwig-mark.png" alt="IslandTwig Studios">
   </a>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+  </button>
   <ul class="nav-links">
     <li class="nav-link-home"><a href="/">Home</a></li>
     <li><a href="/legacy-session">Legacy Session</a></li>
@@ -810,5 +811,6 @@
 
 </div>
 
+    <script src="/js/nav.js"></script>
 </body>
 </html>

@@ -216,6 +216,36 @@ nav {
 .nav-links a.active { color: var(--accent); }
 .nav-links a:hover { color: var(--accent); }
 
+/* ═══ MOBILE NAV TOGGLE (hamburger) ═══
+   Hidden on desktop; shown at the 768px breakpoint below, where
+   .nav-links switches from an inline row to a collapsible dropdown. */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 101;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--text-strong);
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
 /* ═══ EYEBROW (shared section-label pill) ═══
    Filled accent pill used at the top of every band/section site-wide.
    Defined once here, rather than per-page, so it can't drift the way
@@ -269,14 +299,45 @@ nav {
    is correct on its own if a page links nothing else. */
 @media (max-width: 768px) {
     nav { padding: 18px 24px; }
-    .nav-links { gap: 24px; }
     .nav-logo-text { display: none; }
     .nav-logo-mark { display: block; }
-    .nav-link-home { display: none; }
+
+    .nav-toggle { display: flex; }
+
+    /* Collapsible dropdown, positioned relative to nav (which is
+       already position: fixed, so this just hangs off its bottom
+       edge regardless of nav's exact height at any breakpoint). */
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        /* Solid, not --nav-bg: that token is 85% opacity, tuned for
+           the thin top bar over scrolling content. This panel covers
+           whatever's directly behind it (often a hero), so it needs
+           to be fully opaque or that content shows through. */
+        background: var(--bg);
+        border-bottom: 1px solid var(--nav-border);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+        padding: 8px 24px 16px;
+    }
+
+    .nav-links.open { display: flex; }
+
+    .nav-links a {
+        display: block;
+        padding: 14px 0;
+        font-size: var(--fs-body);
+        border-bottom: 1px solid var(--nav-border);
+    }
+
+    .nav-links li:last-child a { border-bottom: none; }
 }
 
 @media (max-width: 480px) {
     nav { padding: 16px 20px; }
-    .nav-links { gap: 18px; }
-    .nav-links a { font-size: var(--fs-caption); }
 }

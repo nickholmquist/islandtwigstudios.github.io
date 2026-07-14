@@ -186,10 +186,8 @@
             .content { padding: 0 24px; }
             .agenda { grid-template-columns: 1fr; }
 
-            /* Mobile nav: swap wordmark for logo mark, hide Home (logo serves that role) */
+            /* Mobile nav: swap wordmark for logo mark */
             .nav-logo-text { display: none; }
-
-            .nav-link-home { display: none; }
         }
         @media (max-width: 480px) {
             .content { padding: 0 20px; }
@@ -205,6 +203,9 @@
             <span class="nav-logo-text">IslandTwig Studios</span>
             <img class="nav-logo-mark" src="images/islandtwig-mark.png" alt="IslandTwig Studios">
         </a>
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
         <ul class="nav-links">
             <li class="nav-link-home"><a href="/">Home</a></li>
             <li><a href="/legacy-session" class="active">Legacy Session</a></li>
@@ -555,5 +556,6 @@
     })();
     </script>
 
+    <script src="/js/nav.js"></script>
 </body>
 </html>
