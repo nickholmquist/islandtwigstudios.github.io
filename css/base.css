@@ -248,8 +248,12 @@ nav {
    aligned. Don't use this on sections that already have a real
    full-width grid/component (card grids etc.): those legitimately
    use the wider .content, and a narrower heading above them is
-   normal editorial practice, not the same bug. */
-.text-col { max-width: 720px; margin: 0 auto; }
+   normal editorial practice, not the same bug.
+   920px matches the reading-column width used on case study pages,
+   so the same rule applies everywhere: outer .content is always
+   1200px, and any narrower centered reading column inside it is
+   always 920px. Don't drift this value per page. */
+.text-col { max-width: 920px; margin: 0 auto; }
 
 /* ═══ PAGE STRUCTURE (shared root container) ═══ */
 
