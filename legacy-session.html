@@ -47,6 +47,12 @@
 
         /* .eyebrow is defined in base.css (shared pill, every page). */
 
+        /* Override the shared .text-col centering: on this page,
+           single-column sections should span the same width as the
+           two-column grids below them (outcome-grid, phase-row,
+           fit-grid), not a separate narrower reading column. */
+        .text-col { max-width: none; margin: 0; }
+
         .btn {
             display: inline-flex; align-items: center; justify-content: center; gap: 8px;
             padding: 15px 30px; border-radius: 100px;
@@ -63,9 +69,9 @@
 
         h2.big {
             font-size: var(--fs-h2); font-weight: 700;
-            letter-spacing: -0.01em; line-height: 1.25; margin-bottom: 18px; max-width: 640px;
+            letter-spacing: -0.01em; line-height: 1.25; margin-bottom: 18px;
         }
-        .sec p.body { font-size: var(--fs-body-lg); line-height: 1.7; margin-bottom: 16px; max-width: 620px; }
+        .sec p.body { font-size: var(--fs-body-lg); line-height: 1.7; margin-bottom: 16px; }
         .sec-dark p.body { color: var(--lw-on-dark-dim); }
         .sec-cream p.body, .sec-soft p.body { color: var(--lw-dim); }
 
@@ -74,11 +80,11 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: var(--fs-hero); font-weight: 800;
             letter-spacing: -0.035em; line-height: 1.0;
-            color: var(--lw-on-dark); margin-bottom: 20px; max-width: 720px;
+            color: var(--lw-on-dark); margin-bottom: 20px;
         }
-        .lw-hero .lead { font-size: var(--fs-lead); color: var(--lw-on-dark-dim); line-height: 1.55; max-width: 540px; margin-bottom: 32px; }
+        .lw-hero .lead { font-size: var(--fs-lead); color: var(--lw-on-dark-dim); line-height: 1.55; margin-bottom: 32px; }
 
-        .pain-list { list-style: none; padding: 0; margin: 24px 0 0; max-width: 620px; }
+        .pain-list { list-style: none; padding: 0; margin: 24px 0 0; }
         .pain-list li { font-size: var(--fs-body-lg); color: var(--lw-dim); line-height: 1.6; padding: 12px 0 12px 26px; position: relative; border-bottom: 1px solid var(--lw-border-light); }
         .pain-list li:before { content: '\00B7'; position: absolute; left: 4px; color: var(--lw-accent); font-weight: 700; font-size: 22px; line-height: 1; }
 
@@ -129,7 +135,7 @@
         }
         .testimonial-placeholder p { font-size: var(--fs-body); color: var(--lw-dim); font-style: italic; }
 
-        .faq-item { max-width: 680px; border-bottom: 1px solid var(--lw-border-light); padding: 22px 0; }
+        .faq-item { border-bottom: 1px solid var(--lw-border-light); padding: 22px 0; }
         .faq-item h3 { font-size: var(--fs-h4); font-weight: 700; color: var(--lw-strong); margin-bottom: 8px; letter-spacing: -0.01em; }
         .faq-item p { font-size: var(--fs-body); color: var(--lw-dim); line-height: 1.6; }
 
