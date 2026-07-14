@@ -185,7 +185,7 @@
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 20px;
+            padding: 28px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -205,11 +205,12 @@
         .portrait-card img {
             position: relative;
             z-index: 1;
-            width: 100%;
+            width: 78%;
+            max-width: 320px;
             aspect-ratio: 1 / 1;
             object-fit: cover;
             height: auto;
-            border-radius: 22px;
+            border-radius: var(--radius-sm);
             box-shadow: 0 8px 24px rgba(0,0,0,0.3);
         }
 
