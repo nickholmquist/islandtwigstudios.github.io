@@ -237,6 +237,20 @@ nav {
     margin-bottom: 20px;
 }
 
+/* ═══ TEXT COLUMN (centered, left-aligned reading column) ═══
+   For sections that are pure text flow with no image or grid to
+   balance the right side: on a wide viewport, a heading/paragraph
+   capped at a readable max-width but left-aligned inside a much
+   wider .content just hugs the left edge, leaving a large empty gap
+   on the right that reads as broken rather than intentional. Wrap
+   that section's inner content in .text-col so the column itself
+   sits centered on the page while the text inside it stays left-
+   aligned. Don't use this on sections that already have a real
+   full-width grid/component (card grids etc.): those legitimately
+   use the wider .content, and a narrower heading above them is
+   normal editorial practice, not the same bug. */
+.text-col { max-width: 720px; margin: 0 auto; }
+
 /* ═══ PAGE STRUCTURE (shared root container) ═══ */
 
 /* Background matches body's own so the top nav-offset padding
