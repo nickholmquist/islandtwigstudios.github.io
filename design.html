@@ -54,7 +54,7 @@
   }
 
   .header-tagline {
-    font-size: var(--fs-small);
+    font-size: var(--fs-body);
     color: var(--text-dim);
     line-height: 1.6;
     max-width: 480px;
@@ -94,27 +94,29 @@
     padding-bottom: 4px;
   }
 
-  .header-cta {
+  .btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
-    padding: 10px 20px;
-    background: color-mix(in srgb, var(--accent-warm) 12%, transparent);
-    border: 1px solid color-mix(in srgb, var(--accent-warm) 25%, transparent);
+    padding: 15px 28px;
     border-radius: 100px;
-    color: var(--accent-warm);
-    text-decoration: none;
     font-size: var(--fs-small);
-    font-weight: 600;
-    letter-spacing: 0.02em;
+    font-weight: 700;
+    text-decoration: none;
     transition: all 0.25s ease;
   }
-  .header-cta:hover {
-    background: color-mix(in srgb, var(--accent-warm) 20%, transparent);
-    border-color: color-mix(in srgb, var(--accent-warm) 40%, transparent);
-    transform: translateY(-1px);
+
+  .btn-primary { background: var(--accent); color: var(--on-accent-text); }
+  .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 10px 24px rgba(0,0,0,0.25); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--text-on-dark);
+    border: 1.5px solid var(--border-on-dark);
+    font-weight: 600;
   }
-  .header-cta svg { width: 13px; height: 13px; }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
 
   .divider {
     border-bottom: 1px solid var(--border);
@@ -427,15 +429,6 @@
     flex-wrap: wrap;
   }
 
-  .bottom-cta-eyebrow {
-    font-size: var(--fs-label);
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--accent-warm);
-    margin-bottom: 10px;
-  }
-
   .bottom-cta h2 {
     font-size: var(--fs-h2);
     font-weight: 700;
@@ -638,10 +631,7 @@
         <div class="availability-bar">Available for new projects</div>
       </div>
       <div class="header-right">
-        <a href="/services" class="header-cta">
-          See services
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+        <a href="/services" class="btn btn-secondary">See services</a>
       </div>
     </header>
 
@@ -999,7 +989,6 @@
     <a href="/services" class="bottom-cta">
       <div class="bottom-cta-inner">
         <div>
-          <div class="bottom-cta-eyebrow">Available for work</div>
           <h2>Ready to build something worth wearing?</h2>
           <p>Sports identity, logos, and brand systems. Starting at $500.</p>
         </div>
