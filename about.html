@@ -82,23 +82,14 @@
 
         .intro p:last-child { margin-bottom: 0; }
 
-        /* :not(.eyebrow) matters here: without it this generic p
+        /* Shared prose-paragraph style for both content blocks below
+           the hero (Why Sports, Background). One rule, not two, so
+           they can't drift apart from each other again the way
+           .subsection and .background-block just did.
+           :not(.eyebrow) matters here: without it this generic p
            selector also catches the eyebrow pill nested in the same
            block and overwrites its color/size with body-text styles. */
-        .subsection p:not(.eyebrow) {
-            font-size: var(--fs-small);
-            font-weight: 400;
-            color: var(--text-dim);
-            line-height: 1.7;
-            margin-bottom: 12px;
-        }
-
-        .subsection p:not(.eyebrow):last-child { margin-bottom: 0; }
-
-        .subsection strong { color: var(--text); font-weight: 600; }
-
-        /* Background: its own standalone block, bumped up from the
-           subsection default so it doesn't read as an appendix. */
+        .subsection p:not(.eyebrow),
         .background-block p:not(.eyebrow) {
             font-size: var(--fs-body-lg);
             font-weight: 400;
@@ -107,7 +98,10 @@
             margin-bottom: 12px;
         }
 
+        .subsection p:not(.eyebrow):last-child,
         .background-block p:not(.eyebrow):last-child { margin-bottom: 0; }
+
+        .subsection strong { color: var(--text); font-weight: 600; }
 
         /* Primary CTA button, matching the homepage's .btn.btn-primary exactly. */
         .btn {
@@ -191,7 +185,7 @@
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 40px;
+            padding: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -211,8 +205,7 @@
         .portrait-card img {
             position: relative;
             z-index: 1;
-            width: 75%;
-            max-width: 260px;
+            width: 100%;
             aspect-ratio: 1 / 1;
             object-fit: cover;
             height: auto;
