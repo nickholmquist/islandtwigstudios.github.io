@@ -82,7 +82,10 @@
 
         .intro p:last-child { margin-bottom: 0; }
 
-        .subsection p {
+        /* :not(.eyebrow) matters here: without it this generic p
+           selector also catches the eyebrow pill nested in the same
+           block and overwrites its color/size with body-text styles. */
+        .subsection p:not(.eyebrow) {
             font-size: var(--fs-small);
             font-weight: 400;
             color: var(--text-dim);
@@ -90,13 +93,13 @@
             margin-bottom: 12px;
         }
 
-        .subsection p:last-child { margin-bottom: 0; }
+        .subsection p:not(.eyebrow):last-child { margin-bottom: 0; }
 
         .subsection strong { color: var(--text); font-weight: 600; }
 
         /* Background: its own standalone block, bumped up from the
            subsection default so it doesn't read as an appendix. */
-        .background-block p {
+        .background-block p:not(.eyebrow) {
             font-size: var(--fs-body-lg);
             font-weight: 400;
             color: var(--text-dim);
@@ -104,7 +107,7 @@
             margin-bottom: 12px;
         }
 
-        .background-block p:last-child { margin-bottom: 0; }
+        .background-block p:not(.eyebrow):last-child { margin-bottom: 0; }
 
         /* Primary CTA button, matching the homepage's .btn.btn-primary exactly. */
         .btn {
@@ -260,7 +263,7 @@
         }
 
         .contact-or {
-            font-size: var(--fs-caption) !important;
+            font-size: var(--fs-small) !important;
             color: var(--text-dim) !important;
             margin-bottom: 6px !important;
         }
