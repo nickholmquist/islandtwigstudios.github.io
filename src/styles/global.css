@@ -1,10 +1,11 @@
 /* ═══════════════════════════════════════════════════════════════
-   IslandTwig Studios. Base Stylesheet
+   IslandTwig Studios. Global Stylesheet
    Shared across every page: design tokens, reset, nav, and the
    page background treatment. Page-specific layout (content widths,
    cards, footers, case study components) stays in each page's own
-   <style> block, since those genuinely differ between the standard
-   pages and the case study template.
+   <style> block (Astro scopes these per-component automatically),
+   since those genuinely differ between the standard pages and the
+   case study template.
 
    Single theme, dark-green-led, warm orange accent. No toggle, no
    [data-theme="dark"] block. The dark green canvas (--bg) is the
@@ -16,12 +17,10 @@
    The homepage's own light "rest stop" bands (Problem, Philosophy,
    Selected Work) are a deliberate homepage-only exception: they use
    --surface-cream / --surface-soft plus their own page-scoped dark
-   text tokens, defined in index.html itself, not here.
+   text tokens, defined in index.astro itself, not here.
 
-   Linked via: <link rel="stylesheet" href="/css/base.css">
-   Must be linked AFTER the Plus Jakarta Sans font import and
-   BEFORE each page's own <style> block, so page-specific rules
-   can still override where needed.
+   Imported once in Layout.astro, before any page's own <style>
+   block, so page-specific rules can still override where needed.
    ═══════════════════════════════════════════════════════════════ */
 
 :root {
@@ -70,7 +69,7 @@
     --border-on-dark: rgba(255, 255, 255, 0.14);
 
     /* Homepage-only light "rest stop" surfaces. Referenced by
-       index.html's own page-scoped band tokens, not used elsewhere. */
+       index.astro's own page-scoped band tokens, not used elsewhere. */
     --surface-cream: #f4f2ea;
     --surface-soft: #eae8dd;
     --surface-card: #d9d5c6;
@@ -248,12 +247,15 @@ nav {
 
 /* ═══ EYEBROW (shared section-label pill) ═══
    Filled accent pill used at the top of every band/section site-wide.
-   Defined once here, rather than per-page, so it can't drift the way
-   it did before: several pages had grown their own plain-text
-   "section-label" that lost the pill treatment entirely. Every page
-   should use this class for that role; page-scoped styles should
-   only adjust spacing (e.g. margin-bottom) via a more specific
-   selector, never redefine background/color/padding. */
+   Defined once here so it can't drift the way it did on the static
+   site, where several pages grew their own plain-text "section-label"
+   that lost the pill treatment entirely, or a generic descendant `p`
+   selector silently overrode its color. Every page should use this
+   class for that role; page-scoped styles should only adjust spacing
+   (e.g. margin-bottom) via a more specific selector, never redefine
+   background/color/padding — and any generic `p` selector scoped to
+   a container that also holds an eyebrow must exclude it with
+   `:not(.eyebrow)`. */
 .eyebrow {
     display: inline-block;
     background: var(--accent);
@@ -266,19 +268,6 @@ nav {
     border-radius: 4px;
     margin-bottom: 20px;
 }
-
-/* ═══ TEXT COLUMN (retired) ═══
-   Used to center single-column sections at a narrower width than
-   .content. Turned out wrong: it made one-column sections narrower
-   than the two-column grids sitting right next to them on the same
-   page (outcome grid, phase cards, image pairs), which read as
-   inconsistent rather than intentional. Single-column sections
-   should span the same width .content already gives a two-column
-   grid, not a separate narrower reading column. Kept as a no-op
-   (rather than removing the class from every page) since some pages
-   still carry the markup; it does nothing now. Don't reintroduce a
-   max-width/margin here. */
-.text-col { }
 
 /* ═══ PAGE STRUCTURE (shared root container) ═══ */
 
@@ -293,10 +282,6 @@ nav {
    visible seam. Every page uses the same .footer class. */
 .footer { background: var(--bg); }
 
-/* Mobile nav: swap wordmark for logo mark, hide Home (logo serves that role).
-   Repeated per-page inside each page's own breakpoints today since it's
-   tangled with page-specific responsive rules, kept here too so base.css
-   is correct on its own if a page links nothing else. */
 @media (max-width: 768px) {
     nav { padding: 18px 24px; }
     .nav-logo-text { display: none; }

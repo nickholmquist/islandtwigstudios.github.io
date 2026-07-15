@@ -1,0 +1,316 @@
+---
+import CaseStudy from '../../layouts/CaseStudy.astro';
+
+const meta = [
+	{ label: 'Discipline', value: 'Identity · Vexillology · Civic design' },
+	{ label: 'Year', value: '2022' },
+	{ label: 'Status', value: 'Competition entry · Honored' },
+];
+
+const jumps = [
+	{ href: '#brief', label: 'The Brief' },
+	{ href: '#work', label: 'The Work' },
+	{ href: '#choices', label: 'Design Choices' },
+	{ href: '#recognition', label: 'Recognition' },
+	{ href: '#reflection', label: 'Reflection' },
+];
+---
+
+<CaseStudy
+	title="Redesigning the Utah State Flag — IslandTwig Studios"
+	description="Competition entry for Utah's More Than A Flag initiative. One of 70 designs recognized by the Utah State Legislature as inspiration for the final adopted flag."
+	path="/design/utah-flag"
+	eyebrow="Civic Identity · Vexillology · Competition"
+	heading="Redesigning the Utah State Flag."
+	tagline="A competition entry for the state's More Than A Flag initiative. One of 70 designs recognized by the Utah State Legislature as inspiration for the final adopted flag."
+	meta={meta}
+	heroImage="/images/case-studies/utah-flag/hero-final-submission.jpeg"
+	heroAlt="Utah State Flag submission by Nick Holmquist: navy canton with five white stars, mountain silhouette dividing into white middle and red base, with a gold hexagonal beehive cell at center"
+	heroFit="contain"
+	summaryLabel="In this study"
+	summaryText="How eight initial directions narrowed to two finals. The specific sources behind each color, star, and angle. What happened at the State Capitol on February 7, 2023."
+	jumps={jumps}
+	ctaHeading="Working on a mark that has to last?"
+	ctaText="I bring this same process to client identity work. Sports identity packages start at $500."
+	ctaPillLabel="See services"
+>
+	<Fragment slot="honor-pill">
+		<span class="study-meta-honor">
+			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5L17 22l-5-3-5 3 1.5-8.5"/></svg>
+			1 of 70 designs honored statewide
+		</span>
+	</Fragment>
+
+	<!-- THE BRIEF -->
+	<section class="study-body">
+		<div class="study-section" id="brief">
+			<div class="eyebrow">The Brief</div>
+			<h2>Utah opened its state flag up to anyone with a steady hand.</h2>
+			<p>In 2022, the State of Utah announced an open competition to redesign the state flag. The existing flag was a state seal on a blue field. Functional, but indistinguishable from a dozen other state flags at a distance, and built for a different era. The brief was simple. Submit a design. Anyone could enter.</p>
+			<p>I didn't enter to win. I entered because the prompt is one of the cleanest problems in graphic design. <strong>A flag has to mean something specific, look like something distinct, and survive every size from a phone screen to a windblown pole.</strong> If you can solve that for a state you actually live in, you're learning something the next paid project will need.</p>
+		</div>
+
+		<!-- THE CONSTRAINTS -->
+		<div class="study-section">
+			<div class="eyebrow">The Constraints</div>
+			<h2>Vexillology has rules. Most flags break them.</h2>
+			<p>The North American Vexillological Association's guidance is short and uncompromising. Use two or three basic colors. Keep it simple enough a child can draw it from memory. Use meaningful symbolism. Avoid lettering and seals. Be distinctive. Most US state flags fail at least three of those at once.</p>
+			<p>The harder constraint was Utah itself. The state's identity is densely packed with specific symbols. The beehive. The motto of industry. The mountains. A pioneer history that means very different things to different residents. I wanted a flag that <strong>kept what mattered without literalizing it.</strong> Something that read as Utah without illustrating Utah.</p>
+		</div>
+	</section>
+
+	<!-- THE WORK — Exploration Grid -->
+	<div class="study-image-block">
+		<div class="study-image">
+			<img src="/images/case-studies/utah-flag/first-flag-concepts.jpeg" alt="Eight early Utah State Flag concept directions exploring different arrangements of mountains, beehives, hexagonal honeycomb cells, stars, and the heritage navy-white-red tri-color" />
+		</div>
+		<div class="study-image-caption">Eight directions from the early exploration. Each one isolates a different question. Beehive or hexagon. Heritage tri-color or two-color. Stars or no stars. Literal mountain or abstracted ridge.</div>
+	</div>
+
+	<section class="study-body">
+		<div class="study-section" id="work">
+			<div class="eyebrow">The Work</div>
+			<h2>Eight directions, then a clear pair.</h2>
+			<p>The first round wasn't about taste. It was about reducing the variable space. Each composition tested one decision at a time. Whether the beehive should appear as the literal beehive icon, as a hexagonal honeycomb cluster, or as a single hex cell standing in for the whole hive. Whether the mountains should sit as a silhouette dividing the field or as a horizon line. Whether to keep the heritage navy-white-red palette or trade tradition for legibility.</p>
+			<p>After living with the grid for a few days, a pattern emerged. The strongest directions all shared three moves. <strong>Mountain silhouettes as the structural divider. The heritage tri-color, kept. A single gold hexagonal cell as the beehive's stand-in.</strong> Everything else was noise.</p>
+			<div class="pull-quote">
+				<p>"I wanted a flag that kept what mattered without literalizing it. Something that read as Utah without illustrating Utah."</p>
+			</div>
+			<p>I narrowed to two finals. Same structural logic, different opening notes. One leans on a canton of stars. The other lets the mountain ridge do all the work alone. Submitting two gave the committee a choice without splitting the design language.</p>
+		</div>
+	</section>
+
+	<!-- FINAL SUBMISSIONS + UTAH'S WINNING DESIGN -->
+	<div class="study-image-block narrow">
+		<div class="study-image">
+			<img src="/images/case-studies/utah-flag/final-submissions-comparison.jpeg" alt="Top: two final flag submissions side by side, both featuring mountain silhouettes, navy-white-red palette, and a gold hexagonal beehive cell. Bottom: Utah's adopted state flag for comparison, with similar mountain silhouette, tri-color, and beehive in a hexagonal badge." />
+		</div>
+		<div class="study-image-caption">Top: my two final submissions. Bottom: the design Utah eventually adopted, included on the original board for context.</div>
+	</div>
+
+	<section class="study-body">
+		<div class="study-section">
+			<h2>What both finals share.</h2>
+			<p>Same structural logic in both. Mountain silhouette as the divider. Heritage tri-color, kept. Gold hexagonal cell at the center. The only meaningful difference between the two is the canton: one carries five white stars, the other lets the geometry do all the talking.</p>
+			<p>Both moves carried through to the design Utah eventually adopted. <strong>The state's final flag uses a mountain silhouette dividing a navy, white, and red field, with a beehive sitting inside a hexagonal badge.</strong> A separate process arrived at the same structural answer. That convergence is part of why mine was among the designs the state recognized.</p>
+		</div>
+
+		<div class="study-section" id="choices">
+			<div class="eyebrow">Design Choices</div>
+			<h2>Every choice has a source.</h2>
+			<p>A flag has too few elements for any of them to be filler. Each color, each shape, each angle was a decision with a reference behind it. Naming the sources is what separates a flag that looks like Utah from one that just looks like a flag.</p>
+
+			<div class="design-choice">
+				<div class="design-choice-label"><span class="design-choice-swatch" style="background:#003478"></span>Navy</div>
+				<p>Sampled from Utah's historic state flag, the same blue that has carried the state's identity since 1913. There was no reason to redesign what already worked. Using the same navy was a way to honor the legacy rather than replace it. The state's final adopted flag made the same call.</p>
+			</div>
+
+			<div class="design-choice">
+				<div class="design-choice-label"><span class="design-choice-swatch" style="background:#b22234"></span>Red</div>
+				<p>The color value is US flag red. The symbolism, on a Utah flag, is southern Utah's red rock landscape. Two references inside one color. The choice keeps the new flag in conversation with the American flag tradition while pointing at the geography that makes the state feel like itself.</p>
+			</div>
+
+			<div class="design-choice">
+				<div class="design-choice-label"><span class="design-choice-swatch" style="background:#ffcf48"></span>Yellow</div>
+				<p>Sampled from Sunglow, the Crayola color renamed "Bee-UTAH-ful" in the company's 2004 State Your Color contest. A seventh-grader from Murray named Rusty Griggs gave it the name, picked from 220 Utah entries by a Crayola committee for the first state-themed pack in Crayola's 100-year history. Bee-UTAH-ful is the kind of small, lower-case piece of state identity that won't show up on any official register. Using it as the flag's yellow is a quiet inside reference for the Utahns who would know.</p>
+			</div>
+
+			<div class="design-choice">
+				<div class="design-choice-label">Five stars</div>
+				<p>Two readings of the same five points. The Mighty 5 national parks: Arches, Bryce Canyon, Canyonlands, Capitol Reef, Zion. And the five federally recognized tribal nations of Utah: Diné (Navajo), Goshute, Paiute, Shoshone, and Ute. The final adopted state flag also lands on five-pointed symbolism for the tribal nations.</p>
+			</div>
+
+			<div class="design-choice">
+				<div class="design-choice-label">Mountain ridge</div>
+				<p>A clean abstraction. Not the Wasatch, not the Uintas, not any specific range. A composed ridge that any Utahn would recognize as home without claiming a particular one. The mountains are also the structural divider for the flag, separating navy from white from red.</p>
+			</div>
+
+			<div class="design-choice">
+				<div class="design-choice-label">Hexagon</div>
+				<p>The single beehive cell standing in for the whole hive. Utah is the Beehive State. A hex is the unit a beehive is built from. Drawing the abstract unit instead of the literal beehive icon gives the flag a symbol that scales. It reads at jersey distance. It survives a one-color pin. It works on a phone.</p>
+			</div>
+
+			<div class="design-choice">
+				<div class="design-choice-label">Geometry</div>
+				<p>The peaks of the mountain ridge are cut at the same angle as the sides of the hexagon. The kind of decision a viewer would not consciously notice but would feel as cohesion. The composition holds together because the geometry across the flag is the same geometry.</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- RECOGNITION -->
+	<section class="recognition-block" id="recognition">
+		<div class="recognition-card">
+			<div>
+				<div class="eyebrow">Recognition</div>
+				<h2>Honored at the Utah State Capitol.</h2>
+				<p>Out of 5,703 flag designs submitted to the More Than A Flag initiative, 70 were recognized by the Utah State Legislature as having inspired the final adopted flag. Mine was one of them.</p>
+				<p>On February 7, 2023, the Legislature held a ceremony in the Gold Room of the Utah State Capitol. Senator Dan McCay, who sponsored the flag bill, presented the recognition alongside Senator Jake Anderegg and Representative Robert Spendlove. The $5,000 the state had originally set aside for a single winning design was instead split into 70 shares, one for each honoree. Each of us was called by name, given a cardboard cutout of our flag, and asked to sign the banners around the podium.</p>
+				<p>The <a href="https://www.deseret.com/utah/2023/2/7/23590098/new-state-flag-utah-artists-split-5000-prize-money/" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: underline; text-decoration-color: rgba(122,158,135,0.3); text-underline-offset: 3px;">Deseret News covered the ceremony</a>. The crowd ran from elementary school students to retired designers, from across Utah and a few from outside it. McCay said each contributor would be memorialized in state history. It's the only project I've worked on that came with that sentence attached.</p>
+			</div>
+			<div class="recognition-image">
+				<!-- TODO Nick: drop in the honorarium certificate photo here -->
+				<!-- placeholder until certificate image is added -->
+				<img src="/images/case-studies/utah-flag/honorarium-certificate.jpeg" alt="Certificate of recognition from the Utah State Legislature honoring the flag submission" />
+			</div>
+		</div>
+	</section>
+
+	<!--
+		Optional pull-quote for Nick to drop in later if he wants the McCay moment:
+
+		"McCay shared a story about a constituent who passed away while drawing
+		his inspiration for the new flag. On top of his papers, in the chair where
+		he passed, was a half-completed design. He'd spent his entire life in
+		service, and he thought this was the last thing he could do to serve."
+	-->
+
+	<!-- CEREMONY PHOTOS -->
+	<!-- TODO Nick: drop in two ceremony photos from the State Capitol -->
+	<div class="ceremony-pair">
+		<div class="study-image">
+			<img src="/images/case-studies/utah-flag/ceremony1.jpeg" alt="Recognition ceremony at the Utah State Capitol" />
+		</div>
+		<div class="study-image">
+			<img src="/images/case-studies/utah-flag/ceremony-2.jpeg" alt="Recognition ceremony at the Utah State Capitol" />
+		</div>
+	</div>
+
+	<!-- REFLECTION -->
+	<section class="study-body">
+		<div class="study-section" id="reflection">
+			<div class="eyebrow">Reflection</div>
+			<h2>The format does more of the work than I expected.</h2>
+			<p>The most useful thing about a flag brief is what it refuses. No lettering. No seal. No gradient that won't print. No flourish that doesn't survive a stiff wind. Every constraint pushes the design toward the same destination. <strong>The simplest mark that still means something.</strong></p>
+			<p>That refusal is what makes flag work compound into other work. Brand identity has the same physics. Logos don't get good by adding. They get good by losing everything that wasn't earning its place. Three months on a flag I never expected to win was the cheapest way I've ever bought that lesson.</p>
+			<p>The other thing that stayed with me. Civic design is reviewed by people who don't read design Twitter. The committee included educators, veterans, tribal representatives, schoolchildren who voted on the finalists. The work has to land for an audience that doesn't share your vocabulary. That's a useful corrective for anyone who designs for a living.</p>
+		</div>
+	</section>
+</CaseStudy>
+
+<style>
+	/* Recognition pill, sits beside meta items. Authored via the
+	   "honor-pill" named slot, so it carries this page's own scope id
+	   and can be styled here directly (no is:global needed). */
+	.study-meta-honor {
+		display: inline-flex; align-items: center; gap: 8px;
+		font-size: var(--fs-caption); font-weight: 600;
+		color: var(--accent);
+		padding: 8px 14px;
+		background: var(--accent-dim);
+		border: 1px solid color-mix(in srgb, var(--accent) 18%, transparent);
+		border-radius: 100px;
+		align-self: center;
+	}
+	.study-meta-honor svg { width: 12px; height: 12px; }
+
+	/* Pull quote */
+	.pull-quote {
+		margin: 32px 0;
+		padding: 24px 28px;
+		border-left: 3px solid var(--accent-warm);
+		background: color-mix(in srgb, var(--accent-warm) 5%, transparent);
+		border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+	}
+	.pull-quote p {
+		font-size: var(--fs-lead); font-weight: 400;
+		color: var(--text-strong); line-height: 1.55;
+		margin: 0;
+		font-style: italic;
+	}
+
+	/* Design choice rows (color/geometry decisions inside The Work) */
+	.design-choice {
+		padding: 22px 0;
+		border-top: 1px solid var(--border);
+	}
+	.design-choice:last-child {
+		padding-bottom: 0;
+	}
+	.design-choice-label {
+		font-size: var(--fs-label);
+		font-weight: 700;
+		letter-spacing: 0.16em;
+		text-transform: uppercase;
+		color: var(--text-strong);
+		margin-bottom: 10px;
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+	.design-choice-swatch {
+		width: 14px;
+		height: 14px;
+		border-radius: 3px;
+		border: 1px solid color-mix(in srgb, var(--text) 15%, transparent);
+		flex-shrink: 0;
+	}
+	.design-choice p {
+		margin-bottom: 0;
+	}
+
+	/* ═══ RECOGNITION BLOCK ═══ */
+
+	.recognition-block {
+		max-width: 1200px;
+		margin: 0 auto 64px;
+		padding: 0 48px;
+	}
+	.recognition-card {
+		background: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		padding: 40px;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 40px;
+		align-items: center;
+	}
+	.recognition-card :global(.eyebrow) { margin-bottom: 12px; }
+	.recognition-card h2 {
+		font-size: var(--fs-h2); font-weight: 700;
+		color: var(--text-strong);
+		letter-spacing: -0.01em; line-height: 1.25;
+		margin-bottom: 12px;
+	}
+	.recognition-card p {
+		font-size: var(--fs-small); font-weight: 400;
+		color: var(--text); line-height: 1.75;
+		margin-bottom: 12px;
+	}
+	.recognition-card p:last-child { margin-bottom: 0; }
+	.recognition-image {
+		border-radius: var(--radius-sm);
+		overflow: hidden;
+		background: var(--surface-raised);
+		aspect-ratio: 3 / 4;
+	}
+	.recognition-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+	/* Ceremony pair */
+	.ceremony-pair {
+		max-width: 1200px;
+		margin: 0 auto 64px;
+		padding: 0 48px;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 16px;
+	}
+	.ceremony-pair :global(.study-image) { margin: 0; }
+
+	@media (max-width: 900px) {
+		.recognition-card { grid-template-columns: 1fr; gap: 28px; }
+		.recognition-image { aspect-ratio: 4 / 3; max-width: 360px; margin: 0 auto; }
+		.ceremony-pair { grid-template-columns: 1fr; }
+	}
+	@media (max-width: 768px) {
+		.recognition-block, .ceremony-pair {
+			padding-left: 24px; padding-right: 24px;
+		}
+	}
+	@media (max-width: 480px) {
+		.recognition-block, .ceremony-pair {
+			padding-left: 20px; padding-right: 20px;
+		}
+		.recognition-card { padding: 28px; }
+	}
+</style>

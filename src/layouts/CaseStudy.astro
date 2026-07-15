@@ -1,0 +1,452 @@
+---
+import Layout from './Layout.astro';
+
+interface MetaItem {
+	label: string;
+	value: string;
+}
+
+interface Jump {
+	href: string;
+	label: string;
+}
+
+interface Props {
+	title: string;
+	description: string;
+	path: string; // e.g. "/design/hey-bright"
+	eyebrow: string;
+	heading: string;
+	tagline: string;
+	meta: MetaItem[];
+	heroImage: string;
+	heroAlt: string;
+	summaryLabel?: string;
+	summaryText: string;
+	jumps: Jump[];
+	ctaEyebrow?: string;
+	ctaHeading: string;
+	ctaText: string;
+	ctaPillLabel?: string;
+	heroFit?: 'cover' | 'contain'; // 'contain' for art that must show in full, uncropped (Utah Flag)
+}
+
+const {
+	title,
+	description,
+	path,
+	eyebrow,
+	heading,
+	tagline,
+	meta,
+	heroImage,
+	heroAlt,
+	summaryLabel = 'In this showcase',
+	summaryText,
+	jumps,
+	ctaEyebrow = 'Available for work',
+	ctaHeading,
+	ctaText,
+	ctaPillLabel = 'See services',
+	heroFit = 'cover',
+} = Astro.props;
+---
+
+<Layout title={title} description={description} ogType="article" path={path}>
+	<!-- BACK LINK -->
+	<div class="back-link-row">
+		<a href="/design" class="back-link">
+			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+			Back to Design
+		</a>
+	</div>
+
+	<!-- STUDY HEADER -->
+	<header class="study-header">
+		<div class="text-col">
+			<div class="eyebrow">{eyebrow}</div>
+			<h1>{heading}</h1>
+			<p class="study-tagline">{tagline}</p>
+			<div class="study-meta">
+				{meta.map((item) => (
+					<div class="study-meta-item">
+						<div class="study-meta-label">{item.label}</div>
+						<div class="study-meta-value">{item.value}</div>
+					</div>
+				))}
+				<slot name="honor-pill" />
+			</div>
+		</div>
+	</header>
+
+	<!-- HERO IMAGE -->
+	<div class="study-hero">
+		<div class="study-hero-image" class:list={heroFit === 'contain' && 'contain'}>
+			<img src={heroImage} alt={heroAlt} />
+		</div>
+	</div>
+
+	<!-- STUDY SUMMARY + JUMP LINKS -->
+	<section class="study-band-light">
+	<div class="study-summary">
+		<div class="study-summary-card">
+			<div class="study-summary-label">{summaryLabel}</div>
+			<p class="study-summary-text">{summaryText}</p>
+			<div class="study-summary-jumps">
+				{jumps.map((jump) => <a href={jump.href}>{jump.label}</a>)}
+			</div>
+		</div>
+	</div>
+	</section>
+
+	<!-- BODY: each case study authors its own sequence of
+	     .study-body/.study-section, .study-image-block, .image-pair,
+	     .image-trio, and an optional highlight card here. -->
+	<slot />
+
+	<!-- STUDY CTA -->
+	<section class="study-band-light">
+	<div class="study-cta">
+		<a href="/services" class="study-cta-card">
+			<div class="study-cta-inner">
+				<div>
+					<div class="study-cta-eyebrow">{ctaEyebrow}</div>
+					<h2>{ctaHeading}</h2>
+					<p>{ctaText}</p>
+				</div>
+				<span class="study-cta-pill">
+					{ctaPillLabel}
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+				</span>
+			</div>
+		</a>
+	</div>
+	</section>
+</Layout>
+
+<style>
+	/* ═══ BACK LINK ═══ */
+
+	.back-link-row {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 32px 48px 0;
+	}
+	.back-link {
+		display: inline-flex; align-items: center; gap: 8px;
+		font-size: var(--fs-caption); font-weight: 600; letter-spacing: 0.08em;
+		text-transform: uppercase; color: var(--text-dim);
+		text-decoration: none;
+		transition: color 0.2s, gap 0.25s ease;
+	}
+	.back-link:hover { color: var(--accent); gap: 12px; }
+	.back-link svg { width: 12px; height: 12px; }
+
+	/* ═══ STUDY HEADER ═══ */
+
+	.study-header {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 32px 48px 48px;
+	}
+	/* .eyebrow is defined in global.css (shared pill, every page). */
+	.study-header h1 {
+		font-size: var(--fs-h1-study);
+		font-weight: 800; letter-spacing: -0.02em;
+		line-height: 1.1; color: var(--text-strong);
+		margin-bottom: 18px;
+	}
+	.study-tagline {
+		font-size: var(--fs-lead); font-weight: 400; color: var(--text-dim);
+		line-height: 1.55;
+		margin-bottom: 32px;
+	}
+	.study-meta {
+		display: flex; gap: 40px;
+		padding-top: 24px;
+		border-top: 1px solid var(--border);
+		flex-wrap: wrap;
+		align-items: center;
+	}
+	.study-meta-item { display: flex; flex-direction: column; gap: 4px; }
+	.study-meta-label { font-size: var(--fs-micro); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); }
+	.study-meta-value { font-size: var(--fs-small); font-weight: 500; color: var(--text); }
+
+	/* .study-meta-honor (Utah Flag's ribbon badge) is authored by the
+	   consuming page via the "honor-pill" named slot, so its styling
+	   lives in that page's own <style> block, not here. */
+
+	/* ═══ BANDS ═══
+	   Full-bleed light "rest stop" bands, matching the homepage's
+	   banding. Scoped custom-property overrides mean every existing
+	   rule below (which already references these tokens) resolves to
+	   light-band-appropriate colors without needing its own edit. */
+
+	.study-band-light {
+		background: var(--surface-cream);
+		padding: 48px 0;
+		--text-strong: #2a2e28;
+		--text: #2a2e28;
+		--text-dim: #5f645b;
+		--text-faint: rgba(42, 46, 40, 0.05);
+		--border: var(--border-on-light);
+		--surface: var(--surface-card);
+		--surface-raised: #ffffff;
+	}
+
+	/* ═══ STUDY SUMMARY + JUMP LINKS ═══ */
+
+	.study-summary {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 48px;
+	}
+	.study-summary-card {
+		max-width: 920px;
+		margin: 0 auto;
+		background: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		padding: 28px 32px;
+	}
+	.study-summary-label {
+		font-size: var(--fs-label); font-weight: 600;
+		letter-spacing: 0.14em; text-transform: uppercase;
+		color: var(--text-dim);
+		margin-bottom: 12px;
+	}
+	.study-summary-text {
+		font-size: var(--fs-body); font-weight: 400;
+		color: var(--text); line-height: 1.7;
+		margin-bottom: 4px;
+	}
+	.study-summary-jumps {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin-top: 20px;
+		padding-top: 18px;
+		border-top: 1px solid var(--border);
+	}
+	.study-summary-jumps a {
+		font-size: var(--fs-caption); font-weight: 600;
+		letter-spacing: 0.02em;
+		color: var(--accent-warm);
+		text-decoration: none;
+		padding-right: 16px;
+		margin-right: 16px;
+		border-right: 1px solid var(--border);
+		transition: color 0.2s;
+	}
+	.study-summary-jumps a:last-child {
+		border-right: none;
+		margin-right: 0;
+		padding-right: 0;
+	}
+	.study-summary-jumps a:hover {
+		color: var(--text-strong);
+	}
+
+	/* ═══ HERO IMAGE ═══ */
+
+	.study-hero {
+		max-width: 1200px;
+		margin: 0 auto 48px;
+		padding: 0 48px;
+	}
+	.study-hero-image {
+		width: 100%; aspect-ratio: 16 / 9;
+		background: var(--surface-raised);
+		border-radius: var(--radius);
+		overflow: hidden;
+	}
+	.study-hero-image img {
+		width: 100%; height: 100%;
+		object-fit: cover;
+		display: block;
+	}
+	/* heroFit="contain": art that must show in full, uncropped (Utah Flag). */
+	.study-hero-image.contain {
+		display: flex; align-items: center; justify-content: center;
+	}
+	.study-hero-image.contain img {
+		object-fit: contain;
+	}
+
+	/* ═══ FINAL CTA ═══ */
+
+	.study-cta {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 48px;
+	}
+	.study-cta-card {
+		display: block;
+		background: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		padding: 36px 40px;
+		text-decoration: none;
+		color: inherit;
+		position: relative;
+		overflow: hidden;
+		transition: all 0.3s ease;
+	}
+	.study-cta-card::before {
+		content: ''; position: absolute; inset: 0;
+		background: radial-gradient(ellipse at 80% 50%, var(--accent-warm-dim), transparent 60%);
+		opacity: 0;
+		transition: opacity 0.4s ease;
+	}
+	.study-cta-card:hover::before { opacity: 1; }
+	.study-cta-card:hover {
+		border-color: color-mix(in srgb, var(--accent-warm) 18%, transparent);
+		transform: translateY(-1px);
+		box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+	}
+	.study-cta-inner {
+		position: relative; z-index: 1;
+		display: flex; align-items: center; justify-content: space-between;
+		gap: 24px; flex-wrap: wrap;
+	}
+	.study-cta-eyebrow {
+		font-size: var(--fs-label); font-weight: 600; letter-spacing: 0.14em;
+		text-transform: uppercase; color: var(--accent-warm);
+		margin-bottom: 10px;
+	}
+	.study-cta h2 {
+		font-size: var(--fs-h2); font-weight: 700;
+		color: var(--text-strong);
+		letter-spacing: -0.01em; line-height: 1.2;
+		margin-bottom: 8px;
+	}
+	.study-cta p {
+		font-size: var(--fs-small); font-weight: 400;
+		color: var(--text-dim);
+		line-height: 1.6;
+	}
+	.study-cta-pill {
+		display: inline-flex; align-items: center; gap: 8px;
+		font-size: var(--fs-small); font-weight: 600; color: var(--accent-warm);
+		padding: 12px 22px;
+		background: var(--accent-warm-dim);
+		border: 1px solid color-mix(in srgb, var(--accent-warm) 20%, transparent);
+		border-radius: 100px;
+		flex-shrink: 0;
+	}
+	.study-cta-pill svg { width: 14px; height: 14px; }
+
+	@media (max-width: 768px) {
+		.back-link-row, .study-header, .study-hero, .study-summary, .study-cta {
+			padding-left: 24px; padding-right: 24px;
+		}
+		.study-band-light { padding: 32px 0; }
+	}
+	@media (max-width: 480px) {
+		.back-link-row, .study-header, .study-hero, .study-summary, .study-cta {
+			padding-left: 20px; padding-right: 20px;
+		}
+		.study-meta { gap: 24px; }
+		.study-cta-card { padding: 24px; }
+		.study-summary-card { padding: 22px 24px; }
+		.study-summary-jumps { flex-direction: column; align-items: stretch; gap: 0; padding-top: 14px; }
+		.study-summary-jumps a {
+			border-right: none;
+			border-bottom: 1px solid var(--border);
+			margin-right: 0;
+			padding: 12px 0;
+			text-align: center;
+		}
+		.study-summary-jumps a:last-child { border-bottom: none; padding-bottom: 0; }
+	}
+</style>
+
+<style is:global>
+	/* ═══ BODY SECTIONS + IMAGE BLOCKS ═══
+	   Global (not scoped): each case study's body content is authored
+	   in the consuming page via <slot />, which Astro renders with
+	   THAT PAGE's own scope id, not CaseStudy.astro's. A normal scoped
+	   rule here would never match that content, so this specific
+	   block opts out of scoping. Kept in this shared layout (rather
+	   than duplicated in each of the 5 case study pages) since the
+	   selectors and values are identical everywhere. */
+
+	.study-section[id], section[id] { scroll-margin-top: 96px; }
+
+	.study-body {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 48px;
+	}
+
+	.study-section { margin-bottom: 56px; }
+	.study-section h2 {
+		font-size: var(--fs-h2); font-weight: 700; color: var(--text-strong);
+		letter-spacing: -0.01em; line-height: 1.2;
+		margin-bottom: 18px;
+	}
+	.study-section p {
+		font-size: var(--fs-body); font-weight: 400; color: var(--text);
+		line-height: 1.75;
+		margin-bottom: 16px;
+	}
+	.study-section p:last-child { margin-bottom: 0; }
+	.study-section strong { color: var(--text-strong); font-weight: 600; }
+
+	.study-image-block {
+		max-width: 1200px;
+		margin: 0 auto 48px;
+		padding: 0 48px;
+	}
+	.study-image-block.narrow { max-width: 920px; }
+	.study-image {
+		border-radius: var(--radius);
+		overflow: hidden;
+		background: var(--surface-raised);
+		width: fit-content;
+		max-width: 100%;
+		margin: 0 auto;
+	}
+	.study-image img { display: block; max-width: 100%; max-height: 60vh; width: auto; height: auto; margin: 0 auto; }
+	.study-image-caption {
+		margin-top: 12px;
+		font-size: var(--fs-caption); color: var(--text-dim);
+		text-align: center; font-style: italic;
+	}
+
+	.image-pair {
+		max-width: 1200px;
+		margin: 0 auto 48px;
+		padding: 0 48px;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 16px;
+	}
+	.image-pair .study-image { margin: 0; }
+
+	.image-trio {
+		max-width: 1200px;
+		margin: 0 auto 48px;
+		padding: 0 48px;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		gap: 14px;
+	}
+	.image-trio .study-image { margin: 0; aspect-ratio: 3 / 4; }
+	.image-trio .study-image img { width: 100%; height: 100%; object-fit: cover; }
+
+	@media (max-width: 900px) {
+		.image-pair, .image-trio { grid-template-columns: 1fr; }
+		.image-trio .study-image { aspect-ratio: 16 / 10; }
+	}
+	@media (max-width: 768px) {
+		.study-body, .study-image-block, .image-pair, .image-trio {
+			padding-left: 24px; padding-right: 24px;
+		}
+	}
+	@media (max-width: 480px) {
+		.study-body, .study-image-block, .image-pair, .image-trio {
+			padding-left: 20px; padding-right: 20px;
+		}
+	}
+</style>

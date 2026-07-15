@@ -1,0 +1,157 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+	description: string;
+	ogType?: 'website' | 'article';
+	path?: string; // used to mark the current nav link active, e.g. "/about"
+	copyrightName?: string; // privacy.astro uses "IslandTwig Studios LLC", every other page just "IslandTwig Studios"
+}
+
+const { title, description, ogType = 'website', path = '', copyrightName = 'IslandTwig Studios' } = Astro.props;
+
+const navItems = [
+	{ href: '/', label: 'Home' },
+	{ href: '/legacy-session', label: 'Legacy Session' },
+	{ href: '/design', label: 'Design' },
+	{ href: '/services', label: 'Services' },
+	{ href: '/about', label: 'About' },
+];
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{title}</title>
+
+		<link rel="icon" type="image/png" href="/images/appicons/favicon.png" />
+
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content={ogType} />
+		<meta property="og:url" content={`https://islandtwigstudios.com${path}`} />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@300&display=swap"
+			rel="stylesheet"
+		/>
+		<slot name="head" />
+	</head>
+	<body>
+		<nav>
+			<a href="/" class="nav-logo" aria-label="IslandTwig Studios — Home">
+				<span class="nav-logo-text">IslandTwig Studios</span>
+				<img class="nav-logo-mark" src="/images/islandtwig-mark.png" alt="IslandTwig Studios" />
+			</a>
+			<button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+				<span></span><span></span><span></span>
+			</button>
+			<ul class="nav-links">
+				{navItems.map((item) => (
+					<li class={item.href === '/' ? 'nav-link-home' : ''}>
+						<a href={item.href} class={item.href === path ? 'active' : ''}>{item.label}</a>
+					</li>
+				))}
+			</ul>
+		</nav>
+
+		<div class="page">
+			<slot />
+		</div>
+
+		<footer class="footer a-footer">
+			<div class="content">
+				<div class="social-row">
+					<a href="https://www.instagram.com/islandtwigstudios" class="social-btn" aria-label="Instagram">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+							<rect x="2" y="2" width="20" height="20" rx="5"/>
+							<circle cx="12" cy="12" r="5"/>
+							<circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
+						</svg>
+					</a>
+					<a href="https://twitter.com/islandtwig" class="social-btn" aria-label="X / Twitter">
+						<svg viewBox="0 0 24 24" fill="currentColor">
+							<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+						</svg>
+					</a>
+					<a href="https://buymeacoffee.com/islandtwig" class="social-btn" aria-label="Buy Me A Coffee">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+							<path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+							<line x1="6" y1="1" x2="6" y2="4"/>
+							<line x1="10" y1="1" x2="10" y2="4"/>
+							<line x1="14" y1="1" x2="14" y2="4"/>
+						</svg>
+					</a>
+				</div>
+
+				<a href="mailto:hello@islandtwigstudios.com" class="footer-email">hello@islandtwigstudios.com</a>
+
+				<a href="https://www.instagram.com/islandtwigstudios" class="maker-mark">
+					<img class="maker-mark-icon" src="/images/appicons/n_mark.png" alt="N" width="28" height="28" />
+					<span class="maker-mark-label">A Nick Holmquist project</span>
+				</a>
+
+				<p class="footer-legal">&copy; 2026 {copyrightName} &middot; <a href="/privacy" class="footer-legal-link">Privacy</a></p>
+			</div>
+		</footer>
+
+		<script src="/js/nav.js" is:inline></script>
+	</body>
+</html>
+
+<style>
+	/* ═══ FOOTER ═══
+	   Shared across every page via this layout, so it lives here
+	   rather than duplicated per-page the way it was on the static
+	   site (where it drifted slightly, e.g. About's padding-top was
+	   80px vs the homepage's 64px — standardized on the homepage's
+	   value here since that's this migration's proof-point page). */
+	.footer { padding: 64px 0 64px; text-align: center; }
+
+	.social-row { display: flex; justify-content: center; gap: 16px; margin-bottom: 20px; }
+
+	.social-btn {
+		width: 38px; height: 38px; border-radius: 10px;
+		background: var(--text-faint); border: 1px solid var(--border);
+		display: flex; align-items: center; justify-content: center;
+		color: var(--text-dim); text-decoration: none; transition: all 0.25s ease;
+	}
+	.social-btn:hover { background: var(--accent-dim); color: var(--text); border-color: var(--accent-dim); }
+	.social-btn svg { width: 17px; height: 17px; }
+
+	.footer-email { font-family: 'Fira Code', monospace; font-size: 12.5px; font-weight: 300; color: var(--accent); text-decoration: none; letter-spacing: 0.02em; transition: color 0.25s ease; display: inline-block; margin-bottom: 32px; }
+	.footer-email:hover { color: var(--accent-hover); }
+
+	.maker-mark { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 28px; text-decoration: none; }
+	.maker-mark-icon { width: 28px; height: 28px; border-radius: 6px; opacity: 0.35; transition: opacity 0.3s ease; }
+	.maker-mark:hover .maker-mark-icon { opacity: 0.55; }
+	.maker-mark-label { font-size: var(--fs-label); font-weight: 400; letter-spacing: 0.06em; color: color-mix(in srgb, var(--text-on-dark) 40%, transparent); transition: color 0.3s ease; }
+	.maker-mark:hover .maker-mark-label { color: color-mix(in srgb, var(--text-on-dark) 55%, transparent); }
+	.footer-legal { font-size: var(--fs-label); color: color-mix(in srgb, var(--text-on-dark) 40%, transparent); }
+	.footer-legal-link { color: inherit; text-decoration: none; transition: color 0.2s; }
+	.footer-legal-link:hover { color: var(--text-on-dark); }
+
+	/* .content is page-specific everywhere else (each page sets its
+	   own max-width), but the footer needs it too and Astro scopes
+	   <style> per component, so it's redeclared here matching the
+	   1200px standard every page uses. */
+	.footer .content {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 48px;
+	}
+
+	/* Shared fade-up entrance animation. Was redefined per-page on the
+	   static site (every page had its own identical @keyframes fadeUp);
+	   defined once here since the footer that uses it is now shared
+	   too. Individual pages can define their own .a1/.a2/etc timing
+	   classes locally and still reference this same keyframe name. */
+	@keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+	.a-footer { opacity: 0; animation: fadeUp 0.6s ease 0.6s forwards; }
+</style>

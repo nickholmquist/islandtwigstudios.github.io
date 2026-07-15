@@ -1,0 +1,391 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+	title="About — IslandTwig Studios"
+	description="Why I build sports identities. The designer behind IslandTwig Studios on pride, community, and building brands teams are proud to represent."
+	path="/about"
+>
+	<!-- HERO (dark green band) -->
+	<section class="about-hero">
+	<div class="content">
+
+		<div class="two-col">
+
+			<!-- LEFT: INTRO -->
+			<div class="col-left">
+				<p class="eyebrow al1">About</p>
+
+				<h1 class="hello al2">Hi, I&rsquo;m Nick.</h1>
+
+				<div class="intro al2">
+					<p>I&rsquo;m the designer behind IslandTwig Studios. I build sports identities that give teams something worth representing. Every project runs on research, gets shaped by story, and is designed to pull players, fans, and communities together.</p>
+				</div>
+			</div>
+
+			<!-- RIGHT: PORTRAIT -->
+			<div class="col-right">
+				<div class="portrait-card ar1">
+					<img src="/images/ProfilePic.JPEG" alt="Nick Holmquist" />
+				</div>
+			</div>
+
+		</div>
+	</div>
+	</section>
+
+	<!-- WHY SPORTS + CONTACT (light band) -->
+	<section class="about-content-band">
+	<div class="content">
+
+		<div class="two-col">
+
+			<!-- LEFT: WHY SPORTS -->
+			<div class="col-left">
+				<div class="subsection al3">
+					<p class="eyebrow">Why sports?</p>
+					<p>Growing up, I saw what a team&rsquo;s identity could do. The best ones became part of the community. Stitched onto jerseys, worn around town on the weekend, passed down for years. They gave people something to belong to.</p>
+					<p>I also saw the opposite. When I played rugby, our branding never matched the pride we had for the team. The logo was generic, the merch was forgettable, and I always wished we had something people were actually excited to wear.</p>
+					<p>That stuck with me. Today I help schools, leagues, and organizations build identities that bring people together.</p>
+					<p class="why-close">I don&rsquo;t design logos for sports teams. I build identities that players wear with pride, fans rally behind, and communities remember.</p>
+				</div>
+			</div>
+
+			<!-- RIGHT: CONTACT -->
+			<div class="col-right">
+				<div class="contact-card ar2">
+					<div class="contact-card-inner">
+						<h2>Let&rsquo;s talk.</h2>
+						<p>Open for sports identity, brand systems, and naming. Whether your team has history or is just getting started, I&rsquo;d love to hear what you&rsquo;re building.</p>
+						<a href="/legacy-session" class="btn btn-primary contact-pill">Start a Legacy Session</a>
+						<p class="contact-or">Or email me directly at</p>
+						<a href="mailto:hello@islandtwigstudios.com" class="contact-email">hello@islandtwigstudios.com</a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	</section>
+
+	<!-- PRACTICE (dark band) -->
+	<section class="practice-band">
+	<div class="content">
+		<p class="eyebrow">Practice</p>
+		<h2>Three principles behind every project.</h2>
+		<ul class="principle-list">
+			<li>
+				<span class="principle-name">Research before design</span>
+				<span class="principle-desc">Every project starts with the team, its people, and the history it has or the one it wants to create. Strong identities aren&rsquo;t pulled from a template. They&rsquo;re built from a story.</span>
+			</li>
+			<li>
+				<span class="principle-name">Built for the real world</span>
+				<span class="principle-desc">From jerseys and helmets to social graphics and merch, every mark is made to hold up wherever fans actually meet the brand.</span>
+			</li>
+			<li>
+				<span class="principle-name">Made to last</span>
+				<span class="principle-desc">Trends fade. I build identities that look right today and still hold up years from now.</span>
+			</li>
+		</ul>
+	</div>
+	</section>
+
+	<!-- BACKGROUND (light band, single column) -->
+	<section class="about-content-band">
+	<div class="content">
+		<div class="background-block">
+			<p class="eyebrow">Background</p>
+			<p>Outside IslandTwig, I work in technical success at a software company. That work taught me to think in systems, solve messy problems, and sweat the details. The same instincts show up in every identity I design.</p>
+		</div>
+	</div>
+	</section>
+</Layout>
+
+<style>
+	.content {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 48px;
+	}
+
+	/* Dark green hero band, matching the intro treatment used on
+	   every other page (homepage hero, Legacy Session hero). */
+	.about-hero {
+		background: var(--bg);
+		padding: 52px 0 80px;
+	}
+
+	/* Full-bleed light "rest stop" band wrapping the page body,
+	   matching the homepage's banding. Scoped custom-property
+	   overrides mean every existing rule below (which already
+	   references these tokens) resolves to light-band-appropriate
+	   colors without needing its own edit. */
+	.about-content-band {
+		background: var(--surface-cream);
+		padding: 64px 0;
+		--text-strong: #2a2e28;
+		--text: #2a2e28;
+		--text-dim: #5f645b;
+		--text-faint: rgba(42, 46, 40, 0.05);
+		--border: var(--border-on-light);
+		--surface: var(--surface-card);
+	}
+
+	.two-col {
+		display: grid;
+		grid-template-columns: 1.3fr 1fr;
+		gap: 64px;
+		align-items: start;
+	}
+
+	.col-left, .col-right { min-width: 0; }
+
+	/* .eyebrow is defined in global.css (shared pill, every page). */
+
+	/* ═══ LEFT COLUMN ═══ */
+
+	.hello {
+		font-size: var(--fs-h1);
+		font-weight: 800;
+		color: var(--text-strong);
+		letter-spacing: -0.02em;
+		line-height: 1.15;
+		margin-bottom: 24px;
+	}
+
+	.intro p {
+		font-size: var(--fs-body-lg);
+		font-weight: 400;
+		color: var(--text);
+		line-height: 1.7;
+		margin-bottom: 14px;
+	}
+
+	.intro p:last-child { margin-bottom: 0; }
+
+	/* Shared prose-paragraph style for both content blocks below
+	   the hero (Why Sports, Background). One rule, not two, so
+	   they can't drift apart from each other again the way
+	   .subsection and .background-block did on the static site.
+	   :not(.eyebrow) matters here: without it this generic p
+	   selector also catches the eyebrow pill nested in the same
+	   block and overwrites its color/size with body-text styles. */
+	.subsection p:not(.eyebrow),
+	.background-block p:not(.eyebrow) {
+		font-size: var(--fs-body-lg);
+		font-weight: 400;
+		color: var(--text-dim);
+		line-height: 1.7;
+		margin-bottom: 12px;
+	}
+
+	.subsection p:not(.eyebrow):last-child,
+	.background-block p:not(.eyebrow):last-child { margin-bottom: 0; }
+
+	.subsection strong { color: var(--text); font-weight: 600; }
+
+	/* Primary CTA button. NOTE: this page's .btn-primary uses
+	   --on-accent-text (dark) rather than white, unlike the
+	   homepage's — a pre-existing inconsistency on the static site,
+	   carried over as-is rather than silently resolved during
+	   migration. */
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 8px;
+		padding: 15px 28px;
+		border-radius: 100px;
+		font-size: var(--fs-small);
+		font-weight: 700;
+		text-decoration: none;
+		transition: all 0.25s ease;
+	}
+	.btn-primary { background: var(--accent); color: var(--on-accent-text); }
+	.btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 10px 24px rgba(0,0,0,0.25); }
+
+	.contact-pill { margin-top: 4px; margin-bottom: 20px; }
+
+	/* Closing emphasis line for the Why sports story */
+	.why-close {
+		font-weight: 700;
+		color: var(--text-strong) !important;
+		margin-top: 16px !important;
+	}
+
+	/* ═══ PRACTICE (dark green band, breaks up the page's all-cream
+	   feel, matching the process-band treatment used elsewhere) ═══ */
+
+	.practice-band {
+		background: var(--bg);
+		padding: 72px 0;
+	}
+
+	.practice-band h2 {
+		font-size: var(--fs-h2);
+		font-weight: 700;
+		letter-spacing: -0.01em;
+		color: var(--text-on-dark);
+		margin-bottom: 32px;
+		max-width: 560px;
+	}
+
+	/* Principle list: cream cards on the dark band, same
+	   language as the homepage's process-card / services.html's
+	   process-step. */
+	.principle-list {
+		list-style: none;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 18px;
+	}
+
+	.principle-list li {
+		background: var(--surface-cream);
+		border: 1px solid var(--border-on-light);
+		border-radius: var(--radius);
+		padding: 26px 24px;
+	}
+
+	.principle-list .principle-name {
+		display: block;
+		font-size: var(--fs-h4);
+		font-weight: 700;
+		color: #2a2e28;
+		margin-bottom: 8px;
+		letter-spacing: -0.01em;
+	}
+
+	.principle-list .principle-desc {
+		display: block;
+		font-size: var(--fs-small);
+		font-weight: 400;
+		color: #5f645b;
+		line-height: 1.6;
+	}
+
+	/* ═══ RIGHT COLUMN ═══ */
+
+	.portrait-card {
+		background: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		padding: 28px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 16px;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.portrait-card::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: radial-gradient(ellipse at 30% 20%, var(--accent-dim), transparent 60%);
+		opacity: 0.5;
+	}
+
+	.portrait-card img {
+		position: relative;
+		z-index: 1;
+		width: 78%;
+		max-width: 320px;
+		aspect-ratio: 1 / 1;
+		object-fit: cover;
+		height: auto;
+		border-radius: var(--radius-sm);
+		box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+	}
+
+	.contact-card {
+		background: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		padding: 28px;
+		position: relative;
+		overflow: hidden;
+		transition: all 0.3s ease;
+	}
+
+	.contact-card::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: radial-gradient(ellipse at 80% 30%, var(--accent-warm-dim), transparent 60%);
+		opacity: 0;
+		transition: opacity 0.4s ease;
+	}
+
+	.contact-card:hover::before { opacity: 1; }
+	.contact-card:hover {
+		border-color: color-mix(in srgb, var(--accent-warm) 15%, transparent);
+	}
+
+	.contact-card-inner { position: relative; z-index: 1; }
+
+	.contact-card h2 {
+		font-size: var(--fs-h3);
+		font-weight: 700;
+		color: var(--text-strong);
+		margin-bottom: 8px;
+		letter-spacing: -0.01em;
+	}
+
+	.contact-card p {
+		font-size: var(--fs-small);
+		font-weight: 400;
+		color: var(--text-dim);
+		line-height: 1.6;
+		margin-bottom: 16px;
+	}
+
+	.contact-or {
+		font-size: var(--fs-small) !important;
+		color: var(--text-dim) !important;
+		margin-bottom: 6px !important;
+	}
+
+	.contact-email {
+		display: inline-block;
+		font-family: 'Fira Code', monospace;
+		font-size: 12.5px;
+		font-weight: 300;
+		color: var(--accent-warm);
+		text-decoration: none;
+		letter-spacing: 0.02em;
+		transition: color 0.25s ease;
+	}
+
+	.contact-email:hover { color: var(--text-strong); }
+
+	/* ═══ ANIMATIONS ═══
+	   fadeUp keyframe itself is shared, defined once in Layout.astro. */
+	.al1 { opacity:0; animation: fadeUp .6s ease .15s forwards; }
+	.al2 { opacity:0; animation: fadeUp .6s ease .25s forwards; }
+	.al3 { opacity:0; animation: fadeUp .6s ease .40s forwards; }
+	.al4 { opacity:0; animation: fadeUp .6s ease .55s forwards; }
+
+	.ar1 { opacity:0; animation: fadeUp .6s ease .30s forwards; }
+	.ar2 { opacity:0; animation: fadeUp .6s ease .45s forwards; }
+
+	@media (max-width: 900px) {
+		.two-col { grid-template-columns: 1fr; gap: 48px; }
+		.principle-list { grid-template-columns: 1fr; }
+	}
+
+	@media (max-width: 768px) {
+		.content { padding: 0 24px; }
+		.about-hero { padding: 56px 0 64px; }
+		.about-content-band { padding: 48px 0; }
+		.practice-band { padding: 56px 0; }
+	}
+
+	@media (max-width: 480px) {
+		.content { padding: 0 20px; }
+		.portrait-card { padding: 32px; }
+		.contact-card { padding: 22px; }
+	}
+</style>
