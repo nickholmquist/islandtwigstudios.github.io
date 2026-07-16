@@ -13,8 +13,7 @@ const { title, description, ogType = 'website', path = '', copyrightName = 'Isla
 
 const navItems = [
 	{ href: '/', label: 'Home' },
-	{ href: '/legacy-session', label: 'Legacy Session' },
-	{ href: '/design', label: 'Design' },
+	{ href: '/design', label: 'Work' },
 	{ href: '/services', label: 'Services' },
 	{ href: '/about', label: 'About' },
 ];
@@ -53,10 +52,11 @@ const navItems = [
 			</button>
 			<ul class="nav-links">
 				{navItems.map((item) => (
-					<li class={item.href === '/' ? 'nav-link-home' : ''}>
+					<li>
 						<a href={item.href} class={item.href === path ? 'active' : ''}>{item.label}</a>
 					</li>
 				))}
+				<li><a href="/legacy-session" class:list={['nav-cta', path === '/legacy-session' && 'active']}>Start Your Legacy Session</a></li>
 			</ul>
 		</nav>
 

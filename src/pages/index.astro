@@ -1,5 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Band from '../components/Band.astro';
+import Button from '../components/Button.astro';
+import Eyebrow from '../components/Eyebrow.astro';
 ---
 
 <Layout
@@ -12,189 +15,169 @@ import Layout from '../layouts/Layout.astro';
 	</Fragment>
 
 	<!-- HERO -->
-	<section class="hero-section">
-		<svg class="stripe-mark" style="top: -10px; right: -20px; width: 260px; height: 260px; opacity: 0.5;" viewBox="0 0 200 200">
-			<g transform="rotate(-22 100 100)">
-				<rect x="20" y="30" width="140" height="16" rx="8" fill="var(--accent)" opacity="0.3"/>
-				<rect x="45" y="60" width="140" height="16" rx="8" fill="var(--text-on-dark)" opacity="0.12"/>
-				<rect x="10" y="90" width="100" height="16" rx="8" fill="var(--accent)" opacity="0.2"/>
-				<rect x="60" y="120" width="140" height="16" rx="8" fill="var(--text-on-dark)" opacity="0.08"/>
-			</g>
-		</svg>
-		<div class="content">
-			<div class="hero-grid">
-				<div class="hero">
-					<p class="eyebrow a1">Sports Identity Studio</p>
-					<h1 class="a2">Every great team has a <span class="accent-word">story.</span></h1>
-					<p class="hero-subhead a3">Every great community has traditions. I create the identity that brings them together.</p>
-					<div class="hero-actions a4">
-						<a href="/legacy-session" class="btn btn-primary">Start a Legacy Session</a>
-						<a href="/design" class="btn btn-secondary">See the work</a>
-					</div>
+	<Band variant="dark" class="hero-section">
+		<div class="hero-grid">
+			<div class="hero">
+				<Eyebrow class="a1">Sports Identity Studio</Eyebrow>
+				<h1 class="a2">Every great team has a <span class="accent-word">story.</span></h1>
+				<p class="hero-subhead a3">Every great community has traditions. I create the identity that brings them together.</p>
+				<div class="hero-actions a4">
+					<Button href="/legacy-session">Start a Legacy Session</Button>
+					<Button href="/design" variant="secondary">See the work</Button>
 				</div>
-				<a href="/services" class="hero-image a3">
-					<img src="/images/services/tier-system.jpg" alt="Utah Yeti full brand system: primary and secondary marks, wordmark lockups, jerseys, number set, and color palette" />
-				</a>
 			</div>
+			<a href="/services" class="hero-image a3">
+				<img src="/images/services/tier-system.jpg" alt="Utah Yeti full brand system: primary and secondary marks, wordmark lockups, jerseys, number set, and color palette" />
+			</a>
 		</div>
-	</section>
+	</Band>
 
 	<!-- PROBLEM -->
-	<section class="problem-band">
-		<svg class="stripe-mark" style="bottom: -30px; right: -20px; width: 220px; height: 220px; opacity: 0.45;" viewBox="0 0 200 200">
+	<Band variant="cream" class="problem-band">
+		<svg slot="decoration" class="stripe-mark" style="bottom: 20px; right: 20px; width: 220px; height: 220px; opacity: 0.45;" viewBox="0 0 200 200">
 			<g transform="rotate(-22 100 100)">
 				<rect x="10" y="40" width="120" height="14" rx="7" fill="var(--accent)" opacity="0.25"/>
 				<rect x="30" y="70" width="150" height="14" rx="7" fill="var(--band-text-strong)" opacity="0.08"/>
 				<rect x="0" y="100" width="90" height="14" rx="7" fill="var(--accent)" opacity="0.15"/>
 			</g>
 		</svg>
-		<div class="content">
-			<p class="eyebrow">The Problem</p>
-			<p class="problem-line">Most teams have a logo. Few have an identity that reflects who they are.</p>
-			<p class="problem-sub">A logo marks you. An identity means something to the people who wear it.</p>
-		</div>
-	</section>
+		<Eyebrow>The Problem</Eyebrow>
+		<p class="problem-line">Most teams have a logo. Few have an identity that reflects who they are.</p>
+		<p class="problem-sub">A logo marks you. An identity means something to the people who wear it.</p>
+	</Band>
 
 	<!-- PHILOSOPHY -->
-	<section class="philosophy-band">
-		<div class="content">
-			<div class="philosophy-split">
-				<div class="philosophy">
-					<p class="eyebrow">Why this work matters</p>
-					<h2>The best identities aren't designed in a vacuum. They're discovered.</h2>
-					<p>When I played rugby, our branding never matched the pride we had for the team. The logo was generic, the merch was forgettable, and I always wished we had something people were actually excited to wear.</p>
-					<p>That stuck with me. The identities that last aren't pulled from a template. They come from the people, the place, and the traditions a team already carries.</p>
-					<blockquote class="pull-quote">I don't design logos for sports teams. I build identities that players wear with pride, fans rally behind, and communities remember.</blockquote>
-				</div>
-				<div class="philosophy-image">
-					<img src="/images/case-studies/utah-hockey/mountaineers-symbols.jpeg" alt="Hidden symbols breakdown of the Mountaineers concept mark: letter M, hockey sticks, mountain silhouette, and color nod to the Salt Lake Golden Eagles" loading="lazy" />
-				</div>
+	<Band variant="soft" class="philosophy-band">
+		<div class="philosophy-split">
+			<div class="philosophy">
+				<Eyebrow>Why this work matters</Eyebrow>
+				<h2>The best identities aren't designed in a vacuum. They're discovered.</h2>
+				<p>When I played rugby, our branding never matched the pride we had for the team. The logo was generic, the merch was forgettable, and I always wished we had something people were actually excited to wear.</p>
+				<p>That stuck with me. The identities that last aren't pulled from a template. They come from the people, the place, and the traditions a team already carries.</p>
+				<blockquote class="pull-quote">I don't design logos for sports teams. I build identities that players wear with pride, fans rally behind, and communities remember.</blockquote>
+			</div>
+			<div class="philosophy-image">
+				<img src="/images/case-studies/utah-hockey/mammoth-symbols.jpeg" alt="Hidden symbols breakdown of the Mammoth concept mark: Utah state shape, letter M, and letter U hidden in the tusks" loading="lazy" />
 			</div>
 		</div>
-	</section>
+	</Band>
 
 	<!-- PROCESS -->
-	<section class="process-band">
-		<svg class="stripe-mark" style="top: -20px; left: -30px; width: 200px; height: 200px; opacity: 0.4;" viewBox="0 0 200 200">
+	<Band variant="dark" class="process-band">
+		<svg slot="decoration" class="stripe-mark" style="top: 20px; left: 20px; width: 200px; height: 200px; opacity: 0.4;" viewBox="0 0 200 200">
 			<g transform="rotate(-22 100 100)">
 				<rect x="20" y="30" width="120" height="14" rx="7" fill="var(--accent)" opacity="0.25"/>
 				<rect x="40" y="60" width="140" height="14" rx="7" fill="var(--text-on-dark)" opacity="0.1"/>
 				<rect x="10" y="90" width="90" height="14" rx="7" fill="var(--accent)" opacity="0.15"/>
 			</g>
 		</svg>
-		<div class="content">
-			<p class="eyebrow">The Legacy to New Era™ System</p>
-			<h2>How an identity gets built.</h2>
-			<div class="process-grid">
-				<div class="process-card">
-					<span class="process-num">01</span>
-					<h3>Discover the Legacy</h3>
-					<p>Meet the people who know the team best. Research the place. Learn the traditions and the stories no outsider would know.</p>
-				</div>
-				<div class="process-card">
-					<span class="process-num">02</span>
-					<h3>Define the Identity</h3>
-					<p>Translate those stories into themes, symbolism, and creative direction.</p>
-				</div>
-				<div class="process-card">
-					<span class="process-num">03</span>
-					<h3>Craft the System</h3>
-					<p>Design the complete visual identity, from primary mark to the full set a team wears and lives in.</p>
-				</div>
-				<div class="process-card">
-					<span class="process-num">04</span>
-					<h3>Launch into a New Era</h3>
-					<p>Help the community embrace it through apparel, uniforms, and rollout.</p>
-				</div>
+		<Eyebrow>The Legacy to New Era™ System</Eyebrow>
+		<h2>How an identity gets built.</h2>
+		<div class="process-grid">
+			<div class="process-card">
+				<span class="process-num">01</span>
+				<h3>Discover the Legacy</h3>
+				<p>Meet the people who know the team best. Research the place. Learn the traditions and the stories no outsider would know.</p>
+			</div>
+			<div class="process-card">
+				<span class="process-num">02</span>
+				<h3>Define the Identity</h3>
+				<p>Translate those stories into themes, symbolism, and creative direction.</p>
+			</div>
+			<div class="process-card">
+				<span class="process-num">03</span>
+				<h3>Craft the System</h3>
+				<p>Design the complete visual identity, from primary mark to the full set a team wears and lives in.</p>
+			</div>
+			<div class="process-card">
+				<span class="process-num">04</span>
+				<h3>Launch into a New Era</h3>
+				<p>Help the community embrace it through apparel, uniforms, and rollout.</p>
 			</div>
 		</div>
-	</section>
+	</Band>
 
 	<!-- SELECTED WORK -->
-	<section class="work-band">
-		<div class="content">
-			<div class="work-header">
-				<p class="eyebrow">Selected Work</p>
-				<a href="/design" class="arrow-link">
-					View all work
-					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-				</a>
-			</div>
+	<Band variant="cream" class="work-band">
+		<div class="work-header">
+			<Eyebrow>Selected Work</Eyebrow>
+			<a href="/design" class="arrow-link">
+				View all work
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+			</a>
+		</div>
 
-			<a href="/design/utah-hockey" class="hero-design">
-				<div class="hero-design-image">
-					<img src="/images/case-studies/utah-hockey/card-hero.jpg" alt="Composite grid of nine Utah Hockey concept logos designed for the new Utah NHL franchise: Yeti, Outlaws, Mammoth, Mountaineers, Swarm, and Black Diamonds among them" />
-				</div>
-				<div class="hero-design-body">
-					<span class="cat-tag">Sports identity · Concept · NHL</span>
-					<h2>Naming Utah's Hockey Team</h2>
-					<p class="hero-design-desc">Nine identity directions for Utah's new NHL franchise, designed in real time across thirteen months. Includes a Mammoth concept posted a year before the team picked Mammoth.</p>
-					<span class="arrow-link">
-						View case study
-						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-					</span>
+		<a href="/design/utah-hockey" class="hero-design">
+			<div class="hero-design-image">
+				<img src="/images/case-studies/utah-hockey/card-hero.jpg" alt="Composite grid of nine Utah Hockey concept logos designed for the new Utah NHL franchise: Yeti, Outlaws, Mammoth, Mountaineers, Swarm, and Black Diamonds among them" />
+			</div>
+			<div class="hero-design-body">
+				<span class="cat-tag">Sports identity · Concept · NHL</span>
+				<h2>Naming Utah's Hockey Team</h2>
+				<p class="hero-design-desc">Nine identity directions for Utah's new NHL franchise, designed in real time across thirteen months. Includes a Mammoth concept posted a year before the team picked Mammoth.</p>
+				<span class="arrow-link">
+					View case study
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+				</span>
+			</div>
+		</a>
+
+		<div class="design-row-wide">
+			<a href="/design/nhl-midnight" class="design-img-card">
+				<img src="/images/case-studies/nhl-midnight/card-hero.jpg" alt="NHL Midnight Edition dark-mode alternate identities" />
+				<div class="design-img-overlay">
+					<div>
+						<div class="overlay-name">NHL Midnight Edition</div>
+						<div class="overlay-tag">Sports identity · 32 teams</div>
+					</div>
 				</div>
 			</a>
-
-			<div class="design-row-wide">
-				<a href="/design/nhl-midnight" class="design-img-card">
-					<img src="/images/case-studies/nhl-midnight/card-hero.jpg" alt="NHL Midnight Edition dark-mode alternate identities" />
-					<div class="design-img-overlay">
-						<div>
-							<div class="overlay-name">NHL Midnight Edition</div>
-							<div class="overlay-tag">Sports identity · 32 teams</div>
-						</div>
-					</div>
-				</a>
-			</div>
-
-			<div class="design-row">
-				<a href="/design" class="design-img-card">
-					<img src="/images/gallery/tsu-armadillos.jpg" alt="TSU Armadillos concept" />
-					<div class="design-img-overlay">
-						<div>
-							<div class="overlay-name">TSU Armadillos</div>
-							<div class="overlay-tag">Sports identity · Collegiate</div>
-						</div>
-					</div>
-				</a>
-				<a href="/design" class="design-img-card">
-					<img src="/images/gallery/rainbow-warriors.jpg" alt="Hawaii Rainbow Warriors concept" />
-					<div class="design-img-overlay">
-						<div>
-							<div class="overlay-name">Hawaii Rainbow Warriors</div>
-							<div class="overlay-tag">Sports identity · Top 8</div>
-						</div>
-					</div>
-				</a>
-				<a href="/design" class="design-img-card">
-					<img src="/images/gallery/BoltsUpdated_2.jpg" alt="Utah Bolts MLB concept" />
-					<div class="design-img-overlay">
-						<div>
-							<div class="overlay-name">Utah Bolts</div>
-							<div class="overlay-tag">Sports identity · Baseball</div>
-						</div>
-					</div>
-				</a>
-			</div>
 		</div>
-	</section>
+
+		<div class="design-row">
+			<a href="/design" class="design-img-card">
+				<img src="/images/gallery/tsu-armadillos.jpg" alt="TSU Armadillos concept" />
+				<div class="design-img-overlay">
+					<div>
+						<div class="overlay-name">TSU Armadillos</div>
+						<div class="overlay-tag">Sports identity · Collegiate</div>
+					</div>
+				</div>
+			</a>
+			<a href="/design" class="design-img-card">
+				<img src="/images/gallery/rainbow-warriors.jpg" alt="Hawaii Rainbow Warriors concept" />
+				<div class="design-img-overlay">
+					<div>
+						<div class="overlay-name">Hawaii Rainbow Warriors</div>
+						<div class="overlay-tag">Sports identity · Top 8</div>
+					</div>
+				</div>
+			</a>
+			<a href="/design" class="design-img-card">
+				<img src="/images/gallery/BoltsUpdated_2.jpg" alt="Utah Bolts MLB concept" />
+				<div class="design-img-overlay">
+					<div>
+						<div class="overlay-name">Utah Bolts</div>
+						<div class="overlay-tag">Sports identity · Baseball</div>
+					</div>
+				</div>
+			</a>
+		</div>
+	</Band>
 
 	<!-- CLOSING CTA -->
-	<section class="closing-cta">
-		<svg class="stripe-mark" style="bottom: -30px; left: -30px; width: 220px; height: 220px; opacity: 0.45;" viewBox="0 0 200 200">
+	<Band variant="soft" class="closing-cta">
+		<svg slot="decoration" class="stripe-mark" style="bottom: 20px; left: 20px; width: 220px; height: 220px; opacity: 0.45;" viewBox="0 0 200 200">
 			<g transform="rotate(-22 100 100)">
 				<rect x="10" y="40" width="120" height="14" rx="7" fill="var(--accent)" opacity="0.25"/>
 				<rect x="30" y="70" width="150" height="14" rx="7" fill="var(--band-text-strong)" opacity="0.08"/>
 				<rect x="0" y="100" width="90" height="14" rx="7" fill="var(--accent)" opacity="0.15"/>
 			</g>
 		</svg>
-		<div class="content">
-			<h2>Whether your team has a century of history or launches next season.</h2>
-			<p>Every project begins with a Legacy Session.</p>
-			<a href="/legacy-session" class="btn btn-primary">Start a Legacy Session</a>
-		</div>
-	</section>
+		<h2>Whether your team has a century of history or launches next season.</h2>
+		<p>Every project begins with a Legacy Session.</p>
+		<Button href="/legacy-session">Start a Legacy Session</Button>
+	</Band>
 
 	<!-- LIGHTBOX -->
 	<div id="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
@@ -262,43 +245,37 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
-	/* Dark text for this page's light "rest stop" bands (Problem,
-	   Philosophy, Selected Work). global.css's --text-strong/--text-dim
-	   are light globally (for the dark canvas), so these bands need
-	   their own dark-on-cream pair. Defined on :global(:root) rather
-	   than plain :root: Astro scopes styles per-component by adding a
-	   data-attribute to matched selectors, and <html> is rendered by
-	   Layout.astro, not this page, so a scoped :root rule here would
-	   silently never match anything. */
-	:global(:root) {
-		--band-text-strong: #2a2e28;
-		--band-text-dim: #5f645b;
-	}
-
-	.content {
-		max-width: 1200px;
-		margin: 0 auto;
-		padding: 0 48px;
-	}
-
-	/* .eyebrow is defined in global.css (shared pill, every page). */
+	/* .eyebrow is defined in global.css (shared pill, every page).
+	   --band-text-strong / --band-text-dim are defined in global.css
+	   too (Band.astro's cream/soft variants), referenced directly by
+	   the stripe-mark SVGs below. */
 
 	/* ═══ DECORATIVE STRIPE MARK ═══ */
 
-	.stripe-mark { position: absolute; pointer-events: none; z-index: 0; }
+	/* overflow: visible since the rotated rects inside can extend a
+	   few units past the 200x200 viewBox on some corners — SVGs clip
+	   to their viewBox by default, which was cutting a sliver off a
+	   rounded end. */
+	.stripe-mark { position: absolute; pointer-events: none; z-index: 0; overflow: visible; }
+
+	/* ═══ BAND PADDING ═══
+	   Band.astro owns background/color/overflow per variant and the
+	   shared .content wrapper; each band's own padding stays here
+	   since it's genuinely unique per band and per breakpoint. These
+	   classes land on Band's own <section> (passed via its `class`
+	   prop), which carries Band's scope id, not this page's — so each
+	   needs :global() to match. */
+
+	:global(.hero-section) { padding: 48px 0 72px; }
+	:global(.problem-band) { padding: 72px 0; }
+	:global(.philosophy-band) { padding: 80px 0; }
+	:global(.process-band) { padding: 80px 0; }
+	:global(.work-band) { padding: 80px 0 56px; }
+	:global(.closing-cta) { padding: 96px 0; text-align: center; }
 
 	/* ═══ HERO ═══ */
 
-	.hero-section {
-		background: var(--bg);
-		position: relative;
-		overflow: hidden;
-		padding: 48px 0 72px;
-	}
-
 	.hero-grid {
-		position: relative;
-		z-index: 1;
 		display: grid;
 		grid-template-columns: 1.1fr 0.9fr;
 		gap: 48px;
@@ -338,38 +315,7 @@ import Layout from '../layouts/Layout.astro';
 
 	.hero-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-	.btn {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		gap: 8px;
-		padding: 15px 28px;
-		border-radius: 100px;
-		font-size: var(--fs-small);
-		font-weight: 700;
-		text-decoration: none;
-		transition: all 0.25s ease;
-	}
-
-	.btn-primary { background: var(--accent); color: #fff; }
-	.btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 10px 24px rgba(0,0,0,0.25); }
-
-	.btn-secondary {
-		background: transparent;
-		color: var(--text-on-dark);
-		border: 1.5px solid var(--border-on-dark);
-		font-weight: 600;
-	}
-	.btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
-
 	/* ═══ PROBLEM (light rest-stop band) ═══ */
-
-	.problem-band {
-		background: var(--surface-cream);
-		padding: 72px 0;
-		position: relative;
-		overflow: hidden;
-	}
 
 	.problem-line {
 		font-size: var(--fs-h2);
@@ -378,8 +324,6 @@ import Layout from '../layouts/Layout.astro';
 		line-height: 1.3;
 		max-width: 800px;
 		margin-bottom: 16px;
-		position: relative;
-		z-index: 1;
 		color: var(--band-text-strong);
 	}
 
@@ -389,16 +333,9 @@ import Layout from '../layouts/Layout.astro';
 		color: var(--band-text-dim);
 		line-height: 1.6;
 		max-width: 620px;
-		position: relative;
-		z-index: 1;
 	}
 
 	/* ═══ PHILOSOPHY (soft-oat rest-stop band) ═══ */
-
-	.philosophy-band {
-		background: var(--surface-soft);
-		padding: 80px 0;
-	}
 
 	.philosophy-split {
 		display: grid;
@@ -433,7 +370,10 @@ import Layout from '../layouts/Layout.astro';
 		margin-bottom: 26px;
 	}
 
-	.philosophy p:not(.eyebrow) {
+	/* No :not(.eyebrow) exclusion needed: Eyebrow.astro's <p> carries
+	   its own component scope id, not this page's, so it already
+	   can't match this page-scoped selector. */
+	.philosophy p {
 		font-size: var(--fs-body-lg);
 		font-weight: 400;
 		color: var(--band-text-dim);
@@ -457,19 +397,10 @@ import Layout from '../layouts/Layout.astro';
 
 	/* ═══ PROCESS (dark green band, same as hero) ═══ */
 
-	.process-band {
-		background: var(--bg);
-		color: var(--text-on-dark);
-		padding: 80px 0;
-		position: relative;
-		overflow: hidden;
-	}
-
-	.process-band h2 {
+	:global(.process-band) h2 {
 		font-size: var(--fs-h2);
 		font-weight: 700;
 		letter-spacing: -0.01em;
-		color: var(--text-on-dark);
 		margin-bottom: 40px;
 		max-width: 560px;
 	}
@@ -490,7 +421,7 @@ import Layout from '../layouts/Layout.astro';
 	.process-num {
 		display: block;
 		font-family: 'Fira Code', monospace;
-		font-size: 26px;
+		font-size: var(--fs-process-num);
 		font-weight: 400;
 		color: var(--accent);
 		margin-bottom: 16px;
@@ -513,11 +444,6 @@ import Layout from '../layouts/Layout.astro';
 
 	/* ═══ SELECTED WORK (light rest-stop band) ═══ */
 
-	.work-band {
-		background: var(--surface-cream);
-		padding: 80px 0 56px;
-	}
-
 	.work-header {
 		display: flex;
 		align-items: baseline;
@@ -527,7 +453,9 @@ import Layout from '../layouts/Layout.astro';
 		flex-wrap: wrap;
 	}
 
-	.work-header .eyebrow { margin-bottom: 0; }
+	/* .eyebrow is authored by Eyebrow.astro, a different component
+	   scope, so this needs :global() to match it. */
+	.work-header :global(.eyebrow) { margin-bottom: 0; }
 
 	.cat-tag {
 		display: inline-block;
@@ -558,7 +486,7 @@ import Layout from '../layouts/Layout.astro';
 
 	.hero-design:hover {
 		transform: translateY(-2px);
-		box-shadow: 0 16px 48px rgba(0,0,0,0.16);
+		box-shadow: 0 16px 48px var(--shadow-color-soft);
 	}
 
 	.hero-design-image { position: relative; z-index: 1; aspect-ratio: 16 / 9; overflow: hidden; background: var(--surface-card); }
@@ -591,7 +519,7 @@ import Layout from '../layouts/Layout.astro';
 	.design-img-overlay {
 		position: absolute;
 		inset: 0;
-		background: linear-gradient(to top, rgba(17,17,16,0.85) 0%, transparent 50%);
+		background: linear-gradient(to top, var(--overlay-scrim) 0%, transparent 50%);
 		opacity: 0;
 		transition: opacity 0.3s ease;
 		display: flex;
@@ -601,8 +529,8 @@ import Layout from '../layouts/Layout.astro';
 
 	.design-img-card:hover .design-img-overlay { opacity: 1; }
 
-	.overlay-name { font-size: var(--fs-small); font-weight: 600; color: #f2ece4; }
-	.overlay-tag { font-size: var(--fs-micro); color: #f0b79a; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 2px; }
+	.overlay-name { font-size: var(--fs-small); font-weight: 600; color: var(--overlay-text); }
+	.overlay-tag { font-size: var(--fs-micro); color: var(--overlay-text-accent); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 2px; }
 
 	.design-row-wide { margin-bottom: 14px; }
 	.design-row-wide .design-img-card img { aspect-ratio: 24 / 9; }
@@ -618,36 +546,21 @@ import Layout from '../layouts/Layout.astro';
 
 	/* ═══ CLOSING CTA ═══ */
 
-	.closing-cta {
-		padding: 96px 0;
-		text-align: center;
-		background: var(--surface-soft);
-		color: var(--band-text-strong);
-		position: relative;
-		overflow: hidden;
-	}
-
-	.closing-cta h2 {
+	:global(.closing-cta) h2 {
 		font-size: var(--fs-h1);
 		font-weight: 800;
 		letter-spacing: -0.015em;
 		max-width: 680px;
 		margin: 0 auto 14px;
 		line-height: 1.25;
-		position: relative;
-		z-index: 1;
 	}
 
-	.closing-cta p {
+	:global(.closing-cta) p {
 		font-size: var(--fs-body-lg);
 		font-weight: 400;
 		color: var(--band-text-dim);
 		margin-bottom: 30px;
-		position: relative;
-		z-index: 1;
 	}
-
-	.closing-cta .btn-primary { position: relative; z-index: 1; }
 
 	/* ═══ ANIMATIONS ═══
 	   fadeUp keyframe itself is shared, defined once in Layout.astro
@@ -668,7 +581,7 @@ import Layout from '../layouts/Layout.astro';
 	#lightbox.open { opacity: 1; pointer-events: all; }
 	#lightbox-backdrop {
 		position: absolute; inset: 0;
-		background: rgba(17, 17, 16, 0.75);
+		background: var(--lightbox-backdrop);
 		backdrop-filter: blur(6px);
 	}
 	#lightbox-frame {
@@ -676,7 +589,7 @@ import Layout from '../layouts/Layout.astro';
 		max-width: min(92vw, 1100px);
 		border-radius: var(--radius);
 		overflow: hidden;
-		box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+		box-shadow: 0 32px 80px var(--shadow-color-strong);
 		display: flex; flex-direction: column;
 		transform: scale(0.97);
 		transition: transform 0.2s ease;
@@ -732,12 +645,11 @@ import Layout from '../layouts/Layout.astro';
 	}
 
 	@media (max-width: 768px) {
-		.content { padding: 0 24px; }
-		.hero-section { padding: 32px 0 56px; }
-		.problem-band, .process-band { padding: 56px 0; }
-		.philosophy-band { padding: 56px 0; }
-		.work-band { padding: 56px 0 40px; }
-		.closing-cta { padding: 72px 0; }
+		:global(.hero-section) { padding: 32px 0 56px; }
+		:global(.problem-band), :global(.process-band) { padding: 56px 0; }
+		:global(.philosophy-band) { padding: 56px 0; }
+		:global(.work-band) { padding: 56px 0 40px; }
+		:global(.closing-cta) { padding: 72px 0; }
 	}
 
 	@media (max-width: 560px) {
@@ -745,7 +657,6 @@ import Layout from '../layouts/Layout.astro';
 	}
 
 	@media (max-width: 480px) {
-		.content { padding: 0 20px; }
 		.design-row { grid-template-columns: 1fr; }
 		.hero-design-body { padding: 22px 20px 26px; }
 		.pull-quote { padding: 24px 22px; }

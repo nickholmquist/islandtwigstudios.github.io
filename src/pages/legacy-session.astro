@@ -1,118 +1,73 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import OfferCard from '../components/OfferCard.astro';
 ---
 
 <Layout
-	title="The Legacy to New Era System — IslandTwig Studios"
-	description="A sports identity system discovered from the people, place, and traditions your team represents. Every project begins with a free Legacy Session."
+	title="Legacy Session — IslandTwig Studios"
+	description="A complimentary 30-45 minute conversation to uncover your organization's story, goals, and the right path forward for your identity."
 	path="/legacy-session"
 >
 	<section class="lw-hero">
 		<div class="content">
-			<div class="text-col">
-				<span class="eyebrow">The Legacy to New Era System</span>
-				<h1>Every great team has a story. Every great community has traditions.</h1>
-				<p class="lead">I create the identity that brings them together. Discovered from the people, the place, and the traditions your team already carries.</p>
-				<a href="#start" class="btn btn-primary">Start with a Legacy Session</a>
+			<div class="hero-grid">
+				<div class="text-col">
+					<span class="eyebrow">Legacy Session</span>
+					<h1>Sports identities that mean something.</h1>
+					<p class="lead">Built to represent. Made to last.</p>
+					<p class="body">Your team, school, or league deserves an identity that reflects who you are, brings your community together, and gives people something they're proud to represent.</p>
+					<p class="body">The Legacy Session is a complimentary 30&ndash;45 minute conversation designed to uncover your organization's story, goals, challenges, and opportunities.</p>
+					<p class="body">Together, we'll explore where your identity is today, where you want to go next, and what path will help you get there.</p>
+					<p class="body">Whether you're creating something new, refreshing what already exists, or expanding your current brand, this conversation is the first step.</p>
+					<a href="#start" class="btn btn-primary">Start Your Legacy Session</a>
+				</div>
+				<div class="hero-image">
+					<img src="/images/case-studies/utah-hockey/mammoth-overview.jpeg" alt="Utah Mammoth concept: primary mark, wordmark, and jersey set in black, white, and red colorways" />
+				</div>
 			</div>
 		</div>
 	</section>
 
+	<!-- PROBLEM -->
 	<section class="sec sec-cream">
+		<svg class="stripe-mark" style="bottom: 20px; right: 20px; width: 220px; height: 220px; opacity: 0.45;" viewBox="0 0 200 200">
+			<g transform="rotate(-22 100 100)">
+				<rect x="10" y="40" width="120" height="14" rx="7" fill="var(--lw-accent)" opacity="0.25"/>
+				<rect x="30" y="70" width="150" height="14" rx="7" fill="var(--lw-strong)" opacity="0.08"/>
+				<rect x="0" y="100" width="90" height="14" rx="7" fill="var(--lw-accent)" opacity="0.15"/>
+			</g>
+		</svg>
 		<div class="content">
 			<div class="text-col">
 				<p class="eyebrow">The problem</p>
-				<h2 class="big">Most teams have a logo. Few have an identity that reflects who they are.</h2>
-				<p class="body">A team launches once. And when the mark doesn't mean anything, no one is excited to wear it, the community never rallies behind it, and it sets a ceiling that's slow and costly to recover from.</p>
-				<p class="body">The work isn't the problem. The story is all there. It just hasn't been uncovered and built into something people can wear with pride.</p>
+				<h2 class="big">Your organization is more than a logo.</h2>
+				<p class="body">Every team, school, and league has a story. It's built through traditions, people, memories, and moments that create a sense of belonging. But sometimes the identity representing that organization no longer reflects what it has become.</p>
 				<ul class="pain-list">
-					<li>You're entering a new chapter and the identity needs to carry real weight.</li>
-					<li>The old mark was pulled from a template and never felt like yours.</li>
-					<li>You know the history matters, but no one has turned it into an identity.</li>
+					<li>Maybe your logo feels outdated.</li>
+					<li>Maybe your merchandise doesn't create the excitement it should.</li>
+					<li>Maybe your uniforms, social graphics, flyers, and other materials feel disconnected.</li>
+					<li>Maybe you have built something special, but your identity doesn't give your community something they're proud to wear and represent.</li>
 				</ul>
+				<p class="body">A strong identity does more than look good. It helps unite players, connect fans, strengthen community pride, and create something people remember.</p>
 			</div>
 		</div>
 	</section>
 
+	<!-- WHY THIS WORK MATTERS -->
 	<section class="sec sec-soft">
 		<div class="content">
-			<div class="text-col">
-				<p class="eyebrow">Why this work matters</p>
-				<h2 class="big">The best identities aren't designed in a vacuum. They're discovered.</h2>
-				<p class="body">When I played rugby, our branding never matched the pride we had for the team. The logo was generic, the merch was forgettable, and I always wished we had something people were actually excited to wear.</p>
-				<p class="body">That stuck with me. The identities that last aren't pulled from a template. They come from the people, the place, and the traditions a team already carries. That belief is the reason the Legacy to New Era System exists, and it's the reason every project starts with listening, not sketching.</p>
-			</div>
-		</div>
-	</section>
-
-	<section class="sec sec-dark">
-		<div class="content">
-			<div class="text-col">
-				<p class="eyebrow">The search is over</p>
-				<h2 class="big">Meet the Legacy to New Era System.</h2>
-				<p class="body">A complete sports identity system built to uncover what makes your team yours, then turn it into a mark people wear with pride and a community rallies behind. No guesswork. No template off a shelf. Just an identity discovered from your own story.</p>
-				<p class="body" style="margin-bottom: 4px;">Built for decision makers entering a new chapter:</p>
-				<div class="chip-row">
-					<span class="chip">Athletic directors</span>
-					<span class="chip">School administrators</span>
-					<span class="chip">Club founders</span>
-					<span class="chip">League presidents</span>
-					<span class="chip">Team owners</span>
+			<div class="story-split">
+				<div class="text-col">
+					<p class="eyebrow">Why this work matters</p>
+					<h2 class="big">I believe sports have the power to bring people together.</h2>
+					<p class="body">Growing up, I saw firsthand how much a team's identity could mean. The colors, logo, and merchandise became part of the community. Families wore them. Players represented them. Fans rallied behind them.</p>
+					<p class="body">Later, when I joined a club rugby team, I experienced the opposite. We had passion. We had pride. But our identity never reflected it. The logo and merchandise didn't capture what the organization meant to the people involved.</p>
+					<p class="body">That experience stayed with me. Because a sports identity isn't just a graphic. It's the connection between an organization and the people who support it.</p>
+					<p class="body">Today, I help schools, leagues, and sports organizations create identities that players wear with pride, fans rally behind, and communities remember.</p>
 				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="sec sec-cream">
-		<div class="content">
-			<p class="eyebrow">If you're ready to</p>
-			<h2 class="big">Then this is built for you.</h2>
-			<div class="outcome-grid">
-				<div class="outcome"><span class="outcome-num">01</span><p>Launch a new chapter with an identity that carries real weight</p></div>
-				<div class="outcome"><span class="outcome-num">02</span><p>Give players something they're proud to pull on</p></div>
-				<div class="outcome"><span class="outcome-num">03</span><p>Give fans a mark they rally behind</p></div>
-				<div class="outcome"><span class="outcome-num">04</span><p>Turn your history and traditions into something people can see</p></div>
-				<div class="outcome"><span class="outcome-num">05</span><p>Move from a forgettable logo to an identity a community remembers</p></div>
-				<div class="outcome"><span class="outcome-num">06</span><p>Own a full system, not a single file that falls apart in the real world</p></div>
-			</div>
-		</div>
-	</section>
-
-	<section class="sec sec-soft">
-		<div class="content">
-			<p class="eyebrow">Here's exactly what you're getting</p>
-			<h2 class="big">Four phases, from first conversation to launch day.</h2>
-			<div class="phase-row">
-				<div class="phase-card"><span class="phase-num">01</span><h3>Discover the Legacy</h3><p>Meet the people who know the team best. Research the place. Learn the traditions and the stories no outsider would know.</p></div>
-				<div class="phase-card"><span class="phase-num">02</span><h3>Define the Identity</h3><p>Translate those stories into themes, symbolism, and creative direction.</p></div>
-				<div class="phase-card"><span class="phase-num">03</span><h3>Craft the System</h3><p>Design the complete visual identity, from primary mark to the full set a team wears and lives in.</p></div>
-				<div class="phase-card"><span class="phase-num">04</span><h3>Launch into a New Era</h3><p>Help the community embrace it through apparel, uniforms, and rollout.</p></div>
-			</div>
-
-			<p class="eyebrow" style="margin-top: 8px;">And two things you keep</p>
-			<div class="deliverable-grid">
-				<div class="deliverable-card">
-					<span class="tag">Deliverable</span>
-					<h3>The Identity Brief</h3>
-					<p>A documented direction for your identity: the themes, symbolism, and creative direction pulled straight from your team's own story. You have it in hand before a single concept is drawn.</p>
+				<div class="story-image">
+					<img src="/images/legacy-session/rugby-team.jpg" alt="Nick's club rugby team posing together with their trophy and medals after a tournament win" />
 				</div>
-				<div class="deliverable-card">
-					<span class="tag">Deliverable</span>
-					<h3>The Story Behind the Mark</h3>
-					<p>The narrative that explains why the identity means what it means. The thing your community rallies behind and the reason the mark holds up for years.</p>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="sec sec-dark">
-		<div class="content">
-			<div class="text-col">
-				<p class="eyebrow">Who you'll work with</p>
-				<h2 class="big">I'm Nick.</h2>
-				<p class="body">I design sports identities for teams and communities entering a new chapter. One studio, one designer, working directly with you start to finish. No account managers, no handoffs.</p>
-				<p class="body">My approach is simple: research before design, built for the real world, made to last. I don't design logos for sports teams. I build identities that players wear with pride, fans rally behind, and communities remember.</p>
-				<a href="/about" class="btn btn-primary" style="margin-top: 8px;">More about me</a>
 			</div>
 		</div>
 	</section>
@@ -130,129 +85,296 @@ import Layout from '../layouts/Layout.astro';
 	</section>
 	-->
 
+	<!-- THE LEGACY SESSION, EXPLAINED -->
+	<section class="sec sec-dark">
+		<svg class="stripe-mark" style="top: 20px; left: 20px; width: 200px; height: 200px; opacity: 0.4;" viewBox="0 0 200 200">
+			<g transform="rotate(-22 100 100)">
+				<rect x="20" y="30" width="120" height="14" rx="7" fill="var(--lw-accent)" opacity="0.25"/>
+				<rect x="40" y="60" width="140" height="14" rx="7" fill="var(--lw-on-dark)" opacity="0.1"/>
+				<rect x="10" y="90" width="90" height="14" rx="7" fill="var(--lw-accent)" opacity="0.15"/>
+			</g>
+		</svg>
+		<div class="content">
+			<div class="text-col">
+				<p class="eyebrow">How it starts</p>
+				<h2 class="big">Start with a conversation. Find the right path forward.</h2>
+				<p class="body">The Legacy Session is a complimentary 30&ndash;45 minute conversation designed to uncover what your organization needs next. During our conversation, we'll explore:</p>
+			</div>
+			<div class="explore-grid">
+				<div class="explore-card">
+					<h3>Your Legacy</h3>
+					<ul>
+						<li>Where did your organization come from?</li>
+						<li>What traditions, values, and stories define your community?</li>
+						<li>What makes your organization unique?</li>
+					</ul>
+				</div>
+				<div class="explore-card">
+					<h3>Your Next Era</h3>
+					<ul>
+						<li>Why are you considering a change right now?</li>
+						<li>What do you want your identity to accomplish?</li>
+						<li>What would success look like?</li>
+					</ul>
+				</div>
+				<div class="explore-card">
+					<h3>Your Opportunities</h3>
+					<ul>
+						<li>Where is your current identity holding you back?</li>
+						<li>What could a stronger brand help you achieve?</li>
+					</ul>
+				</div>
+			</div>
+			<div class="text-col">
+				<p class="body" style="margin-top: 8px;">At the end of the conversation, we'll determine the right next step for your organization. That may be a focused identity project, a complete brand transformation, or expanding what you already have.</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- THE THREE PATHS FORWARD -->
+	<section class="sec sec-cream offer-section">
+		<div class="content">
+			<p class="eyebrow">Every organization is at a different stage</p>
+			<h2 class="big">Find the right identity solution for your organization.</h2>
+			<div class="offer-grid">
+				<OfferCard
+					image="/images/services/tier-logo.jpg"
+					imageAlt="Utah Yeti primary logo mark, an example of a Legacy Mark project"
+					name="Legacy Mark"
+					tagline="A meaningful foundation."
+					description="For organizations that need a custom logo identity built around their story. A Legacy Mark focuses on creating a distinctive logo and visual foundation your organization can confidently represent."
+					listLabel="Ideal for"
+					listItems={["New clubs", "Small organizations", "Budget-conscious teams", "Early-stage programs"]}
+				/>
+				<OfferCard
+					image="/images/services/tier-system.jpg"
+					imageAlt="Utah Yeti full brand system: primary and secondary marks, wordmark lockups, jerseys, number set, and color palette"
+					name="Legacy to New Era System"
+					tagline="A complete identity transformation."
+					description="For organizations ready to build a full brand identity system. Together, we'll uncover your story, define your direction, and create an identity designed to last."
+					listLabel="Includes"
+					listItems={["Logo system", "Wordmark", "Color palette", "Typography direction", "Brand guidelines", "Real-world brand applications"]}
+					footnote="The result is more than a new logo. It's an identity built for your organization's next chapter."
+				/>
+				<OfferCard
+					image="/images/services/tier-identity.jpg"
+					imageAlt="Utah Yeti brand identity applied across merchandise and gameday graphics"
+					name="Elevate Your Identity"
+					tagline="Bring your brand into every experience."
+					description="Once your identity is established, it can be expanded into every way your community interacts with your organization."
+					listLabel="Custom projects can include"
+					listItems={["Uniform and merchandise systems", "Gameday and social graphics", "Event and environmental branding", "Ongoing creative direction"]}
+					footnote="Every engagement is custom-scoped around your goals."
+				/>
+			</div>
+		</div>
+	</section>
+
+	<!-- PROCESS -->
 	<section class="sec sec-soft">
 		<div class="content">
 			<div class="text-col">
-				<p class="eyebrow">How it works</p>
-				<h2 class="big">Three steps. It starts with a conversation.</h2>
-				<div class="step">
-					<div class="step-num">01</div>
-					<div>
-						<h3>Start with a Legacy Session</h3>
-						<p>A free working session where we dig into your team's story. No pressure, no pitch. Just the first conversation, and the start of uncovering what your identity should be built from. Come ready to talk through:</p>
-						<ul class="agenda">
-							<li>History of the organization</li>
-							<li>Community and geography</li>
-							<li>Traditions</li>
-							<li>Defining moments</li>
-							<li>Future aspirations</li>
-							<li>Symbols and inspiration</li>
-							<li>Hidden stories worth preserving</li>
-						</ul>
-					</div>
+				<p class="eyebrow">The Legacy to New Era System</p>
+				<h2 class="big">A process built around meaning.</h2>
+				<p class="body">Great identities aren't created by jumping straight into design. They're built through understanding, strategy, and intentional decisions.</p>
+			</div>
+			<div class="phase-row">
+				<div class="phase-card"><span class="phase-num">01</span><h3>Discover the Legacy</h3><p>Every project begins by understanding your organization. We uncover your history, culture, traditions, and the qualities that make you unique.</p></div>
+				<div class="phase-card"><span class="phase-num">02</span><h3>Define the Identity</h3><p>Research becomes strategy. We identify core themes, visual direction, and creative principles that guide every decision.</p></div>
+				<div class="phase-card"><span class="phase-num">03</span><h3>Craft the System</h3><p>Strategy becomes identity. Your logo, visual system, and brand guidelines come together into a cohesive foundation.</p></div>
+				<div class="phase-card"><span class="phase-num">04</span><h3>Launch Into a New Era</h3><p>Your identity comes to life. Through presentation, mockups, and rollout guidance, you'll have the tools to introduce your next chapter.</p></div>
+			</div>
+		</div>
+	</section>
+
+	<!-- WHO YOU'LL WORK WITH -->
+	<section class="sec sec-dark">
+		<div class="content">
+			<div class="nick-split">
+				<div class="text-col">
+					<p class="eyebrow">Who you'll work with</p>
+					<h2 class="big">I'm Nick.</h2>
+					<p class="body">I design sports identities for teams and communities entering a new chapter. One studio, one designer, working directly with you start to finish. No account managers, no handoffs.</p>
+					<p class="body">My approach is simple: research before design, built for the real world, made to last. I don't design logos for sports teams. I build identities that players wear with pride, fans rally behind, and communities remember.</p>
+					<a href="/about" class="btn btn-primary" style="margin-top: 8px;">More about me</a>
 				</div>
-				<div class="step">
-					<div class="step-num">02</div>
-					<div>
-						<h3>We build the system</h3>
-						<p>If it's a fit, we move through the four phases together. I define the identity, craft the full system, and keep you in the loop at every step. This is where the story becomes something you can see and wear.</p>
-					</div>
-				</div>
-				<div class="step">
-					<div class="step-num">03</div>
-					<div>
-						<h3>Launch into a new era</h3>
-						<p>I hand over the complete identity and help the community embrace it through apparel, uniforms, and rollout. You launch your new chapter with a mark that means something.</p>
-					</div>
+				<div class="nick-portrait">
+					<img src="/images/ProfilePic.JPEG" alt="Nick Holmquist" />
 				</div>
 			</div>
 		</div>
 	</section>
 
+	<!-- IS THIS A FIT -->
 	<section class="sec sec-cream">
 		<div class="content">
 			<p class="eyebrow">Real talk</p>
-			<h2 class="big">This isn't for everyone.</h2>
+			<h2 class="big">Is the Legacy Session right for you?</h2>
+			<p class="body">This conversation is designed for decision makers at schools, teams, clubs, and leagues who want to build something meaningful.</p>
 			<div class="fit-grid">
 				<div class="fit-col yes">
 					<h3>It's a fit if you</h3>
 					<ul class="fit-list">
-						<li>Are entering a new chapter and want an identity that carries weight</li>
-						<li>Want a full system, not just a logo file</li>
-						<li>Believe your team's history and traditions are worth building on</li>
-						<li>Are ready to be part of uncovering the story</li>
-						<li>Want a mark that lasts, not a quick refresh</li>
+						<li>Are entering a new chapter and want an identity that reflects where you're going</li>
+						<li>Want more than a generic logo or template</li>
+						<li>Believe your history, culture, and community are worth representing</li>
+						<li>Want to be involved in uncovering what makes your organization unique</li>
+						<li>Are looking for an identity built to last</li>
 					</ul>
 				</div>
 				<div class="fit-col no">
 					<h3>It's not a fit if you</h3>
 					<ul class="fit-list">
-						<li>Want to skip the discovery and jump to a sketch</li>
-						<li>Don't see the value in story and positioning</li>
-						<li>Are looking for a template, not an identity</li>
-						<li>Aren't ready to invest in doing it right</li>
+						<li>Want to skip discovery and jump straight into concepts</li>
+						<li>Are only looking for something copied from a trend</li>
+						<li>See branding as just decoration</li>
+						<li>Aren't ready to invest time into building something meaningful</li>
 					</ul>
 				</div>
 			</div>
-			<p class="fit-note">Just need a single logo file, no discovery process? <a href="/services">See the Logo tier on Services</a>.</p>
 		</div>
 	</section>
 
+	<!-- FAQ -->
 	<section class="sec sec-soft">
 		<div class="content">
 			<div class="text-col">
-				<p class="eyebrow">Still curious</p>
-				<h2 class="big">Questions, answered.</h2>
+				<p class="eyebrow">Frequently asked questions</p>
+				<h2 class="big">Questions answered.</h2>
 				<div class="faq-item">
-					<h3>What makes you different from other sports designers?</h3>
-					<p>Most start with a sketch. I start with your story. Every visual decision comes out of the people, place, and traditions your team already carries, so the identity means something instead of just looking good.</p>
+					<h3>Is the Legacy Session really free?</h3>
+					<p>Yes. The Legacy Session is a complimentary 30&ndash;45 minute conversation to understand your organization, goals, and opportunities. There is no obligation to move forward. The purpose is to find clarity and determine the right next step.</p>
 				</div>
 				<div class="faq-item">
-					<h3>Do you only design logos?</h3>
-					<p>No. This is a full identity system, from the primary mark to the complete set a team wears and lives in. The logo is one part of a much larger identity.</p>
+					<h3>Do you only work with existing teams?</h3>
+					<p>No. The Legacy approach works for both established organizations looking to refresh their identity and new teams looking to create a strong foundation. Every organization has a story worth building from.</p>
 				</div>
 				<div class="faq-item">
-					<h3>What is the Legacy Session?</h3>
-					<p>It's the free first conversation, and the front door to the whole system. We dig into your team's history and traditions so we both understand what the identity should stand for before any design begins. No cost, no commitment.</p>
+					<h3>What if we don't know exactly what we need?</h3>
+					<p>That's exactly what the Legacy Session is for. Many organizations know they want something different but aren't sure what the right solution looks like yet. We'll figure that out together.</p>
 				</div>
 				<div class="faq-item">
-					<h3>Do you work with teams outside Utah?</h3>
-					<p>Yes. The work is remote and the process travels. If your team has a story worth building on, location isn't a barrier.</p>
+					<h3>How long does the process take?</h3>
+					<p>Timelines vary depending on the project scope, organization size, and feedback process. Most complete identity projects take approximately 4&ndash;6 weeks.</p>
 				</div>
 				<div class="faq-item">
-					<h3>How do I get started?</h3>
-					<p>Send a few details using the form below. I'll reply to set up your free Legacy Session.</p>
+					<h3>Do you only create logos?</h3>
+					<p>No. A logo can be the beginning of an identity, but it is only one piece. Depending on your needs, we can create a Legacy Mark, develop a complete Legacy to New Era System, or expand your identity through Elevate Your Identity.</p>
 				</div>
+				<div class="faq-item">
+					<h3>What happens after the Legacy Session?</h3>
+					<p>After our conversation, I'll review what we discussed and recommend the best path forward. If we're a good fit, I'll prepare a custom proposal outlining the scope, timeline, and investment. From there, we can begin building your next era.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CLOSING CTA -->
+	<section class="sec sec-dark closing-band">
+		<svg class="stripe-mark" style="bottom: 20px; left: 20px; width: 220px; height: 220px; opacity: 0.45;" viewBox="0 0 200 200">
+			<g transform="rotate(-22 100 100)">
+				<rect x="10" y="40" width="120" height="14" rx="7" fill="var(--lw-accent)" opacity="0.25"/>
+				<rect x="30" y="70" width="150" height="14" rx="7" fill="var(--lw-on-dark)" opacity="0.08"/>
+				<rect x="0" y="100" width="90" height="14" rx="7" fill="var(--lw-accent)" opacity="0.15"/>
+			</g>
+		</svg>
+		<div class="content">
+			<div class="text-col center">
+				<h2 class="big">Ready to discover what's next?</h2>
+				<p class="body">Your organization already has a story. Let's create the identity that carries it forward.</p>
+				<a href="#start" class="btn btn-primary">Start Your Legacy Session</a>
 			</div>
 		</div>
 	</section>
 
 	<section class="lw-start" id="start">
 		<div class="content">
-			<h2>Start with a Legacy Session.</h2>
-			<p class="start-sub">Send a few details and I'll reply to set up your free session. No commitment yet. Just the first conversation.</p>
+			<h2>Start Your Legacy Session</h2>
+			<p class="start-sub">Every great identity starts with understanding. Fill out the form below and tell me a little about your organization. This helps me prepare for our conversation and make your Legacy Session as valuable as possible.</p>
 
 			<form class="intake-card" id="intake-form" action="https://formspree.io/f/mgojdjre" method="POST">
-				<div class="field">
-					<label for="name">Your name</label>
-					<input type="text" id="name" name="name" required />
+
+				<div class="form-section">
+					<h3 class="form-section-title">About Your Organization</h3>
+
+					<div class="field">
+						<label for="name">Name</label>
+						<input type="text" id="name" name="name" required />
+					</div>
+					<div class="field">
+						<label for="team">Organization / Team Name</label>
+						<input type="text" id="team" name="team" required />
+					</div>
+					<div class="field">
+						<label for="email">Email Address</label>
+						<input type="email" id="email" name="email" required />
+					</div>
+					<div class="field">
+						<label for="website">Website or Social Links <span class="optional">(optional)</span></label>
+						<input type="text" id="website" name="website" />
+					</div>
+					<div class="field">
+						<label>What type of organization are you?</label>
+						<div class="radio-group">
+							<label class="radio-option"><input type="radio" name="org_type" value="School" required /> School</label>
+							<label class="radio-option"><input type="radio" name="org_type" value="Sports Team" /> Sports Team</label>
+							<label class="radio-option"><input type="radio" name="org_type" value="League" /> League</label>
+							<label class="radio-option"><input type="radio" name="org_type" value="Club" /> Club</label>
+							<label class="radio-option"><input type="radio" name="org_type" value="Other" /> Other</label>
+						</div>
+					</div>
 				</div>
-				<div class="field">
-					<label for="team">Team or organization</label>
-					<input type="text" id="team" name="team" required />
+
+				<hr class="form-divider" />
+
+				<div class="form-section">
+					<h3 class="form-section-title">Your Identity</h3>
+
+					<div class="field">
+						<label for="uniqueness">Tell me about your organization. What makes your team, school, or league unique?</label>
+						<textarea id="uniqueness" name="uniqueness"></textarea>
+					</div>
+					<div class="field">
+						<label>What best describes where you are today?</label>
+						<div class="radio-group stacked">
+							<label class="radio-option"><input type="radio" name="stage" value="Creating a new identity from the ground up" required /> We are creating a new identity from the ground up</label>
+							<label class="radio-option"><input type="radio" name="stage" value="Refreshing an existing identity" /> We have an existing identity that needs a refresh</label>
+							<label class="radio-option"><input type="radio" name="stage" value="Expanding our current brand presence" /> We want to expand and improve our current brand presence</label>
+						</div>
+					</div>
+					<div class="field">
+						<label for="why_now">Why are you considering a change right now?</label>
+						<textarea id="why_now" name="why_now"></textarea>
+					</div>
+					<div class="field">
+						<label for="goals">What would you like your new identity to accomplish?</label>
+						<p class="field-hint">Examples: stronger community pride, better merchandise, improved recognition, a more unified look, attracting new players/fans.</p>
+						<textarea id="goals" name="goals"></textarea>
+					</div>
 				</div>
-				<div class="field">
-					<label for="email">Email</label>
-					<input type="email" id="email" name="email" required />
-				</div>
-				<div class="field">
-					<label for="message">Tell me about your team</label>
-					<textarea id="message" name="message" placeholder="Where are you, what's the situation, and what are you hoping to build?" required></textarea>
+
+				<hr class="form-divider" />
+
+				<div class="form-section">
+					<h3 class="form-section-title">About Your Project</h3>
+
+					<div class="field">
+						<label for="decision_makers">Who is involved in making decisions about the identity?</label>
+						<input type="text" id="decision_makers" name="decision_makers" />
+					</div>
+					<div class="field">
+						<label for="timeline">Do you have a timeline or important dates you're working toward?</label>
+						<input type="text" id="timeline" name="timeline" />
+					</div>
+					<div class="field">
+						<label for="other">Anything else you'd like me to know before we talk?</label>
+						<textarea id="other" name="other"></textarea>
+					</div>
 				</div>
 
 				<input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
-				<button type="submit" class="btn btn-primary">Send it</button>
+				<button type="submit" class="btn btn-primary">Submit Request</button>
 				<div class="form-status" id="form-status" role="status" aria-live="polite"></div>
 			</form>
 		</div>
@@ -338,12 +460,16 @@ import Layout from '../layouts/Layout.astro';
 		--lw-radius-sm: var(--radius-sm, 8px);
 	}
 
-	.content { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+	.content { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+
+	.text-col { max-width: 720px; }
+	.text-col.center { max-width: 640px; margin: 0 auto; text-align: center; }
+	.text-col.center .btn { margin-top: 4px; }
 
 	/* The intake form reads better as a centered column than
 	   stretched to the page's full width, matching the same
 	   narrower-and-centered treatment used on services.html. */
-	.lw-start .content { max-width: 680px; }
+	.lw-start .content { max-width: 860px; }
 
 	/* .eyebrow is defined in global.css (shared pill, every page). */
 
@@ -354,9 +480,9 @@ import Layout from '../layouts/Layout.astro';
 		transition: all 0.25s ease; cursor: pointer; border: none;
 	}
 	.btn-primary { background: var(--lw-accent); color: #fff; }
-	.btn-primary:hover { background: var(--lw-accent-hover); transform: translateY(-1px); box-shadow: 0 10px 24px rgba(0,0,0,0.22); }
+	.btn-primary:hover { background: var(--lw-accent-hover); transform: translateY(-1px); box-shadow: 0 10px 24px var(--shadow-color); }
 
-	.sec { padding: 72px 0; }
+	.sec { padding: 72px 0; position: relative; overflow: hidden; }
 	.sec-dark { background: var(--lw-bg); color: var(--lw-on-dark); }
 	.sec-cream { background: var(--lw-cream); color: var(--lw-strong); }
 	.sec-soft { background: var(--lw-soft); color: var(--lw-strong); }
@@ -368,59 +494,134 @@ import Layout from '../layouts/Layout.astro';
 	.sec p.body { font-size: var(--fs-body-lg); line-height: 1.7; margin-bottom: 16px; }
 	.sec-dark p.body { color: var(--lw-on-dark-dim); }
 	.sec-cream p.body, .sec-soft p.body { color: var(--lw-dim); }
+	.sec p.body:last-child { margin-bottom: 0; }
 
-	.lw-hero { background: var(--lw-bg); padding: 52px 0 80px; }
+	.lw-hero { background: var(--lw-bg); padding: 52px 0 80px; position: relative; overflow: hidden; }
+
+	/* overflow: visible since the rotated rects inside can extend a
+	   few units past the 200x200 viewBox on some corners — SVGs clip
+	   to their viewBox by default, which was cutting a sliver off a
+	   rounded end. */
+	.stripe-mark { position: absolute; pointer-events: none; z-index: 0; overflow: visible; }
+
+	.hero-grid {
+		position: relative;
+		z-index: 1;
+		display: grid;
+		grid-template-columns: 1.1fr 0.9fr;
+		gap: 48px;
+		align-items: center;
+	}
+
+	.hero-image {
+		aspect-ratio: 1 / 1;
+		border-radius: var(--lw-radius);
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		overflow: hidden;
+		background: #fff;
+	}
+	.hero-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
 	.lw-hero h1 {
 		font-family: 'Plus Jakarta Sans', sans-serif;
 		font-size: var(--fs-hero); font-weight: 800;
 		letter-spacing: -0.035em; line-height: 1.0;
 		color: var(--lw-on-dark); margin-bottom: 20px;
 	}
-	.lw-hero .lead { font-size: var(--fs-lead); color: var(--lw-on-dark-dim); line-height: 1.55; margin-bottom: 32px; }
+	.lw-hero .lead { font-size: var(--fs-lead); font-weight: 600; color: var(--lw-on-dark); line-height: 1.5; margin-bottom: 20px; }
+	.lw-hero p.body { font-size: var(--fs-body-lg); color: var(--lw-on-dark-dim); line-height: 1.7; margin-bottom: 16px; }
+	.lw-hero .btn { margin-top: 12px; }
 
-	.pain-list { list-style: none; padding: 0; margin: 24px 0 0; }
+	.pain-list { list-style: none; padding: 0; margin: 24px 0; }
 	.pain-list li { font-size: var(--fs-body-lg); color: var(--lw-dim); line-height: 1.6; padding: 12px 0 12px 26px; position: relative; border-bottom: 1px solid var(--lw-border-light); }
 	.pain-list li:before { content: '\00B7'; position: absolute; left: 4px; color: var(--lw-accent); font-weight: 700; font-size: 22px; line-height: 1; }
 
-	.chip-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
-	.chip { font-size: var(--fs-small); font-weight: 600; color: var(--lw-on-dark); background: rgba(255,255,255,0.09); border: 1px solid rgba(255,255,255,0.16); padding: 9px 16px; border-radius: 100px; }
+	/* ═══ WHY THIS WORK MATTERS (text + photo split) ═══ */
 
-	.outcome-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 10px; }
-	.outcome { display: flex; gap: 16px; align-items: flex-start; padding: 18px 0; border-bottom: 1px solid var(--lw-border-light); }
-	.outcome-num { font-family: 'Fira Code', monospace; font-size: 18px; color: var(--lw-accent); flex-shrink: 0; }
-	.outcome p { font-size: var(--fs-body); color: var(--lw-strong); font-weight: 600; line-height: 1.45; }
+	.story-split { display: grid; grid-template-columns: 1fr 0.85fr; gap: 48px; align-items: start; }
+	.story-image {
+		border-radius: var(--lw-radius);
+		border: 1px solid var(--lw-border-light);
+		overflow: hidden;
+		aspect-ratio: 1 / 1;
+		background: #fff;
+	}
+	.story-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-	.phase-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 28px 0 40px; }
+	/* ═══ WHO YOU'LL WORK WITH (text + portrait split) ═══
+	   Reuses About.astro's portrait-card treatment (same photo, same
+	   token names, since --surface/--border/--accent-dim already
+	   resolve correctly on this section's dark band without needing
+	   the --lw-* bridging the light-band sections use). */
+
+	.nick-split { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: center; }
+	.nick-portrait {
+		background: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: var(--lw-radius);
+		padding: 24px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		overflow: hidden;
+	}
+	.nick-portrait::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: radial-gradient(ellipse at 30% 20%, var(--accent-dim), transparent 60%);
+		opacity: 0.5;
+	}
+	.nick-portrait img {
+		position: relative;
+		z-index: 1;
+		width: 100%;
+		max-width: 260px;
+		aspect-ratio: 1 / 1;
+		object-fit: cover;
+		border-radius: var(--lw-radius-sm);
+	}
+
+	/* ═══ LEGACY SESSION EXPLAINER ═══ */
+
+	.explore-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 28px 0 32px; }
+	.explore-card { background: rgba(255,255,255,0.06); border: 1px solid var(--nav-border); border-radius: var(--lw-radius); padding: 22px 20px; }
+	.explore-card h3 { font-size: var(--fs-h4); font-weight: 700; color: var(--lw-on-dark); margin-bottom: 12px; letter-spacing: -0.01em; }
+	.explore-card ul { list-style: none; padding: 0; margin: 0; }
+	.explore-card li { font-size: var(--fs-small); color: var(--lw-on-dark-dim); line-height: 1.55; padding-left: 16px; position: relative; margin-bottom: 8px; }
+	.explore-card li:before { content: '\00B7'; position: absolute; left: 2px; color: var(--lw-accent); font-weight: 700; }
+	.explore-card li:last-child { margin-bottom: 0; }
+
+	/* ═══ THREE PATHS FORWARD ═══
+	   OfferCard.astro references the site's generic --surface/--border/
+	   --text-strong tokens (same ones Services' band already overrides
+	   locally), not this page's own --lw-* aliases. Bridging them here,
+	   scoped to just this section, keeps the component genuinely
+	   reusable instead of baking this page's token names into it. */
+	.offer-section {
+		--text-strong: var(--lw-strong);
+		--text: var(--lw-strong);
+		--text-dim: var(--lw-dim);
+		--border: var(--lw-border-light);
+		--surface: #fff;
+		--surface-raised: #fff;
+	}
+	.offer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 10px; }
+
+	.phase-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 28px 0 0; }
 	.phase-card { background: #fff; border: 1px solid var(--lw-border-light); border-radius: var(--lw-radius); padding: 22px 20px; }
 	.phase-num { font-family: 'Fira Code', monospace; font-size: 22px; color: var(--lw-accent); display: block; margin-bottom: 12px; }
 	.phase-card h3 { font-size: var(--fs-h4); font-weight: 700; color: var(--lw-strong); margin-bottom: 8px; letter-spacing: -0.01em; }
 	.phase-card p { font-size: var(--fs-small); color: var(--lw-dim); line-height: 1.5; }
 
-	.deliverable-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-	.deliverable-card { background: var(--lw-bg); color: var(--lw-on-dark); border-radius: var(--lw-radius); padding: 28px 26px; }
-	.deliverable-card .tag { font-size: var(--fs-micro); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lw-accent); display: block; margin-bottom: 10px; }
-	.deliverable-card h3 { font-size: var(--fs-h3); font-weight: 700; color: var(--lw-on-dark); margin-bottom: 10px; letter-spacing: -0.01em; }
-	.deliverable-card p { font-size: var(--fs-small); color: var(--lw-on-dark-dim); line-height: 1.6; }
-
-	.step { display: grid; grid-template-columns: 64px 1fr; gap: 22px; padding: 26px 0; border-bottom: 1px solid var(--lw-border-light); align-items: start; }
-	.step:last-child { border-bottom: none; }
-	.step-num { font-family: 'Fira Code', monospace; font-size: 28px; color: var(--lw-accent); }
-	.step h3 { font-size: var(--fs-h3); font-weight: 700; color: var(--lw-strong); margin-bottom: 8px; letter-spacing: -0.01em; }
-	.step p { font-size: var(--fs-body); color: var(--lw-dim); line-height: 1.6; margin-bottom: 12px; }
-	.agenda { list-style: none; padding: 0; margin: 10px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 20px; }
-	.agenda li { font-size: var(--fs-small); color: var(--lw-dim); padding-left: 18px; position: relative; }
-	.agenda li:before { content: '·'; position: absolute; left: 4px; color: var(--lw-accent); font-weight: 700; }
-
-	.fit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 10px; }
+	.fit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
 	.fit-col { background: #fff; border: 1px solid var(--lw-border-light); border-radius: var(--lw-radius); padding: 26px 24px; }
 	.fit-col.no { background: transparent; border-style: dashed; }
 	.fit-col h3 { font-size: var(--fs-h4); font-weight: 700; color: var(--lw-strong); margin-bottom: 16px; letter-spacing: -0.01em; }
 	.fit-list { list-style: none; padding: 0; margin: 0; }
 	.fit-list li { font-size: var(--fs-small); color: var(--lw-dim); line-height: 1.5; padding: 9px 0 9px 26px; position: relative; }
 	.fit-col.yes .fit-list li:before { content: '\2713'; position: absolute; left: 0; color: #3d6b47; font-weight: 700; }
-	.fit-note { font-size: var(--fs-small); color: var(--lw-dim); margin-top: 18px; }
-	.fit-note a { color: var(--lw-accent); text-decoration: none; transition: color 0.2s; }
-	.fit-note a:hover { color: var(--lw-strong); }
 	.fit-col.no .fit-list li:before { content: 'X'; position: absolute; left: 0; color: var(--lw-accent); font-weight: 700; }
 
 	.testimonial-placeholder {
@@ -433,35 +634,31 @@ import Layout from '../layouts/Layout.astro';
 	.faq-item h3 { font-size: var(--fs-h4); font-weight: 700; color: var(--lw-strong); margin-bottom: 8px; letter-spacing: -0.01em; }
 	.faq-item p { font-size: var(--fs-body); color: var(--lw-dim); line-height: 1.6; }
 
+	/* ═══ CLOSING CTA ═══ */
+	.closing-band { text-align: center; }
+
 	.lw-start { background: var(--lw-bg); color: var(--lw-on-dark); padding: 72px 0 80px; }
 	.lw-start h2 { font-size: var(--fs-h1); font-weight: 800; color: var(--lw-on-dark); letter-spacing: -0.02em; margin-bottom: 12px; }
-	.lw-start .start-sub { font-size: var(--fs-body-lg); color: var(--lw-on-dark-dim); line-height: 1.6; max-width: 520px; margin-bottom: 32px; }
-	.field { margin-bottom: 18px; }
-	.field label { display: block; font-size: var(--fs-small); font-weight: 600; color: var(--lw-on-dark); margin-bottom: 7px; }
-	.field input, .field textarea {
-		width: 100%; box-sizing: border-box; padding: 13px 15px; font-size: var(--fs-body); font-family: inherit;
-		color: var(--lw-strong); background: #fff; border: 1px solid transparent; border-radius: var(--lw-radius-sm);
-		transition: box-shadow 0.2s ease;
-	}
-	.field input:focus, .field textarea:focus { outline: none; box-shadow: 0 0 0 2px var(--lw-accent); }
-	.field textarea { min-height: 130px; resize: vertical; }
-	.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-	.form-status { font-size: var(--fs-small); font-weight: 600; margin-top: 16px; display: none; }
-	.form-status.show { display: block; }
-	.form-status.success { color: #9fd3ab; }
-	.form-status.error { color: var(--lw-accent); }
+	.lw-start .start-sub { font-size: var(--fs-body-lg); color: var(--lw-on-dark-dim); line-height: 1.6; max-width: 560px; margin-bottom: 32px; }
+
+	/* .intake-card, .field, .radio-group, .form-status, etc. are all
+	   defined in global.css now — shared with Services' intake form. */
 
 	@media (max-width: 900px) {
+		.hero-grid { grid-template-columns: 1fr; }
+		.hero-image { max-width: 420px; margin: 8px auto 0; order: 2; }
 		.phase-row { grid-template-columns: 1fr 1fr; }
-		.outcome-grid, .deliverable-grid, .fit-grid { grid-template-columns: 1fr; }
+		.explore-grid, .offer-grid, .fit-grid { grid-template-columns: 1fr; }
+		.story-split { grid-template-columns: 1fr; }
+		.story-image { max-width: 480px; margin: 8px auto 0; }
+		.nick-split { grid-template-columns: 1fr; }
+		.nick-portrait { max-width: 320px; margin: 8px auto 0; }
 	}
 	@media (max-width: 768px) {
 		.content { padding: 0 24px; }
-		.agenda { grid-template-columns: 1fr; }
 	}
 	@media (max-width: 480px) {
 		.content { padding: 0 20px; }
 		.phase-row { grid-template-columns: 1fr; }
-		.step { grid-template-columns: 1fr; gap: 8px; }
 	}
 </style>

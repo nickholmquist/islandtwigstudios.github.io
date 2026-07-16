@@ -14,10 +14,10 @@
    on that dark canvas, not literal light cards, so every page's
    text stays legible without page-by-page edits.
 
-   The homepage's own light "rest stop" bands (Problem, Philosophy,
-   Selected Work) are a deliberate homepage-only exception: they use
-   --surface-cream / --surface-soft plus their own page-scoped dark
-   text tokens, defined in index.astro itself, not here.
+   Light "rest stop" bands (Band.astro's cream/soft variants) use
+   --surface-cream / --surface-soft plus the --band-text-strong /
+   --band-text-dim pair defined below, alongside the dark-canvas
+   token set every other page uses.
 
    Imported once in Layout.astro, before any page's own <style>
    block, so page-specific rules can still override where needed.
@@ -59,6 +59,31 @@
     /* Legacy aliases so nothing dangles. */
     --accent-warm: var(--accent);
     --accent-warm-dim: var(--accent-dim);
+
+    /* Dark text pair for light "rest stop" bands (Band.astro's cream/
+       soft variants). Global rather than page-scoped so any page can
+       use Band, not just the homepage. */
+    --band-text-strong: #2a2e28;
+    --band-text-dim: #5f645b;
+
+    /* Primary button text. Deliberately its own token rather than
+       reusing --on-accent-text: white reads correctly on this specific
+       button, but --on-accent-text's dark value is what other accent-
+       filled surfaces (eyebrow pills, badges) need. Kept distinct
+       rather than merged. */
+    --btn-primary-text: #fff;
+
+    /* Shadow ink, three depths used across hover/lightbox elevation. */
+    --shadow-color: rgba(0, 0, 0, 0.25);
+    --shadow-color-soft: rgba(0, 0, 0, 0.16);
+    --shadow-color-strong: rgba(0, 0, 0, 0.5);
+
+    /* Overlay/scrim ink: near-black, distinct from --bg's dark green.
+       Used behind imagery (gallery hover captions, lightbox backdrop). */
+    --overlay-scrim: rgba(17, 17, 16, 0.85);
+    --lightbox-backdrop: rgba(17, 17, 16, 0.75);
+    --overlay-text: #f2ece4;
+    --overlay-text-accent: #f0b79a;
 
     /* Explicit light/dark text pair, matched to the naming the
        homepage band table uses. Same values as --text-strong /
@@ -107,6 +132,9 @@
     /* Case-study title only: sits above a meta bar, a legitimately
        distinct role from both h1 tiers above, not a stray one-off. */
     --fs-h1-study: clamp(32px, 4vw, 48px);
+    /* Process-card step numbers ("01"-"04"), monospace. Its own step
+       since 26px doesn't fit an existing role. */
+    --fs-process-num: 26px;
 
     --grid-stroke: rgba(255, 255, 255, 0.05);
     --noise-opacity: 0.15;
@@ -212,8 +240,36 @@ nav {
     transition: color 0.2s;
 }
 
-.nav-links a.active { color: var(--accent); }
+.nav-links a.active { color: var(--accent); font-weight: 600; }
 .nav-links a:hover { color: var(--accent); }
+
+/* Persistent CTA, last nav item: styled as a button rather than a
+   plain link so it reads as an action, not a wayfinding item. Never
+   gets .active (it isn't "the current page" in the same sense the
+   other links are), so it doesn't need an active-state override. */
+.nav-links a.nav-cta {
+    color: var(--btn-primary-text);
+    background: var(--accent);
+    padding: 10px 20px;
+    border-radius: 100px;
+    font-weight: 700;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+.nav-links a.nav-cta:hover {
+    color: var(--btn-primary-text);
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+}
+
+/* Current-page state. Overrides .nav-links a.active's orange text
+   (which would otherwise be invisible on this button's orange fill)
+   with a ring instead, since the fill itself can't also become the
+   "you are here" signal the way it does for the plain text links. */
+.nav-links a.nav-cta.active {
+    color: var(--btn-primary-text);
+    font-weight: 700;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.45);
+}
 
 /* ═══ MOBILE NAV TOGGLE (hamburger) ═══
    Hidden on desktop; shown at the 768px breakpoint below, where
@@ -282,7 +338,12 @@ nav {
    visible seam. Every page uses the same .footer class. */
 .footer { background: var(--bg); }
 
-@media (max-width: 768px) {
+/* Nav's own breakpoint, wider than the page-content 768px breakpoint
+   used elsewhere: with Home back in the list, four plain links plus
+   the "Start Your Legacy Session" button start wrapping mid-nav
+   around 820px, well before 768px. Switching to the hamburger here
+   avoids that gap. */
+@media (max-width: 860px) {
     nav { padding: 18px 24px; }
     .nav-logo-text { display: none; }
     .nav-logo-mark { display: block; }
@@ -307,7 +368,7 @@ nav {
            to be fully opaque or that content shows through. */
         background: var(--bg);
         border-bottom: 1px solid var(--nav-border);
-        box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+        box-shadow: 0 12px 24px var(--shadow-color);
         padding: 8px 24px 16px;
     }
 
@@ -321,8 +382,82 @@ nav {
     }
 
     .nav-links li:last-child a { border-bottom: none; }
+
+    .nav-links a.nav-cta {
+        display: inline-flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
 }
 
 @media (max-width: 480px) {
     nav { padding: 16px 20px; }
+}
+
+/* ═══ INTAKE FORM CARD ═══
+   Shared by every page's intake form (currently Legacy Session and
+   Services). Always a solid white card with fixed dark-on-light
+   tokens (--band-text-strong/--band-text-dim/--surface-cream/
+   --border-on-light), regardless of what band wraps it — a dark
+   canvas or a light cream band both need the same real contrast,
+   and relying on the surrounding band's own text tokens is what
+   made this hard to read before (a tan --surface card on a light
+   band nearly disappeared against it). Page-specific pieces (the
+   heading above the card, a submit button with an icon, a "just
+   email me" fallback note) stay page-scoped, since those genuinely
+   differ per page. */
+
+.intake-card {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 40px;
+    text-align: left;
+}
+
+.form-section-title {
+    font-size: var(--fs-h4);
+    font-weight: 700;
+    color: var(--band-text-strong);
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+}
+
+.form-divider { border: none; height: 1px; background: var(--border-on-light); margin: 32px 0; }
+
+.field { margin-bottom: 18px; }
+.field label { display: block; font-size: var(--fs-small); font-weight: 600; color: var(--band-text-strong); margin-bottom: 7px; }
+.field label .optional { font-weight: 400; color: var(--band-text-dim); }
+.field-hint { font-size: var(--fs-caption); color: var(--band-text-dim); font-style: italic; margin: -3px 0 10px; }
+.field input, .field textarea {
+    width: 100%; box-sizing: border-box; padding: 13px 15px; font-size: var(--fs-body); font-family: inherit;
+    color: var(--band-text-strong); background: var(--surface-cream); border: 1px solid var(--border-on-light); border-radius: var(--radius-sm);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 20%, transparent); }
+.field textarea { min-height: 110px; resize: vertical; }
+
+.radio-group { display: flex; flex-wrap: wrap; gap: 10px 20px; margin-top: 6px; }
+.radio-group.stacked { flex-direction: column; gap: 10px; }
+.radio-option { display: flex; align-items: center; gap: 8px; font-size: var(--fs-small); font-weight: 400; color: var(--band-text-strong); cursor: pointer; }
+.radio-option input[type="radio"] { accent-color: var(--accent); width: 16px; height: 16px; cursor: pointer; flex-shrink: 0; }
+
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+.intake-card .btn { margin-top: 8px; }
+
+.form-status { margin-top: 16px; font-size: var(--fs-small); font-weight: 500; line-height: 1.55; display: none; }
+.form-status.show { display: block; }
+.form-status.success {
+    color: #2f7a3d;
+    padding: 14px 16px;
+    background: rgba(47, 122, 61, 0.1);
+    border: 1px solid rgba(47, 122, 61, 0.25);
+    border-radius: var(--radius-sm);
+}
+.form-status.error {
+    color: var(--hue-coral);
+    padding: 14px 16px;
+    background: var(--hue-coral-dim);
+    border: 1px solid rgba(168, 110, 98, 0.3);
+    border-radius: var(--radius-sm);
 }

@@ -1,0 +1,58 @@
+---
+// Full-bleed section wrapper for the homepage's alternating band
+// pattern. `variant` sets background + default text color; each band's
+// own instance-specific padding stays with the page (see index.astro's
+// :global(.hero-section) etc. overrides) since it varies per band and
+// per breakpoint in a way a single prop can't express cleanly.
+interface Props {
+	variant: 'dark' | 'cream' | 'soft';
+	class?: string;
+}
+
+const { variant, class: className } = Astro.props;
+---
+
+<section class:list={['band', `band-${variant}`, className]}>
+	<slot name="decoration" />
+	<div class="content">
+		<slot />
+	</div>
+</section>
+
+<style>
+	.band {
+		position: relative;
+		overflow: hidden;
+	}
+
+	.band-dark {
+		background: var(--bg);
+		color: var(--text-on-dark);
+	}
+	.band-cream {
+		background: var(--surface-cream);
+		color: var(--band-text-strong);
+	}
+	.band-soft {
+		background: var(--surface-soft);
+		color: var(--band-text-strong);
+	}
+
+	/* Stacks content above an optional absolutely-positioned decoration
+	   (the stripe-mark SVGs), so individual children no longer need
+	   their own position/z-index just to sit above it. */
+	.content {
+		position: relative;
+		z-index: 1;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 48px;
+	}
+
+	@media (max-width: 768px) {
+		.content { padding: 0 24px; }
+	}
+	@media (max-width: 480px) {
+		.content { padding: 0 20px; }
+	}
+</style>
