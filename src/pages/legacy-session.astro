@@ -13,12 +13,9 @@ import OfferCard from '../components/OfferCard.astro';
 			<div class="hero-grid">
 				<div class="text-col">
 					<span class="eyebrow">Legacy Session</span>
-					<h1>Sports identities that mean something.</h1>
-					<p class="lead">Built to represent. Made to last.</p>
-					<p class="body">Your team, school, or league deserves an identity that reflects who you are, brings your community together, and gives people something they're proud to represent.</p>
-					<p class="body">The Legacy Session is a free 30&ndash;45 minute conversation designed to uncover your organization's story, goals, challenges, and opportunities.</p>
-					<p class="body">Together, we'll explore where your identity is today, where you want to go next, and what path will help you get there.</p>
-					<p class="body">Whether you're creating something new, refreshing what already exists, or expanding your current brand, this conversation is the first step.</p>
+					<h1>Sports identities that <span class="accent-word">unite.</span></h1>
+					<p class="lead">Custom brand identities for schools, teams, and leagues that inspire pride and strengthen community.</p>
+					<p class="body">The Legacy Session is a complimentary 30&ndash;45 minute conversation to uncover where your organization is today, where you want to go next, and the right path to get there.</p>
 					<a href="#start" class="btn btn-primary">Start Your Legacy Session</a>
 				</div>
 				<div class="hero-image">
@@ -138,34 +135,49 @@ import OfferCard from '../components/OfferCard.astro';
 			<h2 class="big">Find the right identity solution for your organization.</h2>
 			<div class="offer-grid">
 				<OfferCard
+					href="/services"
 					image="/images/services/tier-logo.jpg"
 					imageAlt="Utah Yeti primary logo mark, an example of a Legacy Mark project"
 					name="Legacy Mark"
-					tagline="A meaningful foundation."
-					description="For organizations that need a custom logo identity built around their story. A Legacy Mark focuses on creating a distinctive logo and visual foundation your organization can confidently represent."
-					listLabel="Ideal for"
-					listItems={["New clubs", "Small organizations", "Budget-conscious teams", "Early-stage programs"]}
+					description="A meaningful logo identity built around your organization's story."
 				/>
 				<OfferCard
+					href="/services"
 					image="/images/services/tier-system.jpg"
 					imageAlt="Utah Yeti full brand system: primary and secondary marks, wordmark lockups, jerseys, number set, and color palette"
 					name="Legacy to New Era System"
-					tagline="A complete identity transformation."
-					description="For organizations ready to build a full brand identity system. Together, we'll uncover your story, define your direction, and create an identity designed to last."
-					listLabel="Includes"
-					listItems={["Logo system", "Wordmark", "Color palette", "Typography direction", "Brand guidelines", "Real-world brand applications"]}
-					footnote="The result is more than a new logo. It's an identity built for your organization's next chapter."
+					description="A complete identity system for organizations entering a new chapter."
 				/>
 				<OfferCard
+					href="/services"
 					image="/images/services/tier-identity.jpg"
 					imageAlt="Utah Yeti brand identity applied across merchandise and gameday graphics"
 					name="Elevate Your Identity"
-					tagline="Bring your brand into every experience."
-					description="Once your identity is established, it can be expanded into every way your community interacts with your organization."
-					listLabel="Custom projects can include"
-					listItems={["Uniform and merchandise systems", "Gameday and social graphics", "Event and environmental branding", "Ongoing creative direction"]}
-					footnote="Every engagement is custom-scoped around your goals."
+					description="Bring your identity into uniforms, merchandise, gameday graphics, and beyond."
 				/>
+			</div>
+		</div>
+	</section>
+
+	<!-- IMAGINE WHAT'S POSSIBLE -->
+	<section class="sec sec-dark">
+		<div class="content">
+			<div class="text-col center">
+				<p class="eyebrow">Beyond the field</p>
+				<h2 class="big">More than a logo.</h2>
+				<div class="imagine-lines">
+					<p>The best sports identities don't stay on the field.</p>
+					<p>They're worn by families on Saturday mornings.</p>
+					<p>Hung as flags outside homes.</p>
+					<p>Set as phone wallpapers.</p>
+					<p>Printed on hoodies that get passed down.</p>
+					<p>Painted on curbs before rivalry games.</p>
+					<p>Sometimes they're even tattooed.</p>
+					<p>Because when an identity truly represents an organization, it becomes part of the people who support it.</p>
+					<p>That's what we're building.</p>
+					<p>Not just a logo.</p>
+					<p class="imagine-close">An identity people are proud to represent.</p>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -446,16 +458,18 @@ import OfferCard from '../components/OfferCard.astro';
 	   sections, white cards), so they need a fixed dark value
 	   regardless of the dark-canvas globals. */
 	:global(:root) {
-		--lw-bg: var(--bg, #2b352e);
-		--lw-cream: var(--surface-cream, #f4f2ea);
-		--lw-soft: var(--surface-soft, #eae8dd);
-		--lw-accent: var(--accent, #d9663c);
-		--lw-accent-hover: var(--accent-hover, #c25730);
-		--lw-on-dark: var(--text-on-dark, #f7f5ef);
-		--lw-on-dark-dim: var(--text-on-dark-dim, rgba(241, 243, 238, 0.72));
-		--lw-strong: #2a2e28;
-		--lw-dim: #5f645b;
-		--lw-border-light: var(--border-on-light, #ccc7b6);
+		--lw-bg: var(--bg, #181a19);
+		--lw-cream: var(--surface-cream, #f4f1e9);
+		--lw-soft: var(--surface-soft, #e8e2d4);
+		--lw-accent: var(--accent, #ab8a1f);
+		--lw-accent-hover: var(--accent-hover, #8f7219);
+		--lw-accent-cool: var(--accent-cool, #2d6b45);
+		--lw-accent-bright: var(--accent-bright, #c9a227);
+		--lw-on-dark: var(--text-on-dark, #f4f1e9);
+		--lw-on-dark-dim: var(--text-on-dark-dim, rgba(244, 241, 233, 0.72));
+		--lw-strong: #1a1c1a;
+		--lw-dim: #5a5f5a;
+		--lw-border-light: var(--border-on-light, #c9c3b4);
 		--lw-radius: var(--radius, 12px);
 		--lw-radius-sm: var(--radius-sm, 8px);
 	}
@@ -479,7 +493,7 @@ import OfferCard from '../components/OfferCard.astro';
 		font-size: var(--fs-small); font-weight: 700; text-decoration: none;
 		transition: all 0.25s ease; cursor: pointer; border: none;
 	}
-	.btn-primary { background: var(--lw-accent); color: #fff; }
+	.btn-primary { background: var(--lw-accent); color: var(--lw-strong); }
 	.btn-primary:hover { background: var(--lw-accent-hover); transform: translateY(-1px); box-shadow: 0 10px 24px var(--shadow-color); }
 
 	.sec { padding: 72px 0; position: relative; overflow: hidden; }
@@ -528,6 +542,7 @@ import OfferCard from '../components/OfferCard.astro';
 		letter-spacing: -0.035em; line-height: 1.0;
 		color: var(--lw-on-dark); margin-bottom: 20px;
 	}
+	.lw-hero h1 .accent-word { color: var(--lw-accent-bright); }
 	.lw-hero .lead { font-size: var(--fs-lead); font-weight: 600; color: var(--lw-on-dark); line-height: 1.5; margin-bottom: 20px; }
 	.lw-hero p.body { font-size: var(--fs-body-lg); color: var(--lw-on-dark-dim); line-height: 1.7; margin-bottom: 16px; }
 	.lw-hero .btn { margin-top: 12px; }
@@ -609,9 +624,27 @@ import OfferCard from '../components/OfferCard.astro';
 	}
 	.offer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 10px; }
 
+	/* ═══ IMAGINE WHAT'S POSSIBLE ═══
+	   Short, breathing lines rather than dense paragraphs — the pacing
+	   is the point, so each line gets real space around it. */
+	.imagine-lines { margin-top: 8px; }
+	.imagine-lines p {
+		font-size: var(--fs-lead);
+		font-weight: 400;
+		color: var(--lw-on-dark-dim);
+		line-height: 1.6;
+		margin-bottom: 22px;
+	}
+	.imagine-lines p:last-child { margin-bottom: 0; }
+	.imagine-lines p.imagine-close {
+		font-weight: 700;
+		color: var(--lw-on-dark);
+		margin-top: 8px;
+	}
+
 	.phase-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 28px 0 0; }
 	.phase-card { background: #fff; border: 1px solid var(--lw-border-light); border-radius: var(--lw-radius); padding: 22px 20px; }
-	.phase-num { font-family: 'Fira Code', monospace; font-size: 22px; color: var(--lw-accent); display: block; margin-bottom: 12px; }
+	.phase-num { font-family: 'Fira Code', monospace; font-size: 22px; color: var(--lw-accent-cool); display: block; margin-bottom: 12px; }
 	.phase-card h3 { font-size: var(--fs-h4); font-weight: 700; color: var(--lw-strong); margin-bottom: 8px; letter-spacing: -0.01em; }
 	.phase-card p { font-size: var(--fs-small); color: var(--lw-dim); line-height: 1.5; }
 

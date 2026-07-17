@@ -7,8 +7,8 @@ interface Props {
 	image: string;
 	imageAlt: string;
 	name: string;
-	tagline: string;
-	description: string;
+	tagline?: string;
+	description?: string;
 	listLabel?: string;
 	listItems?: string[];
 	footnote?: string;
@@ -25,8 +25,8 @@ const Tag = href ? 'a' : 'div';
 	</div>
 	<div class="offer-inner">
 		<h3 class="offer-name">{name}</h3>
-		<p class="offer-tagline">{tagline}</p>
-		<p class="offer-desc">{description}</p>
+		{tagline && <p class="offer-tagline">{tagline}</p>}
+		{description && <p class="offer-desc">{description}</p>}
 		{listItems && listItems.length > 0 && (
 			<>
 				{listLabel && <div class="offer-list-label">{listLabel}</div>}

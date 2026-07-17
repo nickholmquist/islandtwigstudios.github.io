@@ -124,9 +124,9 @@ import Layout from '../layouts/Layout.astro';
 	.about-content-band {
 		background: var(--surface-cream);
 		padding: 64px 0;
-		--text-strong: #2a2e28;
-		--text: #2a2e28;
-		--text-dim: #5f645b;
+		--text-strong: #1a1c1a;
+		--text: #1a1c1a;
+		--text-dim: #5a5f5a;
 		--text-faint: rgba(42, 46, 40, 0.05);
 		--border: var(--border-on-light);
 		--surface: var(--surface-card);
@@ -185,11 +185,7 @@ import Layout from '../layouts/Layout.astro';
 
 	.subsection strong { color: var(--text); font-weight: 600; }
 
-	/* Primary CTA button. NOTE: this page's .btn-primary uses
-	   --on-accent-text (dark) rather than white, unlike the
-	   homepage's — a pre-existing inconsistency on the static site,
-	   carried over as-is rather than silently resolved during
-	   migration. */
+	/* Primary CTA button. */
 	.btn {
 		display: inline-flex;
 		align-items: center;
@@ -202,7 +198,7 @@ import Layout from '../layouts/Layout.astro';
 		text-decoration: none;
 		transition: all 0.25s ease;
 	}
-	.btn-primary { background: var(--accent); color: var(--on-accent-text); }
+	.btn-primary { background: var(--accent); color: var(--btn-primary-text); }
 	.btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 10px 24px rgba(0,0,0,0.25); }
 
 	.contact-pill { margin-top: 4px; margin-bottom: 20px; }
@@ -252,7 +248,7 @@ import Layout from '../layouts/Layout.astro';
 		display: block;
 		font-size: var(--fs-h4);
 		font-weight: 700;
-		color: #2a2e28;
+		color: #1a1c1a;
 		margin-bottom: 8px;
 		letter-spacing: -0.01em;
 	}
@@ -261,7 +257,7 @@ import Layout from '../layouts/Layout.astro';
 		display: block;
 		font-size: var(--fs-small);
 		font-weight: 400;
-		color: #5f645b;
+		color: #5a5f5a;
 		line-height: 1.6;
 	}
 
