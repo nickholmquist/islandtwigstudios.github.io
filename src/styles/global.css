@@ -240,7 +240,7 @@ nav {
     transition: color 0.2s;
 }
 
-.nav-links a.active { color: var(--accent); font-weight: 600; }
+.nav-links a.active { color: var(--accent); font-weight: 700; }
 .nav-links a:hover { color: var(--accent); }
 
 /* Persistent CTA, last nav item: styled as a button rather than a
