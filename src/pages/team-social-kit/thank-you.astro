@@ -1,0 +1,258 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+	title="Thank You — IslandTwig Studios"
+	description="Your Team's Social Kit is on its way. Here's what to do next."
+	path="/team-social-kit/thank-you"
+	hideNav
+>
+	<div class="tsk-strip">
+		Your Team's Social Kit is on its way, check your inbox shortly (and your spam folder, just in case).
+	</div>
+
+	<div class="tsk-topbar">
+		<a href="/" class="tsk-logo" aria-label="IslandTwig Studios — Home">
+			<span class="tsk-logo-text">IslandTwig Studios</span>
+			<img class="tsk-logo-mark" src="/images/islandtwig-mark.png" alt="IslandTwig Studios" />
+		</a>
+	</div>
+
+	<section class="tsk-next">
+		<div class="content">
+			<div class="text-col center">
+				<p class="eyebrow">Next Step</p>
+				<h1>Let's talk about what's next.</h1>
+				<p class="lead">The Social Kit is meant to make posting easier this season. But it's not the whole picture.</p>
+				<p class="body">If dropping in your logo or colors into these templates didn't feel quite right, that's not a Canva problem. That's exactly what the Legacy Session is for, a complimentary conversation to figure out if your identity is doing right by your organization, and what to do next if it isn't.</p>
+				<a href="#start" class="btn btn-primary">Start Your Legacy Session</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="lw-start" id="start">
+		<div class="content">
+			<h2>Start Your Legacy Session</h2>
+			<p class="start-sub">Every great identity starts with understanding. Fill out the form below and tell me a little about your organization. This helps me prepare for our conversation and make your Legacy Session as valuable as possible.</p>
+
+			<form class="intake-card" id="intake-form" action="https://formspree.io/f/mgojdjre" method="POST">
+
+				<div class="form-section">
+					<h3 class="form-section-title">About Your Organization</h3>
+
+					<div class="field">
+						<label for="name">Name</label>
+						<input type="text" id="name" name="name" required />
+					</div>
+					<div class="field">
+						<label for="team">Organization / Team Name</label>
+						<input type="text" id="team" name="team" required />
+					</div>
+					<div class="field">
+						<label for="email">Email Address</label>
+						<input type="email" id="email" name="email" required />
+					</div>
+					<div class="field">
+						<label for="website">Website or Social Links <span class="optional">(optional)</span></label>
+						<input type="text" id="website" name="website" />
+					</div>
+					<div class="field">
+						<label>What type of organization are you?</label>
+						<div class="radio-group">
+							<label class="radio-option"><input type="radio" name="org_type" value="School" required /> School</label>
+							<label class="radio-option"><input type="radio" name="org_type" value="Sports Team" /> Sports Team</label>
+							<label class="radio-option"><input type="radio" name="org_type" value="League" /> League</label>
+							<label class="radio-option"><input type="radio" name="org_type" value="Club" /> Club</label>
+							<label class="radio-option"><input type="radio" name="org_type" value="Other" /> Other</label>
+						</div>
+					</div>
+				</div>
+
+				<hr class="form-divider" />
+
+				<div class="form-section">
+					<h3 class="form-section-title">Your Identity</h3>
+
+					<div class="field">
+						<label for="uniqueness">Tell me about your organization. What makes your team, school, or league unique?</label>
+						<textarea id="uniqueness" name="uniqueness"></textarea>
+					</div>
+					<div class="field">
+						<label>What best describes where you are today?</label>
+						<div class="radio-group stacked">
+							<label class="radio-option"><input type="radio" name="stage" value="Creating a new identity from the ground up" required /> We are creating a new identity from the ground up</label>
+							<label class="radio-option"><input type="radio" name="stage" value="Refreshing an existing identity" /> We have an existing identity that needs a refresh</label>
+							<label class="radio-option"><input type="radio" name="stage" value="Expanding our current brand presence" /> We want to expand and improve our current brand presence</label>
+						</div>
+					</div>
+					<div class="field">
+						<label for="why_now">Why are you considering a change right now?</label>
+						<textarea id="why_now" name="why_now"></textarea>
+					</div>
+					<div class="field">
+						<label for="goals">What would you like your new identity to accomplish?</label>
+						<p class="field-hint">Examples: stronger community pride, better merchandise, improved recognition, a more unified look, attracting new players/fans.</p>
+						<textarea id="goals" name="goals"></textarea>
+					</div>
+				</div>
+
+				<hr class="form-divider" />
+
+				<div class="form-section">
+					<h3 class="form-section-title">About Your Project</h3>
+
+					<div class="field">
+						<label for="decision_makers">Who is involved in making decisions about the identity?</label>
+						<input type="text" id="decision_makers" name="decision_makers" />
+					</div>
+					<div class="field">
+						<label for="timeline">Do you have a timeline or important dates you're working toward?</label>
+						<input type="text" id="timeline" name="timeline" />
+					</div>
+					<div class="field">
+						<label for="other">Anything else you'd like me to know before we talk?</label>
+						<textarea id="other" name="other"></textarea>
+					</div>
+				</div>
+
+				<input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+				<button type="submit" class="btn btn-primary">Submit Request</button>
+				<div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+			</form>
+		</div>
+	</section>
+
+	<script>
+		(function () {
+			const form = document.getElementById('intake-form') as HTMLFormElement | null;
+			if (!form) return;
+			const status = document.getElementById('form-status');
+			const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+			const originalBtnHTML = btn.innerHTML;
+			if (!status) return;
+
+			form.addEventListener('submit', function (e) {
+				e.preventDefault();
+				btn.innerHTML = 'Sending...';
+				btn.disabled = true;
+				btn.style.opacity = '0.7';
+				status.className = 'form-status';
+
+				fetch(form.action, {
+					method: 'POST',
+					body: new FormData(form),
+					headers: { Accept: 'application/json' },
+				})
+					.then(function (response) {
+						if (response.ok) {
+							form.reset();
+							status.className = 'form-status success show';
+							status.textContent = "Thanks, your message is on its way. I'll get back to you within a day.";
+							btn.innerHTML = originalBtnHTML;
+							btn.disabled = false;
+							btn.style.opacity = '1';
+						} else {
+							response.json().then(function (d) {
+								let msg = 'Something went wrong. Please email hello@islandtwigstudios.com directly.';
+								if (d && d.errors && d.errors.length) {
+									msg = d.errors.map((er: { message: string }) => er.message).join(', ');
+								}
+								status.className = 'form-status error show';
+								status.textContent = msg;
+								btn.innerHTML = originalBtnHTML;
+								btn.disabled = false;
+								btn.style.opacity = '1';
+							});
+						}
+					})
+					.catch(function () {
+						status.className = 'form-status error show';
+						status.textContent = 'Something went wrong. Please email hello@islandtwigstudios.com directly.';
+						btn.innerHTML = originalBtnHTML;
+						btn.disabled = false;
+						btn.style.opacity = '1';
+					});
+			});
+		})();
+	</script>
+</Layout>
+
+<style>
+	:global(:root) {
+		--lw-bg: var(--bg, #181a19);
+		--lw-cream: var(--surface-cream, #f4f1e9);
+		--lw-accent: var(--accent, #ab8a1f);
+		--lw-accent-hover: var(--accent-hover, #8f7219);
+		--lw-on-dark: var(--text-on-dark, #f4f1e9);
+		--lw-on-dark-dim: var(--text-on-dark-dim, rgba(244, 241, 233, 0.72));
+		--lw-strong: #1a1c1a;
+		--lw-dim: #5a5f5a;
+		--lw-border-light: var(--border-on-light, #c9c3b4);
+		--lw-radius: var(--radius, 12px);
+	}
+
+	.content { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+	.text-col.center { max-width: 640px; margin: 0 auto; text-align: center; }
+
+	/* .eyebrow, .intake-card, .field, .form-status are all defined in
+	   global.css, shared with Legacy Session's and Services' forms. */
+
+	.btn {
+		display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+		padding: 15px 30px; border-radius: 100px;
+		font-size: var(--fs-small); font-weight: 700; text-decoration: none;
+		transition: all 0.25s ease; cursor: pointer; border: none;
+	}
+	.btn-primary { background: var(--accent); color: var(--btn-primary-text); }
+	.btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 10px 24px var(--shadow-color); }
+
+	/* ═══ EXPECTATION-SETTING STRIP ═══
+	   First thing on the page, on purpose: tells them the resource is
+	   actually coming before anything else competes for attention. */
+	.tsk-strip {
+		background: var(--bg-deep);
+		color: var(--text-on-dark);
+		font-size: var(--fs-small);
+		font-weight: 500;
+		text-align: center;
+		padding: 14px 24px;
+	}
+
+	.tsk-topbar { display: flex; align-items: center; padding: 24px 48px; max-width: 1200px; margin: 0 auto; }
+	.tsk-logo {
+		display: flex; align-items: center;
+		font-size: var(--fs-small); font-weight: 600; letter-spacing: 0.08em;
+		text-transform: uppercase; color: var(--text-strong); text-decoration: none;
+		opacity: 0.92;
+	}
+	.tsk-logo:hover { opacity: 1; }
+	.tsk-logo-mark { display: none; height: 26px; width: auto; }
+
+	/* ═══ NEXT STEP ═══ */
+	.tsk-next { padding: 24px 0 64px; }
+	.tsk-next h1 {
+		font-size: var(--fs-h1); font-weight: 800; letter-spacing: -0.02em;
+		line-height: 1.15; color: var(--text-strong); margin-bottom: 18px;
+	}
+	.tsk-next .lead { font-size: var(--fs-lead); font-weight: 600; color: var(--text); line-height: 1.5; margin-bottom: 14px; }
+	.tsk-next p.body { font-size: var(--fs-body-lg); color: var(--text-dim); line-height: 1.7; margin-bottom: 24px; }
+
+	/* ═══ LEGACY SESSION FORM (matches legacy-session.astro's .lw-start) ═══ */
+	.lw-start { background: var(--lw-bg); color: var(--lw-on-dark); padding: 72px 0 80px; text-align: center; }
+	.lw-start .content { max-width: 860px; }
+	.lw-start h2 { font-size: var(--fs-h1); font-weight: 800; color: var(--lw-on-dark); letter-spacing: -0.02em; margin-bottom: 12px; }
+	.lw-start .start-sub { font-size: var(--fs-body-lg); color: var(--lw-on-dark-dim); line-height: 1.6; max-width: 560px; margin: 0 auto 32px; }
+	.lw-start form.intake-card { text-align: left; }
+	.lw-start .btn { margin-top: 8px; }
+
+	@media (max-width: 768px) {
+		.content { padding: 0 24px; }
+		.tsk-topbar { padding: 20px 24px; }
+	}
+	@media (max-width: 480px) {
+		.content { padding: 0 20px; }
+		.tsk-topbar { padding: 18px 20px; }
+	}
+</style>
