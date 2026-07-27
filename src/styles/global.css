@@ -356,6 +356,10 @@ nav {
    its own opaque background) blocks them, which read as a seam. */
 .page { position: relative; z-index: 1; padding-top: 80px; background: var(--bg); }
 
+/* Standalone landing pages (Layout's hideNav) have no fixed nav to
+   clear, so the 80px offset above would just leave a blank gap. */
+.page.no-nav { padding-top: 0; }
+
 /* Footer uses --bg-deep, a shade darker than --bg (nav/hero/closing
    bands), so it reads as its own distinct anchor at the bottom of
    the page rather than blending into whatever ink band precedes it.

@@ -1,0 +1,190 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const items = [
+	{ icon: '📅', name: 'Next Game Announcement', benefit: 'Never scramble for a schedule post again.' },
+	{ icon: '🏆', name: 'Game Day Hype', benefit: 'Get everyone fired up without starting from a blank page.' },
+	{ icon: '✅', name: 'Final Score Recap', benefit: 'Share the result in something that actually looks like your team.' },
+	{ icon: '👋', name: 'Welcome to the Team', benefit: "Make a new player's arrival feel like an event." },
+	{ icon: '📣', name: 'Team Announcement', benefit: 'One flexible template ready for whatever comes up, roster moves, schedule changes, big news.' },
+	{ icon: '⭐', name: 'Player Spotlight', benefit: 'Recognize your standouts all season long, not just when they join.' },
+];
+---
+
+<Layout
+	title="The Team's Social Kit — IslandTwig Studios"
+	description="Free social media templates for sports teams and leagues. Your social media post starter kit for schedule announcements, game day, scores, and more."
+	path="/team-social-kit"
+	hideNav
+>
+	<div class="tsk-topbar">
+		<a href="/" class="tsk-logo" aria-label="IslandTwig Studios — Home">
+			<span class="tsk-logo-text">IslandTwig Studios</span>
+			<img class="tsk-logo-mark" src="/images/islandtwig-mark.png" alt="IslandTwig Studios" />
+		</a>
+		<a href="#signup" class="btn btn-primary">Get the Kit Today</a>
+	</div>
+
+	<section class="tsk-hero">
+		<div class="content">
+			<div class="hero-grid">
+				<div class="text-col">
+					<p class="eyebrow">Free for Teams &amp; Leagues</p>
+					<h1>The Team's Social Kit</h1>
+					<p class="lead">This is your social media post starter kit, six ready-made templates for every post your team already makes.</p>
+					<p class="body">Schedule announcements, game day hype, final scores, and more. Drop in your colors and logo, post in minutes.</p>
+					<p class="reassure">Even if you've never opened Canva before.</p>
+					<a href="#signup" class="btn btn-primary">Get the Kit Today</a>
+				</div>
+				<!--
+					TODO Nick: swap this headshot for an example post from
+					the actual Canva kit once it's built (the Game Day Hype
+					or Player Spotlight template would show it off best).
+					Showing the templates themselves sells the offer better
+					than a photo of you does.
+				-->
+				<div class="hero-portrait">
+					<img src="/images/ProfilePic.JPEG" alt="Nick Holmquist" />
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="sec sec-cream">
+		<div class="content">
+			<p class="eyebrow">What's inside</p>
+			<h2 class="big">Six templates, one for every post your team already makes.</h2>
+			<ul class="tsk-list">
+				{items.map((item) => (
+					<li>
+						<span class="tsk-icon" aria-hidden="true">{item.icon}</span>
+						<div>
+							<h3>{item.name}</h3>
+							<p>{item.benefit}</p>
+						</div>
+					</li>
+				))}
+			</ul>
+		</div>
+	</section>
+
+	<section class="tsk-signup" id="signup">
+		<div class="content">
+			<h2>Get Your Team's Social Kit</h2>
+			<p class="start-sub">Enter your name and email and I'll send over the Canva templates.</p>
+
+			<!--
+				TODO Nick: this form is a static shell styled to match the
+				site, not yet wired to Flodesk. Build the actual opt-in form
+				in Flodesk, then replace everything between <form> and
+				</form> below with whatever Flodesk gives you (usually an
+				embed script or hosted form snippet) so submissions actually
+				reach your list.
+			-->
+			<form class="intake-card tsk-form">
+				<div class="field">
+					<label for="first_name">First Name</label>
+					<input type="text" id="first_name" name="first_name" required />
+				</div>
+				<div class="field">
+					<label for="email">Email Address</label>
+					<input type="email" id="email" name="email" required />
+				</div>
+				<button type="submit" class="btn btn-primary">Get the Kit Today</button>
+			</form>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.content { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+	.text-col { max-width: 640px; }
+
+	/* .eyebrow, .intake-card, .field, .form-status are all defined in
+	   global.css (shared across every intake-style form on the site). */
+
+	.btn {
+		display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+		padding: 15px 30px; border-radius: 100px;
+		font-size: var(--fs-small); font-weight: 700; text-decoration: none;
+		transition: all 0.25s ease; cursor: pointer; border: none;
+	}
+	.btn-primary { background: var(--accent); color: var(--btn-primary-text); }
+	.btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 10px 24px var(--shadow-color); }
+
+	/* ═══ TOP BAR ═══
+	   Deliberately not the site's fixed <nav>, no Home/Work/Services/About
+	   links to click away to, just the wordmark and a single CTA. Sits
+	   inline at the top of the page flow rather than fixed, since there's
+	   no scrolling content it needs to stay pinned above. */
+	.tsk-topbar {
+		display: flex; align-items: center; justify-content: space-between;
+		padding: 24px 48px; max-width: 1200px; margin: 0 auto;
+	}
+	.tsk-logo {
+		display: flex; align-items: center;
+		font-size: var(--fs-small); font-weight: 600; letter-spacing: 0.08em;
+		text-transform: uppercase; color: var(--text-strong); text-decoration: none;
+		opacity: 0.92;
+	}
+	.tsk-logo:hover { opacity: 1; }
+	.tsk-logo-mark { display: none; height: 26px; width: auto; }
+
+	/* ═══ HERO ═══ */
+	.tsk-hero { padding: 24px 0 72px; position: relative; overflow: hidden; }
+	.hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; }
+
+	.tsk-hero h1 {
+		font-size: var(--fs-hero); font-weight: 800; letter-spacing: -0.03em;
+		line-height: 1.05; color: var(--text-strong); margin-bottom: 18px;
+	}
+	.tsk-hero .lead { font-size: var(--fs-lead); font-weight: 600; color: var(--text); line-height: 1.5; margin-bottom: 14px; }
+	.tsk-hero p.body { font-size: var(--fs-body-lg); color: var(--text-dim); line-height: 1.7; margin-bottom: 14px; }
+	.tsk-hero .reassure { font-size: var(--fs-small); font-style: italic; color: var(--text-dim); margin-bottom: 22px; }
+	.tsk-hero .btn { margin-top: 4px; }
+
+	.hero-portrait {
+		background: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		padding: 20px;
+		display: flex; align-items: center; justify-content: center;
+	}
+	.hero-portrait img {
+		width: 100%; max-width: 260px; aspect-ratio: 1 / 1;
+		object-fit: cover; border-radius: var(--radius-sm);
+	}
+
+	/* ═══ WHAT'S INSIDE ═══ */
+	.sec { padding: 72px 0; }
+	.sec-cream { background: var(--surface-cream); color: var(--band-text-strong); }
+	h2.big { font-size: var(--fs-h2); font-weight: 700; letter-spacing: -0.01em; line-height: 1.25; margin-bottom: 28px; max-width: 640px; }
+
+	.tsk-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 20px 32px; }
+	.tsk-list li { display: flex; gap: 16px; align-items: flex-start; }
+	.tsk-icon { font-size: 26px; line-height: 1; flex-shrink: 0; }
+	.tsk-list h3 { font-size: var(--fs-h4); font-weight: 700; color: var(--band-text-strong); margin-bottom: 4px; letter-spacing: -0.01em; }
+	.tsk-list p { font-size: var(--fs-small); color: var(--band-text-dim); line-height: 1.5; }
+
+	/* ═══ SIGNUP ═══ */
+	.tsk-signup { background: var(--bg); color: var(--text-on-dark); padding: 100px 0 116px; text-align: center; }
+	.tsk-signup .content { max-width: 600px; }
+	.tsk-signup h2 { font-size: var(--fs-h1); font-weight: 800; color: var(--text-on-dark); letter-spacing: -0.02em; margin-bottom: 12px; }
+	.tsk-signup .start-sub { font-size: var(--fs-body-lg); color: var(--text-on-dark-dim); line-height: 1.6; margin-bottom: 28px; }
+	.tsk-form { text-align: left; }
+	.tsk-form .btn { width: 100%; margin-top: 8px; }
+
+	@media (max-width: 900px) {
+		.hero-grid { grid-template-columns: 1fr; }
+		.hero-portrait { max-width: 320px; margin: 8px auto 0; order: 2; }
+		.tsk-list { grid-template-columns: 1fr; }
+	}
+	@media (max-width: 768px) {
+		.content { padding: 0 24px; }
+		.tsk-topbar { padding: 20px 24px; }
+	}
+	@media (max-width: 480px) {
+		.content { padding: 0 20px; }
+		.tsk-topbar { padding: 18px 20px; }
+	}
+</style>

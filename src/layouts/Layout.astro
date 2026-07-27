@@ -7,9 +7,10 @@ interface Props {
 	ogType?: 'website' | 'article';
 	path?: string; // used to mark the current nav link active, e.g. "/about"
 	copyrightName?: string; // privacy.astro uses "IslandTwig Studios LLC", every other page just "IslandTwig Studios"
+	hideNav?: boolean; // standalone landing pages (lead magnets) skip the site nav on purpose — fewer exits off the page
 }
 
-const { title, description, ogType = 'website', path = '', copyrightName = 'IslandTwig Studios' } = Astro.props;
+const { title, description, ogType = 'website', path = '', copyrightName = 'IslandTwig Studios', hideNav = false } = Astro.props;
 
 const navItems = [
 	{ href: '/', label: 'Home' },
@@ -42,25 +43,27 @@ const navItems = [
 		<slot name="head" />
 	</head>
 	<body>
-		<nav>
-			<a href="/" class="nav-logo" aria-label="IslandTwig Studios — Home">
-				<span class="nav-logo-text">IslandTwig Studios</span>
-				<img class="nav-logo-mark" src="/images/islandtwig-mark.png" alt="IslandTwig Studios" />
-			</a>
-			<button class="nav-toggle" aria-label="Menu" aria-expanded="false">
-				<span></span><span></span><span></span>
-			</button>
-			<ul class="nav-links">
-				{navItems.map((item) => (
-					<li>
-						<a href={item.href} class={item.href === path ? 'active' : ''}>{item.label}</a>
-					</li>
-				))}
-				<li><a href="/legacy-session" class:list={['nav-cta', path === '/legacy-session' && 'active']}>Start Your Legacy Session</a></li>
-			</ul>
-		</nav>
+		{!hideNav && (
+			<nav>
+				<a href="/" class="nav-logo" aria-label="IslandTwig Studios — Home">
+					<span class="nav-logo-text">IslandTwig Studios</span>
+					<img class="nav-logo-mark" src="/images/islandtwig-mark.png" alt="IslandTwig Studios" />
+				</a>
+				<button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+					<span></span><span></span><span></span>
+				</button>
+				<ul class="nav-links">
+					{navItems.map((item) => (
+						<li>
+							<a href={item.href} class={item.href === path ? 'active' : ''}>{item.label}</a>
+						</li>
+					))}
+					<li><a href="/legacy-session" class:list={['nav-cta', path === '/legacy-session' && 'active']}>Start Your Legacy Session</a></li>
+				</ul>
+			</nav>
+		)}
 
-		<div class="page">
+		<div class:list={['page', hideNav && 'no-nav']}>
 			<slot />
 		</div>
 
