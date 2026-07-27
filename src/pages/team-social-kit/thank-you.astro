@@ -9,14 +9,11 @@ import Layout from '../../layouts/Layout.astro';
 	hideNav
 >
 	<div class="tsk-strip">
-		Your Team's Social Kit is on its way, check your inbox shortly (and your spam folder, just in case).
-	</div>
-
-	<div class="tsk-topbar">
-		<a href="/" class="tsk-logo" aria-label="IslandTwig Studios — Home">
-			<span class="tsk-logo-text">IslandTwig Studios</span>
-			<img class="tsk-logo-mark" src="/images/islandtwig-mark.png" alt="IslandTwig Studios" />
-		</a>
+		<p>
+			<strong><span class="tsk-strip-icon" aria-hidden="true">🎉</span> Your Team's Social Kit is on its way! <span class="tsk-strip-icon" aria-hidden="true">🎉</span></strong>
+			<span class="tsk-strip-sub">It'll land in your inbox in the next 5 minutes or so, check spam just in case.</span>
+			<span class="tsk-strip-sub">Take 2 minutes to find out what's next.</span>
+		</p>
 	</div>
 
 	<section class="tsk-next">
@@ -210,34 +207,43 @@ import Layout from '../../layouts/Layout.astro';
 
 	/* ═══ EXPECTATION-SETTING STRIP ═══
 	   First thing on the page, on purpose: tells them the resource is
-	   actually coming before anything else competes for attention. */
+	   actually coming before anything else competes for attention.
+	   Full-bleed green again, but blended toward --bg-deep rather than
+	   the pure --accent-cool hex — that pure value read as too bright
+	   stretched across the full width; blending it toward the page's
+	   own ink tone keeps it unmistakably green without the glare. */
 	.tsk-strip {
-		background: var(--bg-deep);
-		color: var(--text-on-dark);
-		font-size: var(--fs-small);
-		font-weight: 500;
+		background: color-mix(in srgb, var(--accent-cool) 55%, var(--bg-deep) 45%);
+		color: var(--on-accent-text);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 10px 14px;
 		text-align: center;
-		padding: 14px 24px;
+		padding: 16px 24px;
+	}
+	.tsk-strip-icon { font-size: 16px; margin: 0 6px; }
+	.tsk-strip p { font-size: var(--fs-small); line-height: 1.5; max-width: 640px; }
+	.tsk-strip p strong { display: block; font-weight: 700; font-size: var(--fs-body); color: #fff; margin-bottom: 2px; }
+	.tsk-strip-sub { display: block; font-weight: 500; color: rgba(255, 255, 255, 0.85); }
+
+	@media (max-width: 480px) {
+		.tsk-strip { padding: 14px 20px; }
 	}
 
-	.tsk-topbar { display: flex; align-items: center; padding: 24px 48px; max-width: 1200px; margin: 0 auto; }
-	.tsk-logo {
-		display: flex; align-items: center;
-		font-size: var(--fs-small); font-weight: 600; letter-spacing: 0.08em;
-		text-transform: uppercase; color: var(--text-strong); text-decoration: none;
-		opacity: 0.92;
-	}
-	.tsk-logo:hover { opacity: 1; }
-	.tsk-logo-mark { display: none; height: 26px; width: auto; }
-
-	/* ═══ NEXT STEP ═══ */
-	.tsk-next { padding: 24px 0 64px; }
+	/* ═══ NEXT STEP ═══
+	   Cream band, deliberately distinct from the dark strip above and
+	   the dark form section below, so the page reads as three separate
+	   moments (the announcement, the pitch, the form) instead of one
+	   long dark scroll. */
+	.tsk-next { background: var(--surface-cream); color: var(--band-text-strong); padding: 64px 0 72px; }
 	.tsk-next h1 {
 		font-size: var(--fs-h1); font-weight: 800; letter-spacing: -0.02em;
-		line-height: 1.15; color: var(--text-strong); margin-bottom: 18px;
+		line-height: 1.15; color: var(--band-text-strong); margin-bottom: 18px;
 	}
-	.tsk-next .lead { font-size: var(--fs-lead); font-weight: 600; color: var(--text); line-height: 1.5; margin-bottom: 14px; }
-	.tsk-next p.body { font-size: var(--fs-body-lg); color: var(--text-dim); line-height: 1.7; margin-bottom: 24px; }
+	.tsk-next .lead { font-size: var(--fs-lead); font-weight: 600; color: var(--band-text-strong); line-height: 1.5; margin-bottom: 14px; }
+	.tsk-next p.body { font-size: var(--fs-body-lg); color: var(--band-text-dim); line-height: 1.7; margin-bottom: 24px; }
 
 	/* ═══ LEGACY SESSION FORM (matches legacy-session.astro's .lw-start) ═══ */
 	.lw-start { background: var(--lw-bg); color: var(--lw-on-dark); padding: 72px 0 80px; text-align: center; }
@@ -249,10 +255,8 @@ import Layout from '../../layouts/Layout.astro';
 
 	@media (max-width: 768px) {
 		.content { padding: 0 24px; }
-		.tsk-topbar { padding: 20px 24px; }
 	}
 	@media (max-width: 480px) {
 		.content { padding: 0 20px; }
-		.tsk-topbar { padding: 18px 20px; }
 	}
 </style>
