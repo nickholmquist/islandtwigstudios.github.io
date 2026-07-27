@@ -91,7 +91,7 @@
        that one is white, for forest-filled eyebrow pills — the two
        accent fills need opposite text colors, so they can't share
        a token. */
-    --btn-primary-text: #1a1c1a;
+    --btn-primary-text: #000;
 
     /* Shadow ink, three depths used across hover/lightbox elevation. */
     --shadow-color: rgba(0, 0, 0, 0.25);

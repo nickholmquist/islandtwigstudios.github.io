@@ -310,7 +310,7 @@ import OfferCard from '../components/OfferCard.astro';
 					<h3 class="form-section-title">About Your Organization</h3>
 
 					<div class="field">
-						<label for="name">Name</label>
+						<label for="name">Your Name</label>
 						<input type="text" id="name" name="name" required />
 					</div>
 					<div class="field">
@@ -340,7 +340,7 @@ import OfferCard from '../components/OfferCard.astro';
 				<hr class="form-divider" />
 
 				<div class="form-section">
-					<h3 class="form-section-title">Your Identity</h3>
+					<h3 class="form-section-title">Your Team's Identity</h3>
 
 					<div class="field">
 						<label>What best describes where you are today?</label>
@@ -358,7 +358,10 @@ import OfferCard from '../components/OfferCard.astro';
 
 				<input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
-				<button type="submit" class="btn btn-primary">Submit Request</button>
+				<button type="submit" class="btn btn-primary">
+					Let's Get Started
+					<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+				</button>
 				<div class="form-status" id="form-status" role="status" aria-live="polite"></div>
 			</form>
 		</div>
@@ -465,7 +468,11 @@ import OfferCard from '../components/OfferCard.astro';
 		font-size: var(--fs-small); font-weight: 700; text-decoration: none;
 		transition: all 0.25s ease; cursor: pointer; border: none;
 	}
-	.btn-primary { background: var(--lw-accent); color: var(--lw-strong); }
+	/* Text is a plain #000 rather than the page's --lw-strong alias:
+	   that token is shared with headings/body text elsewhere on this
+	   page, but the button should just match every other yellow
+	   button site-wide (--btn-primary-text in global.css). */
+	.btn-primary { background: var(--lw-accent); color: #000; }
 	.btn-primary:hover { background: var(--lw-accent-hover); transform: translateY(-1px); box-shadow: 0 10px 24px var(--shadow-color); }
 
 	.sec { padding: 72px 0; position: relative; overflow: hidden; }
