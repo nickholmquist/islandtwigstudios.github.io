@@ -17,6 +17,28 @@ const items = [
 	path="/team-social-kit"
 	hideNav
 >
+	<script slot="head" is:inline>
+		(function(w, d, t, h, s, n) {
+			w.FlodeskObject = n;
+			var fn = function() {
+				(w[n].q = w[n].q || []).push(arguments);
+			};
+			w[n] = w[n] || fn;
+			var f = d.getElementsByTagName(t)[0];
+			var v = '?v=' + Math.floor(new Date().getTime() / (120 * 1000)) * 60;
+			var sm = d.createElement(t);
+			sm.async = true;
+			sm.type = 'module';
+			sm.src = h + s + '.mjs' + v;
+			f.parentNode.insertBefore(sm, f);
+			var sn = d.createElement(t);
+			sn.async = true;
+			sn.noModule = true;
+			sn.src = h + s + '.js' + v;
+			f.parentNode.insertBefore(sn, f);
+		})(window, document, 'script', 'https://assets.flodesk.com', '/universal', 'fd');
+	</script>
+
 	<div class="tsk-topbar">
 		<a href="/" class="tsk-logo" aria-label="IslandTwig Studios — Home">
 			<span class="tsk-logo-text">IslandTwig Studios</span>
@@ -70,31 +92,20 @@ const items = [
 
 	<section class="tsk-signup" id="signup">
 		<div class="content">
-			<h2>Get Your Team's Social Kit</h2>
-			<p class="start-sub">Enter your name and email and I'll send over the Canva templates.</p>
-
 			<!--
-				TODO Nick: this form is a static shell styled to match the
-				site, not yet wired to Flodesk. Build the actual opt-in form
-				in Flodesk, then replace everything between <form> and
-				</form> below with whatever Flodesk gives you (usually an
-				embed script or hosted form snippet) so submissions actually
-				reach your list. Also set Flodesk's post-submit redirect to
-				https://islandtwigstudios.com/team-social-kit/thank-you so
-				people land on the thank-you page instead of Flodesk's
-				default confirmation screen.
+				The Flodesk form embedded below carries its own title and
+				subtext (can't be turned off from Flodesk's side), so this
+				section intentionally doesn't repeat a heading/subcopy above it.
 			-->
-			<form class="intake-card tsk-form">
-				<div class="field">
-					<label for="first_name">First Name</label>
-					<input type="text" id="first_name" name="first_name" required />
-				</div>
-				<div class="field">
-					<label for="email">Email Address</label>
-					<input type="email" id="email" name="email" required />
-				</div>
-				<button type="submit" class="btn btn-primary">Get the Kit Today</button>
-			</form>
+			<div class="intake-card tsk-form">
+				<div id="fd-form-6a6c3e27a2a00b3b77925340"></div>
+				<script is:inline>
+					window.fd('form', {
+						formId: '6a6c3e27a2a00b3b77925340',
+						containerEl: '#fd-form-6a6c3e27a2a00b3b77925340'
+					});
+				</script>
+			</div>
 		</div>
 	</section>
 </Layout>
@@ -172,10 +183,7 @@ const items = [
 	/* ═══ SIGNUP ═══ */
 	.tsk-signup { background: var(--bg); color: var(--text-on-dark); padding: 100px 0 116px; text-align: center; }
 	.tsk-signup .content { max-width: 600px; }
-	.tsk-signup h2 { font-size: var(--fs-h1); font-weight: 800; color: var(--text-on-dark); letter-spacing: -0.02em; margin-bottom: 12px; }
-	.tsk-signup .start-sub { font-size: var(--fs-body-lg); color: var(--text-on-dark-dim); line-height: 1.6; margin-bottom: 28px; }
 	.tsk-form { text-align: left; }
-	.tsk-form .btn { width: 100%; margin-top: 8px; }
 
 	@media (max-width: 900px) {
 		.hero-grid { grid-template-columns: 1fr; }
