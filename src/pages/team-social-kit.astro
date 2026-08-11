@@ -17,28 +17,6 @@ const items = [
 	path="/team-social-kit"
 	hideNav
 >
-	<script slot="head" is:inline>
-		(function(w, d, t, h, s, n) {
-			w.FlodeskObject = n;
-			var fn = function() {
-				(w[n].q = w[n].q || []).push(arguments);
-			};
-			w[n] = w[n] || fn;
-			var f = d.getElementsByTagName(t)[0];
-			var v = '?v=' + Math.floor(new Date().getTime() / (120 * 1000)) * 60;
-			var sm = d.createElement(t);
-			sm.async = true;
-			sm.type = 'module';
-			sm.src = h + s + '.mjs' + v;
-			f.parentNode.insertBefore(sm, f);
-			var sn = d.createElement(t);
-			sn.async = true;
-			sn.noModule = true;
-			sn.src = h + s + '.js' + v;
-			f.parentNode.insertBefore(sn, f);
-		})(window, document, 'script', 'https://assets.flodesk.com', '/universal', 'fd');
-	</script>
-
 	<div class="tsk-topbar">
 		<a href="/" class="tsk-logo" aria-label="IslandTwig Studios — Home">
 			<span class="tsk-logo-text">IslandTwig Studios</span>
@@ -92,23 +70,56 @@ const items = [
 
 	<section class="tsk-signup" id="signup">
 		<div class="content">
-			<!--
-				The Flodesk form embedded below carries its own title and
-				subtext (can't be turned off from Flodesk's side), so this
-				section intentionally doesn't repeat a heading/subcopy above it.
-			-->
-			<div class="intake-card tsk-form">
-				<div id="fd-form-6a6c3e27a2a00b3b77925340"></div>
-				<script is:inline>
-					window.fd('form', {
-						formId: '6a6c3e27a2a00b3b77925340',
-						containerEl: '#fd-form-6a6c3e27a2a00b3b77925340'
-					});
-				</script>
-			</div>
+			<h2>Get Your Team's Social Kit</h2>
+			<p class="start-sub">Enter your name and email and I'll send over the Canva templates.</p>
+
+			<form class="intake-card tsk-form" id="tsk-signup-form" method="POST" action="https://2f3450ce.sibforms.com/serve/MUIFAEu9ofx0d2J3A9ynhNIrKSbtwm8N8l6liNIrVjVXhNj6b9wzoJb4RZmk2eotD8LAIj2uNx5yg6MoQLkbCuVNKwQgfXz_XuboeREc0ZlupiqB8yE9fw2S93dQEbc8Hk5y-lsvAP8B1o-K7IlcA_ErCO_JTe5LvOrzgztNirK56iDw8Lbxeb2vrVsS9j5tTvYsRjNwgYvrvktowA==">
+				<div class="field">
+					<label for="FIRSTNAME">First Name</label>
+					<input type="text" id="FIRSTNAME" name="FIRSTNAME" maxlength="200" autocomplete="given-name" required />
+				</div>
+				<div class="field">
+					<label for="EMAIL">Email Address</label>
+					<input type="email" id="EMAIL" name="EMAIL" autocomplete="email" required />
+				</div>
+				<input type="text" name="email_address_check" value="" class="input--hidden" style="display:none;" tabindex="-1" autocomplete="off" />
+				<input type="hidden" name="locale" value="en" />
+				<input type="hidden" name="html_type" value="simple" />
+				<button type="submit" class="btn btn-primary">Get the Kit Today</button>
+			</form>
 		</div>
 	</section>
 </Layout>
+
+<script>
+	(function () {
+		const form = document.getElementById('tsk-signup-form') as HTMLFormElement | null;
+		if (!form) return;
+		const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+		const originalBtnText = btn.textContent;
+
+		form.addEventListener('submit', function (e) {
+			e.preventDefault();
+			btn.textContent = 'Sending...';
+			btn.disabled = true;
+			btn.style.opacity = '0.7';
+
+			// Brevo's simple-form endpoint doesn't return a readable
+			// cross-origin response, so this fires the submission in the
+			// background (no-cors) and sends people to our own thank-you
+			// page regardless, rather than Brevo's hosted confirmation.
+			fetch(form.action, {
+				method: 'POST',
+				mode: 'no-cors',
+				body: new FormData(form),
+			})
+				.catch(function () {})
+				.finally(function () {
+					window.location.href = '/team-social-kit/thank-you';
+				});
+		});
+	})();
+</script>
 
 <style>
 	.content { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: 0 48px; }
@@ -183,7 +194,10 @@ const items = [
 	/* ═══ SIGNUP ═══ */
 	.tsk-signup { background: var(--bg); color: var(--text-on-dark); padding: 100px 0 116px; text-align: center; }
 	.tsk-signup .content { max-width: 600px; }
+	.tsk-signup h2 { font-size: var(--fs-h1); font-weight: 800; color: var(--text-on-dark); letter-spacing: -0.02em; margin-bottom: 12px; }
+	.tsk-signup .start-sub { font-size: var(--fs-body-lg); color: var(--text-on-dark-dim); line-height: 1.6; margin-bottom: 28px; }
 	.tsk-form { text-align: left; }
+	.tsk-form .btn { width: 100%; margin-top: 8px; }
 
 	@media (max-width: 900px) {
 		.hero-grid { grid-template-columns: 1fr; }
