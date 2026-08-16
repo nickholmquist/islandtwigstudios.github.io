@@ -41,6 +41,10 @@ const navItems = [
 			rel="stylesheet"
 		/>
 		<slot name="head" />
+
+		<!-- Cloudflare Web Analytics -->
+		<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "6a34cfa780bd40efae643f14cefb6a90"}' is:inline></script>
+		<!-- End Cloudflare Web Analytics -->
 	</head>
 	<body>
 		{!hideNav && (
