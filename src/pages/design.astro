@@ -475,14 +475,16 @@ import Layout from '../layouts/Layout.astro';
 		margin-bottom: 14px;
 	}
 
-	/* Availability indicator */
+	/* Availability indicator. Uses --accent-bright, not --accent — sits
+	   directly on the dark ink header, and the base purple is too dark
+	   to read there. */
 	.availability-bar {
 		display: inline-flex;
 		align-items: center;
 		gap: 10px;
 		font-size: var(--fs-caption);
 		font-weight: 500;
-		color: var(--accent);
+		color: var(--accent-bright);
 		letter-spacing: 0.02em;
 	}
 
@@ -490,8 +492,8 @@ import Layout from '../layouts/Layout.astro';
 		content: '';
 		width: 7px; height: 7px;
 		border-radius: 50%;
-		background: var(--accent);
-		box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 60%, transparent);
+		background: var(--accent-bright);
+		box-shadow: 0 0 8px color-mix(in srgb, var(--accent-bright) 60%, transparent);
 		animation: pulse 2.4s ease-in-out infinite;
 	}
 
@@ -530,7 +532,7 @@ import Layout from '../layouts/Layout.astro';
 		border: 1.5px solid var(--border-on-dark);
 		font-weight: 600;
 	}
-	.btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+	.btn-secondary:hover { border-color: var(--accent-bright); color: var(--accent-bright); }
 
 	.divider {
 		border-bottom: 1px solid var(--border);
@@ -630,6 +632,13 @@ import Layout from '../layouts/Layout.astro';
 
 	.featured-card:hover .featured-card-image img { transform: scale(1.04); }
 
+	/* Solid-fill pill, matching .eyebrow, instead of a dark translucent
+	   chip with purple text — that read too low-contrast against photos
+	   at this accent's darkness. Uses --accent-bright, not the base
+	   --accent — the darker purple still blended in too much against
+	   photos. Dark text on this lighter fill (~7.5:1). badge-sage (a
+	   leftover distinction from the old two-hue system) is retired now
+	   that there's one accent. */
 	.featured-card-image .badge {
 		position: absolute;
 		top: 14px; left: 14px;
@@ -640,16 +649,8 @@ import Layout from '../layouts/Layout.astro';
 		text-transform: uppercase;
 		padding: 5px 10px;
 		border-radius: 100px;
-		background: rgba(17, 17, 16, 0.85);
-		color: var(--accent-warm);
-		border: 1px solid rgba(184, 137, 106, 0.3);
-		backdrop-filter: blur(8px);
-	}
-
-	/* Sage-colored badge for recognition signals */
-	.featured-card-image .badge.badge-sage {
-		color: var(--accent);
-		border-color: color-mix(in srgb, var(--accent) 30%, transparent);
+		background: var(--accent-bright);
+		color: #1a1c1a;
 	}
 
 	.featured-card-body {
@@ -771,15 +772,23 @@ import Layout from '../layouts/Layout.astro';
 		color: var(--text);
 	}
 
+	/* Uses --accent-bright, not --accent — sits on the dark tile overlay,
+	   and the base purple is too dark to read there. */
 	.gallery-tile-cat {
 		font-size: var(--fs-micro);
 		font-weight: 500;
 		letter-spacing: 0.08em;
 		text-transform: uppercase;
-		color: var(--accent);
+		color: var(--accent-bright);
 		margin-top: 3px;
 	}
 
+	/* Solid-fill pill, matching .eyebrow, instead of a dark translucent
+	   chip with purple text. Uses --accent-bright, not the base --accent
+	   — the darker purple still blended in too much against photos.
+	   Dark text on this lighter fill (~7.5:1). badge-warm (a leftover
+	   distinction from the old two-hue system) is retired now that
+	   there's one accent. */
 	.gallery-tile-badge {
 		position: absolute;
 		top: 10px;
@@ -791,16 +800,9 @@ import Layout from '../layouts/Layout.astro';
 		text-transform: uppercase;
 		padding: 4px 9px;
 		border-radius: 100px;
-		background: rgba(17, 17, 16, 0.82);
-		backdrop-filter: blur(6px);
-		border: 1px solid rgba(122, 158, 135, 0.35);
-		color: var(--accent);
+		background: var(--accent-bright);
+		color: #1a1c1a;
 		pointer-events: none;
-	}
-
-	.gallery-tile-badge.badge-warm {
-		border-color: color-mix(in srgb, var(--accent-warm) 35%, transparent);
-		color: var(--accent-warm);
 	}
 
 	/* ═══ BOTTOM CTA ═══ */
@@ -965,10 +967,13 @@ import Layout from '../layouts/Layout.astro';
 		font-size: var(--fs-small); font-weight: 600;
 		color: var(--text-strong); margin-bottom: 3px;
 	}
+	/* Uses --accent-bright, not --accent — the lightbox overlay is
+	   always dark regardless of the page's scroll position, and the
+	   base purple is too dark to read there. */
 	#lightbox-caption-cat {
 		font-size: var(--fs-micro); font-weight: 600;
 		letter-spacing: 0.1em; text-transform: uppercase;
-		color: var(--accent);
+		color: var(--accent-bright);
 	}
 	#lightbox-close {
 		position: fixed; top: 16px; right: 20px; z-index: 2;

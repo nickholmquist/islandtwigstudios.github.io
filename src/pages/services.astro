@@ -360,6 +360,8 @@ import Layout from '../layouts/Layout.astro';
 		line-height: 1.7;
 	}
 
+	/* Uses --accent-bright, not --accent — sits directly on the dark
+	   ink header, and the base purple is too dark to read there. */
 	.availability {
 		display: inline-flex;
 		align-items: center;
@@ -367,7 +369,7 @@ import Layout from '../layouts/Layout.astro';
 		margin-top: 18px;
 		font-size: var(--fs-caption);
 		font-weight: 500;
-		color: var(--accent);
+		color: var(--accent-bright);
 		letter-spacing: 0.02em;
 	}
 
@@ -376,8 +378,8 @@ import Layout from '../layouts/Layout.astro';
 		width: 7px;
 		height: 7px;
 		border-radius: 50%;
-		background: var(--accent);
-		box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 60%, transparent);
+		background: var(--accent-bright);
+		box-shadow: 0 0 8px color-mix(in srgb, var(--accent-bright) 60%, transparent);
 	}
 
 	/* ═══ TIERS ═══ */
@@ -445,6 +447,11 @@ import Layout from '../layouts/Layout.astro';
 	   ladder, so no third column and no "recommended" badge. */
 	.tiers-two { grid-template-columns: repeat(2, 1fr); }
 
+	/* Solid-fill pill, matching .eyebrow, instead of a dark translucent
+	   chip with purple text. Uses --accent-bright, not the base --accent
+	   — the darker purple barely separated from the dark canvas/photos.
+	   Dark text on this lighter fill (~7.5:1); light text would fail
+	   (~2.8:1). */
 	.tier-recommended {
 		position: absolute;
 		top: 14px;
@@ -453,10 +460,8 @@ import Layout from '../layouts/Layout.astro';
 		font-weight: 600;
 		letter-spacing: 0.12em;
 		text-transform: uppercase;
-		color: var(--accent-warm);
-		background: rgba(17, 17, 16, 0.82);
-		backdrop-filter: blur(6px);
-		border: 1px solid rgba(184, 137, 106, 0.3);
+		color: #1a1c1a;
+		background: var(--accent-bright);
 		padding: 4px 10px;
 		border-radius: 100px;
 		z-index: 3;

@@ -7,64 +7,67 @@
    since those genuinely differ between the standard pages and the
    case study template.
 
-   Ink / Bone / Forest / Mustard palette. No toggle, no
-   [data-theme="dark"] block. The ink canvas (--bg) is the page
-   background everywhere. Existing "card" surfaces across the site
-   (--surface, --surface-raised) are translucent light panels on
-   that ink canvas, not literal light cards, so every page's text
-   stays legible without page-by-page edits.
+   Stripped-back black/white/purple palette (EXPERIMENTAL — Nick
+   wanted to simplify after a long round of two-hue accent combos).
+   ONE accent color, not two: --accent and --accent-cool now share the
+   same deep purple (#5a0273) rather than splitting into a warm/cool
+   pair. The ink canvas (--bg) stays near-black rather than true #000
+   specifically because this purple is dark enough (luminance ~0.035)
+   that it would nearly vanish against a truly black background —
+   same problem the burgundy attempt hit earlier. Existing "card"
+   surfaces across the site (--surface, --surface-raised) are
+   translucent light panels on that ink canvas, not literal light
+   cards, so every page's text stays legible without page-by-page
+   edits.
 
-   Two accents, two jobs — do not use interchangeably: --accent-cool
-   (forest) marks eyebrow pills, section labels, and step numbers;
-   --accent (mustard) is the thing you click (buttons, links, form
-   focus rings). See the "Accent role split" comment further down
-   for the full list.
-
-   Light "rest stop" bands (Band.astro's cream/soft variants) use
-   --surface-cream / --surface-soft plus the --band-text-strong /
-   --band-text-dim pair defined below, alongside the dark-canvas
-   token set every other page uses.
+   Light "rest stop" bands (Band.astro's cream/soft variants) now use
+   neutral white/gray (--surface-cream / --surface-soft) instead of
+   the earlier warm cream, to match the black-and-white brief, plus
+   the --band-text-strong / --band-text-dim pair defined below,
+   alongside the dark-canvas token set every other page uses.
 
    Imported once in Layout.astro, before any page's own <style>
    block, so page-specific rules can still override where needed.
    ═══════════════════════════════════════════════════════════════ */
 
 :root {
-    /* Page canvas, site-wide */
+    /* Page canvas, site-wide. Back to near-black ink from the navy
+       luxury detour. */
     --bg: #181a19;
     --bg-deep: #0f100f;
 
-    /* Accent thread — mustard. The clickable accent: CTAs, buttons,
-       arrow links, form focus rings, the highlighted word in a
-       headline (paired with --accent-bright on ink). */
-    --accent: #ab8a1f;
-    --accent-hover: #8f7219;
-    --accent-bright: #c9a227;
-    --accent-dim: rgba(171, 138, 31, 0.16);
+    /* Single accent — deep purple (EXPERIMENTAL: stripped-back
+       black/white/purple system). Both --accent and --accent-cool
+       share this one value now instead of splitting into two hues —
+       the clickable accent (CTAs, buttons, arrow links, form focus
+       rings, the highlighted word in a headline) AND the quiet-marker
+       accent (eyebrow pills, section labels, step numbers) are the
+       same color. Needs LIGHT text on it — black fails badly (~1.7:1),
+       white passes very well (~12.4:1). */
+    --accent: #5a0273;
+    --accent-hover: #4a025e;
+    /* Lightened from an earlier #834196 (~2.6:1 on ink, still not
+       legible as text) — this tint passes ~6.3:1, used for the headline
+       highlight word, the nav active/hover link color, and any other
+       "this accent as text directly on ink" case. */
+    --accent-bright: #b58dc0;
+    --accent-dim: rgba(90, 2, 115, 0.16);
 
-    /* Accent thread — forest. The quiet-marker accent: eyebrow pill
-       fills, section labels, process/phase/step numbers. Never used
-       as text color directly on --bg (fails contrast) — only as a
-       fill behind light text, or as text on a light card/surface.
-       --accent-cool-bright exists for the rare case forest text on
-       ink is unavoidable. */
-    --accent-cool: #2d6b45;
-    --accent-cool-bright: #3d8759;
-    --accent-cool-dim: rgba(45, 107, 69, 0.16);
+    --accent-cool: #5a0273;
+    --accent-cool-bright: #b58dc0;
+    --accent-cool-dim: rgba(90, 2, 115, 0.16);
 
     /* Text for eyebrow pills and badges filled with --accent-cool
-       (forest) — white passes AA on forest. Buttons use a separate
-       dark token (--btn-primary-text further down), since mustard
-       fills need the opposite text color from forest fills. */
-    --on-accent-text: #f4f1e9;
+       (same deep purple) — white passes very well (~12.4:1); dark fails
+       (~1.7:1). */
+    --on-accent-text: #f5f5f5;
 
-    /* Default text, site-wide. The canvas is ink everywhere, so
-       these resolve to light (bone-tinted) values rather than the
-       dark near-black set used on light bands. */
-    --text-strong: #f4f1e9;
-    --text: #f4f1e9;
-    --text-dim: rgba(244, 241, 233, 0.72);
-    --text-faint: rgba(244, 241, 233, 0.05);
+    /* Default text, site-wide. Neutral white/gray now (EXPERIMENTAL:
+       black/white/purple pass), not the earlier warm bone tint. */
+    --text-strong: #f5f5f5;
+    --text: #f5f5f5;
+    --text-dim: rgba(245, 245, 245, 0.72);
+    --text-faint: rgba(245, 245, 245, 0.05);
 
     /* Borders, site-wide */
     --border: rgba(255, 255, 255, 0.14);
@@ -86,12 +89,9 @@
     --band-text-strong: #1a1c1a;
     --band-text-dim: #5a5f5a;
 
-    /* All primary/CTA buttons (mustard fill) use this dark text
-       consistently, site-wide. Kept separate from --on-accent-text:
-       that one is white, for forest-filled eyebrow pills — the two
-       accent fills need opposite text colors, so they can't share
-       a token. */
-    --btn-primary-text: #000;
+    /* All primary/CTA buttons use this text color, site-wide.
+       Light text on the deep purple fill passes AA very well (~12.4:1). */
+    --btn-primary-text: #f5f5f5;
 
     /* Shadow ink, three depths used across hover/lightbox elevation. */
     --shadow-color: rgba(0, 0, 0, 0.25);
@@ -105,23 +105,25 @@
        backdrop). */
     --overlay-scrim: rgba(17, 17, 16, 0.85);
     --lightbox-backdrop: rgba(17, 17, 16, 0.75);
-    --overlay-text: #f4f1e9;
+    --overlay-text: #f5f5f5;
     --overlay-text-accent: var(--accent-bright);
 
     /* Explicit light/dark text pair, matched to the naming the
        homepage band table uses. Same values as --text-strong /
        --text-dim above; kept as distinct names for clarity where
        a rule specifically means "text on the dark canvas." */
-    --text-on-dark: #f4f1e9;
-    --text-on-dark-dim: rgba(244, 241, 233, 0.72);
+    --text-on-dark: #f5f5f5;
+    --text-on-dark-dim: rgba(245, 245, 245, 0.72);
     --border-on-dark: rgba(255, 255, 255, 0.14);
 
-    /* Homepage-only light "rest stop" surfaces. Referenced by
-       index.astro's own page-scoped band tokens, not used elsewhere. */
-    --surface-cream: #f4f1e9;
-    --surface-soft: #e8e2d4;
-    --surface-card: #d9d3c4;
-    --border-on-light: #c9c3b4;
+    /* Light "rest stop" surfaces — neutral white/gray now (EXPERIMENTAL:
+       black/white/purple pass), replacing the warm cream family used by
+       every earlier pass this session. Also used by the shared
+       intake-form card. */
+    --surface-cream: #ffffff;
+    --surface-soft: #f0f0f0;
+    --surface-card: #e0e0e0;
+    --border-on-light: #d0d0d0;
 
     /* Category hues for case-study accent coding. Unchanged, low
        usage, not part of this pass. */
@@ -161,9 +163,9 @@
 
     --grid-stroke: rgba(255, 255, 255, 0.05);
     --noise-opacity: 0.15;
-    --bloom-warm-1: rgba(171, 138, 31, 0.07);
-    --bloom-sage-1: rgba(171, 138, 31, 0.05);
-    --bloom-warm-2: rgba(171, 138, 31, 0.04);
+    --bloom-warm-1: rgba(90, 2, 115, 0.07);
+    --bloom-sage-1: rgba(90, 2, 115, 0.05);
+    --bloom-warm-2: rgba(90, 2, 115, 0.04);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -263,8 +265,11 @@ nav {
     transition: color 0.2s;
 }
 
-.nav-links a.active { color: var(--accent); font-weight: 700; }
-.nav-links a:hover { color: var(--accent); }
+/* Uses --accent-bright, not --accent — the base purple was too dark to
+   read as nav text on the ink background (~1.4:1); the lightened
+   --accent-bright tint passes ~6.3:1 instead. */
+.nav-links a.active { color: var(--accent-bright); font-weight: 700; }
+.nav-links a:hover { color: var(--accent-bright); }
 
 /* Persistent CTA, last nav item: styled as a button rather than a
    plain link so it reads as an action, not a wayfinding item. Never

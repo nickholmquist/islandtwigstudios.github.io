@@ -293,8 +293,11 @@ import Layout from '../layouts/Layout.astro';
 		color: var(--text);
 	}
 
+	/* Uses --accent-bright, not --accent — this card is a translucent
+	   panel on the dark ink canvas, and the base purple is too dark to
+	   read there. */
 	.policy-card a {
-		color: var(--accent);
+		color: var(--accent-bright);
 		text-decoration: none;
 		transition: color 0.25s ease;
 	}

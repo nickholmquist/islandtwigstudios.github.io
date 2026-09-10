@@ -101,11 +101,14 @@ const Tag = href ? 'a' : 'div';
 		margin-bottom: 4px;
 	}
 
+	/* Uses --accent-bright, not --accent — this card is a translucent
+	   panel on the dark ink canvas, and the base purple is too dark to
+	   read there. */
 	.offer-tagline {
 		font-size: var(--fs-caption);
 		font-weight: 500;
 		font-style: italic;
-		color: var(--accent);
+		color: var(--accent-bright);
 		margin-bottom: 14px;
 	}
 

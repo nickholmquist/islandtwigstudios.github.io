@@ -132,8 +132,10 @@ const navItems = [
 	.social-btn:hover { background: var(--accent-dim); color: var(--text); border-color: var(--accent-dim); }
 	.social-btn svg { width: 17px; height: 17px; }
 
-	.footer-email { font-family: 'Fira Code', monospace; font-size: 12.5px; font-weight: 300; color: var(--accent); text-decoration: none; letter-spacing: 0.02em; transition: color 0.25s ease; display: inline-block; margin-bottom: 32px; }
-	.footer-email:hover { color: var(--accent-hover); }
+	/* Uses --accent-bright, not --accent — the base purple was too dark
+	   to read as footer text on --bg-deep (same issue as the nav links). */
+	.footer-email { font-family: 'Fira Code', monospace; font-size: 12.5px; font-weight: 300; color: var(--accent-bright); text-decoration: none; letter-spacing: 0.02em; transition: color 0.25s ease; display: inline-block; margin-bottom: 32px; }
+	.footer-email:hover { color: var(--text-strong); }
 
 	.maker-mark { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 28px; text-decoration: none; }
 	.maker-mark-icon { width: 28px; height: 28px; border-radius: 6px; opacity: 0.35; transition: opacity 0.3s ease; }

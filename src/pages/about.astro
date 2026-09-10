@@ -344,12 +344,15 @@ import Layout from '../layouts/Layout.astro';
 		margin-bottom: 6px !important;
 	}
 
+	/* Uses --accent-bright, not --accent-warm — this card is a
+	   translucent panel on the dark ink canvas, and the base purple is
+	   too dark to read there (same issue as the footer email). */
 	.contact-email {
 		display: inline-block;
 		font-family: 'Fira Code', monospace;
 		font-size: 12.5px;
 		font-weight: 300;
-		color: var(--accent-warm);
+		color: var(--accent-bright);
 		text-decoration: none;
 		letter-spacing: 0.02em;
 		transition: color 0.25s ease;
