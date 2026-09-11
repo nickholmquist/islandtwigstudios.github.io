@@ -10,4 +10,10 @@ export default defineConfig({
 	build: {
 		format: 'file',
 	},
+	// Legacy Session was renamed to Next Chapter Session as part of the
+	// sports-to-general-identity pivot. Keeps old bookmarks/links working
+	// instead of 404ing.
+	redirects: {
+		'/legacy-session': '/next-chapter-session',
+	},
 });

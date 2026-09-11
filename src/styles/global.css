@@ -373,7 +373,7 @@ nav {
 
 /* Nav's own breakpoint, wider than the page-content 768px breakpoint
    used elsewhere: with Home back in the list, four plain links plus
-   the "Start Your Legacy Session" button start wrapping mid-nav
+   the "Start Your Next Chapter" button start wrapping mid-nav
    around 820px, well before 768px. Switching to the hamburger here
    avoids that gap. */
 @media (max-width: 860px) {
@@ -428,8 +428,8 @@ nav {
 }
 
 /* ═══ INTAKE FORM CARD ═══
-   Shared by every page's intake form (currently Legacy Session and
-   Services). Always a solid white card with fixed dark-on-light
+   Shared by every page's intake form (currently the Next Chapter
+   Session and Services). Always a solid white card with fixed dark-on-light
    tokens (--band-text-strong/--band-text-dim/--surface-cream/
    --border-on-light), regardless of what band wraps it — a dark
    canvas or a light cream band both need the same real contrast,

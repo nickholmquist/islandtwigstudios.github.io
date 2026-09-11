@@ -1,117 +1,56 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import OfferCard from '../components/OfferCard.astro';
 ---
 
 <Layout
 	title="Services — IslandTwig Studios"
-	description="The Legacy to New Era System: a complete sports identity built from your organization's own story. Plus Legacy Mark and Elevate the Identity for teams that need a different starting point."
+	description="Custom Logo Design, Branding & Rebranding for Businesses and Teams."
 	path="/services"
 >
 	<div class="content">
 		<header class="header">
 			<div class="text-col">
 				<p class="eyebrow">Services</p>
-				<h1 class="a2">Every great team has a story. Every great community has traditions.</h1>
-				<p class="a2">We create the identity that brings them together. Rather than designing logos in a vacuum, IslandTwig uncovers what makes an organization unique and transforms it into an identity people are proud to represent.</p>
+				<h1 class="a2">From a logo to an identity.</h1>
+				<p class="a2">I don't just make something that looks good on a screen. I build brands that work in the real world: on trucks, hats, shirts, websites, signs, social media, and everywhere else your brand shows up.</p>
 				<div class="availability a3">Available for new projects</div>
 			</div>
 		</header>
 	</div>
 
-	<section class="services-band-light signature-band">
+	<section class="services-band-light">
 	<div class="content">
 
-		<!-- SIGNATURE OFFER: LEGACY TO NEW ERA SYSTEM -->
+		<!-- MAIN PACKAGE: BRAND IDENTITY -->
 		<div class="signature-grid">
-			<div class="signature-text a5">
-				<h2>Legacy to New Era System</h2>
+			<div class="signature-text">
+				<p class="eyebrow">Main Package</p>
+				<h2>Brand Identity</h2>
 				<p class="signature-tagline">From overlooked to unforgettable.</p>
-				<p class="signature-desc">A complete sports identity system for organizations entering a new chapter. Whether you're launching a brand-new team or modernizing an established program, this service uncovers your organization's story and transforms it into an identity built to represent your community for years to come.</p>
-				<div class="signature-actions">
-					<a href="/legacy-session" class="btn-signature">Start a Legacy Session</a>
-				</div>
+				<p class="signature-desc">The complete visual system that gives your brand consistency, personality, and something to stand behind. Whether you're building a new identity from scratch or replacing one that's run its course, this is where a logo becomes a full identity: color, type, and a system built to work everywhere your brand shows up.</p>
+				<a href="/next-chapter-session" class="btn-signature">Start Your Next Chapter</a>
 			</div>
-			<div class="signature-image a6">
-				<img src="/images/services/tier-system.jpg" alt="Utah Yeti full brand system: primary and secondary marks, wordmark lockups, jerseys, number set, and color palette, an example of the Legacy to New Era System" />
+			<div class="signature-image">
+				<img src="/images/services/tier-system.jpg" alt="Full brand identity system, an example of Brand Identity work" />
 			</div>
 		</div>
-
-		<div class="signature-phases a7">
-			<p class="eyebrow">The Process</p>
-			<div class="process-grid">
-				<div class="process-step">
-					<span class="step-num">01</span>
-					<h4>Discover the Legacy</h4>
-					<p>Every project begins with the Legacy Session, uncovering your organization's history, community roots, culture, and traditions.</p>
-				</div>
-				<div class="process-step">
-					<span class="step-num">02</span>
-					<h4>Define the Identity</h4>
-					<p>Research becomes strategy: core themes, symbolism, visual direction, and the design principles that guide every decision.</p>
-				</div>
-				<div class="process-step">
-					<span class="step-num">03</span>
-					<h4>Craft the System</h4>
-					<p>Strategy becomes identity: primary logo, wordmark, color palette, typography, and a complete set of brand guidelines.</p>
-				</div>
-				<div class="process-step">
-					<span class="step-num">04</span>
-					<h4>Launch into a New Era</h4>
-					<p>The identity is introduced to the world, with mockups, rollout guidance, and the story behind the mark.</p>
-				</div>
-			</div>
-		</div>
-
-	</div>
-	</section>
-
-	<section class="services-band-soft">
-	<div class="content">
 
 		<!-- OTHER WAYS TO WORK TOGETHER -->
 		<p class="eyebrow a4">Other Ways to Work Together</p>
-		<div class="tiers tiers-two">
-
-			<div class="tier t-logo a5">
-				<div class="tier-image">
-					<img src="/images/services/tier-logo.jpg" alt="Utah Yeti primary logo mark, an example of a Legacy Mark project" />
-				</div>
-				<div class="tier-inner">
-					<h3 class="tier-name">Legacy Mark</h3>
-					<p class="tier-clarifier">Starting with the mark.</p>
-					<!-- Pricing hidden for now, kept here to re-enable later.
-					<div class="tier-price">$500</div>
-					<div class="tier-timeline">1&ndash;2 weeks</div>
-					-->
-					<p class="tier-desc">For organizations that need a professionally crafted team mark without investing in a complete identity system. The same craftsmanship and thoughtful design that defines every IslandTwig project, at a smaller scale.</p>
-					<div class="tier-includes">Ideal for</div>
-					<ul>
-						<li>New clubs</li>
-						<li>Small organizations</li>
-						<li>Budget-conscious teams</li>
-						<li>Early-stage programs</li>
-					</ul>
-				</div>
-			</div>
-
-			<div class="tier t-system a6">
-				<div class="tier-image">
-					<img src="/images/services/tier-identity.jpg" alt="Utah Yeti brand identity applied across merchandise and gameday graphics, an example of Elevate the Identity work" />
-				</div>
-				<div class="tier-inner">
-					<h3 class="tier-name">Elevate the Identity</h3>
-					<p class="tier-clarifier">Bring your identity to life.</p>
-					<p class="tier-desc">Once an identity is established, it can be expanded into every experience your organization creates. Every engagement is custom-scoped to fit your goals.</p>
-					<div class="tier-includes">Examples</div>
-					<ul>
-						<li>Uniform &amp; merchandise systems</li>
-						<li>Gameday &amp; social graphics</li>
-						<li>Event &amp; environmental branding</li>
-						<li>Ongoing creative direction</li>
-					</ul>
-				</div>
-			</div>
-
+		<div class="offer-grid">
+			<OfferCard
+				image="/images/services/tier-logo.jpg"
+				imageAlt="Custom logo mark, an example of Logo Design work"
+				name="Logo Design"
+				description="A custom logo built around who you are, not a template you found online."
+			/>
+			<OfferCard
+				image="/images/services/tier-identity.jpg"
+				imageAlt="Brand identity applied across merchandise and supporting materials, an example of Elevate the Identity work"
+				name="Elevate the Identity"
+				description="Turn your brand into something people actually want to wear, use, and show off, from merch and swag to the social graphics and supporting materials that carry it everywhere."
+			/>
 		</div>
 
 		<!-- CUSTOM TIER -->
@@ -119,7 +58,7 @@ import Layout from '../layouts/Layout.astro';
 			<div class="custom-tier-inner">
 				<div>
 					<h3>Not sure what you need?</h3>
-					<p>Tell me about your organization and I'll help you figure out the right starting point.</p>
+					<p>Tell me about your brand and I'll help you figure out the right starting point.</p>
 				</div>
 				<span class="arrow-link">
 					Tell me about it
@@ -169,20 +108,20 @@ import Layout from '../layouts/Layout.astro';
 
 		<!-- INTAKE FORM -->
 		<section class="intake-section a8" id="start">
-			<h2>Ready to define your team's next chapter?</h2>
+			<h2>Ready to start your next chapter?</h2>
 			<p class="lead">Tell me what you're working on. Anything you can share helps me get back to you with something useful instead of a generic reply.</p>
 
 			<form class="intake-card" id="intake-form" action="https://formspree.io/f/mgojdjre" method="POST">
 
 				<div class="form-section">
-					<h3 class="form-section-title">About Your Organization</h3>
+					<h3 class="form-section-title">About Your Brand</h3>
 
 					<div class="field">
 						<label for="name">Your Name</label>
 						<input type="text" id="name" name="name" required />
 					</div>
 					<div class="field">
-						<label for="team">Organization / Team Name</label>
+						<label for="team">Business / Brand Name</label>
 						<input type="text" id="team" name="team" required />
 					</div>
 					<div class="field">
@@ -194,12 +133,12 @@ import Layout from '../layouts/Layout.astro';
 						<input type="text" id="website" name="website" />
 					</div>
 					<div class="field">
-						<label>What type of organization are you?</label>
+						<label>What type of brand are you?</label>
 						<div class="radio-group">
-							<label class="radio-option"><input type="radio" name="org_type" value="School" required /> School</label>
-							<label class="radio-option"><input type="radio" name="org_type" value="Sports Team" /> Sports Team</label>
-							<label class="radio-option"><input type="radio" name="org_type" value="League" /> League</label>
-							<label class="radio-option"><input type="radio" name="org_type" value="Club" /> Club</label>
+							<label class="radio-option"><input type="radio" name="org_type" value="Business" required /> Business</label>
+							<label class="radio-option"><input type="radio" name="org_type" value="Team or Organization" /> Team or Organization</label>
+							<label class="radio-option"><input type="radio" name="org_type" value="Nonprofit" /> Nonprofit</label>
+							<label class="radio-option"><input type="radio" name="org_type" value="Personal Brand" /> Personal Brand</label>
 							<label class="radio-option"><input type="radio" name="org_type" value="Other" /> Other</label>
 						</div>
 					</div>
@@ -208,7 +147,7 @@ import Layout from '../layouts/Layout.astro';
 				<hr class="form-divider" />
 
 				<div class="form-section">
-					<h3 class="form-section-title">Your Team's Identity</h3>
+					<h3 class="form-section-title">Your Brand's Identity</h3>
 
 					<div class="field">
 						<label>What best describes where you are today?</label>
@@ -382,176 +321,6 @@ import Layout from '../layouts/Layout.astro';
 		box-shadow: 0 0 8px color-mix(in srgb, var(--accent-bright) 60%, transparent);
 	}
 
-	/* ═══ TIERS ═══ */
-
-	.tiers {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 14px;
-		margin-bottom: 14px;
-	}
-
-	.tier {
-		background: var(--surface);
-		border: 1px solid var(--border);
-		border-radius: var(--radius);
-		position: relative;
-		overflow: hidden;
-		display: flex;
-		flex-direction: column;
-		transition: all 0.3s ease;
-	}
-
-	/* Tier example image band — sits flush at the top, fills full card width.
-	   Image defines its own height so there's no empty space on any edge. */
-	.tier-image {
-		width: 100%;
-		flex-shrink: 0;
-		overflow: hidden;
-		background: var(--surface-raised);
-		border-bottom: 1px solid var(--border);
-		line-height: 0;
-	}
-
-	.tier-image img {
-		width: 100%;
-		height: auto;
-		display: block;
-		transition: transform 0.5s ease;
-	}
-
-	.tier:hover .tier-image img { transform: scale(1.03); }
-
-	.tier::before {
-		content: '';
-		position: absolute;
-		inset: 0;
-		opacity: 0;
-		transition: opacity 0.4s ease;
-	}
-
-	.tier:hover::before { opacity: 1; }
-	.tier:hover {
-		border-color: color-mix(in srgb, var(--accent-warm) 15%, transparent);
-		transform: translateY(-2px);
-		box-shadow: 0 12px 32px rgba(0,0,0,0.25);
-	}
-
-	.tier.t-logo::before     { background: radial-gradient(ellipse at 30% 10%, var(--accent-dim), transparent 60%); }
-	.tier.t-system::before   { background: radial-gradient(ellipse at 70% 10%, var(--accent-warm-dim), transparent 60%); }
-
-	.tier-inner { position: relative; z-index: 1; display: flex; flex-direction: column; height: 100%; padding: 28px 26px; }
-
-	/* Two-card variant for "Other Ways to Work Together": these
-	   two are meant to feel complementary, not part of a pricing
-	   ladder, so no third column and no "recommended" badge. */
-	.tiers-two { grid-template-columns: repeat(2, 1fr); }
-
-	/* Solid-fill pill, matching .eyebrow, instead of a dark translucent
-	   chip with purple text. Uses --accent-bright, not the base --accent
-	   — the darker purple barely separated from the dark canvas/photos.
-	   Dark text on this lighter fill (~7.5:1); light text would fail
-	   (~2.8:1). */
-	.tier-recommended {
-		position: absolute;
-		top: 14px;
-		right: 14px;
-		font-size: var(--fs-micro);
-		font-weight: 600;
-		letter-spacing: 0.12em;
-		text-transform: uppercase;
-		color: #1a1c1a;
-		background: var(--accent-bright);
-		padding: 4px 10px;
-		border-radius: 100px;
-		z-index: 3;
-	}
-
-	.tier-name {
-		font-size: var(--fs-h3);
-		font-weight: 700;
-		color: var(--text-strong);
-		letter-spacing: -0.01em;
-		margin-bottom: 4px;
-	}
-
-	.tier-clarifier {
-		font-size: var(--fs-caption);
-		font-weight: 500;
-		color: var(--accent);
-		margin-bottom: 14px;
-		font-style: italic;
-	}
-
-	/* Display price figure, not body text: doesn't belong in the
-	   shared type scale, same reasoning as the monospace numerals
-	   elsewhere on the site. */
-	.tier-price {
-		font-family: 'Plus Jakarta Sans', sans-serif;
-		font-size: 32px;
-		font-weight: 800;
-		color: var(--text-strong);
-		letter-spacing: -0.02em;
-		margin-bottom: 6px;
-		line-height: 1;
-	}
-
-	.tier-timeline {
-		font-size: var(--fs-label);
-		font-weight: 500;
-		color: var(--accent);
-		letter-spacing: 0.04em;
-		margin-bottom: 14px;
-	}
-
-	.tier-desc {
-		font-size: var(--fs-small);
-		font-weight: 400;
-		color: var(--text-dim);
-		line-height: 1.65;
-		margin-bottom: 18px;
-	}
-
-	.tier-includes {
-		font-size: var(--fs-micro);
-		font-weight: 600;
-		letter-spacing: 0.12em;
-		text-transform: uppercase;
-		color: var(--text-dim);
-		margin-bottom: 10px;
-		margin-top: auto;
-	}
-
-	.tier ul {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-	}
-
-	.tier li {
-		font-size: var(--fs-small);
-		font-weight: 400;
-		color: var(--text);
-		padding-left: 18px;
-		position: relative;
-		margin-bottom: 8px;
-		line-height: 1.5;
-	}
-
-	.tier li::before {
-		content: '';
-		position: absolute;
-		left: 0;
-		top: 9px;
-		width: 6px;
-		height: 6px;
-		border-radius: 50%;
-		background: var(--accent);
-		opacity: 0.5;
-	}
-
-	.tier li:last-child { margin-bottom: 0; }
-
 	/* ═══ CUSTOM TIER ═══ */
 
 	.custom-tier {
@@ -624,11 +393,11 @@ import Layout from '../layouts/Layout.astro';
 	.arrow-link svg { width: 13px; height: 13px; }
 	.arrow-link:hover { gap: 10px; color: var(--text-strong); }
 
-	/* ═══ SIGNATURE OFFER ═══
-	   The Legacy to New Era System is the flagship service and
-	   should visually dominate the page: a larger heading scale,
-	   a two-column hero-style layout, and its own CTA, distinct
-	   from the two smaller supporting-service cards below it. */
+	/* ═══ MAIN PACKAGE (signature offer) ═══
+	   Brand Identity is the flagship service and should visually
+	   dominate the page: a larger heading scale, a two-column
+	   hero-style layout, and its own CTA, distinct from the three
+	   smaller supporting-service cards below it. */
 
 	.signature-grid {
 		display: grid;
@@ -650,7 +419,7 @@ import Layout from '../layouts/Layout.astro';
 	.signature-tagline {
 		font-size: var(--fs-lead);
 		font-weight: 600;
-		color: var(--accent-warm);
+		color: var(--accent);
 		margin-bottom: 16px;
 	}
 
@@ -663,13 +432,6 @@ import Layout from '../layouts/Layout.astro';
 		max-width: 520px;
 	}
 
-	.signature-actions {
-		display: flex;
-		align-items: center;
-		gap: 22px;
-		flex-wrap: wrap;
-	}
-
 	.btn-signature {
 		display: inline-flex;
 		align-items: center;
@@ -677,7 +439,7 @@ import Layout from '../layouts/Layout.astro';
 		gap: 8px;
 		padding: 14px 26px;
 		border-radius: 100px;
-		background: var(--accent-warm);
+		background: var(--accent);
 		color: var(--btn-primary-text);
 		font-size: var(--fs-small);
 		font-weight: 700;
@@ -695,11 +457,20 @@ import Layout from '../layouts/Layout.astro';
 	}
 	.signature-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
+	/* ═══ SERVICE CATEGORY GRID ═══ */
+
+	.offer-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		gap: 20px;
+		margin-bottom: 40px;
+	}
+
 	/* ═══ PROCESS ═══
 	   Matches the homepage's process-band card treatment: cards
 	   are always a lighter surface than their band, with a
 	   Fira Code accent number, regardless of whether the band
-	   itself is light (signature phases) or dark (how it works). */
+	   itself is light or dark (how it works). */
 
 	.process-grid {
 		display: grid;
@@ -751,7 +522,7 @@ import Layout from '../layouts/Layout.astro';
 
 	/* ═══ INTAKE FORM ═══
 	   .intake-card, .field, .form-status, etc. are defined in
-	   global.css now — shared with Legacy Session's intake form. */
+	   global.css now — shared with the Next Chapter Session's intake form. */
 
 	.intake-section h2 {
 		font-size: var(--fs-h2);
@@ -835,7 +606,6 @@ import Layout from '../layouts/Layout.astro';
 	.a8 { opacity:0; animation: fadeUp .6s ease .85s forwards; }
 
 	@media (max-width: 900px) {
-		.tiers { grid-template-columns: 1fr; }
 		.process-grid { grid-template-columns: repeat(2, 1fr); }
 		.custom-tier-inner { flex-direction: column; align-items: flex-start; }
 		.signature-grid { grid-template-columns: 1fr; }
@@ -854,6 +624,5 @@ import Layout from '../layouts/Layout.astro';
 		.header { padding-top: 32px; }
 		.process-grid { grid-template-columns: 1fr; }
 		.intake-card { padding: 22px; }
-		.tier-inner { padding: 24px 22px; }
 	}
 </style>
