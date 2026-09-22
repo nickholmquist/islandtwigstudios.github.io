@@ -100,7 +100,7 @@ import Layout from '../layouts/Layout.astro';
 					</div>
 				</a>
 
-				<a href="#" class="gallery-tile">
+				<a href="#" id="bounce-messenger" class="gallery-tile">
 					<img src="/images/gallery/bounce.jpg" alt="Bounce Messenger" />
 					<div class="gallery-tile-overlay">
 						<div>
@@ -586,6 +586,9 @@ import Layout from '../layouts/Layout.astro';
 		text-decoration: none;
 		color: inherit;
 		display: block;
+		/* Clears the fixed nav (80px, matching .page's padding-top)
+		   when a tile is linked to directly, e.g. /design#bounce-messenger. */
+		scroll-margin-top: 96px;
 	}
 
 	.gallery-tile img {

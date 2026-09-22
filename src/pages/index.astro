@@ -30,9 +30,12 @@ import Eyebrow from '../components/Eyebrow.astro';
 					</div>
 				</div>
 			</div>
-			<a href="/services" class="hero-image a3">
-				<img src="/images/gallery/bouncebento.png" alt="Bounce Messenger brand board: logo mark, color palette, app icon, pattern, and merch applications across a hat and hoodie" />
-			</a>
+			<div class="hero-image-block a3">
+				<a href="/design#bounce-messenger" class="hero-image">
+					<img src="/images/gallery/bouncebento.png" alt="Bounce Messenger brand board: logo mark, color palette, app icon, pattern, and merch applications across a hat and hoodie" />
+				</a>
+				<p class="hero-image-caption">Bounce Messenger &middot; Brand Identity</p>
+			</div>
 		</div>
 	</Band>
 
@@ -354,6 +357,19 @@ import Eyebrow from '../components/Eyebrow.astro';
 	   Get It Write brand board at its true (square) proportions instead
 	   of forcing a crop. */
 	.hero-image img { width: 100%; height: auto; display: block; }
+
+	/* Matches /design's .featured-card-cat treatment (small uppercase
+	   case-study label), swapped to --accent-bright since this sits on
+	   the hero's dark band rather than a light card. */
+	.hero-image-caption {
+		font-size: var(--fs-micro);
+		font-weight: 600;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--accent-bright);
+		margin-top: 10px;
+		text-align: center;
+	}
 
 	/* ═══ PROBLEM (light rest-stop band) ═══ */
 
@@ -704,7 +720,8 @@ import Eyebrow from '../components/Eyebrow.astro';
 
 	@media (max-width: 900px) {
 		.hero-grid { grid-template-columns: 1fr; }
-		.hero-image { max-width: 420px; margin: 8px auto 0; order: 2; }
+		.hero-image-block { max-width: 420px; margin: 8px auto 0; order: 2; }
+		.hero-image { max-width: 100%; }
 		.process-grid { grid-template-columns: 1fr 1fr; }
 		.services-teaser-grid { grid-template-columns: repeat(3, 1fr); }
 		.design-row { grid-template-columns: 1fr 1fr; }
