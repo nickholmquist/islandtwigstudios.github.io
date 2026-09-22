@@ -131,31 +131,11 @@ import Button from '../components/Button.astro';
 					</div>
 				</a>
 
-				<a href="#" class="gallery-tile">
-					<img src="/images/gallery/monstars.jpg" alt="Monstars concept" />
-					<div class="gallery-tile-overlay">
-						<div>
-							<div class="gallery-tile-name">Monstars</div>
-							<div class="gallery-tile-cat">Sports Identity · Concept</div>
-						</div>
-					</div>
-				</a>
-
-				<a href="#" class="gallery-tile">
+				<a href="#" class="gallery-tile" data-full="/images/gallery/BoltsUpdated_2.jpg" data-full-alt="Utah Bolts jersey concepts">
 					<img src="/images/gallery/BoltsUpdated_1.jpg" alt="Utah Bolts MLB concept updated" />
 					<div class="gallery-tile-overlay">
 						<div>
 							<div class="gallery-tile-name">Utah Bolts</div>
-							<div class="gallery-tile-cat">Sports Identity · Baseball</div>
-						</div>
-					</div>
-				</a>
-
-				<a href="#" class="gallery-tile">
-					<img src="/images/gallery/BoltsUpdated_2.jpg" alt="Utah Bolts MLB concept updated colors" />
-					<div class="gallery-tile-overlay">
-						<div>
-							<div class="gallery-tile-name">Utah Bolts | Jersey Concepts</div>
 							<div class="gallery-tile-cat">Sports Identity · Baseball</div>
 						</div>
 					</div>
@@ -274,7 +254,10 @@ import Button from '../components/Button.astro';
 					const img = tile.querySelector('img') as HTMLImageElement;
 					const nameEl = tile.querySelector('.gallery-tile-name');
 					const catEl = tile.querySelector('.gallery-tile-cat');
-					openLB(img.src, img.alt, nameEl ? nameEl.textContent ?? '' : '', catEl ? catEl.textContent ?? '' : '');
+					const el = tile as HTMLElement;
+					const fullSrc = el.dataset.full || img.src;
+					const fullAlt = el.dataset.fullAlt || img.alt;
+					openLB(fullSrc, fullAlt, nameEl ? nameEl.textContent ?? '' : '', catEl ? catEl.textContent ?? '' : '');
 				});
 			});
 
