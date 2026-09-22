@@ -372,11 +372,12 @@ nav {
 .footer { background: var(--bg-deep); }
 
 /* Nav's own breakpoint, wider than the page-content 768px breakpoint
-   used elsewhere: with Home back in the list, four plain links plus
-   the "Start Your Next Chapter" button start wrapping mid-nav
-   around 820px, well before 768px. Switching to the hamburger here
-   avoids that gap. */
-@media (max-width: 860px) {
+   used elsewhere: five plain links (Home, Brand Work, Sports Work,
+   Services, About) plus the "Start Your Next Chapter" button start
+   wrapping mid-nav well before 768px, especially with "Brand Work"/
+   "Sports Work" being longer labels than the old single "Work" link.
+   Switching to the hamburger here avoids that gap. */
+@media (max-width: 1024px) {
     nav { padding: 18px 24px; }
     .nav-logo-text { display: none; }
     .nav-logo-mark { display: block; }

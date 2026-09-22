@@ -21,13 +21,17 @@ import Eyebrow from '../components/Eyebrow.astro';
 				<Eyebrow class="a1">Welcome Home</Eyebrow>
 				<h1 class="a2">Branding for your <span class="accent-word">next chapter.</span></h1>
 				<p class="hero-subhead a3">Whether you're starting something new or your current brand has run its course, I'll help you build an identity you're proud to put everywhere.</p>
+				<p class="hero-tagline a3">Logos and brands for businesses and teams. Specializing in sports.</p>
 				<div class="hero-actions a4">
 					<Button href="/next-chapter-session">Start Your Next Chapter</Button>
-					<Button href="/design" variant="secondary">See the work</Button>
+					<div class="hero-actions-secondary">
+						<Button href="/design" variant="secondary">See Brand Work</Button>
+						<Button href="/sports" variant="secondary">See Sports Work</Button>
+					</div>
 				</div>
 			</div>
 			<a href="/services" class="hero-image a3">
-				<img src="/images/gallery/giw-square.png" alt="Get It Write Records brand board: logo mark, pattern, and merch applications across a beanie, hat, and sweatshirt" />
+				<img src="/images/gallery/bouncebento.png" alt="Bounce Messenger brand board: logo mark, color palette, app icon, pattern, and merch applications across a hat and hoodie" />
 			</a>
 		</div>
 	</Band>
@@ -318,10 +322,24 @@ import Eyebrow from '../components/Eyebrow.astro';
 		color: var(--text-on-dark-dim);
 		line-height: 1.55;
 		max-width: 480px;
-		margin-bottom: 32px;
+		margin-bottom: 14px;
 	}
 
-	.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+	.hero-tagline {
+		font-size: var(--fs-small);
+		font-weight: 500;
+		color: var(--accent-bright);
+		line-height: 1.5;
+		max-width: 480px;
+		margin-bottom: 28px;
+	}
+
+	/* inline-flex (not flex) so the container's width shrinks to its
+   widest child — the secondary button row — rather than stretching
+   to fill the whole hero column. align-items: stretch then makes
+   the primary button match that width exactly. */
+.hero-actions { display: inline-flex; flex-direction: column; align-items: stretch; gap: 14px; }
+.hero-actions-secondary { display: flex; gap: 14px; flex-wrap: wrap; }
 
 	.hero-image {
 		max-width: 88%;

@@ -1,20 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Band from '../components/Band.astro';
+import Button from '../components/Button.astro';
 ---
 
 <Layout
-	title="Design Studio — IslandTwig Studios"
-	description="Brand and identity work by Nick Holmquist. Logos, wordmarks, and full brand systems built from research, not templates."
-	path="/design"
+	title="Sports Identity Design — IslandTwig Studios"
+	description="Sports identity design by Nick Holmquist. Logos, uniform designs, and merch designs for teams with a story, built from research, not templates."
+	path="/sports"
 >
 	<div class="content">
 
 		<!-- HEADER -->
 		<header class="page-header">
 			<div class="header-left">
-				<p class="eyebrow">Design</p>
-				<h1>Brand & identity design.</h1>
-				<p class="header-tagline">Identity for businesses and teams ready to be taken seriously. Logos, marks, and brand systems built from research, not templates.</p>
+				<p class="eyebrow">Sports</p>
+				<h1>Sports identity design.</h1>
+				<p class="header-tagline">Logos, uniform designs, and merch designs for teams with a story. Built from the people, place, and traditions your team already carries.</p>
 				<div class="availability-bar">Available for new projects</div>
 			</div>
 			<div class="header-right">
@@ -25,20 +27,21 @@ import Layout from '../layouts/Layout.astro';
 
 	<section class="design-band-light">
 	<div class="content">
-		<!-- FEATURED: HEY BRIGHT + UTAH FLAG + QUICKFUZE -->
+		<!-- FEATURED: UTAH HOCKEY + NHL MIDNIGHT -->
 		<section class="featured-section">
 			<div class="eyebrow featured-label">Featured Work</div>
 
-			<div class="featured-grid featured-grid-three">
+			<div class="featured-grid">
 
-				<a href="/design/hey-bright" class="featured-card">
+				<a href="/design/utah-hockey" class="featured-card">
 					<div class="featured-card-image">
 						<span class="badge">Case Study</span>
-						<img src="/images/case-studies/hey-bright/card-hero.jpg" alt="Hey Bright Teeth Whitening packaging" />
+						<img src="/images/case-studies/utah-hockey/card-hero.jpg" alt="Utah hockey concept identities" />
 					</div>
 					<div class="featured-card-body">
-						<div class="featured-card-cat">Brand Identity · Packaging · Paid</div>
-						<h2>Hey Bright</h2>
+						<div class="featured-card-cat">Sports Identity · Hockey · Concept</div>
+						<h2>Naming Utah's Hockey Team</h2>
+						<p class="featured-card-desc">Nine named directions for the franchise that became the Mammoth. Logo, wordmark, and full jersey kit for each, plus the rejected concepts and what they taught me about scope.</p>
 						<span class="featured-card-link">
 							View case study
 							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -46,29 +49,15 @@ import Layout from '../layouts/Layout.astro';
 					</div>
 				</a>
 
-				<a href="/design/utah-flag" class="featured-card">
+				<a href="/design/nhl-midnight" class="featured-card">
 					<div class="featured-card-image">
 						<span class="badge">Case Study</span>
-						<img src="/images/case-studies/utah-flag/card-hero.jpg" alt="Utah State Flag submission" />
+						<img src="/images/case-studies/nhl-midnight/card-hero.jpg" alt="NHL Midnight Edition dark-mode alternate identities" />
 					</div>
 					<div class="featured-card-body">
-						<div class="featured-card-cat">Civic Identity · Competition</div>
-						<h2>Utah State Flag</h2>
-						<span class="featured-card-link">
-							View case study
-							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-						</span>
-					</div>
-				</a>
-
-				<a href="/design/quickfuze" class="featured-card">
-					<div class="featured-card-image">
-						<span class="badge">Case Study</span>
-						<img src="/images/case-studies/quickfuze/card-hero.jpg" alt="QuickFuze Games board game and card game work" />
-					</div>
-					<div class="featured-card-body">
-						<div class="featured-card-cat">Brand System · Game Design · Paid</div>
-						<h2>QuickFuze Games</h2>
+						<div class="featured-card-cat">Sports Identity · Concept · Scope Study</div>
+						<h2>NHL Midnight Edition</h2>
+						<p class="featured-card-desc">Dark-mode alternate identities for all 32 NHL teams. One concept, thirty-two distinct expressions, organized by division. A study in how much a brand system bends without breaking.</p>
 						<span class="featured-card-link">
 							View case study
 							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -83,89 +72,111 @@ import Layout from '../layouts/Layout.astro';
 
 	<section class="design-band-dark">
 	<div class="content">
-		<!-- BRAND & IDENTITY GALLERY -->
+		<!-- MORE SPORTS WORK GALLERY -->
 		<section class="gallery-section">
-			<div class="eyebrow gallery-label">More Brand & Identity Work</div>
-			<p class="gallery-desc">Logo and identity work across small businesses, apps, and nonprofits.</p>
+			<div class="eyebrow gallery-label">More Sports Work</div>
+			<p class="gallery-desc">Competition entries, concept explorations, and spec work across hockey, basketball, baseball, and football. Winners and top finishes noted.</p>
 
 			<div class="gallery-grid">
 
 				<a href="#" class="gallery-tile">
-					<img src="/images/gallery/triloop.jpg" alt="Triloop / Global Armory" />
+					<img src="/images/gallery/roadrunners.jpg" alt="Utah Roadrunners concept" />
 					<div class="gallery-tile-overlay">
 						<div>
-							<div class="gallery-tile-name">Triloop</div>
-							<div class="gallery-tile-cat">Brand Identity · Logo</div>
+							<div class="gallery-tile-name">Utah Roadrunners</div>
+							<div class="gallery-tile-cat">Sports Identity · Hockey</div>
 						</div>
 					</div>
 				</a>
 
 				<a href="#" class="gallery-tile">
-					<img src="/images/gallery/bounce.jpg" alt="Bounce Messenger" />
+					<img src="/images/gallery/florida-alliance.jpg" alt="Florida Alliance jerseys" />
 					<div class="gallery-tile-overlay">
 						<div>
-							<div class="gallery-tile-name">Bounce Messenger</div>
-							<div class="gallery-tile-cat">Brand Identity · App</div>
+							<div class="gallery-tile-name">Florida Alliance</div>
+							<div class="gallery-tile-cat">Jersey Design · Hockey</div>
 						</div>
 					</div>
 				</a>
 
 				<a href="#" class="gallery-tile">
-					<img src="/images/gallery/nailsbyaubs.jpg" alt="Nails by Aubs" />
+					<span class="gallery-tile-badge">Winner</span>
+					<img src="/images/gallery/magic-city-edition.jpg" alt="Orlando Magic City Edition concept" />
 					<div class="gallery-tile-overlay">
 						<div>
-							<div class="gallery-tile-name">Nails by Aubs</div>
-							<div class="gallery-tile-cat">Brand Identity · Local Business</div>
+							<div class="gallery-tile-name">Orlando Magic City Edition</div>
+							<div class="gallery-tile-cat">Sports Identity · Basketball</div>
 						</div>
 					</div>
 				</a>
 
 				<a href="#" class="gallery-tile">
-					<img src="/images/gallery/get-it-write.jpg" alt="Get It Write" />
+					<span class="gallery-tile-badge">Top 8</span>
+					<img src="/images/gallery/rainbow-warriors.jpg" alt="Hawaii Rainbow Warriors concept" />
 					<div class="gallery-tile-overlay">
 						<div>
-							<div class="gallery-tile-name">Get It Write</div>
-							<div class="gallery-tile-cat">Brand Identity · Logo</div>
+							<div class="gallery-tile-name">Hawaii Rainbow Warriors</div>
+							<div class="gallery-tile-cat">Sports Identity · Basketball</div>
 						</div>
 					</div>
 				</a>
 
 				<a href="#" class="gallery-tile">
-					<img src="/images/gallery/making-waves.jpg" alt="Making Waves Charity" />
+					<img src="/images/gallery/tsu-armadillos.jpg" alt="TSU Armadillos concept" />
 					<div class="gallery-tile-overlay">
 						<div>
-							<div class="gallery-tile-name">Making Waves</div>
-							<div class="gallery-tile-cat">Brand Identity · Nonprofit</div>
+							<div class="gallery-tile-name">TSU Armadillos</div>
+							<div class="gallery-tile-cat">Sports Identity · Collegiate</div>
 						</div>
 					</div>
 				</a>
 
 				<a href="#" class="gallery-tile">
-					<img src="/images/gallery/threaded-cactus.jpg" alt="Threaded Cactus Co" />
+					<img src="/images/gallery/monstars.jpg" alt="Monstars concept" />
 					<div class="gallery-tile-overlay">
 						<div>
-							<div class="gallery-tile-name">Threaded Cactus Co</div>
-							<div class="gallery-tile-cat">Brand Identity · Retail</div>
+							<div class="gallery-tile-name">Monstars</div>
+							<div class="gallery-tile-cat">Sports Identity · Concept</div>
 						</div>
 					</div>
 				</a>
 
 				<a href="#" class="gallery-tile">
-					<img src="/images/gallery/golden-hour-seats.jpg" alt="Golden Hour Seats" />
+					<img src="/images/gallery/BoltsUpdated_1.jpg" alt="Utah Bolts MLB concept updated" />
 					<div class="gallery-tile-overlay">
 						<div>
-							<div class="gallery-tile-name">Golden Hour Seats</div>
-							<div class="gallery-tile-cat">Brand Identity · Logo</div>
+							<div class="gallery-tile-name">Utah Bolts</div>
+							<div class="gallery-tile-cat">Sports Identity · Baseball</div>
 						</div>
 					</div>
 				</a>
 
 				<a href="#" class="gallery-tile">
-					<img src="/images/gallery/n-monogram.jpg" alt="N Monogram personal mark" />
+					<img src="/images/gallery/BoltsUpdated_2.jpg" alt="Utah Bolts MLB concept updated colors" />
 					<div class="gallery-tile-overlay">
 						<div>
-							<div class="gallery-tile-name">N Monogram</div>
-							<div class="gallery-tile-cat">Personal Mark</div>
+							<div class="gallery-tile-name">Utah Bolts | Jersey Concepts</div>
+							<div class="gallery-tile-cat">Sports Identity · Baseball</div>
+						</div>
+					</div>
+				</a>
+
+				<a href="#" class="gallery-tile">
+					<img src="/images/gallery/jazz-city-edition.jpg" alt="Utah Jazz City Edition concept" />
+					<div class="gallery-tile-overlay">
+						<div>
+							<div class="gallery-tile-name">Utah Jazz City Edition</div>
+							<div class="gallery-tile-cat">Sports Identity · Basketball</div>
+						</div>
+					</div>
+				</a>
+
+				<a href="#" class="gallery-tile">
+					<img src="/images/gallery/ogden-raptors.png" alt="Ogden Raptors logo redesign, before and after" />
+					<div class="gallery-tile-overlay">
+						<div>
+							<div class="gallery-tile-name">Ogden Raptors</div>
+							<div class="gallery-tile-cat">Sports Identity · Logo Redesign</div>
 						</div>
 					</div>
 				</a>
@@ -175,54 +186,47 @@ import Layout from '../layouts/Layout.astro';
 	</div>
 	</section>
 
-	<section class="design-band-light">
+	<section class="design-band-soft">
 	<div class="content">
-		<!-- ALSO BUILDING (apps) -->
-		<section class="apps-section">
-			<div class="eyebrow gallery-label">Also Building</div>
-			<p class="gallery-desc">Alongside identity work, I build small iOS games and tools in the same considered, tactile style.</p>
-
-			<div class="apps-grid">
-				<a href="https://apps.apple.com/us/app/poppy-popper/id6753832202" class="app-tile t-sage">
-					<img src="/images/appicons/poppy_icon.png" alt="Poppy" class="app-icon-img" />
-					<div class="app-tile-text">
-						<div class="app-tile-name">Poppy</div>
-						<div class="app-tile-status">Available now</div>
-					</div>
-				</a>
-				<a href="https://apps.apple.com/us/app/nine-draw/id6757319447" class="app-tile t-coral">
-					<img src="/images/appicons/nineDraw.png" alt="Nine Draw" class="app-icon-img" />
-					<div class="app-tile-text">
-						<div class="app-tile-name">Nine Draw</div>
-						<div class="app-tile-status">Available</div>
-					</div>
-				</a>
-				<a href="https://apps.apple.com/us/app/midnight-solitaire-card-game/id6759999894" class="app-tile t-sky">
-					<img src="/images/appicons/mnsolitaire.png" alt="Midnight Solitaire" class="app-icon-img" />
-					<div class="app-tile-text">
-						<div class="app-tile-name">Midnight Solitaire</div>
-						<div class="app-tile-status">Available</div>
-					</div>
-				</a>
+		<!-- WHAT TEAMS GET -->
+		<section class="teams-get-section">
+			<div class="eyebrow">What Teams Get</div>
+			<h2 class="teams-get-heading">A complete identity built to represent your team.</h2>
+			<div class="teams-get-grid">
+				<div class="teams-get-card">
+					<h3>Primary Logo</h3>
+					<p>The main mark your team is known by.</p>
+				</div>
+				<div class="teams-get-card">
+					<h3>Alternate Marks</h3>
+					<p>Secondary logos, wordmarks, and badges for every use.</p>
+				</div>
+				<div class="teams-get-card">
+					<h3>Uniform Designs</h3>
+					<p>Home, away, and alternate uniform concepts, ready to hand to your manufacturer.</p>
+				</div>
+				<div class="teams-get-card">
+					<h3>Merch Designs</h3>
+					<p>Print-ready artwork for hats, shirts, and hoodies, ready to send to your printer.</p>
+				</div>
 			</div>
 		</section>
-
-		<!-- BOTTOM CTA -->
-		<a href="/services" class="bottom-cta">
-			<div class="bottom-cta-inner">
-				<div>
-					<h2>Ready to build something you're proud of?</h2>
-					<p>Logo design, brand identity, and rebrands for businesses and teams.</p>
-				</div>
-				<span class="bottom-cta-pill">
-					Start a project
-					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-				</span>
-			</div>
-		</a>
-
 	</div>
 	</section>
+
+	<!-- CLOSING CTA (same block used at the bottom of the homepage) -->
+	<Band variant="soft" class="closing-cta">
+		<svg slot="decoration" class="stripe-mark" style="bottom: 20px; left: 20px; width: 220px; height: 220px; opacity: 0.45;" viewBox="0 0 200 200">
+			<g transform="rotate(-22 100 100)">
+				<rect x="10" y="40" width="120" height="14" rx="7" fill="var(--accent)" opacity="0.25"/>
+				<rect x="30" y="70" width="150" height="14" rx="7" fill="var(--band-text-strong)" opacity="0.08"/>
+				<rect x="0" y="100" width="90" height="14" rx="7" fill="var(--accent)" opacity="0.15"/>
+			</g>
+		</svg>
+		<h2>Ready for your next chapter?</h2>
+		<p>You don't need to have everything figured out. You just need to know you're ready for something better. Tell me where you're at, and we'll figure out the rest together.</p>
+		<Button href="/next-chapter-session">Start Your Next Chapter</Button>
+	</Band>
 
 	<!-- LIGHTBOX -->
 	<div id="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
@@ -383,10 +387,7 @@ import Layout from '../layouts/Layout.astro';
 	.btn-secondary:hover { border-color: var(--accent-bright); color: var(--accent-bright); }
 
 	/* ═══ BANDS ═══
-	   Full-bleed alternating sections, matching the homepage's banding.
-	   Scoped custom-property overrides mean every existing rule below
-	   (which already references these tokens) resolves to light-band-
-	   appropriate colors without needing its own edit. */
+	   Full-bleed alternating sections, matching /design's banding. */
 
 	.design-band-light {
 		background: var(--surface-cream);
@@ -475,13 +476,6 @@ import Layout from '../layouts/Layout.astro';
 
 	.featured-card:hover .featured-card-image img { transform: scale(1.04); }
 
-	/* Solid-fill pill, matching .eyebrow, instead of a dark translucent
-	   chip with purple text — that read too low-contrast against photos
-	   at this accent's darkness. Uses --accent-bright, not the base
-	   --accent — the darker purple still blended in too much against
-	   photos. Dark text on this lighter fill (~7.5:1). badge-sage (a
-	   leftover distinction from the old two-hue system) is retired now
-	   that there's one accent. */
 	.featured-card-image .badge {
 		position: absolute;
 		top: 14px; left: 14px;
@@ -501,7 +495,6 @@ import Layout from '../layouts/Layout.astro';
 		position: relative;
 		z-index: 2;
 	}
-
 
 	.featured-card-cat {
 		font-size: var(--fs-micro);
@@ -541,16 +534,6 @@ import Layout from '../layouts/Layout.astro';
 	.featured-card:hover .featured-card-link { gap: 10px; }
 	.featured-card-link svg { width: 13px; height: 13px; }
 
-	/* 3-up row for secondary case studies */
-	.featured-grid-three {
-		grid-template-columns: repeat(3, 1fr);
-		gap: 16px;
-	}
-
-	@media (max-width: 900px) {
-		.featured-grid-three { grid-template-columns: 1fr; }
-	}
-
 	/* ═══ GALLERY SECTIONS ═══ */
 
 	.gallery-section {
@@ -574,6 +557,22 @@ import Layout from '../layouts/Layout.astro';
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 		gap: 12px;
+	}
+
+	.gallery-tile-badge {
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		z-index: 2;
+		font-size: var(--fs-micro);
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		padding: 4px 9px;
+		border-radius: 100px;
+		background: var(--accent-bright);
+		color: #1a1c1a;
+		pointer-events: none;
 	}
 
 	.gallery-tile {
@@ -615,8 +614,6 @@ import Layout from '../layouts/Layout.astro';
 		color: var(--text);
 	}
 
-	/* Uses --accent-bright, not --accent — sits on the dark tile overlay,
-	   and the base purple is too dark to read there. */
 	.gallery-tile-cat {
 		font-size: var(--fs-micro);
 		font-weight: 500;
@@ -626,151 +623,90 @@ import Layout from '../layouts/Layout.astro';
 		margin-top: 3px;
 	}
 
-	/* Solid-fill pill, matching .eyebrow, instead of a dark translucent
-	   chip with purple text. Uses --accent-bright, not the base --accent
-	   — the darker purple still blended in too much against photos.
-	   Dark text on this lighter fill (~7.5:1). badge-warm (a leftover
-	   distinction from the old two-hue system) is retired now that
-	   there's one accent. */
-	.gallery-tile-badge {
-		position: absolute;
-		top: 10px;
-		left: 10px;
-		z-index: 2;
-		font-size: var(--fs-micro);
+	/* ═══ WHAT TEAMS GET ═══ */
+
+	.teams-get-section :global(.eyebrow) { margin-bottom: 16px; }
+
+	.teams-get-heading {
+		font-size: var(--fs-h2);
 		font-weight: 700;
-		letter-spacing: 0.1em;
-		text-transform: uppercase;
-		padding: 4px 9px;
-		border-radius: 100px;
-		background: var(--accent-bright);
-		color: #1a1c1a;
-		pointer-events: none;
+		letter-spacing: -0.01em;
+		line-height: 1.3;
+		max-width: 620px;
+		margin-bottom: 28px;
+		color: var(--text-strong);
 	}
 
-	/* ═══ BOTTOM CTA ═══ */
+	.teams-get-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 18px;
+	}
 
-	.bottom-cta {
-		display: block;
+	.teams-get-card {
 		background: var(--surface);
 		border: 1px solid var(--border);
 		border-radius: var(--radius);
-		padding: 36px 40px;
-		text-decoration: none;
-		color: inherit;
-		position: relative;
-		overflow: hidden;
-		transition: all 0.3s ease;
+		padding: 22px 20px;
 	}
 
-	.bottom-cta::before {
-		content: '';
-		position: absolute;
-		inset: 0;
-		background: radial-gradient(ellipse at 90% 50%, var(--accent-warm-dim), transparent 60%);
-		opacity: 0;
-		transition: opacity 0.4s ease;
-	}
-
-	.bottom-cta:hover::before { opacity: 1; }
-	.bottom-cta:hover {
-		border-color: color-mix(in srgb, var(--accent-warm) 18%, transparent);
-		transform: translateY(-1px);
-		box-shadow: 0 12px 32px rgba(0,0,0,0.25);
-	}
-
-	.bottom-cta-inner {
-		position: relative; z-index: 1;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 24px;
-		flex-wrap: wrap;
-	}
-
-	.bottom-cta h2 {
-		font-size: var(--fs-h2);
+	.teams-get-card h3 {
+		font-size: var(--fs-h4);
 		font-weight: 700;
 		color: var(--text-strong);
-		letter-spacing: -0.01em;
-		line-height: 1.2;
 		margin-bottom: 8px;
 	}
 
-	.bottom-cta p {
+	.teams-get-card p {
 		font-size: var(--fs-small);
-		font-weight: 400;
 		color: var(--text-dim);
-		line-height: 1.6;
-		max-width: 520px;
+		line-height: 1.55;
 	}
 
-	.bottom-cta-pill {
-		display: inline-flex;
-		align-items: center;
-		gap: 8px;
-		font-size: var(--fs-small);
-		font-weight: 600;
-		color: var(--accent-warm);
-		padding: 12px 22px;
-		background: var(--accent-warm-dim);
-		border: 1px solid color-mix(in srgb, var(--accent-warm) 20%, transparent);
-		border-radius: 100px;
-		flex-shrink: 0;
+	/* ═══ CLOSING CTA (matches the homepage's) ═══ */
+
+	/* Astro's scoped styles don't cross files, so this needs its own
+	   copy of index.astro's .stripe-mark rule or the decoration svg
+	   renders in normal flow and blows out the section height. */
+	.stripe-mark { position: absolute; pointer-events: none; z-index: 0; overflow: visible; }
+
+	:global(.closing-cta) { padding: 96px 0; text-align: center; }
+
+	:global(.closing-cta) h2 {
+		font-size: var(--fs-h1);
+		font-weight: 800;
+		letter-spacing: -0.015em;
+		max-width: 680px;
+		margin: 0 auto 14px;
+		line-height: 1.25;
 	}
 
-	.bottom-cta-pill svg { width: 14px; height: 14px; }
+	:global(.closing-cta) p {
+		font-size: var(--fs-body-lg);
+		font-weight: 400;
+		color: var(--band-text-dim);
+		margin-bottom: 30px;
+	}
 
 	@media (max-width: 900px) {
 		.page-header { flex-direction: column; align-items: flex-start; gap: 20px; }
 		.header-right { align-items: flex-start; }
 		.featured-grid { grid-template-columns: 1fr; }
 		.gallery-grid { grid-template-columns: repeat(3, 1fr); }
+		.teams-get-grid { grid-template-columns: 1fr 1fr; }
 	}
 
 	@media (max-width: 768px) {
 		.content { padding: 0 24px; }
 		.gallery-grid { grid-template-columns: repeat(2, 1fr); }
+		:global(.closing-cta) { padding: 72px 0; }
 	}
 
 	@media (max-width: 480px) {
 		.content { padding: 0 20px; }
 		.gallery-grid { grid-template-columns: 1fr; }
-		.bottom-cta { padding: 24px; }
+		.teams-get-grid { grid-template-columns: 1fr; }
 	}
-
-	/* ═══ ALSO BUILDING (apps, secondary) ═══ */
-	.apps-section { margin-bottom: 56px; }
-	.apps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-	.app-tile {
-		display: flex;
-		align-items: center;
-		gap: 10px;
-		background: var(--surface);
-		border: 1px solid var(--border);
-		border-radius: var(--radius-sm);
-		padding: 12px;
-		text-decoration: none;
-		color: inherit;
-		position: relative;
-		overflow: hidden;
-		transition: all 0.25s ease;
-	}
-	.app-tile::before { content: ''; position: absolute; inset: 0; opacity: 0; transition: opacity 0.35s ease; }
-	.app-tile.t-coral::before    { background: radial-gradient(ellipse at 12% 50%, var(--hue-coral-dim), transparent 60%); }
-	.app-tile.t-sky::before      { background: radial-gradient(ellipse at 12% 50%, var(--hue-sky-dim), transparent 60%); }
-	.app-tile.t-warm::before     { background: radial-gradient(ellipse at 12% 50%, var(--accent-warm-dim), transparent 60%); }
-	.app-tile.t-lavender::before { background: radial-gradient(ellipse at 12% 50%, var(--hue-lavender-dim), transparent 60%); }
-	.app-tile.t-sage::before     { background: radial-gradient(ellipse at 12% 50%, var(--accent-dim), transparent 60%); }
-	.app-tile:hover::before { opacity: 1; }
-	.app-tile:hover { border-color: color-mix(in srgb, var(--text) 10%, transparent); transform: translateY(-1px); }
-	.app-tile .app-icon-img, .app-tile .app-icon-placeholder { width: 32px; height: 32px; border-radius: 8px; position: relative; z-index: 1; flex-shrink: 0; font-size: 0.95rem; }
-	.app-icon-placeholder { display: flex; align-items: center; justify-content: center; background: linear-gradient(145deg, #3a4a3e, #2a3a2e); }
-	.app-tile-text { min-width: 0; position: relative; z-index: 1; }
-	.app-tile-name { font-size: var(--fs-caption); font-weight: 600; color: var(--text-strong); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-	.app-tile-status { font-size: var(--fs-micro); color: var(--accent); font-weight: 500; letter-spacing: 0.02em; }
-	@media (max-width: 900px) { .apps-grid { grid-template-columns: repeat(2, 1fr); } }
-	@media (max-width: 480px) { .apps-grid { grid-template-columns: 1fr; } }
 
 	/* ═══ LIGHTBOX ═══ */
 	#lightbox {
@@ -810,9 +746,6 @@ import Layout from '../layouts/Layout.astro';
 		font-size: var(--fs-small); font-weight: 600;
 		color: var(--text-strong); margin-bottom: 3px;
 	}
-	/* Uses --accent-bright, not --accent — the lightbox overlay is
-	   always dark regardless of the page's scroll position, and the
-	   base purple is too dark to read there. */
 	#lightbox-caption-cat {
 		font-size: var(--fs-micro); font-weight: 600;
 		letter-spacing: 0.1em; text-transform: uppercase;
